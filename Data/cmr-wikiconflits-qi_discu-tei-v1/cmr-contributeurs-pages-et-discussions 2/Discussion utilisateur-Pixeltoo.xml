@@ -1,0 +1,370 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Discussion utilisateur:Pixeltoo</title>
+    <ns>3</ns>
+    <id>7654232</id>
+    <revision>
+      <id>101011795</id>
+      <parentid>101006473</parentid>
+      <timestamp>2014-02-07T22:37:26Z</timestamp>
+      <contributor>
+        <username>MediaWiki message delivery</username>
+        <id>1696240</id>
+      </contributor>
+      <comment>/* Wikidata weekly summary #96 */ nouvelle section</comment>
+      <text xml:space="preserve">== Pays de Pount ==
+Bonjour,
+
+&#224; mon sens, il faudrait :
+- renommer la page actuelle Pount en "Pays de Pount".
+- puis plus tard renvoyer par redirection la future page Pount vers votre page d'homonymie.
+--[[Utilisateur:Pascal Boulerie|Pascal Boulerie]] ([[Discussion utilisateur:Pascal Boulerie|discuter]]) 10 janvier 2014 &#224; 14:34 (CET)
+PS mon adresse @  : pboulerie &#224; voila . fr
+:{{notif|Pascal Boulerie}} Merci de votre r&#233;ponse je suis du m&#234;me avis. Je vais faire la demande de renommage. Cordialement.--[[Utilisateur:pixeltoo|pixeltoo]] &lt;small&gt;([[Discussion utilisateur:Pixeltoo|discuter]])&lt;/small&gt; 11 janvier 2014 &#224; 00:32 (CET)
+
+== [[Wikip&#233;dia:RAW/2014-01-03|RAW 2014-01-03]] ==
+{{RAW/PdD|2014-01-03}}
+&#8212; [[Utilisateur:Cantons-de-l'Est|Cantons-de-l'Est]] &lt;sup&gt;[[Discussion utilisateur:Cantons-de-l'Est|&lt;span style="color:#008000;"&gt;discuter&lt;/span&gt;]]&lt;/sup&gt; 3 janvier 2014 &#224; 18:53 (CET)
+
+== ''The Signpost'': 01 January 2014 ==
+
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''News, reports and features from the English Wikipedia's weekly journal about Wikipedia and Wikimedia''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* News and notes: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/News and notes|The year in review]]
+* In the media: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/In the media|Does Wikipedia need a medical disclaimer?]]
+* Book review: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/Book review|&#379;ycie Wirtualnych Dzikich]]
+* Discussion report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/Discussion report|Article incubator, dates and fractions, medical disclaimer]]
+* Traffic report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/Traffic report|A year stuck in traffic]]
+* WikiProject report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/WikiProject report|Where Are They Now? ''Fifth Edition'']]
+* Featured content: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/Featured content|2013&#8212;the trends]]
+* Technology report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-01/Technology report|2013: Year in review]]&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[w:en:Wikipedia:Wikipedia Signpost|Read this Signpost in full]]''' &amp;middot; [[w:en:Wikipedia:Signpost/Single|Single-page]] &amp;middot; [[m:Global message delivery/Targets/Signpost|Unsubscribe]] &amp;middot; [[m:Global message delivery|Global message delivery]] 4 janvier 2014 &#224; 05:25 (CET)
+&lt;/div&gt;
+&lt;!-- EdwardsBot 0671 --&gt;
+
+== Wikidata weekly summary #91 ==
+
+&lt;div class="plainlinks mw-content-ltr" lang="en" dir="ltr"&gt;
+[[File:Wikidata-logo-en.svg|150px|right]]
+&lt;div style="margin-top:10px; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''Here's your quick overview of what has been happening around Wikidata over the last week.''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Discussions
+** [[:d:Wikidata:Project Chat#About RfD|Discussion about the RfD process]]
+** [[:d:Wikidata:Project Chat#Wikisource WD:N|Discussion about Notability of Wikisource on Wikidata]]
+** Open RfAs: [[:d:Wikidata:Requests for permissions/Administrator/Lymantria|Lymantria]], [[:d:Wikidata:Requests for permissions/Administrator/Lavallen|Lavallen]]
+* Other Noteworthy Stuff
+** Wikidata reached 100000000 edits
+** [[:d:User:Dexbot]] is the first bot to reach 10000000 edits
+** Wikisource is due to receive Wikidata Phase 1 on January the 14th
+* Did you know?
+** Newest properties: none
+** Newest [[d:Wikidata:Task forces|task forces]]: [[:d:Wikidata:MediaWiki task force|MediaWiki task force]]
+** [[d:Wikidata:Showcase items|Showcase items]]: [[:d:Q309988|Karlsruhe Institute of Technology (Q309988)]]
+** Fun Fact: According to Wikidata, this is the year of [[:d:Q2014|2004 (Q2014)]]
+* &lt;s&gt;Development&lt;/s&gt;Word from John
+** To give this section some life, since the development team had their holidays last week meaning nothing really got done (let them have one week off at least), I'll say a few words. 2014 is a new year and thus a new start, over the last year Wikidata celebrated its first birthday which brought reflection over what Wikidata had accomplish. Therefore I want to use the start of 2014 to reflect what Wikidata can do. For my personal over view see [[:d:User:John F. Lewis/Presence|this page]]. For the summary, while it is meant to be a weekly simple update, I feel this can be used a lot more effective to put across not only what happened on Wikidata but things about Wikidata on other wikis, I am hoping to start a section over this within the next few weeks. If you have any suggestions for the summary, feel free to drop me a message at [[:m:User talk:John F. Lewis|meta]] or [[:d:User talk:John F. Lewis|Wikidata]]. Thanks.
+* Monthly Tasks
+** [[d:Wikidata:Database reports/Constraint violations/P832|Fix a format or content violation]] for the [[d:Property:P832|Public holiday (P832)]] propery
+** Hack on one of [https://bugzilla.wikimedia.org/buglist.cgi?keywords=need-volunteer%2C%20&amp;keywords_type=allwords&amp;emailcc1=1&amp;resolution=---&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;query_format=advanced&amp;email1=wikidata-bugs%40lists.wikimedia.org&amp;list_id=162515 these].
+** Help develop the next summary [[d:Wikidata:Status updates/Next|here!]]
+** Contribute to a [[:d:Wikidata:Showcase|Showcase item]]
+&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[m:Wikidata/Status updates/2013 10 11|Read the full report]]''' &amp;middot; [[m:Global message delivery/Targets/Wikidata|Unsubscribe]] &amp;middot; [[:d:User:John F. Lewis|John F. Lewis]] 21:50, 8 November 2013 (UTC)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:John F. Lewis@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Wikidata&amp;oldid=6947850 --&gt;
+
+== [[:w:fr:Wikip&#233;dia:RAW/2014-01-10|RAW 2014-01-10]] ==
+
+&lt;table style="background-color:white; padding:0px; border:1px solid #AAAAAA; border-radius: 15px; margin:0 auto;"&gt;&lt;tr&gt;&lt;td style="text-align: center; font-weight:900; font-size:150%; text-shadow:gray 0.1em 0.1em 0.1em;"&gt;Regards sur l'actualit&#233; de la Wikimedia&lt;div style="font-size:70%; line-height:200%; font-weight:normal;"&gt;et d'ailleurs&lt;/div&gt;&lt;div style="font-size:90%; line-height:250%; font-weight:normal;"&gt;[[:w:fr:Wikip&#233;dia:RAW/2014-01-10|RAW 2014-01-10]]&lt;/div&gt;&lt;/td&gt;&lt;td width=20%&gt;&lt;span title="Logo des RAW"&gt;[[File:Proposition Washington.svg|100px|link={{fullurl:w:fr:Wikip&#233;dia:Regards sur l'actualit&#233; de la Wikimedia|}}|alt=Regards sur l'actualit&#233; de la Wikimedia (RAW)]]&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; &#8212; [[Utilisateur:Cantons-de-l'Est|Cantons-de-l'Est]] &lt;sup&gt;[[Discussion utilisateur:Cantons-de-l'Est|&lt;span style="color:#008000;"&gt;discuter&lt;/span&gt;]]&lt;/sup&gt; 10 janvier 2014 &#224; 19:16 (CET)
+&lt;!-- Message envoy&#233; par User:Cantons-de-l'Est@frwiki en utilisant la liste &#224; http://fr.wikipedia.org/w/index.php?title=Wikip%C3%A9dia:RAW/Inscription&amp;oldid=100046947 --&gt;
+
+== Wikidata weekly summary #92 ==
+
+&lt;div class="plainlinks mw-content-ltr" lang="en" dir="ltr"&gt;
+[[File:Wikidata-logo-en.svg|150px|right]]
+&lt;div style="margin-top:10px; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''Here's your quick overview of what has been happening around Wikidata over the last week.''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Discussions
+** '''[[:d:Wikidata talk:Wikisource#Notability, and other preparations for Wikisource deployment|Discussion over Wikisource's notability within Wikidata]]'''
+** [[:d:Wikidata:Requests for comment/Make Symmetric &amp; Inverse Property addition automatic and bidirectional|Make Symmetric &amp; Inverse Property addition automatic and bidirectional]]
+** Closed RfAs: [[:d:Wikidata:Requests for permissions/Administrator/Lymantria|Lymantria (Successful)]], [[:d:Wikidata:Requests for permissions/Administrator/Lavallen|Lavallen (Successful)]]
+* Events/Press/Blogs
+** [http://aldil.org/les-activites/les-jeudis/jeudi-du-libre-du-9-janvier-2014 Presentation about Wikidata at Aldil], [[:d:Q456|Lyon, France]]
+* Other Noteworthy Stuff
+** Wikisource is deployed to [[testwikidata:|testwikidata]]
+** A group of students is working on suggestions to make it easier to add missing information. [http://lists.wikimedia.org/pipermail/wikidata-l/2014-January/003301.html They published a status report and a rough first demo.]
+* Did you know?
+** Newest properties: [[:d:Property:P1064|track gauge]], [[:d:Property:P1060|pathogen transmission process]], [[:d:Property:P1059|CVR]], [[:d:Property:P1058|ERA Journal ID]]
+** Newest [[d:Wikidata:Task forces|task forces]]: [[:d:Wikidata:Manga and Anime task force|Manga and Anime task force]]
+** [[d:Wikidata:Showcase items|Showcase items]]: [[:d:Q42|Douglas Adams]]
+** Fun Fact: [[:d:Q404|Does not exist (Q404)]]
+** Wikidata's presence: The Dutch Wikipedia have a category for coordinating coordinates on Wikidata ([[:w:nl:Categorie:Wikipedia:Co&#246;rdinaten niet op Wikidata|Categorie:Wikipedia:Co&#246;rdinaten niet op Wikidata]])
+* Development
+** [http://lists.wikimedia.org/pipermail/wikidata-l/2014-January/003294.html Adrian Lang joins the team]
+** Cirrus Search is now the default search on Wikidata and should improve [[d:Special:Search]]'s handlich of special characters for example
+** Made the &#8220;in other languages&#8221; box also show up for people who have not configured a babel box ([[bugzilla:49079]])
+** No longer showing a table of content when it has less than 3 items in it to prevent it from showing up on property pages ([[bugzilla:58422]])
+** More performance improvement work
+** Finishing touches on quantities datatype user interface
+** Display qualifiers in non-Java Script user interface
+** Prevented import of wikitext into the main namespace ([[bugzilla:47070]])
+** Split the DataValues component into more clearly defined libraries and switched Wikibase over to use these
+** Switched Wikibase to use Wikibase DataModel 0.6
+** Changed development and installation workflows to make use of the dependency manager Composer ([http://lists.wikimedia.org/pipermail/wikidata-tech/2014-January/000379.html more details])
+** Made tests run with less warnings (especially in Firefox)
+** Started replacing wikibase.fetchedEntities with a proper entity store
+* Monthly Tasks
+** [[d:Wikidata:Database reports/Constraint violations/P832|Fix a format or content violation]] for the [[d:Property:P832|Public holiday (P832)]] propery
+** Hack on one of [https://bugzilla.wikimedia.org/buglist.cgi?keywords=need-volunteer%2C%20&amp;keywords_type=allwords&amp;emailcc1=1&amp;resolution=---&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;query_format=advanced&amp;email1=wikidata-bugs%40lists.wikimedia.org&amp;list_id=162515 these].
+** Help develop the next summary [[d:Wikidata:Status updates/Next|here!]]
+&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[m:Wikidata/Status updates/2014 01 10|Read the full report]]''' &amp;middot; [[m:Global message delivery/Targets/Wikidata|Unsubscribe]] &amp;middot; [[:d:User:John F. Lewis|John F. Lewis]] 11 janvier 2014 &#224; 10:34 (CET)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:John F. Lewis@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Wikidata&amp;oldid=6997433 --&gt;
+
+== L'article Emunctator est propos&#233; &#224; la suppression ==
+[[Image:Icono consulta borrar.png|70px|link=|Page propos&#233;e &#224; la suppression|gauche]]
+Bonjour,
+
+L&#8217;article &#171; '''{{Lien &#224; supprimer|1=Emunctator}}''' &#187; est propos&#233; &#224; la suppression ({{cf.}} [[Wikip&#233;dia:Pages &#224; supprimer]]). Apr&#232;s avoir pris connaissance des [[Wikip&#233;dia:Crit&#232;res d'admissibilit&#233; des articles|crit&#232;res g&#233;n&#233;raux d&#8217;admissibilit&#233; des articles]] et des [[:Cat&#233;gorie:Wikip&#233;dia:Admissibilit&#233; des articles|crit&#232;res sp&#233;cifiques]], vous pourrez [[Aide:Arguments &#224; &#233;viter lors d'une proc&#233;dure de suppression|donner votre avis]] sur la page de discussion '''[[{{TALKPAGENAME:Emunctator}}/Suppression]]'''.
+
+Le meilleur moyen d&#8217;obtenir un consensus pour la conservation de l&#8217;article est de fournir des [[Wikip&#233;dia:Citez vos sources|sources secondaires fiables et ind&#233;pendantes]]. Si vous ne pouvez trouver de telles sources, c&#8217;est que l&#8217;article n&#8217;est probablement pas admissible. N&#8217;oubliez pas que les [[Wikip&#233;dia:Principes fondateurs|principes fondateurs]] de Wikip&#233;dia ne garantissent aucun droit &#224; avoir un article sur Wikip&#233;dia. [[Utilisateur:Enrevseluj|Enrevseluj]] ([[Discussion utilisateur:Enrevseluj|discuter]]) 14 janvier 2014 &#224; 13:21 (CET)
+
+== [[Wikip&#233;dia:Pages &#224; fusionner#Herbes aromatiques.2C plantes aromatiques et Fines herbes|Fusion de Herbes aromatiques, plantes aromatiques et Fines herbes]] ==
+
+Bonjour Pixeltoo,
+
+&#201;tant donn&#233; que tu as donn&#233; ton avis sur la proposition de fusion mais que les conditions ont chang&#233;, tu es invit&#233; &#224; donner &#224; nouveau ton avis. 
+
+Amicalement, [[Utilisateur:Reptilien.19831209BE1|R]]&amp;nbsp;&lt;sup&gt;&amp;#91;[[Discussion Utilisateur:Reptilien.19831209BE1|CQ,&amp;nbsp;ici&amp;nbsp;W9GFO]]&amp;#93;&lt;/sup&gt; 16 janvier 2014 &#224; 20:11 (CET)
+
+== [[Wikip&#233;dia:RAW/2014-01-17|RAW 2014-01-17]] ==
+
+{{RAW/PdD|2014-01-17}} &#8212; [[Utilisateur:Cantons-de-l'Est|Cantons-de-l'Est]] &lt;sup&gt;[[Discussion utilisateur:Cantons-de-l'Est|&lt;span style="color:#008000;"&gt;discuter&lt;/span&gt;]]&lt;/sup&gt; 17 janvier 2014 &#224; 19:23 (CET)
+&lt;!-- Message envoy&#233; par User:Cantons-de-l'Est@frwiki en utilisant la liste &#224; http://fr.wikipedia.org/w/index.php?title=Wikip%C3%A9dia:RAW/Inscription&amp;oldid=100300868 --&gt;
+
+== Wikidata weekly summary #93 ==
+
+&lt;div class="plainlinks mw-content-ltr" lang="en" dir="ltr"&gt;
+[[File:Wikidata-logo-en.svg|150px|right]]
+&lt;div style="margin-top:10px; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''Here's your quick overview of what has been happening around Wikidata over the last week.''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* [[:Wikidata:Events|Events]]
+** upcoming: FOSDEM
+* Other Noteworthy Stuff
+** Wikisource now gets its language links via Wikidata
+** [[:toollabs:reasonator|Reasonator]] gets extended functionality
+* Did you know?
+** Newest properties: [[:d:Property:P1070|PlantList-ID]], [[:d:Property:P1069|Danemark Job Code (DISCO-08)]], [[:d:Property:P1068|Instruction Set]], [[:d:Property:P1067|Thailand central administrative unit code]], [[:d:Property:P1066|student of]], [[:d:Property:P1065|archive URL]]
+** [[d:Wikidata:Showcase items|Showcase items]]: [[:d:Q153|ethanol]]
+** Fun Fact: [[:d:Q2001|A Space Odyssey (Q2001)]]
+* Development
+** Enabled language links for Wikisource
+** Move more part of an item page from JS to HTML to improve performance and non-JS interface
+** Database performance improvements
+** Work on forward compatibility for new entity types
+** Introducing the EntityStore service to improve modularity
+* Monthly Tasks
+** [[:d:Wikidata:Database reports/Constraint violations/P1001|Fix a format or content violation]] for the [[:d:Property:P1001|belongs to jurisdiction (P1001)]] property
+** Contribute to a [[:d:Wikidata:Showcase|Showcase item]]
+** Hack on one of [https://bugzilla.wikimedia.org/buglist.cgi?keywords=need-volunteer%2C%20&amp;keywords_type=allwords&amp;emailcc1=1&amp;resolution=---&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;query_format=advanced&amp;email1=wikidata-bugs%40lists.wikimedia.org&amp;list_id=162515 these].
+** Help develop the next summary [[d:Wikidata:Status updates/Next|here!]]
+&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[m:Wikidata/Status updates/2014 01 17|Read the full report]]''' &amp;middot; [[m:Global message delivery/Targets/Wikidata|Unsubscribe]] &amp;middot; [[:d:User:Lydia Pintscher (WMDE)|Lydia Pintscher]] using [[Utilisateur:MediaWiki message delivery|MediaWiki message delivery]] ([[Discussion utilisateur:MediaWiki message delivery|discuter]]) 19 janvier 2014 &#224; 13:22 (CET)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:Lydia Pintscher (WMDE)@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Wikidata&amp;oldid=7139323 --&gt;
+
+== ''The Signpost'': 15 January 2014 ==
+
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''News, reports and features from the English Wikipedia's weekly journal about Wikipedia and Wikimedia''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Op-ed: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-15/Op-ed|Licensed for reuse? Citing open-access sources in Wikipedia articles]]
+* News and notes: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-15/News and notes|Wikimedia Germany asks for "reworking" of Funds Dissemination Committee; should MP4 be allowed on Wikimedia sites?]]
+* In the media: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-15/In the media|Is Google hurting Wikipedia traffic?; "Wikipedia-Mania" in the ''New York Times'']]
+* WikiProject report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-15/WikiProject report|WikiProject Sociology]]
+* Traffic report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-15/Traffic report|The Hours are Ours]]
+* Technology report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-15/Technology report|Architecture Summit schedule published]]&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[w:en:Wikipedia:Wikipedia Signpost|Read this Signpost in full]]''' &amp;middot; [[w:en:Wikipedia:Signpost/Single|Single-page]] &amp;middot; [[m:Global message delivery/Targets/Signpost|Unsubscribe]] &amp;middot; [[m:Global message delivery|Global message delivery]] 20 janvier 2014 &#224; 00:29 (CET)
+&lt;/div&gt;
+&lt;!-- EdwardsBot 0672 --&gt;
+
+== [[Special:redirect/page/7692863|RAW 2014-01-24]] ==
+
+{{RAW/PdD|2014-01-24}} &#8212; [[Utilisateur:Cantons-de-l'Est|Cantons-de-l'Est]] &lt;sup&gt;[[Discussion utilisateur:Cantons-de-l'Est|&lt;span style="color:#008000;"&gt;discuter&lt;/span&gt;]]&lt;/sup&gt; 24 janvier 2014 &#224; 18:53 (CET)
+&lt;!-- Message envoy&#233; par User:Cantons-de-l'Est@frwiki en utilisant la liste &#224; http://fr.wikipedia.org/w/index.php?title=Wikip%C3%A9dia:RAW/Inscription&amp;oldid=100505887 --&gt;
+
+== Wikidata weekly summary #94 ==
+
+&lt;div class="plainlinks mw-content-ltr" lang="en" dir="ltr"&gt;
+[[File:Wikidata-logo-en.svg|150px|right]]
+&lt;div style="margin-top:10px; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''Here's your quick overview of what has been happening around Wikidata over the last week.''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Discussions
+** [[:d:Wikidata:Project chat#P31 for animals|Discussion about using 'instance of' specific for animals]]
+* Events/Blogs/Press
+** Next Wikidata IRC office hour on Monday, February 3rd
+** FOSDEM
+* Other Noteworthy Stuff
+** The [[:d:Wikidata:Development plan|Wikidata Development Plan]] for 2014+ has been published
+** [http://tools.wmflabs.org/wikidata-todo/stats.php Wikidata stats] now also includes statistics for ranks
+* Did you know?
+** Newest properties: [[:d:Property:P1076|ICTV virus ID]], [[:d:Property:P1075|rector]], [[:d:Property:P1074|fictional analog of]], [[:d:Property:P1073|writable file format]], [[:d:Property:P1072|readable file format]], [[:d:Property:P1071|place made]]
+** [[d:Wikidata:Showcase items|Showcase items]]: [[:d:Q14560|Cactaceae]]
+* Development
+** Daniel and Katie took part in the MediaWiki Architecture Summit in San Francisco
+** [[Bugzilla:60027]] Add language to label and description field to make it less likely that people enter a label or description in a wrong language
+** [[Bugzilla:58394]] Avoid throwing out of bounds error when adding new claims
+** [[Bugzilla:50570]] API now reveals qualifier hashes
+** [[Bugzilla:57213]] API now reveals data type ids
+** [[Bugzilla:57754]] Die if wbeditentity tries to clear from an old revision id
+** [[Bugzilla:55795]] Add API option to show snaks in a list rather than grouped by property
+** Refactor of ChangeOp remove functionality
+** Continued to move parsing and validating of values from the frontend into the backend to improve performance and make the non-JS user interface more useful
+** Finished the Wikidata build script (We use it to pull together code from various git repositories into a single one for deployment)
+* Monthly Tasks
+** [[:d:Wikidata:Database reports/Constraint violations/P1001|Fix a format or content violation]] for the [[:d:Property:P1001|belongs to jurisdiction (P1001)]] property
+** Hack on one of [https://bugzilla.wikimedia.org/buglist.cgi?keywords=need-volunteer%2C%20&amp;keywords_type=allwords&amp;emailcc1=1&amp;resolution=---&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;query_format=advanced&amp;email1=wikidata-bugs%40lists.wikimedia.org&amp;list_id=162515 these].
+** Help develop the next summary [[d:Wikidata:Status updates/Next|here!]]
+** Contribute to a [[:d:Wikidata:Showcase|Showcase item]]
+&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[m:Wikidata/Status updates/2014 01 24|Read the full report]]''' &amp;middot; [[m:Global message delivery/Targets/Wikidata|Unsubscribe]] &amp;middot; [[:d:User:John F. Lewis|John F. Lewis]] 25 janvier 2014 &#224; 00:57 (CET)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:John F. Lewis@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Wikidata&amp;oldid=7197111 --&gt;
+
+== ''The Signpost'': 22 January 2014 ==
+
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''News, reports and features from the English Wikipedia's weekly journal about Wikipedia and Wikimedia''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Book review: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-22/Book review|''Missing Links and Secret Histories: A Selection of Wikipedia Entries from Across the Known Multiverse'']]
+* Special report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-22/Special report|The few who write Wikipedia]]
+* News and notes: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-22/News and notes|Modification of WMF protection brought to Arbcom]]
+* Featured content: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-22/Featured content|Dr. Watson, I presume with the Tramp]]* Traffic report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-22/Traffic report|No show for the Globes]]
+* Technology report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-22/Technology report|Architecting the future of MediaWiki]]&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[w:en:Wikipedia:Wikipedia Signpost|Read this Signpost in full]]''' &amp;middot; [[w:en:Wikipedia:Signpost/Single|Single-page]] &amp;middot; [[m:Global message delivery/Targets/Signpost|Unsubscribe]] &amp;middot; [[m:Global message delivery|Global message delivery]] 25 janvier 2014 &#224; 01:55 (CET)
+&lt;/div&gt;
+&lt;!-- EdwardsBot 0673 --&gt;
+
+{{Avertissement fusion|Mod&#232;le:Infobox Conflit militaire|Mod&#232;le:Infobox Bataille Rome antique}}
+
+== Ct&#233;nidie (mollusque) ==
+Non effectivement, ma parenth&#232;se &#233;tait en trop, j'ai rectifi&#233;, je m'&#233;tait trop embarqu&#233; sur le principe de l'article anglais. Merci de la remarque!--[[Utilisateur:Ben23|Ben23]] &lt;sup&gt;&lt;small&gt;&amp;#91;[[Discussion Utilisateur:Ben23|Meuh!]]&amp;#93;&lt;/small&gt;&lt;/sup&gt; 28 janvier 2014 &#224; 17:59 (CET)
+
+== [[:Wikip&#233;dia:RAW/2014-01-31|RAW 2014-01-31]] ==
+
+{{RAW/PdD|2014-01-31}} &#8212; [[Utilisateur:Cantons-de-l'Est|Cantons-de-l'Est]] &lt;sup&gt;[[Discussion utilisateur:Cantons-de-l'Est|&lt;span style="color:#008000;"&gt;discuter&lt;/span&gt;]]&lt;/sup&gt; 31 janvier 2014 &#224; 19:32 (CET)
+&lt;!-- Message envoy&#233; par User:Cantons-de-l'Est@frwiki en utilisant la liste &#224; http://fr.wikipedia.org/w/index.php?title=Wikip%C3%A9dia:RAW/Inscription&amp;oldid=100580598 --&gt;
+
+== Wikidata weekly summary #95 ==
+
+&lt;div class="plainlinks mw-content-ltr" lang="en" dir="ltr"&gt;
+[[File:Wikidata-logo-en.svg|150px|right]]
+&lt;div style="margin-top:10px; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''Here's your quick overview of what has been happening around Wikidata over the last week.''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Discussions
+** [[:d:Wikidata:Project chat#Cactaceae (Q14560) as showcase item ? P31 as a qualifier ?|Discussion over P31 as a qualifier]]
+** Open RfA: [[:d:Wikidata:Requests for permissions/Administrator/Sjoerddebruin|Sjoerddebruin]]
+* Events/Blogs/Press
+** Wikidata is at FOSDEM in Brussels, Februrary 1st-2nd
+* Other Noteworthy Stuff
+** Quantities released on Wikidata!
+** Wikisource [[:d:Wikidata:Phase 2|phase 2]] coming Februrary 25th.
+* Did you know?
+** Newest properties:  [[:d:Property:P1110|attendance]], [[:d:Property:P1109|refractive index]], [[:d:Property:P1108|electronegativity]], [[:d:Property:P1107|proportion]], [[:d:Property:P1106|sandbox-quantity]], [[:d:Property:P1104|number of pages]], [[:d:Property:P1103|number of platforms ]], [[:d:Property:P1102|flattening]], [[:d:Property:P1101|floors above ground]], [[:d:Property:P1100|number of cylinders]], [[:d:Property:P1099|masts]], [[:d:Property:P1098|number of speakers]], [[:d:Property:P1097|g-factor]], [[:d:Property:P1096|orbital eccentricity]], [[:d:Property:P1093|gross tonnage]], [[:d:Property:P1092|total produced]], [[:d:Property:P1090|redshift]], [[:d:Property:P1088|Mohs' hardness]], [[:d:Property:P1087|ELO rating]], [[:d:Property:P1086|atomic number]], [[:d:Property:P1085|LibraryThing work identifier]], [[:d:Property:P1084|EUL control number]], [[:d:Property:P1083|capacity]], [[:d:Property:P1082|population]], [[:d:Property:P1081|Human Development Index]], [[:d:Property:P1080|from narrative]], [[:d:Property:P1079|launch contractor]], [[:d:Property:P1078|valvetrain configuration]], [[:d:Property:P1077|KOATUU identifier]]
+* Development
+** Deployed quantities to Wikidata! :)
+** Made patch to make wbmergeitems more reliable [[Bugzilla::55960]]
+** Wikidata edit permissions now included in [https://gerrit.wikimedia.org/r/#/c/109333/ wikimedia OAuth edit groups]
+** Moved Diff repo to [https://github.com/wmde/Diff Github]
+** Work put into make the frontend use backend formatters through the api
+** Refactoring of the [https://github.com/wmde/ValueView ValueView extension]
+** MergeItems special page merged as an experimental feature
+** Our easy RDF fork is now included using composer
+** Fixed wbmergeitems issues
+* Monthly Tasks
+** [[:d:Wikidata:Database reports/Constraint violations/P1001|Fix a format or content violation]] for the [[:d:Property:P1001|belongs to jurisdiction (P1001)]] property
+** Hack on one of [https://bugzilla.wikimedia.org/buglist.cgi?keywords=need-volunteer%2C%20&amp;keywords_type=allwords&amp;emailcc1=1&amp;resolution=---&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;query_format=advanced&amp;email1=wikidata-bugs%40lists.wikimedia.org&amp;list_id=162515 these].
+** Help develop the next summary [[d:Wikidata:Status updates/Next|here!]]
+** Contribute to a [[:d:Wikidata:Showcase|Showcase item]]
+&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[:d:Wikidata:Status updates/2014 01 31|Read the full report]]''' &amp;middot; [[m:Global message delivery/Targets/Wikidata|Unsubscribe]] &amp;middot; [[:d:User:John F. Lewis|John F. Lewis]] 1 f&#233;vrier 2014 &#224; 00:37 (CET)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:John F. Lewis@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Wikidata&amp;oldid=7249659 --&gt;
+
+==  ''The Signpost'': 29 January 2014 ==
+
+&lt;div lang="en" dir="ltr" class="mw-content-ltr"&gt;&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''News, reports and features from the English Wikipedia's weekly journal about Wikipedia and Wikimedia''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* News and notes: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/News and notes|Wiki-PR defends itself, condemns Wikipedia's actions]]
+* Traffic report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/Traffic report|Six strikes out]]
+* WikiProject report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/WikiProject report|Contesting Contests]]
+* Arbitration report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/Arbitration report|''Kafziel'' case closed; Kww admonished by motion]]
+* Recent research: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/Recent research|Translation assignments, weasel words, and Wikipedia's content in its later years]]&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[w:en:Wikipedia:Wikipedia Signpost|Read this Signpost in full]]''' &amp;middot; [[w:en:Wikipedia:Signpost/Single|Single-page]] &amp;middot; [[m:Global message delivery/Targets/Signpost|Unsubscribe]] &amp;middot; [[m:Global message delivery|Global message delivery]] 1 f&#233;vrier 2014 &#224; 21:31 (CET)
+&lt;/div&gt;&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:The ed17@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Signpost&amp;oldid=7284907 --&gt;
+
+== Articles &#224; classer sur le bistro ==
+
+Bonjour Pixeltoo,
+
+Comme tu as particip&#233; au classement, je ne refuse pas ton avis sur [[Wikip&#233;dia:Le Bistro/2 f&#233;vrier 2014#Liste des articles cr&#233;&#233;s sur le bistro : nouvelle maquette]]. --[[Utilisateur:MathsPoetry|MathsPoetry]] ([[Discussion utilisateur:MathsPoetry|discuter]]) 2 f&#233;vrier 2014 &#224; 18:14 (CET)
+
+== ''The Signpost'': 29 January 2014 ==
+
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''News, reports and features from the English Wikipedia's weekly journal about Wikipedia and Wikimedia''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* News and notes: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/News and notes|Wiki-PR defends itself, condemns Wikipedia's actions]]
+* Traffic report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/Traffic report|Six strikes out]]
+* WikiProject report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/WikiProject report|Contesting Contests]]
+* Arbitration report: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/Arbitration report|''Kafziel'' case closed; Kww admonished by motion]]
+* Recent research: [[w:en:Wikipedia:Wikipedia Signpost/2014-01-29/Recent research|Translation assignments, weasel words, and Wikipedia's content in its later years]]&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[w:en:Wikipedia:Wikipedia Signpost|Read this Signpost in full]]''' &amp;middot; [[w:en:Wikipedia:Signpost/Single|Single-page]] &amp;middot; [[m:Global message delivery/Targets/Signpost|Unsubscribe]] &amp;middot; [[m:Global message delivery|Global message delivery]] 3 f&#233;vrier 2014 &#224; 11:29 (CET)
+&lt;/div&gt;
+&lt;!-- EdwardsBot 0674 --&gt;
+
+== [[:w:fr:Wikip&#233;dia:RAW/2014-02-07|RAW 2014-02-07]] ==
+
+{{RAW/PdD|2014-02-07}} &#8212; [[Utilisateur:Cantons-de-l'Est|Cantons-de-l'Est]] &lt;sup&gt;[[Discussion utilisateur:Cantons-de-l'Est|&lt;span style="color:#008000;"&gt;discuter&lt;/span&gt;]]&lt;/sup&gt; 7 f&#233;vrier 2014 &#224; 19:36 (CET)
+&lt;!-- Message envoy&#233; par User:Cantons-de-l'Est@frwiki en utilisant la liste &#224; http://fr.wikipedia.org/w/index.php?title=Wikip%C3%A9dia:RAW/Inscription&amp;oldid=100919180 --&gt;
+
+== Wikidata weekly summary #96 ==
+
+&lt;div class="plainlinks mw-content-ltr" lang="en" dir="ltr"&gt;
+[[File:Wikidata-logo-en.svg|150px|right]]
+&lt;div style="margin-top:10px; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;''Here's your quick overview of what has been happening around Wikidata over the last week.''&lt;/div&gt;
+&lt;div style="-moz-column-count:2; -webkit-column-count:2; column-count:2;"&gt;
+* Discussions
+** [[:d:Wikidata:Project chat#Name of person|Discussion over the naming of people]]
+** [[:d:Wikidata:Project chat#Population|Discussion over population]]
+** Successful RfA: [[:d:Wikidata:Requests for permissions/Administrator/Sjoerddebruin|Sjoerddebruin]]
+* Events/Blogs/Press
+** See the office hours logs at [[:m:IRC office hours/Office hours 2014-02-03|meta]]
+* Other Noteworthy Stuff
+** See the FOSDEM [https://docs.google.com/presentation/d/16VDTk9Lo9YU-Q-lj68984o8cGLZDwTDVUfazsB4V1GQ/edit slides]
+** Thiemo joins the Wikidata development team
+* Development
+** More work on badges by Bene*
+** Lots of Lua improvements by hoo (separate announcement with details soon)
+** Created backend Time parsers (yet another necessary step towards doing more in the backend instead of in Java Script in the frontend)
+** Automatic builds created, tested and deployed to beta labs every day!
+** Investigate Elastic Search as possible backend for queries
+** Made Wikibase Query work with our new component structure
+* Monthly Tasks
+** [[:d:Wikidata:Database reports/Constraint violations/P1001|Fix a format or content violation]] for the [[:d:Property:P1001|belongs to jurisdiction (P1001)]] property
+** Hack on one of [https://bugzilla.wikimedia.org/buglist.cgi?keywords=need-volunteer%2C%20&amp;keywords_type=allwords&amp;emailcc1=1&amp;resolution=---&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;query_format=advanced&amp;email1=wikidata-bugs%40lists.wikimedia.org&amp;list_id=162515 these].
+** Help develop the next summary [[d:Wikidata:Status updates/Next|here!]]
+** Contribute to a [[:d:Wikidata:Showcase|Showcase item]]
+&lt;/div&gt;
+&lt;div style="margin-top:10px; font-size:90%; padding-left:5px; font-family:Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;"&gt;'''[[:d:Wikidata:Status updates/2014 02 07|Read the full report]]''' &amp;middot; [[m:Global message delivery/Targets/Wikidata|Unsubscribe]] &amp;middot; [[:d:User:John F. Lewis|John F. Lewis]] 7 f&#233;vrier 2014 &#224; 23:37 (CET)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message envoy&#233; par User:John F. Lewis@metawiki en utilisant la liste &#224; http://meta.wikimedia.org/w/index.php?title=Global_message_delivery/Targets/Wikidata&amp;oldid=7384712 --&gt;</text>
+      <sha1>3a0m10sehpzmmqo8cihzcnbv4ur938s</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

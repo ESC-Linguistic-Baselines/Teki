@@ -1,0 +1,34 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:HerculeBot</title>
+    <ns>2</ns>
+    <id>2724008</id>
+    <revision>
+      <id>98848468</id>
+      <parentid>83340626</parentid>
+      <timestamp>2013-12-02T10:32:24Z</timestamp>
+      <contributor>
+        <username>HerculeBot</username>
+        <id>346772</id>
+      </contributor>
+      <minor/>
+      <text xml:space="preserve">{{bot|Hercule|autoris&#233;=23 f&#233;vrier 2008}}
+Ce bot traite les demandes formul&#233;es sur [[Wikip&#233;dia:RBOT]]. En plus de cette t&#226;che, il se charge &#233;galement de :
+# corriger les cacographies, en se basant sur le contenu de {{cat&#233;gorie|Cacographie}} (n'h&#233;sitez pas &#224; l'alimenter !)
+# le nettoyage des avertissements sur les pages de discussion des IP, quand aucune modification n'a &#233;t&#233; apport&#233;e &#224; cette page depuis plus d'un an. Dans ce cas il remplace le contenu de cette page par {{m|Avertissement effac&#233;}}.
+# la recat&#233;gorisation d'&#233;bauches, par une cat&#233;gorie plus pr&#233;cise, en fonction des cat&#233;gories des articles. '''Pour plus de pr&#233;cision voir [[Utilisateur:HerculeBot/&#201;bauches]]'''
+# renommage de cat&#233;gories (accompagn&#233; d'une correction des liens vers l'ancien nom, et de la mise &#224; jour des interwikis)
+Parmi ses t&#226;ches de fond (traitements faits &#224; la page, mais n'&#233;tant pas le but de la modification), il met &#224; jour le bandeau de portail &#224; l'aide de {{m|portail}}, il ajoute une majuscule &#224; la premi&#232;re lettre du nom des cat&#233;gories, remplace '''Category''' par '''Cat&#233;gorie''', ....
+
+Si vous souhaitez en savoir plus, ou discuter d'une de ces t&#226;ches, n'h&#233;sitez pas &#224; venir en [[Discussion Utilisateur:Hercule|discuter avec son dresseur]].
+
+Si vous constatez une modification non pertinente, ou dont la pertinence vous &#233;chappe, vous pouvez &#233;galement [[Discussion Utilisateur:Hercule|en discuter avec son dresseur]]. Soit il vous expliquera, soit il cherchera &#224; r&#233;parer cette anomalie {{clin}}.
+
+
+== Comptes bot HerculeBot sur les Wikip&#233;dias ==
+* [http://toolserver.org/~quentinv57/sulinfo/HerculeBot SUL Util HerculeBot]
+* '''Bot global depuis le [http://meta.wikimedia.org/w/index.php?title=Special%3ALog&amp;type=gblrights&amp;user=&amp;page=User%3AHerculeBot&amp;year=&amp;month=-1 03/10/2008]'''</text>
+      <sha1>37711al641uczd50htuispt8ln0zlf7</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

@@ -1,0 +1,34 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Discussion utilisateur:Thibault Lemaitre</title>
+    <ns>3</ns>
+    <id>5651867</id>
+    <revision>
+      <id>75291901</id>
+      <parentid>75255143</parentid>
+      <timestamp>2012-02-08T07:46:58Z</timestamp>
+      <contributor>
+        <username>Lanredec</username>
+        <id>65087</id>
+      </contributor>
+      <minor/>
+      <comment>/* Eolienne */ rep</comment>
+      <text xml:space="preserve">== [[Facteur de charge (&#233;lectricit&#233;)#Facteurs de charge typiques]] ==
+
+Je regardais le tableau de cette section et je pense que vous aurez de la difficult&#233; si vous n'internationalisez pas. Il peut exister des diff&#233;rences notables entre moyennes nationales ou continentales (l'hydro&#233;lectricit&#233; est un bel exemple avec des donn&#233;es comme celles de l'UE et du Canada). Plut&#244;t qu'indiquer le minima, le maxima et la moyenne pourquoi ne pas faire l'exercice pour un certain nombre de pays repr&#233;sentatifs. Le lecteur pourra se faire une id&#233;e plus pr&#233;cise des facteurs de charge empiriques, plut&#244;t que les donn&#233;es des vendeurs d'une technologie ou d'une autre. Vous en pensez quoi? &#8212; [[Utilisateur:Bouchecl|Bouchecl]] &lt;small&gt;(''[[Discussion Utilisateur:Bouchecl|dring]]'')&lt;/small&gt; 6 ao&#251;t 2011 &#224; 04:01 (CEST)
+
+== Eolienne ==
+
+Bonjour
+
+Je pense utile et n&#233;cessaire de d&#233;barrasser la page [[&#233;olienne]] des consid&#233;rations id&#233;ologiques et politiques. &#231;a doit rester (ou plut&#244;t devenir) une page qui concerne un dispositif m&#233;canique particulier.
+
+En ce qui concerne [[&#233;nergie &#233;olienne]], je ne suis pas s&#251;r que les consid&#233;rations que j'ai &#244;t&#233;es d'&#233;olienne y aient beaucoup plus leur place (en fait je n'ai pas encore bien compris le p&#233;rim&#232;tre d'int&#233;r&#234;t de cette page qui me semble devoir plut&#244;t se nommer [[contribution de l'&#233;nergie &#233;olienne &#224; la production d'&#233;lectricit&#233;]]). A mon avis elles rel&#232;vent plut&#244;t de [[politique &#233;nerg&#233;tique]] ou de [[comparaison entre l'&#233;olien et le nucl&#233;aire]] .
+
+Si vous avez un avis tranch&#233; n'h&#233;sitez pas, je ne suis pas du genre &#224; entretenir un conflit d'&#233;dition. [[Utilisateur:Lanredec|Lanredec]] ([[Discussion utilisateur:Lanredec|d]]) 7 f&#233;vrier 2012 &#224; 08:42 (CET)
+
+:C'est un peu comme si on parlait des morts sur la route dans un article sur le moteur &#224; combustion interne. Mais encore une fois je ne me battrai pas. [[Utilisateur:Lanredec|Lanredec]] ([[Discussion utilisateur:Lanredec|d]]) 8 f&#233;vrier 2012 &#224; 08:46 (CET)</text>
+      <sha1>f3bzw76ajajhcfex9xinjjizk2aogzb</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

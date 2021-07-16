@@ -1,0 +1,25 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:McSly</title>
+    <ns>2</ns>
+    <id>1297607</id>
+    <revision>
+      <id>93578191</id>
+      <parentid>93576647</parentid>
+      <timestamp>2013-05-29T16:28:28Z</timestamp>
+      <contributor>
+        <username>McSly</username>
+        <id>166562</id>
+      </contributor>
+      <comment>Annulation des modifications. Bin, qu'est ce qui se passe? Y'a quelque chose qui te chagrine?</comment>
+      <text xml:space="preserve">{{Babel-2|fr|en-4}}
+
+&lt;gallery caption = "Places o&#249; j'ai habit&#233;" widths="60px" heights="60px" perrow="5"&gt;
+Image:Flag of France.svg
+Image:Flag of United States.svg
+Image:Flag of Canada.svg
+&lt;/gallery&gt;</text>
+      <sha1>ldpgb2x5jwuigpuhqb7cbkuxgkn7rqh</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

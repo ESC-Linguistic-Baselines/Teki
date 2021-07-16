@@ -1,0 +1,40 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:Almooxo</title>
+    <ns>2</ns>
+    <id>53078</id>
+    <revision>
+      <id>28774832</id>
+      <parentid>27216115</parentid>
+      <timestamp>2008-04-18T22:29:37Z</timestamp>
+      <contributor>
+        <username>Almooxo</username>
+        <id>2314</id>
+      </contributor>
+      <comment>/* Pour m&#233;moire... */  Compteurs d'&#233;ditions</comment>
+      <text xml:space="preserve">Aucune chance que &#231;a marche.
+
+Donc, c'est d'autant plus tentant...
+
+== Pour m&#233;moire... ==
+
+[http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Syntaxe_wikip%C3%A9dia Syntaxe Wikip&#233;dia]
+
+&lt;nowiki&gt;{{&#233;bauche}}&lt;/nowiki&gt;
+
+'''Statistiques :'''
+* Nombre de consultations d'un article : http://stats.grok.se/
+* Statistiques globales sur la Wikip&#233;dia francophone : http://tools.wikimedia.de/~gribeco/stats.php
+* Tableau statistiques Wikip&#233;dia francophone : http://stats.wikimedia.org/FR/TablesWikipediaFR.htm
+* Nombre d'&#233;ditions (Interiot) : http://tools.wikimedia.de/~interiot/cgi-bin/count_edits
+* Nombre d'&#233;ditions (DaB) : http://stable.ts.wikimedia.org/editcount/
+
+
+
+
+[[Cat&#233;gorie:Wikip&#233;dia:Aurochs|Almooxo]]
+{{Auroch mop}}</text>
+      <sha1>e2nd8lu3tltyekkf2u7fyry03f1y4pa</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
