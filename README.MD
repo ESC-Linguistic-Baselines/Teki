@@ -1,5 +1,4 @@
-#Téki 
-###A Naïve Bayesian Chat Discourse Analyzer
+# Téki (A Naïve Bayesian Chat Discourse Analyzer)
 
 ## Academic Formalities
 * Titel: From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Literate and
