@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #########################
-# Program description
+# 0 - Documentation description
 #########################
 
 '''
@@ -13,7 +13,7 @@ print("Please wait while libraries and files are being imported...")
 #########################
 # Importing standard python libraries
 #########################
-import re, os, shutil, tkinter, datetime, time,sys,importlib
+import importlib
 
 #########################
 # Importing pip libraries
@@ -28,9 +28,9 @@ for lib in pip_libraries:
             missing_libraries.append(lib)
 
 if missing_libraries==False:
-    from bs4 import BeautifulSoup
+    pass
 else:
-    with open ("app_ressources/program_text_files/missing_lib.txt",mode="w",encoding="utf-8") as missing:
+    with open ("app_ressources/program_text_files/missing_lib.txt", mode="w", encoding="utf-8") as missing:
         for lib in missing_libraries:
             missing.write(lib+"\n")
 
@@ -58,7 +58,7 @@ missing_libraries=False
 
 
 #########################
-# Main Program
+# Main 0 - Documentation
 #########################
 def run_program():
     '''
@@ -66,7 +66,7 @@ def run_program():
     as well as the from the secondary python file.
     It is executed under the if __name__
     '''
-    menu_option = {"Program information": program_information}
+    menu_option = {"0 - Documentation information": program_information}
     while True:
          while True:
             print()
@@ -98,7 +98,7 @@ def run_program():
                 input("You have either entered an incorrect number or incorrect string. You can return the menu by pressing the enter key.")
 
 #########################
-# Program Execution
+# 0 - Documentation Execution
 #########################
 
 if __name__ == "__main__":
