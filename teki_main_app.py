@@ -13,7 +13,8 @@ print("Please wait while libraries and files are being imported...")
 #########################
 # Importing standard python libraries
 #########################
-import importlib
+import importlib,zipfile
+
 
 #########################
 # Importing pip libraries
