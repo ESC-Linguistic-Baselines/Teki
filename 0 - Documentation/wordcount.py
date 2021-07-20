@@ -10,7 +10,7 @@ limit=75000
 
 doc_count=len([char for char in my_text])
 
-charcount=round(doc_count-non_count-(doc_count*0.012))
+charcount=round(doc_count-non_count-(doc_count*0.0015))
 res=round(charcount/limit*100,2)
 print(f"{charcount} written out of {limit}.")
 print(f"{res} has been completed")
