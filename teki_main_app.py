@@ -48,6 +48,18 @@ def continue_program(*args):
 
 print("Please wait while libraries and files are being imported...")
 
+def missing_files(file_list,path):
+    missing = list()
+
+    # files
+    for root in os.listdir(path):
+            if root not in file_list:
+                missing.append(root)
+    if missing:
+        return  missing
+    else:
+        return False
+
 #########################
 #Importing standard python libraries
 #########################
@@ -67,14 +79,6 @@ for lib in pip_lib:
         except ModuleNotFoundError as error:
             missing_libraries.append(lib)
 
-if missing_libraries==False:
-    pass
-
-else:
-    with open ("app_resources/program_text_files/missing_lib.txt", mode="w", encoding="utf-8") as missing:
-        for lib in missing_libraries:
-            missing.write(lib+"\n")
-
 #########################
 # Importing custom files and modules
 #########################
@@ -87,40 +91,30 @@ but the program stability will be greatly compromised.
 
 if os.path.exists("app_resources"):
 
-        custom_text_files=[
-            "program_text_files/program_description.txt"
+    #Text files
+    app_docs = [
+        "app_docs/program_description.txt",
+        "program_description.txt",
+        "author_information.json",
+        "missing_lib.txt"
+    ]
+    missing_text_files = missing_files(app_docs, "app_resources/app_docs")
+
+    #Development and training data
+    dev_files=[
+            "gerstenberg-hewett-ebay-anon.xml"
         ]
-        missing_text_files=list()
+    missing_dev_files = missing_files(dev_files, "app_resources/app_dev/app_dev_files")
 
-        # Text files
-        for root in os.walk("app_resources/program_text_files"):
-            for dir in root:
-                if dir not in custom_text_files:
-                    missing_text_files.append(dir)
-
-        custom_training_files=[
-            "program_text_files/program_description.txt"
+    #Test Data
+    test_files=[
+            "dummy.txt"
         ]
-        missing_training_files = list()
+    missing_test_files = missing_files(test_files, "app_resources/app_test/app_test_files")
 
-        # Training data files
-        for root in os.walk("app_resources/app_test_data/app_training_data_test_files"):
-            for dir in root:
-                if dir not in custom_training_files:
-                    missing_training_files.append(dir)
+    # Compressed repository
+    compressed_respostiory=os.path.exists("app_resources/compressed_language_data/cmr-88milsms-tei-v1.zip")
 
-        custom_test_files=[
-            "program_text_files/program_description.txt"
-        ]
-        missing_test_files = list()
-
-        for root in os.walk("app_resources/app_test_data/app_test_data_test_files"):
-            for dir in root:
-                if dir not in custom_test_files:
-                    missing_test_files.append(dir)
-
-        # Compressed repository
-        compressed_respostiory=os.path.exists("app_resources/compressed_language_data/cmr-88milsms-tei-v1.zip")
 else:
     message="The app resource directory is either missing or has been renamed."
     continue_program(message)
@@ -128,22 +122,11 @@ else:
 #########################
 # Custom modules
 #########################
-sys.path.append("app_resources")
-
-from auxilary_functions import author_information, program_description, file_finder, program_end
-
-#########################
-# MainMaster check
-#########################
-
-core_files_available=True
-missing_libraries=False
-
-if core_files_available == True and missing_libraries==False:
-    print("All libraries have been successfully loaded. The program will now start.")
-else:
-    message="An error has occured"
-    continue_program(message)
+from app_resources.auxilary_functions import (
+    program_description,
+    program_end,
+    author_information,
+    file_finder)
 
 #########################
 # Main Program Functions
@@ -172,7 +155,7 @@ def read_content(content):
     print(content)
 
 #########################
-# MainDocumentation
+# Main program
 #########################
 def run_program():
 
@@ -218,13 +201,10 @@ def run_program():
 
                         elif func_name == "read_content":
                             read_content(doc)
-
                 else:
                     input("You have entered an incorrect number. You can return the menu by pressing the enter key.")
-
             else:
                 input("Please enter the number, not the name of the entry.")
-
 
 #########################
 #Documentation Execution
@@ -235,5 +215,14 @@ if __name__ == "__main__":
     The main program will only run if all of the necessary files are available and if all of the main libraries have been installed. 
     This can be overridden by the user, but it is not advised as it can lead to the program becoming unstable.  
     '''
-    if core_files_available==True and missing_libraries==False:
+    #########################
+    # Main master check
+    #########################
+    core_files_missing = missing_dev_files, missing_text_files, missing_test_files, compressed_respostiory
+    if bool(core_files_missing) == False and bool(missing_libraries) == False:
+        print("All libraries have been successfully loaded. The program will now start.")
+        run_program()
+    else:
+        message = "An error has occured because either files or directories are missing."
+        continue_program(message)
         run_program()
