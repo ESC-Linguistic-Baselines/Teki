@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #########################
-#Documentation description
+#documentation description
 #########################
 
 '''
@@ -207,7 +207,7 @@ def run_program():
                 input("Please enter the number, not the name of the entry.")
 
 #########################
-#Documentation Execution
+#documentation Execution
 #########################
 
 if __name__ == "__main__":
