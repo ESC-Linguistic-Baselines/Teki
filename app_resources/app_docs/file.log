@@ -1,0 +1,132 @@
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 259, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 259, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 260, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 260, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 260, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 261, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 261, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 261, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 261, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\auxilary_functions.py", line 75, in menu
+    return options_func_dict()
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 166, in extract_ebay
+    tk=soup.find("div", id="e17p-300").getText().strip().split()
+TypeError: find() takes no keyword arguments
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 261, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 271, in run_program
+    content=read_content(doc)
+UnboundLocalError: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 272, in run_program
+    content=read_content(doc)
+UnboundLocalError: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 262, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+    func_list[function_number]()
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+TypeError: read_content() missing 1 required positional argument: 'soup'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 263, in run_program
+TypeError: read_content() missing 1 required positional argument: 'soup'

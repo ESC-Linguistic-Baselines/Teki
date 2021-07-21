@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #########################
-#documentation description
+#dev_documentation description
 #########################
 
 '''
@@ -27,11 +27,11 @@ def continue_program(*args):
         '''
         The while-loop remains in place until the user provides an appropriate response
         '''
-        user = input("Would you still like to continue with the program?  y/n").lower()
+        user = input("Would you still like to continue with the program (y/n) ?: ").lower()
 
         if user=="y":
 
-            user=input("Are you sure. Program stability cannot be guaranteed y/n").lower()
+            user=input("Are you sure? Program stability cannot be guaranteed (y/n)?: ").lower()
 
             if user=="y":
                 break
@@ -63,14 +63,12 @@ def missing_files(file_list,path):
 #########################
 #Importing standard python libraries
 #########################
-
-import importlib,zipfile,re,os,shutil,tkinter,sys,time,datetime
+import importlib,os,sys,traceback
 
 #########################
 #Importing pip libraries
 #########################
-
-pip_lib = "bs4", "spacy", "spellchecker", "matplotlib", "nltk","lxml"
+pip_lib = "bs4", "spacy", "spellchecker", "matplotlib", "lxml"
 missing_libraries=[]
 
 for lib in pip_lib:
@@ -78,6 +76,12 @@ for lib in pip_lib:
             globals()[lib] = importlib.import_module(lib)
         except ModuleNotFoundError as error:
             missing_libraries.append(lib)
+
+if missing_libraries==False:
+
+    # Spacy imports
+    from spacy.lang.fr import French
+    from spacy.tokenizer import Tokenizer
 
 #########################
 # Importing custom files and modules
@@ -104,13 +108,13 @@ if os.path.exists("app_resources"):
     dev_files=[
             "gerstenberg-hewett-ebay-anon.xml"
         ]
-    missing_dev_files = missing_files(dev_files, "app_resources/app_dev/app_dev_files")
+    missing_dev_files = missing_files(dev_files, "app_resources/app_dev/dev_files")
 
     #Test Data
     test_files=[
             "dummy.txt"
         ]
-    missing_test_files = missing_files(test_files, "app_resources/app_test/app_test_files")
+    missing_test_files = missing_files(test_files, "app_resources/app_test/test_files")
 
     # Compressed repository
     compressed_respostiory=os.path.exists("app_resources/compressed_language_data/cmr-88milsms-tei-v1.zip")
@@ -124,8 +128,8 @@ else:
 #########################
 from app_resources.auxilary_functions import (
     program_description,
-    program_end,
     author_information,
+    menu,
     file_finder)
 
 #########################
@@ -142,17 +146,110 @@ def get_text(document):
 
         with open(document, mode="r", encoding="utf-8") as file:
             soup = bs4.BeautifulSoup(file, "lxml")
-
             return soup
 
     else:
         with open(document, mode="r", encoding="utf-8") as file:
             read=file.read()
-
             return read
 
-def read_content(content):
-    print(content)
+def read_content(soup):
+
+    def read_soup():
+        '''
+        Reads in the .xml soup
+        '''
+        if str(type(soup))=="<class 'bs4.BeautifulSoup'>":
+            print(soup)
+            return soup
+
+    def extract_ebay():
+        '''
+        Extracts the eBay posting
+        '''
+        #sub_id="ebayfr-e17p"
+        # corpus=soup.find("subcorpus",subcorpus_id=sub_id)
+
+        tk=soup.find("div", id="e17p-300").getText().strip().split()
+
+        return " ".join(tk)
+
+    def extract_sms():
+        # document = "app_resources/app_dev/dev_files/88milsms-tei-v1/cmr-88milsms-tei-v1.xml"
+        #
+        # i = 0
+        # with open(document, mode="r", encoding="utf-8") as file, open(
+        #         "app_resources/app_test/test_files/sms_44265_88522.xml", mode="w+", encoding="utf-8") as out:
+        #     soup = bs4.BeautifulSoup(file, "lxml")
+        #     text = soup.findAll("post")
+        #
+        #     for line in text:
+        #         i += 1
+        #
+        #         if i > 44265:
+        #             print(i, line)
+        #
+        #             out.write(str(line))
+            pass
+
+    def extract_wiki():
+        i = 0
+        document=0
+        with open(document, mode="r", encoding="utf-8") as file, open(
+                "app_resources/app_test/test_files/wikiconflits_79_159.xml", mode="w+", encoding="utf-8") as out:
+            soup = bs4.BeautifulSoup(file, "lxml")
+            text = soup.findAll("post")
+
+            for line in text:
+                i += 1
+
+                if i > 79:
+                    print(i, line)
+
+                    out.write(str(line))
+
+    def quit():
+        return False
+
+    output_menu={"read_soup":read_soup,
+                 "extract_ebay":extract_ebay,
+                 "quit":quit
+    }
+
+    # Submenu
+    menu_name="option menu"
+    menu_information="How would you like to proceed with the file:"
+    mn=menu(output_menu,menu_name,  menu_information)
+
+    return mn
+
+def tokenizer():
+    nlp = French()
+    tokenizer = Tokenizer(nlp.vocab)
+
+def tagger(content):
+    nlp = spacy.load("fr_core_news_sm")
+    doc=nlp(content)
+    for token in doc:
+        print(token.text, token.pos_, token.dep_)
+
+def naive_bayes():
+    pass
+
+def gold_tager():
+    pass
+
+def evaluation():
+    pass
+
+
+
+
+
+
+
+
+
 
 #########################
 # Main program
@@ -168,11 +265,10 @@ def run_program():
     menu_option = {
                    "import file": get_text,
                    "read contents":read_content,
+
                     "author information": author_information,
                     "program description": program_description,
-                    "end program": program_end
-                    }
-
+                    "end program": sys.exit}
     while True:
             print()
             banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
@@ -181,33 +277,53 @@ def run_program():
                 print(f'{num}: {elem}')
 
             choice_str = input('\nPlease enter the number of your entry: ')
+            main_message="Please the enter key to return to the main menu."
 
             #Executes the function as specified by the user via the number
             if choice_str.isdigit():
                 choice_num = int(choice_str)
+
                 if 0 < choice_num and choice_num <= len(menu_option):
                     func_list = list(menu_option.values())
                     function_number = choice_num - 1
                     func_name=str(func_list[function_number]).split()[1]
 
-                    try:
-                        #Executes functions that do not require arguments
-                        func_list[function_number]()
-                    except:
+                    if func_name=="function":
+                        #Exits program
+                        func_list[function_number]("The program has been successfully terminated.")
 
-                        # Loads the file into  memory
-                        if func_name  ==  "get_text":
-                            doc=get_text(file_finder())
+                    else:
 
-                        elif func_name == "read_content":
-                            read_content(doc)
+                        try:
+                            #Executes functions that do not require arguments
+                            func_list[function_number]()
+
+                        except:
+                            #Loads the file into  memory
+                            if func_name== "get_text":
+                                doc=get_text(file_finder())
+
+                            elif func_name=="read_content":
+                                try:
+                                    content=read_content(doc)
+                                    tagger(content)
+
+                                except Exception:
+
+                                    input(f"You must first load the file into memory. {main_message} ")
+
+                                    # Error Log from Except
+                                    with open("app_resources/app_docs/file.log", mode="a") as log:
+                                        log.write(traceback.format_exc())
+
+                            with open("app_resources/app_docs/file.log", mode="a") as log:
+                                log.write(traceback.format_exc())
                 else:
-                    input("You have entered an incorrect number. You can return the menu by pressing the enter key.")
-            else:
-                input("Please enter the number, not the name of the entry.")
+                    input(f"You have entered an incorrect number. {main_message}")
+
 
 #########################
-#documentation Execution
+#dev_documentation Execution
 #########################
 
 if __name__ == "__main__":
@@ -219,6 +335,7 @@ if __name__ == "__main__":
     # Main master check
     #########################
     core_files_missing = missing_dev_files, missing_text_files, missing_test_files, compressed_respostiory
+    core_files_missing=False
     if bool(core_files_missing) == False and bool(missing_libraries) == False:
         print("All libraries have been successfully loaded. The program will now start.")
         run_program()

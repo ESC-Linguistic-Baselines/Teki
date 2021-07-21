@@ -1,0 +1,17 @@
+{
+  "dev": [
+    "ebayfr-e05p.xml",
+    "ebayfr-e17p.xml",
+    "ebayfr-e17x.xml",
+    "ebayfr-e18v.xml",
+    "sms_0_44265.xml",
+    "wikiconflits_0_79.xml"
+  ],
+  "test": [
+    "sms_44265_88522.xml",
+    "wikiconflits_79_159.xml"
+  ],
+  "compressed": [
+    "cmr-88milsms-tei-v1.zip"
+  ]
+}
