@@ -1,0 +1,30 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:Vincent Lextrait</title>
+    <ns>2</ns>
+    <id>1559249</id>
+    <revision>
+      <id>97552794</id>
+      <parentid>97552775</parentid>
+      <timestamp>2013-10-17T17:55:33Z</timestamp>
+      <contributor>
+        <username>Vincent Lextrait</username>
+        <id>192844</id>
+      </contributor>
+      <comment>/* Editcount */</comment>
+      <text xml:space="preserve">{{Bo&#238;te Utilisateur| origine France | fr | en-4 }}
+Je suis contributeur sur les pages anglo-saxonnes de Wikip&#233;dia [http://en.wikipedia.org/wiki/User:Vincent_Lextrait].
+== Guillemets ==
+Pour le bon usage des guillemets, voir [[Wikip&#233;dia:Conventions_typographiques#Guillemets]] et [[Aide:Caract&#232;res_sp&#233;ciaux_probl&#233;matiques#Guillemets_anglais_&#8220;_et_&#8221;]]. En substance, les seuls guillemets autoris&#233;s sont &#171;&#160;et&#160;&#187;, y compris en cas d'imbrication. La seule exception correspond au cas des guillemets &#224; l'int&#233;rieur de citations &#233;trang&#232;res. Dans ce cas, les guillemets de la typographie &#233;trang&#232;re sont &#224; utiliser, mais les guillemets englobants doivent &#234;tre les guillemets fran&#231;ais. La convention correspondant aux guillemets imbriqu&#233;s n'est pas une convention universelle en France, mais c'est celle en usage dans Wikip&#233;dia.
+
+== Modification &#171; sale &#187; ==
+Il m'arrive de d&#233;faire des mises &#224; jour de Wikip&#233;dia en ajoutant le commentaire &#171; modification sale &#187;. Cela signifie qu'&#224; mon sens, l'ajout n'est pas inint&#233;ressant, mais que le nombre de fautes d'orthographe, de grammaire, ou de mise en page contrebalancent largement l'int&#233;r&#234;t de l'ajout et ne justifient pas l'effort correspondant &#224; les rattraper.
+
+== Editcount ==
+{{Editcount|Vincent Lextrait|lang=fr}}, fr.wikipedia.org.
+
+{{Editcount|Vincent Lextrait|lang=en}}, en.wikipedia.org.</text>
+      <sha1>rhxxtm6spr3uryen71tz18nau9n0sfy</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

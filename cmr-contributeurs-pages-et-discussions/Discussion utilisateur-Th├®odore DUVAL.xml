@@ -1,0 +1,130 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Discussion utilisateur:Th&#233;odore DUVAL</title>
+    <ns>3</ns>
+    <id>4548503</id>
+    <revision>
+      <id>64433558</id>
+      <parentid>64432541</parentid>
+      <timestamp>2011-04-17T17:04:34Z</timestamp>
+      <contributor>
+        <username>Papatt</username>
+        <id>452617</id>
+      </contributor>
+      <minor/>
+      <comment>/* Moteur pantone */</comment>
+      <text xml:space="preserve">== Discutions ==
+
+Bonnes contributions !
+&lt;!-- &lt;/div&gt; --&gt;
+{{#if:.|| [[Utilisateur:Varmin|Varmin]]&lt;sup&gt;[[Discussion utilisateur:Varmin|Un&#160;probl&#232;me?]]&lt;/sup&gt; 12 mars 2010 &#224; 21:58 (CET)}}[[Utilisateur:Varmin|Varmin]]&lt;sup&gt;[[Discussion utilisateur:Varmin|Un&#160;probl&#232;me?]]&lt;/sup&gt; 12 mars 2010 &#224; 21:58 (CET)
+
+Bonjour,
+Je viens de voir que tu comptes supprimer l'article moteur &#224; eau. Je pense que ce n'est pas correct vis-&#224;-vis des r&#232;gles de la wikipedia. M&#234;me si cet article contient un tas d'absurdit&#233;, le simple fait que beaucoup de gens y croient justifie leur pr&#233;sence sur la wikipedia. Il faudrait plut&#244;t garder l'article et  remplacer les contenus en double par des liens vers les pages contenant l'information (Pantone, moteur &#224; hydrog&#232;ne), en rappelant bien &#233;videmment qu'une majorit&#233; &#233;crasante des scientifiques trouve que les histoires de Pantone et autres ne sont que des absurdit&#233;. On a aussi le droit de dire &#231;a, vu que c'est le cas.
+Kevin
+:Effectivement, supprimer l'article ne serait pas correct. C'est pourquoi je n'ai jamais voulu le faire : pas d'inqui&#233;tudes. La r&#233;f&#233;rence que j'ai faite dans la page de modification ne concernait pas l'article en lui-m&#234;me, mais un &lt;b&gt;autre&lt;/b&gt; cit&#233; dans [[moteur &#224; eau]]. Or je viens de fusionner cet autre article en question avec celui des [[moteur &#224; hydrog&#232;ne|moteurs &#224; hydrog&#232;ne]]. J'ai donc supprim&#233; le lien et ai justifi&#233; par le fait que l'autre article &#233;tait en instance de suppression. 
+:En revanche, je risque bien de modifier l'article pour le rendre plus coh&#233;rent et clair. [[Utilisateur:Th&#233;odore DUVAL|Th&#233;odore DUVAL]] ([[Discussion utilisateur:Th&#233;odore DUVAL|d]]) 14 mars 2010 &#224; 00:18 (CET)
+
+== Moteur pantone ==
+
+Merci pour l'appr&#233;ciation, &#231;a me touche (ta signature manque mais je t'ai retrouv&#233; {{clin}}).
+
+@ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 2 avril 2011 &#224; 13:08 (CEST)
+: Je me permets de te faire part de mon d&#233;saccord concernant [http://fr.wikipedia.org/w/index.php?title=Moteur_Pantone&amp;curid=3243380&amp;diff=63974379&amp;oldid=63934647&amp;rcid=64851629 ton intervention].
+: En effet, le [[cycle de Carnot]] comprend deux adiabatiques et deux isothermes.
+: Par d&#233;finition, une compression [[isotherme]] ne pr&#233;sente aucune variation de temp&#233;rature du d&#233;but &#224; la fin, n'est-ce pas ?
+: Donc, si on r&#233;chauffe le gaz de &lt;math&gt;\delta T&lt;/math&gt; avant compression, il aura la m&#234;me temp&#233;rature &lt;math&gt;T_i + \delta T&lt;/math&gt; apr&#232;s compression, OK ?
+: On peut consid&#233;rer que, pour un gaz parfait, la chaleur massique est constante quelle que soit sa pression, pas vrai ?
+: Donc, en apportant une quantit&#233; d'&#233;nergie donn&#233;e &#224; un gaz, l'&#233;l&#233;vation de temp&#233;ratude &lt;math&gt;\Delta T&lt;/math&gt; r&#233;sultante est identique quelle que soit sa pression, on est d'accord ?
+: Donc si on part de la temp&#233;rature initiale &lt;math&gt;T_i&lt;/math&gt;, la temp&#233;rature finale sera &lt;math&gt;T_f = T_i + \Delta T&lt;/math&gt;, juste ?
+: Et si on part de &lt;math&gt;T_i + \delta T&lt;/math&gt;, la temp&#233;rature finale sera alors &lt;math&gt;T_f = T_i + \delta T + \Delta T&lt;/math&gt;, tu me suis ?
+: Donc ta premi&#232;re approximation n'a pas lieu d'&#234;tre. On est toujours d'accord ? {{clin}}
+: Note que je ne m'oppose pas &#224; une reformulation : mon style n'est peut-&#234;tre pas parfait, hein.
+: Sinon, je ne suis pas d'accord avec la vigule supprim&#233;e entre &#171;&#160;et&#160;&#187; et &#171;&#160;si&#160;&#187; : elle servait &#224; d&#233;limiter mon [[incise]]. OK, je pinaille. {{sourire}}
+: Quand &#224; ton intervention suivante (concernant l'achat d'un nouveau moteur), je ne dis pas que c'est faux. C'est un peu d&#233;plac&#233; (je trouve), surtout quand &#171;&#160;l'autre&#160;&#187; veut installer un Pantone.
+: En effet, remplacer le moteur d'une voiture de s&#233;rie n'est pas chose simple (tant administrativement que techniquement voire financi&#232;rement). Changer un carburateur, par contre ...
+: Bon, je pinaille encore. Allez, @ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 4 avril 2011 &#224; 03:18 (CEST)
+:: Il faut quand m&#234;me rester coh&#233;rent : si on commence &#224; parler de Carnot, on ne peut pas prendre en compte tous les probl&#232;mes li&#233;s au mod&#232;le imparfait d'un moteur qu'on peut effectivement r&#233;aliser. Qu'on parle d'un moteur Pantone ou Diesel, les d&#233;fauts que tu pr&#233;sentes sont communs aux deux. Donc on ne peut pas s'en servir pour descendre l'un ou l'autre. Le faire, c'est tricher, &#231;a ne vaut pas plus que le postulat de Pantone. Ce n'est, en tout cas, pas une d&#233;marche scientifique.
+:: Donc laisse s'il te plait la compression rester isotherme et la chaleur massique constante : avec ou sans Pantone, de toute fa&#231;on on n'arrivera jamais au r&#233;sultat id&#233;al de Carnot.
+:: Quant au &#171;&#160;thermostatage&#160;&#187; de la source chaude, permet-moi de te dire que tu es dans l'erreur.
+:: Effectivement, le refroidissement du moteur est li&#233; &#224; la tenue des mat&#233;riaux et il p&#233;nalise l'efficacit&#233; du moteur mais pas comme tu l'entends.
+:: D'abord, il r&#233;chauffe le m&#233;lange carbur&#233; au cours de l'admission et de la compression, ne serait-ce que pas la chaleur accumul&#233;e par quelques millim&#232;tres d'&#233;paisseur de la surface interne du cylindre et de la culasse. La temp&#233;rature de la source chaude va donc augmenter mais le travail absorb&#233; aussi. Au lieu d'avoir une adiabatique, la courbe va monter un peu plus haut.
+:: Puis vient l'explosion, compression isochore instantan&#233;e (dirons-nous), o&#249; l'&#233;change thermique est n&#233;gligeable. La temp&#233;rature th&#233;orique de la source chaude n'est donc pas plus affect&#233;e que l'&#233;l&#233;vation de temp&#233;rature pr&#233;c&#233;dente.
+:: Mais c'est au cours de la d&#233;tente que l'&#233;change thermique est sensible. Les gaz br&#251;l&#233;s sont tr&#232;s chauds et se refroidissent en &#233;changeant avec la surface int&#233;rieure, elle-m&#234;me refroidie par le circuit de refroidissement. Donc, au lieu d'avoir une belle d&#233;tente adiabatique, la courbe chute bien plus bas.
+:: Je pense que, m&#234;me sans devoir la dessiner sur papier, tu con&#231;ois que l'aire comprise entre ces deux courbes est moindre qu'elle aurait d&#251; &#234;tre sans ces &#233;changes thermiques (au lieu d'avoir plus ou moins un parall&#233;logramme, on se retrouve avec un trap&#232;ze qu'on peut inscrire dans le parall&#233;logramme si on n&#233;glige le r&#233;chauffement).
+:: Tu auras not&#233;, j'esp&#232;re, que cette perte d'&#233;nergie m&#233;canique (et donc d'efficacit&#233;) s'est r&#233;alis&#233;e sans baisse de la temp&#233;rature de la source chaude, bien au contraire.
+:: En compl&#233;ment d'info : la temp&#233;rature du circuit de refroidissement est r&#233;gul&#233;e (thermostat&#233;e, OK) pour que le moteur fonctionne optimalement : trop froid =&gt; trop de pertes &#224; la d&#233;tente ; trop chaud =&gt; trop de pertes &#224; la compression avec risque accru d'auto-inflammation.
+:: Passons &#224; mon incise. En placer une entre deux virgules respecte sans aucun doute les r&#232;gles de la syntaxe (as-tu consult&#233; l'article &#224; ce sujet ?).
+:: J'aime bien les incises. Elles permettent, comme je l'avais fait et le refais ici, d'apporter une pr&#233;cision &#224; la th&#232;se soutenue (c'est ptet pas bien fran&#231;ais mais j'esp&#232;re que tu me comprends).
+:: Certes elles ralentissent la lecture mais leur apport dans la phrase, si elles sont bien utilis&#233;es, n'est pas anodin, qu'elles soient en fin de phrase ou non (yes ! Deux d'un coup ! {{sourire}}).
+:: Allez, passons &#224; l'achat du moteur. Dis, tu ne serais pas ing&#233;nieur, toi ?
+:: Nan, chte demande paske tu dis ce que l'aut'con '''aurait d&#251; faire''' alors que moi, technicien que je suis, je lui explique ce qu'il '''peut encore faire'''. {{rire}}
+:: Tinki&#232;t, yapad malis. &#199;a fait partie des blagues qu'on s'envoie entre ing&#233;nieurs et techniciens. Sinon tu as tout &#224; fait raison sur la taille du moteur et ses cons&#233;quences.
+:: Bon. Pour conclure, je pense que je vais r&#233;verter ta premi&#232;re modif (Carnot + incise). Pour la deuxi&#232;me, je te donne raison. &#199;a te va ?
+:: Allez, @ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 5 avril 2011 &#224; 03:28 (CEST)
+::: Je reprends mon argument de coh&#233;rence : si on veut comparer deux choses, il faut le faire sur les m&#234;mes bases.
+::: La th&#233;orie dit que (etc., merci Carnot) ; la pratique doit le confirmer (et l&#224;, yapu Carnot : on va au banc d'essai). Si on fait le m&#233;lange des genres, on risque de sortir des &#226;neries.
+::: &#192; propos d'&#226;neries, je suis d'accord avec toi : &#171;&#160;les gens&#160;&#187; font n'importe quoi puis s'en plaignent. Comme disait [[Coluche]] : {{citation|L'intelligence est la chose la mieux partag&#233;e au monde : quoiqu'il en soit pourvu, chacun trouve toujours qu'il en a assez.}} {{rire}}
+::: Allez, @ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 16 avril 2011 &#224; 19:10 (CEST)
+:::: C'est marrant : nous sommes d'accord sur le fond mais la forme nous &#233;loigne.
+:::: Enti&#232;rement d'accord que Carnot d&#233;crit un syst&#232;me id&#233;al, th&#233;orique et maximal.
+:::: Enti&#232;rement d'accord qu'un moteur thermique quel qu'il soit ne reproduit pas le cycle de Carnot (quand une compression isochore sera isotherme, les poules auront des dents {{rire}}) et est, de ce fait, pire que le &#171;&#160;moteur&#160;&#187; de Carnot.
+:::: Enti&#232;rement d'accord que les contraintes de la construction m&#233;canique et celles de la m&#233;canique des fluides &#233;loignent encore le mod&#232;le r&#233;alis&#233; de celui planifi&#233;.
+:::: Enti&#232;rement d'accord, enfin, que Pantone ne peut am&#233;liorer ni l'un ni l'autre. Mais pour le d&#233;montrer, le '''prouver''', il faut se cantonner &#224; Carnot et purement &#224; Carnot.
+:::: Si la pratique d&#233;montre le contraire, c'est donc que les conditions exp&#233;rimentales ne sont pas celles pr&#233;vues en th&#233;orie.
+:::: Par contre, pour ton raisonnement concernant la source chaude, je persiste : tu as tort.
+:::: La source chaude n'est pas, comme tu l'imagines, thermostat&#233;e par le circuit de refroidissement. Rien que comparer leurs temp&#233;ratures respectives devrait te convaincre.
+:::: Certes (je te l'ai d&#233;j&#224; expliqu&#233; plus haut), le refroidissement forc&#233; du moteur est cause de pertes &#233;nerg&#233;tiques. Mais '''il ne joue pas''' (ou tr&#232;s peu) '''sur la temp&#233;rature de la source chaude'''.
+:::: Si tu introduis un m&#233;lange froid dans un moteur, la temp&#233;rature des gaz br&#251;l&#233;s sera forc&#233;ment moindre que si tu y introduis le m&#234;me m&#233;lange mais chaud (si tu rajoutes une masse donn&#233;e &#224; une masse initiale, la masse finale d&#233;pend bien de la masse initiale, non ? Bin c'est pareil avec la temp&#233;rature).
+:::: OK, on ne retrouvera pas int&#233;gralement le &lt;math&gt;\Delta T&lt;/math&gt; initial en fin de compression &#224; cause des &#233;changes de chaleur parasites mais on ne peut pas l'imputer &#224; Carnot puisque ce salopard a un syst&#232;me id&#233;al.
+:::: Puisqu'on en revient &#224; Carnot, je vais tenter de conclure.
+:::: Si, par Carnot, on d&#233;montre que l'efficacit&#233; d'un moteur doit baisser en changeant les conditions initiales, alors n'importe quel moteur fonctionnant suivant ces conditions initiales verra son efficacit&#233; d&#233;cro&#238;tre, ind&#233;pendamment des rendements m&#233;caniques qu'on aura pu obtenir. Et ind&#233;pendamment des moyens par lesquels on aura fait varier ces conditions initales.
+:::: Et ce que postule Pantone ne va pas dans le sens de l'am&#233;lioration de l'efficacit&#233; selon Carnot, bien au contraire.
+:::: Pi comme tu le stipules, appauvrir le m&#233;lange introduit ne peut pas augmenter la puissance restitu&#233;e.
+:::: Mais &#231;a, c'est une autre histoire. @ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 16 avril 2011 &#224; 22:02 (CEST)
+::::: Je suis d'accord avec toi : un syst&#232;me d&#233;gradant l'efficacit&#233; Carnot peut effectivement am&#233;liorer le rendement du moteur (par rapport au nouveau cycle de Carnot). Mais &#231;a reste &#224; d&#233;montrer, &#224; justifier, ce que, nous sommes bien d'accord, les partisans de Pantone ne font pas.
+::::: Il faut aussi faire la part des choses : un moteur thermique, notamment celui d'une voiture, ne fonctionne que rarement (et souvent bri&#232;vement) &#224; puissance maxi.
+::::: C'est en partant d'une puissance demand&#233;e &#224; un moment donn&#233; (disons 50 % du maxi) qu'il faut raisonner.
+::::: Disons que Pantone fait perdre 20 % du maxi. Ce n'est pas g&#234;nant en soi puisqu'on en n&#233;cessite moins. Par contre on va demander plus de puissance : la demande va passer de 50 % &#224; 62,5 % (0.625 x 0.8 = 0.5) pour rattraper le besoin.
+::::: Cette charge moteur suppl&#233;mentaire n'est sans doute pas &#233;trang&#232;re au &#171;&#160;sentiment&#160;&#187; d'am&#233;lioration qu'ont les partisans de Pantone : plus un moteur est charg&#233;, mieux il fonctionne (&#224; un r&#233;gime donn&#233;).
+::::: C'est pour &#231;a que dire qu'on fait baisser la temp&#233;rature de la source chaude est erron&#233; puisqu'on compense cette baisse pour subvenir aux besoins effectifs de la conduite.
+::::: Certes il y a des moyens plus simples que perdre-compenser. Ne pas perdre, d&#233;j&#224;, est un bon d&#233;but. {{sourire}}
+::::: Quant &#224; trouver une autre r&#233;f&#233;rence que Carnot ... &#231;a fait des si&#232;cles que l'humanit&#233; s'y perd. {{rire}}
+::::: Allez, @ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 17 avril 2011 &#224; 19:04 (CEST)
+
+== Refroidissement moteur et thermostats ==
+
+Je suis all&#233; voir [http://jacky.wallet.free.fr/Jacky/Automobile/eau.htm la page de jacky.wallet] : elle n'est pas trop mal foutue. Ses astuces n&#233;anmoins sont critiquables car assez incompl&#232;tes (il est bon de chercher d'o&#249; vient la perte d'eau avant de chercher &#224; la remplacer) voire dangereuses (avant de tenter d'ouvrir le radiateur, il faut attendre que le moteur ait refroidi - et non l'inverse comme il est sugg&#233;r&#233;).
+
+Mais par contre, rien n'indique (comme tu l'exprimes si souvent) une relation entre la temp&#233;rature du circuit de refroidissement et celle de la source chaude.
+
+Mais d'abord, il faut que je pr&#233;cise le fonctionnement des thermostats. Aucune page sur la wiki ne me convient.
+
+Un '''thermostat''' est un appareil de r&#233;gulation de la temp&#233;rature d'un milieu donn&#233;. Les thermostats &#233;lectroniques mis &#224; part, ils r&#233;agissent &#224; une variation de la temp&#233;rature gr&#226;ce &#224; la dilatation d'un (ou deux) corps solide(s), liquide ou gazeux qui, par le mouvement provoqu&#233;, permet d'interagir sur un fluide (&#233;lectricit&#233;, eau, air) ayant une incidence sur cette temp&#233;rature.
+
+Ainsi, un [[bilame]] peut actionner un [[interrupteur]] et interrompre le flux &#233;lectrique dans un r&#233;sistor pour mettre fin au r&#233;chauffement d'un milieu et le laisser alors se refroidir. C'est le syst&#232;me qu'on trouve dans les fours et convecteurs &#233;lectriques. C'est aussi un tel syst&#232;me qui active le ventilateur du radiateur d'un v&#233;hicule lorsque l'eau arrivant au bas du radiateur n'est plus assez froide.
+
+Mais on peut &#233;galement utiliser la dilatation d'un corps de fa&#231;on moins brusque, plus continue voire proportionnelle. Ainsi, une barre d'acier prenant la temp&#233;rature d'un foyer peut-elle commander l'ouverture-fermeture progressive d'un [[Registre (four)|registre]] sur l'air primaire.
+
+Certains robinets thermostatiques utilisent la dilatation d'une cire (dans un r&#233;servoir - le '''bulbe''' - au contact de l'air) pour commander l'ouverture-fermeture progressive de la valve (sur le circuit d'eau) qu'ils commandent. D'autres exploitent le changement d'&#233;tat d'un fluide (et donc sa pression) &#224; une temp&#233;rature donn&#233;e pour le m&#234;me effet.
+
+On retrouve cette technologie dans les robinets thermostatiques de radiateurs de nos maisons mais &#233;galement pour r&#233;guler la temp&#233;rature de l'eau du circuit de refroidissement de nos v&#233;hicules.
+
+Dans ce dernier cas, leur fonctionnement est le suivant :
+* en-dessous d'une certaine temp&#233;rature (du circuit d'eau au niveau du bulbe du thermostat), la valve n'offre qu'un passage tr&#232;s r&#233;duit &#224; l'eau. Le d&#233;bit est donc faible (mais non nul : la pompe en souffrirait et la temp&#233;rature prise ne serait pas repr&#233;sentative) ;
+* &#224; partir d'une temp&#233;rature basse donn&#233;e (d&#233;finie par le bulbe du thermostat choisi lui-m&#234;me par le constructeur du moteur), la valve commence &#224; s'ouvrir, augmentant le d&#233;bit d'eau et intensifiant l'&#233;change thermique tant au niveau du moteur qu'&#224; celui du radiateur ;
+* arriv&#233;e &#224; une temp&#233;rature haute donn&#233;e (toujours d&#233;finie par le bulbe du thermostat), la valve est grand ouverte, amenant le circuit &#224; son d&#233;bit maximal ;
+* au-del&#224; de cette temp&#233;rature, le d&#233;bit (volumique) reste constant, seule l'&#233;l&#233;vation de la temp&#233;rature amplifiant l'&#233;change thermique au niveau du radiateur.
+Le fonctionnement &#224; temp&#233;rature d&#233;croissante est &#233;videmment analogue : il suffit de remplacer le sens de &#171;&#160;croissant&#160;&#187; par &#171;&#160;d&#233;croissant&#160;&#187; et celui d'&#171;&#160;ouverture&#160;&#187; par &#171;&#160;fermeture&#160;&#187;.
+
+Le constructeur choisit normalement le thermostat (bulbe et section de passage) correspondant au fonctionnement optimal de son moteur : ni trop froid (d&#233;but d'ouverture de la valve) ni trop chaud (valve compl&#232;tement ouverte). Avec une pompe et un radiateur bien dimensionn&#233;s, l'&#233;quilibre devrait s'&#233;tablir entre ces deux bornes.
+
+Si le radiateur devait ne pas suivre &#224; un moment donn&#233; (forte sollicitation moteur soutenue, temp&#233;rature d'air &#233;lev&#233;e, ...), c'est l&#224; qu'interviendrait le bilame du ventilateur pour accroitre l'&#233;change thermique du radiateur en y augmentant le d&#233;bit d'air, assurant &#224; l'entr&#233;e d'eau niveau moteur une temp&#233;rature suffisamment basse pour que son r&#233;chauffement par le moteur reste dans la plage pr&#233;vue.
+
+Dire qu'une telle r&#233;gulation est superflue en pays chaud revient &#224; oublier les phases transitoires du fonctionnement d'un moteur, notamment sa phase de d&#233;marrage (&#224; froid) et son temps de mise en temp&#233;rature cons&#233;cutif ainsi que les probl&#232;mes d'ad&#233;quation du circuit de refroidissement &#224; la puissance moteur effectivement demand&#233;e (roule-t-on continuellement pied au plancher ?).
+
+Bon, il me semble avoir &#233;t&#233; exhaustif. Si tu as des questions, n'h&#233;site pas. @ + ! {{sourire}} [[Utilisateur:Papatt|Papatt]] ([[Discussion utilisateur:Papatt|d]]) 17 avril 2011 &#224; 18:34 (CEST)</text>
+      <sha1>pi255pdsk215y73a9qzxskf9y87h2sd</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

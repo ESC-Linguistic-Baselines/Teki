@@ -1,0 +1,104 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:ZetudBot</title>
+    <ns>2</ns>
+    <id>2785258</id>
+    <revision>
+      <id>87574336</id>
+      <parentid>87570548</parentid>
+      <timestamp>2013-01-12T20:19:34Z</timestamp>
+      <contributor>
+        <username>Zetud</username>
+        <id>25495</id>
+      </contributor>
+      <minor/>
+      <comment>R&#233;vocation des modifications de [[Special:Contributions/Bub's wikibot|Bub's wikibot]] (retour &#224; la derni&#232;re version de [[User:ZetudBot|ZetudBot]])</comment>
+      <text xml:space="preserve">Ce bot effectue principalement des corrections orthographiques et typographiques avec [[WP:AWB|AutoWikiBrowser]] (AWB), par exemple &#224; partir de [[Wikip&#233;dia:Liste de fautes d'orthographe courantes]], ou &#224; partir de toute autre id&#233;e de faute &#171;&#160;classique&#160;&#187; qui me vient &#224; l'esprit.
+
+{| align="center" style="text-align:center; border:1px solid #0000FF; background-color:#DDFFDD;"
+|-  padding:1em;padding-top:0.5em;" 
+|- style=text-align:center
+| Faire un bot n'est pas si compliqu&#233; que &#231;a et ne n&#233;cessite aucune connaissance en programmation. Par contre, la prudence et la rigueur sont imp&#233;ratives. Ne pas h&#233;siter &#224; m'&#233;crire sur [[Discussion Utilisateur:Zetud|ma page de discussion]] ou [http://fr.wikipedia.org/wiki/Special:Courriel/Zetud mon Wikimail] pour en savoir plus, toutes les bonnes volont&#233;s sont bienvenues.
+|}
+{{Bot|Zetud|autoris&#233;=3 mai 2009}}
+
+[[Image:Errare humanum est.jpg|300px|right|thumb|[[Discussion utilisateur:Zetud|Il y a un dresseur derri&#232;re le bot...]]]]
+
+==Principes g&#233;n&#233;raux==
+''ZetudBot'' ne corrige que ce qui est &#171;&#160;visible&#160;&#187;. Il ne remplace pas, par exemple, &#171;&#160;&lt;nowiki&gt;1{{er}}&lt;/nowiki&gt;&#160;&#187; par &#171;&#160;&lt;nowiki&gt;{{1er}}&lt;/nowiki&gt;&#160;&#187; (car les deux donnent le m&#234;me rendu 1{{er}}).
+* Pour la recherche des pages &#224; traiter, ''ZetudBot'' utilise un [http://download.wikimedia.org/backup-index.html dump] de la base de donn&#233;es, ce qui utilise moins de ressources sur les serveurs, et permet d'utiliser des [[expressions rationnelles]] (''Regex'')
+*Pour les corrections sur les pages, ZetudBot travaille, suivant les cas :
+** soit en mode semi-automatique (c'est-&#224;-dire avec validation unitaire de la modif). Bien s&#251;r, une erreur humaine reste possible.
+** soit en mode automatique. C'est le mode lanc&#233; quand la modif est &#171;&#160;s&#251;re&#160;&#187;, dans les cas triviaux, ou par exemple si une passe sur une centaine d'articles en mode semi-automatique n'a pas rencontr&#233; de &#171;&#160;faux positifs&#160;&#187;. Mais l&#224; encore, une erreur est possible.
+Les cas sont d&#233;taill&#233;s ci-dessous.
+
+==''Zetud'' ou ''ZetudBot'' ?==
+===Cas d'utilisation du compte ''Zetud'' : les multi-corrections===
+J'utilise AWB sous compte ''Zetud'' dans les cas suivants quand j'utilise les fonctions plus pouss&#233;es de l'outil :
+* &#201;ditions AWB &#171;&#160;multi-corrections&#160;&#187;, qui peuvent &#234;tre :
+**R&#232;gles Regex standard AWB [[Wikip&#233;dia:AutoWikiBrowser/Typos#Typographie/Convention|programm&#233;es ici]], 
+**Corrections standard AWB faites conform&#233;ment aux [[Projet:Correction syntaxique/D&#233;tections|r&#232;gles du Projet:Correction syntaxique]]
+:En effet, dans ces cas, AWB propose des corrections qui doivent faire l'objet d'une v&#233;rification unitaire, et de sur-correction ou annulation manuelle si besoin. Connect&#233; en ''Zetud'', je peux m&#234;me apporter des modifications plus importantes &#224; l'article trait&#233; (en les documentant bien s&#251;r).
+
+===Cas d'utilisation du compte ''ZetudBot'' : les mono-corrections=== 
+* &#201;ditions AWB &#171;&#160;mono-correction&#160;&#187;, qui peuvent &#234;tre :
+** Lanc&#233;es en automatique, si les v&#233;rifications pr&#233;alables montrent que la correction est s&#251;re (pas de cas attendus de &#171;&#160;faux positifs&#160;&#187;, ou exclus pr&#233;alablement et manuellement s'ils sont tr&#232;s peu et identifi&#233;s) 
+** Lanc&#233;es en semi-automatique (c'est-&#224;-dire avec v&#233;rification unitaire de la correction propos&#233;e par AWB, avant sa validation ou son rejet). 
+*  &#201;ditions dans des cas non-AWB exceptionnels et tr&#232;s rares, comme l'&#233;dition de cette page, ou de pages de tests par exemple
+''ZetudBot'' ne traite pas les pages de discussion, ni les espaces ''Utilisateur'', ''Wikipedia'' et ''Projet'' (car ce sont le plus souvent des espaces de discussion).
+
+==Exemples de corrections automatiques effectu&#233;es==
+Hors cas tr&#232;s exceptionnels (texte en langue &#233;trang&#232;re, en vieux fran&#231;ais, faute volontaire), ''ZetudBot'' peut corriger ''en mode automatique'' :
+===Mots simples===
+* ''malgr&#233;s  =&gt;  malgr&#233;''
+* ''parmis  =&gt;  parmi''
+* ''fr&#233;quament  =&gt;  fr&#233;quemment''
+* ''cependent  =&gt;  cependant''
+* ''eux-m&#234;me  =&gt;  eux-m&#234;mes ''
+* ''apr&#233;s  =&gt;  apr&#232;s''
+* ...
+
+===Expressions===
+* ''ont &#233;t&#233;s  =&gt;  ont &#233;t&#233;''
+* ''fait parti de  =&gt;  fait partie de ''
+* ''il pris  =&gt;  il prit''
+* ...
+
+
+
+==Exemples de corrections impossibles en mode automatique (et donc faites en semi-automatique)==
+Quand de trop nombreux &#171;&#160;faux positifs&#160;&#187; existent et donc qu'une v&#233;rification unitaire est requise, les cas sont trait&#233;s dans AWB :
+* soit avec ''Zetud'', en corrigeant autre chose en m&#234;me temps
+* soit avec ''ZetudBot'' en semi-automatique (validation unitaire) et mono-correction, comme expliqu&#233; plus haut)
+
+===Mots simples===
+* ''vous-m&#234;me  =&gt;  vous-m&#234;mes'' &amp;nbsp;&amp;nbsp;&amp;nbsp; car ''vous'' peut &#234;tre une formule de politesse, au singulier   
+* ''connection  =&gt;  connexion'' &amp;nbsp;&amp;nbsp;&amp;nbsp; car c'est ''connexion'' en fran&#231;ais, mais ''connection'' en anglais 
+* ...
+
+===Expressions===
+*''tout les  =&gt;  tous les'', &amp;nbsp;&amp;nbsp;&amp;nbsp; car les cas de faux positifs sont nombreux :
+:: ''Malgr&#233; tout les Fran&#231;ais d&#233;cid&#232;rent de ... ''
+:: ''Apr&#232;s/avant tout les Fran&#231;ais d&#233;cid&#232;rent de ...''   
+:: ''Tout les s&#233;pare''
+:: ''Les tout jeunes enfants ...''
+:: ''Pas du tout les enfants''
+* ''il inclue  =&gt;  il inclut'', &amp;nbsp;&amp;nbsp;&amp;nbsp; car il y a le cas du subjonctif
+:: ''Il faut qu'il inclue ...'' 
+* ''Quand &#224;/aux  =&gt;  Quant &#224;/aux'', &amp;nbsp;&amp;nbsp;&amp;nbsp; car ''Quand'' peut marquer le moment  
+:: ''Quand &#224; 8 heures il d&#233;cida de ...''
+
+==Pages de test ==
+* Page principale : [[Utilisateur:Zetud/AWB/Test/ZetudBot]]
+* Sous-pages : [[Special:Index/User:Zetud/AWB/Test|Utilisateur:Zetud/AWB/Test...]]
+
+== ''Errare humanum est'' ==
+{| align="center" style="text-align:center; border:1px solid #0000FF; background-color:#DDFFDD;"
+|-  padding:1em;padding-top:0.5em;" 
+|- style=text-align:center
+| Ne surtout pas h&#233;siter &#224; [[Discussion utilisateur:Zetud|me signaler]] toute erreur qu'aurait pu faire le bot, pas plus infaillible que son dresseur... &lt;br /&gt;Comme j'archive tous les scripts et les repasse r&#233;guli&#232;rement, je peux si n&#233;cessaire les optimiser, ou exclure en dur une liste de faux-positifs (si vous annulez une correction du bot sans me pr&#233;venir, le passage suivant du script va immanquablement remettre l'erreur...).
+|}</text>
+      <sha1>3dmkefybeter11gzyawuhpka2cnu9vd</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

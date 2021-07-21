@@ -1,0 +1,20 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:Touriste</title>
+    <ns>2</ns>
+    <id>2397533</id>
+    <revision>
+      <id>99969814</id>
+      <parentid>98468588</parentid>
+      <timestamp>2014-01-06T12:03:27Z</timestamp>
+      <contributor>
+        <username>Touriste</username>
+        <id>6370</id>
+      </contributor>
+      <minor/>
+      <comment>pose du mod&#232;le "long wikibreak" - je ne m'attends pas &#224; &#234;tre tr&#232;s actif &#224; court terme, m&#234;me si je continue &#224; consulter ma liste de suivi</comment>
+      <text xml:space="preserve">{{long wikibreak}}</text>
+      <sha1>0ojphmj0ot143t20eev43zuo0vtou4v</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

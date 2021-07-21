@@ -1,0 +1,461 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:Hercule</title>
+    <ns>2</ns>
+    <id>1800433</id>
+    <revision>
+      <id>100291462</id>
+      <parentid>99728406</parentid>
+      <timestamp>2014-01-15T21:00:35Z</timestamp>
+      <contributor>
+        <username>Hercule</username>
+        <id>271994</id>
+      </contributor>
+      <text xml:space="preserve">{{Titre|Hercule}}
+{{/onglets}}
+__NOTOC__
+
+= Statistiques de la Wikip&#233;dia francophone =
+{{/Stats}}
+
+
+= Hors Wikip&#233;dia =
+* [http://combattre-ou-mourir.com Combattre ou mourir] : jeu de combat entre trois arm&#233;es
+* [http://herculebzh.minitroopers.fr/ Mini Troopers] : jeu minimaliste de combats entre arm&#233;es
+* [http://hercule365.labrute.fr/cellule La Brute] : jeu minimaliste de combats d'homme &#224; homme
+
+= Mise en bo&#238;tes =
+{| border="0"
+| align="left" valign="top" |
+{{BUd&#233;but|texte=Moi}}
+{{Utilisateur Papa}}
+{{BUtilisateur
+  |couleur=pink
+  |img=Un b&#233;b&#233;.jpg
+  |img-titre=Fille
+  |titre=Ma fille est n&#233;e le {{date|2|d&#233;cembre|2007}}
+  |texte=Elle a '''{{formatnum:{{#expr: {{CURRENTJULIANDAY}}-{{JULIANDAY|2007|12|2}} round 0}}}}''' jours.|
+  |cat&#233;gorie=
+}}
+{{BUtilisateur
+  |couleur=#ADDEFF
+  |img=Un b&#233;b&#233;.jpg
+  |img-titre=Fille
+  |titre=Mon fils est n&#233; le {{date|25|juillet|2010}}
+  |texte=Il a '''{{formatnum:{{#expr: {{CURRENTJULIANDAY}}-{{JULIANDAY|2010|07|25}} round 0}}}}''' jours.|
+  |cat&#233;gorie=
+}}
+{{BUtilisateur
+  |couleur=#FFDEAD
+  |img=Gwenn ha du.svg
+  |img-titre=Age
+  |titre=Je suis n&#233; le 23 mars 1977
+  |texte=J'ai '''{{formatnum:{{#expr: {{CURRENTJULIANDAY}}-{{JULIANDAY|1977|3|23}} round 0}}}}''' jours.|
+  |cat&#233;gorie=Utilisateur n&#233; en 1977
+}}
+{{Utilisateur Pompier}}
+{{BUfin}}
+{{BUd&#233;but|texte=Moi et wikip&#233;dia}}
+{{Utilisateur SUL|fr}}
+{{Utilisateur Wikip&#233;dia:Glyptodon}} 
+{{Utilisateur Wikip&#233;dia:Ours des cavernes}}
+{{Utilisateur dresseur|HerculeBot}}
+{{BUtilisateur
+  |couleur=#FFDEAD
+  |img=Wiki.png
+  |img-titre=Wikip&#233;dia
+  |titre=
+  |texte=Cet utilisateur contribue&lt;br /&gt;&#224; [[Wikip&#233;dia:Accueil principal|Wikip&#233;dia]] depuis '''{{#expr: {{CURRENTJULIANDAY}}-{{JULIANDAY|2007|7|23}} round 0}}''' jours.|
+  |cat&#233;gorie=Utilisateur Wikifr
+}}
+{{Utilisateur WikiGnome}}
+{{Utilisateur WPCleaner}}
+{{BUfin}}
+|}
+
+{| border="0"
+| align="left" valign="top" |
+{{BUd&#233;but|texte=[[Wikip&#233;dia:Patrouille RC|Lutte contre le vandalisme]]}}
+{{Utilisateur administrateur|numero=3}}
+{{Utilisateur administrateur|en wu|wuu}}
+{{Utilisateur bureaucrate|en wu|wuu}}
+{{BUtilisateur|
+  |couleur=#FF7F50
+  |texte-couleur =Black
+  |img=Stop x nuvola.svg|
+  |titre=[[Wikip&#233;dia:vandalisme|Vandalisme]]|
+  |texte=Cette page a &#233;t&#233; vandalis&#233;e '''28''' fois.|
+  |cat&#233;gorie=|
+  |nocat={{{nocat|}}}|
+}}
+{{Utilisateur Patrouilleur}}
+{{Utilisateur vandalisme}}
+{{Utilisateur LiveRC}}
+{{BUfin}}
+| align="center" valign="top" |
+{{BUd&#233;but|texte=Projets}}
+{{Utilisateur Projet/Liens rouges}}
+{{Utilisateur Projet/Tintin}}
+{{Utilisateur Projet/Homonymie}}
+{{Utilisateur Projet/Bot}}
+{{Utilisateur WikiFourmi}}
+{{Utilisateur Projet/Correction syntaxique}}
+{{BUfin}}
+
+|}
+
+{{bo&#238;te d&#233;roulante d&#233;but|titre=Qui suis-je?}}
+
+{{Utilisateur Bretagne}}
+{{Utilisateur|
+  couleur=#C0C0FF|
+  img=Flag of Europe.svg|
+  titre=Union europ&#233;enne|
+  texte=J&#8217;habite dans l&#8217;[[Union europ&#233;enne]].|
+  lien=habite Union europ&#233;enne|
+  nocat={{{nocat|}}}|
+}}
+{{Utilisateur France}}
+{{Utilisateur habite Bretagne}}
+{{Utilisateur habite Loire-Atlantique}}
+{{Utilisateur rattachement Loire-Atlantique}}
+{{Utilisateur Informaticien}}
+{{Utilisateur Firefox}}
+{{Utilisateur Scrabble}}
+{{bo&#238;te d&#233;roulante fin}}
+
+{{bo&#238;te d&#233;roulante d&#233;but|titre=Le pass&#233; qui a forg&#233; mon pr&#233;sent}}
+&lt;!--Scout--&gt;
+{{BUtilisateur
+  |couleur = #FFF8DC
+  |img = Baussant.png
+  |titre = Scoutisme
+  |texte = J'ai &#233;t&#233; '''[[:Portail:Scoutisme|scout]]''' [[Association des guides et scouts d'Europe|d'Europe]]
+  |cat&#233;gorie = Utilisateur scout
+  |nocat = {{{nocat|}}}
+}}
+&lt;!-- faluche--&gt;
+{{BUtilisateur|
+ img=Faluche.gif|
+ img-titre=Faluche|
+ img-couleur=white|
+ couleur=white|
+ texte-couleur=black|
+ titre=[[Faluche (coiffe)|Faluche]]|
+ texte=J'arborais et ch&#233;rissais fi&#232;rement mon "beau" chapeau &#224; pin's|
+}}
+{{bo&#238;te d&#233;roulante fin}}
+
+{{bo&#238;te d&#233;roulante d&#233;but|titre=&lt;big&gt;Villes d'&#233;tude:&lt;/big&gt;}}
+* [[Rennes]] ({{FRA}})
+* [[Toulouse]] ({{FRA}})
+* [[Liverpool]] ({{GB}})
+* [[Madrid]] ({{ESP}})
+* [[Br&#233;da]] ({{NL}}) 
+{{Bo&#238;te d&#233;roulante fin}}
+{{bo&#238;te d&#233;roulante d&#233;but|titre=&lt;big&gt;Villes de travail:&lt;/big&gt;}}
+* [[Bruxelles]] ({{BEL}})
+* [[Carquefou]] ({{FRA}})
+{{bo&#238;te d&#233;roulante fin}}
+{{bo&#238;te d&#233;roulante d&#233;but|titre=&lt;big&gt;Pays visit&#233;s:&lt;/big&gt;}}
+{{FRA}}&amp;nbsp;&amp;nbsp;{{GB}}&amp;nbsp;&amp;nbsp;{{IRL}}&amp;nbsp;&amp;nbsp;{{SUI}}&amp;nbsp;&amp;nbsp;{{ESP}}&amp;nbsp;&amp;nbsp;{{ITA}}&amp;nbsp;&amp;nbsp;{{VAT}}&amp;nbsp;&amp;nbsp;{{TUN}}&amp;nbsp;&amp;nbsp;{{AND}}&amp;nbsp;&amp;nbsp;{{LUX}}&amp;nbsp;&amp;nbsp;{{NL}}&amp;nbsp;&amp;nbsp;{{BE}}&amp;nbsp;&amp;nbsp;{{DOM}}&amp;nbsp;&amp;nbsp;{{GER}}  
+{{bo&#238;te d&#233;roulante fin}}
+
+= Reconnaissance =
+== Hercule et son bot ==
+{{R&#233;compense|Barnstar bot.PNG|Merci beaucoup pour le travail sur la page du {{m|Random Transports}} &lt;br /&gt;[[Utilisateur:FrankyLeRoutier|FrankyLeRoutier]] % [[Discussion Utilisateur:FrankyLeRoutier|appelez-moi sur mon CB]] 24 juin 2009 &#224; 19:11 (CEST)}}
+
+== M&#233;daille de la photographie ==
+[[Fichier:Wikipedia laurier photo.png|80px|left]]
+Bonjour,&lt;br /&gt;
+Je d&#233;cerne la m&#233;daille de la photographie &#224; Hercule pour son travail concernant les extractions, qui permettent de mieux cibler le travail &#224; faire dans le cadre du projet photographie.&lt;br /&gt;
+Cordialement, [[Utilisateur:Jatayou|Jatayou]] ([[Discussion utilisateur:Jatayou|d]]) 23 septembre 2008 &#224; 10:29 (CEST)
+
+== Autre m&#233;daille ==
+{{R&#233;compense|Wikipedia laurier wp.png|Pour ton travail, tr&#232;s utile, tr&#232;s efficace, dans le cadre du [[Projet:Serbie et Peuple serbe]] (infobox, mod&#232;les). Merci pour le temps pass&#233;. Cordialement, {{u|Aristote2}}}}
+ 
+{{R&#233;compense|Admin mop.svg|taille=50px|Merci pour ton travail de maintenance ! Tous ces petits changements que tu effectues am&#233;liorent la qualit&#233; de Wikip&#233;dia. 
+  
+Cordialement, '''[[Utilisateur:Like tears in rain|Like tears in rain]]''' &lt;sup&gt;[[Discussion Utilisateur:Like tears in rain|{-_-}]]&lt;/sup&gt; 4 octobre 2011 &#224; 15:24 (CEST)}} 
+
+----
+
+{{Page personnelle}}
+
+[[ab:&#1040;&#1083;&#1072;&#1093;&#1241;&#1099;&#1083;&#1072;:Hercule]]
+[[ace:Ureu&#235;ng Nguy:Hercule]]
+[[af:Gebruiker:Hercule]]
+[[ak:User:Hercule]]
+[[als:Benutzer:Hercule]]
+[[am:&#4768;&#4707;&#4621;:Hercule]]
+[[an:Usuario:Hercule]]
+[[ang:User:Hercule]]
+[[ar:&#1605;&#1587;&#1578;&#1582;&#1583;&#1605;:Hercule]]
+[[arc:&#1825;&#1830;&#1824;&#1818;&#1826;&#1808;:Hercule]]
+[[arz:&#1605;&#1587;&#1578;&#1582;&#1583;&#1605;:Hercule]]
+[[as:&#2488;&#2470;&#2488;&#2509;&#2479;:Hercule]]
+[[ast:Usuariu:Hercule]]
+[[av:&#1059;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082;:Hercule]]
+[[ay:Usuario:Hercule]]
+[[az:&#304;stifad&#601;&#231;i:Hercule]]
+[[ba:&#1184;&#1072;&#1090;&#1085;&#1072;&#1096;&#1099;&#1091;&#1089;&#1099;:Hercule]]
+[[bar:Benutzer:Hercule]]
+[[bat-smg:Nauduotuos:Hercule]]
+[[bcl:Paragamit:Hercule]]
+[[be:&#1059;&#1076;&#1079;&#1077;&#1083;&#1100;&#1085;&#1110;&#1082;:Hercule]]
+[[be-x-old:&#1059;&#1076;&#1079;&#1077;&#1083;&#1100;&#1085;&#1110;&#1082;:Hercule]]
+[[bg:&#1055;&#1086;&#1090;&#1088;&#1077;&#1073;&#1080;&#1090;&#1077;&#1083;:Hercule]]
+[[bh:&#2346;&#2381;&#2352;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;:Hercule]]
+[[bi:User:Hercule]]
+[[bjn:Pamakai:Hercule]]
+[[bm:Utilisateur:Hercule]]
+[[bn:&#2476;&#2509;&#2479;&#2476;&#2489;&#2494;&#2480;&#2453;&#2494;&#2480;&#2496;:Hercule]]
+[[bo:User:Hercule]]
+[[bpy:&#2438;&#2468;&#2494;&#2453;&#2497;&#2480;&#2494;:Hercule]]
+[[br:Implijer:Hercule]]
+[[bs:Korisnik:Hercule]]
+[[bug:Pengguna:Hercule]]
+[[bxr:User:Hercule]]
+[[ca:Usuari:Hercule]]
+[[cbk-zam:Usuario:Hercule]]
+[[cdo:User:Hercule]]
+[[ce:&#1044;&#1077;&#1082;&#1098;&#1072;&#1096;&#1093;&#1086;:Hercule]]
+[[ceb:Gumagamit:Hercule]]
+[[ch:Muna'sesetbi:Hercule]]
+[[chr:User:Hercule]]
+[[chy:User:Hercule]]
+[[ckb:&#1576;&#1749;&#1705;&#1575;&#1585;&#1726;&#1742;&#1606;&#1749;&#1585;:Hercule]]
+[[co:User:Hercule]]
+[[cr:User:Hercule]]
+[[crh:Qullan&#305;c&#305;:Hercule]]
+[[cs:Wikipedista:Hercule]]
+[[csb:Br&#235;k&#242;wnik:Hercule]]
+[[cu:&#1055;&#1086;&#1083;&#1100;&#42563;&#1108;&#1074;&#1072;&#1090;&#1108;&#1083;&#1156;&#1100;:Hercule]]
+[[cv:&#1061;&#1091;&#1090;&#1096;&#259;&#1085;&#1072;&#1082;&#1072;&#1085;:Hercule]]
+[[cy:Defnyddiwr:Hercule]]
+[[da:Bruger:Hercule]]
+[[de:Benutzer:Hercule]]
+[[diq:Karber:Hercule]]
+[[dsb:Wu&#382;ywa&#341;:Hercule]]
+[[dv:&#1929;&#1964;&#1929;&#1968;&#1924;&#1958;&#1923;&#1962;:Hercule]]
+[[dz:User:Hercule]]
+[[ee:User:Hercule]]
+[[el:&#935;&#961;&#942;&#963;&#964;&#951;&#962;:Hercule]]
+[[eml:Utente:Hercule]]
+[[en:User:Hercule]]
+[[eo:Uzanto:Hercule]]
+[[es:Usuario:Hercule]]
+[[et:Kasutaja:Hercule]]
+[[eu:Lankide:Hercule]]
+[[ext:User:Hercule]]
+[[fa:&#1705;&#1575;&#1585;&#1576;&#1585;:Hercule]]
+[[ff:Utilisateur:Hercule]]
+[[fi:K&#228;ytt&#228;j&#228;:Hercule]]
+[[fiu-vro:Pruukja:Hercule]]
+[[fj:User:Hercule]]
+[[fo:Br&#250;kari:Hercule]]
+[[frp:Utilisator:Hercule]]
+[[frr:Benutzer:Hercule]]
+[[fur:Utent:Hercule]]
+[[fy:Meidogger:Hercule]]
+[[ga:&#218;s&#225;ideoir:Hercule]]
+[[gag:Kullan&#305;c&#305;:Hercule]]
+[[gan:&#29992;&#25142;:Hercule]]
+[[gd:Cleachdaiche:Hercule]]
+[[gl:Usuario:Hercule]]
+[[glk:&#1705;&#1575;&#1585;&#1576;&#1585;:Hercule]]
+[[gn:Puruh&#225;ra:Hercule]]
+[[got:&#66365;&#66361;&#66367;&#66372;&#66352;&#66365;&#66355;&#66371;:Hercule]]
+[[gu:&#2744;&#2733;&#2765;&#2735;:Hercule]]
+[[gv:Ymmydeyr:Hercule]]
+[[ha:User:Hercule]]
+[[hak:User:Hercule]]
+[[haw:Mea ho&#699;ohana:Hercule]]
+[[he:&#1502;&#1513;&#1514;&#1502;&#1513;:Hercule]]
+[[hi:&#2360;&#2342;&#2360;&#2381;&#2351;:Hercule]]
+[[hif:sadasya:Hercule]]
+[[hr:Suradnik:Hercule]]
+[[hsb:Wu&#382;iwar:Hercule]]
+[[ht:Itilizat&#232;:Hercule]]
+[[hu:Szerkeszt&#337;:Hercule]]
+[[hy:&#1348;&#1377;&#1405;&#1398;&#1377;&#1391;&#1387;&#1409;:Hercule]]
+[[ia:Usator:Hercule]]
+[[id:Pengguna:Hercule]]
+[[ie:Usator:Hercule]]
+[[ig:&#7884;banife:Hercule]]
+[[ik:User:Hercule]]
+[[ilo:Agar-aramat:Hercule]]
+[[io:Uzanto:Hercule]]
+[[is:Notandi:Hercule]]
+[[it:Utente:Hercule]]
+[[iu:User:Hercule]]
+[[ja:&#21033;&#29992;&#32773;:Hercule]]
+[[jbo:User:Hercule]]
+[[jv:Panganggo:Hercule]]
+[[ka:&#4315;&#4317;&#4315;&#4334;&#4315;&#4304;&#4320;&#4308;&#4305;&#4308;&#4314;&#4312;:Hercule]]
+[[kaa:Paydalan&#305;wsh&#305;:Hercule]]
+[[kab:Amseqdac:Hercule]]
+[[kbd:User:Hercule]]
+[[kg:User:Hercule]]
+[[ki:User:Hercule]]
+[[kk:&#1178;&#1072;&#1090;&#1099;&#1089;&#1091;&#1096;&#1099;:Hercule]]
+[[kl:Atuisoq:Hercule]]
+[[km:&#6050;&#6098;&#6035;&#6016;&#6036;&#6098;&#6042;&#6078;&#6036;&#6098;&#6042;&#6070;&#6047;&#6091;:Hercule]]
+[[kn:&#3256;&#3238;&#3256;&#3277;&#3247;:Hercule]]
+[[ko:&#49324;&#50857;&#51088;:Hercule]]
+[[koi:&#1059;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082;:Hercule]]
+[[krc:&#1050;&#1098;&#1086;&#1096;&#1091;&#1083;&#1091;&#1091;&#1095;&#1091;:Hercule]]
+[[ks:User:Hercule]]
+[[ksh:Metmaacher:Hercule]]
+[[ku:Bikarh&#234;ner:Hercule]]
+[[kv:&#1055;&#1099;&#1088;&#1099;&#1089;&#1100;:Hercule]]
+[[kw:Devnydhyer:Hercule]]
+[[ky:&#1050;&#1086;&#1083;&#1076;&#1086;&#1085;&#1091;&#1091;&#1095;&#1091;:Hercule]]
+[[la:Usor:Hercule]]
+[[lad:Usador:Hercule]]
+[[lb:Benotzer:Hercule]]
+[[lbe:&#1043;&#1100;&#1091;&#1088;&#1090;&#1090;&#1091; &#1093;&#1100;&#1091;&#1084;&#1072;:Hercule]]
+[[lez:&#1059;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082;:Hercule]]
+[[lg:User:Hercule]]
+[[li:Gebroeker:Hercule]]
+[[lij:Utente:Hercule]]
+[[lmo:Druvadur:Hercule]]
+[[ln:Utilisateur:Hercule]]
+[[lo:&#3740;&#3769;&#3785;&#3779;&#3722;&#3785;:Hercule]]
+[[lt:Naudotojas:Hercule]]
+[[ltg:L&#299;tuotuojs:Hercule]]
+[[lv:Lietot&#257;js:Hercule]]
+[[map-bms:Panganggo:Hercule]]
+[[mdf:&#1058;&#1080;&#1080;&#1089;&#1100;:Hercule]]
+[[mg:Mpikambana:Hercule]]
+[[mhr:&#1055;&#1072;&#1081;&#1076;&#1072;&#1083;&#1072;&#1085;&#1099;&#1096;&#1077;:Hercule]]
+[[mi:User:Hercule]]
+[[mk:&#1050;&#1086;&#1088;&#1080;&#1089;&#1085;&#1080;&#1082;:Hercule]]
+[[ml:&#3337;&#3370;&#3375;&#3403;&#3349;&#3405;&#3364;&#3390;&#3381;&#3405;:Hercule]]
+[[mn:&#1061;&#1101;&#1088;&#1101;&#1075;&#1083;&#1101;&#1075;&#1095;:Hercule]]
+[[mr:&#2360;&#2342;&#2360;&#2381;&#2351;:Hercule]]
+[[mrj:&#1057;&#1080;&#1088;&#1273;&#1096;&#1273;:Hercule]]
+[[ms:Pengguna:Hercule]]
+[[mt:Utent:Hercule]]
+[[mwl:Outelizador:Hercule]]
+[[my:User:Hercule]]
+[[myv:&#1058;&#1077;&#1080;&#1094;&#1103;:Hercule]]
+[[mzn:&#1705;&#1575;&#1585;&#1608;&#1585;:Hercule]]
+[[na:User:Hercule]]
+[[nah:Tlatequitiltil&#299;lli:Hercule]]
+[[nap:Utente:Hercule]]
+[[nds:Bruker:Hercule]]
+[[nds-nl:Gebruker:Hercule]]
+[[ne:&#2346;&#2381;&#2352;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;:Hercule]]
+[[new:&#2331;&#2381;&#2351;&#2375;&#2354;&#2375;&#2350;&#2367;:Hercule]]
+[[nl:Gebruiker:Hercule]]
+[[nn:Brukar:Hercule]]
+[[no:Bruker:Hercule]]
+[[nov:User:Hercule]]
+[[nrm:User:Hercule]]
+[[nso:Mo&#353;omi:Hercule]]
+[[nv:Choyoo&#322;&#700;&#303;&#303;h&#237;:Hercule]]
+[[ny:User:Hercule]]
+[[oc:Utilizaire:Hercule]]
+[[om:User:Hercule]]
+[[or:&#2860;&#2893;&#2911;&#2860;&#2873;&#2878;&#2864;&#2837;&#2878;&#2864;&#2880;:Hercule]]
+[[os:&#1040;&#1088;&#1093;&#1072;&#1081;&#230;&#1075;:Hercule]]
+[[pa:&#2613;&#2608;&#2596;&#2636;&#2562;&#2581;&#2622;&#2608;:Hercule]]
+[[pag:User:Hercule]]
+[[pam:User:Hercule]]
+[[pap:User:Hercule]]
+[[pcd:Utilisateur:Hercule]]
+[[pdc:Yuuser:Hercule]]
+[[pfl:Benutzer:Hercule]]
+[[pi:&#2309;&#2357;&#2351;&#2357;:Hercule]]
+[[pih:User:Hercule]]
+[[pl:Wikipedysta:Hercule]]
+[[pms:Utent:Hercule]]
+[[pnb:User:Hercule]]
+[[pnt:&#935;&#961;&#942;&#963;&#964;&#949;&#962;:Hercule]]
+[[ps:&#1705;&#1575;&#1585;&#1606;:Hercule]]
+[[pt:Usu&#225;rio(a):Hercule]]
+[[qu:Ruraq:Hercule]]
+[[rm:Utilisader:Hercule]]
+[[rmy:Jeno:Hercule]]
+[[rn:User:Hercule]]
+[[ro:Utilizator:Hercule]]
+[[roa-rup:User:Hercule]]
+[[roa-tara:User:Hercule]]
+[[ru:&#1059;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082;:Hercule]]
+[[rue:&#1061;&#1086;&#1089;&#1085;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;:Hercule]]
+[[rw:User:Hercule]]
+[[sa:&#2351;&#2379;&#2332;&#2325;&#2307;:Hercule]]
+[[sah:&#1050;&#1099;&#1090;&#1090;&#1072;&#1072;&#1095;&#1095;&#1099;:Hercule]]
+[[sc:Usu&#224;riu:Hercule]]
+[[scn:Utenti:Hercule]]
+[[sco:User:Hercule]]
+[[sd:&#1610;&#1608;&#1586;&#1585;:Hercule]]
+[[se:Geavaheaddji:Hercule]]
+[[sg:Utilisateur:Hercule]]
+[[sh:Korisnik:Hercule]]
+[[si:&#3508;&#3515;&#3538;&#3521;&#3539;&#3517;&#3482;:Hercule]]
+[[simple:User:Hercule]]
+[[sk:Redaktor:Hercule]]
+[[sl:Uporabnik:Hercule]]
+[[sm:User:Hercule]]
+[[sn:User:Hercule]]
+[[so:User:Hercule]]
+[[sq:P&#235;rdoruesi:Hercule]]
+[[sr:&#1050;&#1086;&#1088;&#1080;&#1089;&#1085;&#1080;&#1082;:Hercule]]
+[[srn:Masyin:Hercule]]
+[[ss:User:Hercule]]
+[[st:User:Hercule]]
+[[stq:Benutser:Hercule]]
+[[su:Pamak&#233;:Hercule]]
+[[sv:Anv&#228;ndare:Hercule]]
+[[sw:Mtumiaji:Hercule]]
+[[szl:U&#380;ywacz:Hercule]]
+[[ta:&#2986;&#2991;&#2985;&#2992;&#3021;:Hercule]]
+[[te:&#3125;&#3134;&#3105;&#3137;&#3093;&#3120;&#3135;:Hercule]]
+[[tet:Uza-na'in:Hercule]]
+[[tg:&#1050;&#1086;&#1088;&#1073;&#1072;&#1088;:Hercule]]
+[[th:&#3612;&#3641;&#3657;&#3651;&#3594;&#3657;:Hercule]]
+[[ti:User:Hercule]]
+[[tk:Ulanyjy:Hercule]]
+[[tl:Tagagamit:Hercule]]
+[[tn:User:Hercule]]
+[[to:User:Hercule]]
+[[tpi:Yusa:Hercule]]
+[[tr:Kullan&#305;c&#305;:Hercule]]
+[[ts:User:Hercule]]
+[[tt:&#1050;&#1091;&#1083;&#1083;&#1072;&#1085;&#1091;&#1095;&#1099;:Hercule]]
+[[tum:User:Hercule]]
+[[tw:User:Hercule]]
+[[ty:Utilisateur:Hercule]]
+[[udm:&#1042;&#1080;&#1082;&#1080;&#1072;&#1074;&#1090;&#1086;&#1088;:Hercule]]
+[[ug:&#1574;&#1609;&#1588;&#1604;&#1749;&#1578;&#1603;&#1736;&#1670;&#1609;:Hercule]]
+[[uk:&#1050;&#1086;&#1088;&#1080;&#1089;&#1090;&#1091;&#1074;&#1072;&#1095;:Hercule]]
+[[ur:&#1589;&#1575;&#1585;&#1601;:Hercule]]
+[[uz:Foydalanuvchi:Hercule]]
+[[ve:User:Hercule]]
+[[vec:Utente:Hercule]]
+[[vep:K&#228;vutai:Hercule]]
+[[vi:Th&#224;nh vi&#234;n:Hercule]]
+[[vls:Gebruker:Hercule]]
+[[vo:Geban:Hercule]]
+[[wa:Uzeu:Hercule]]
+[[war:Gumaramit:Hercule]]
+[[wo:J&#235;fandikukat:Hercule]]
+[[wuu:&#29992;&#25143;:Hercule]]
+[[xal:&#1044;&#1077;&#1084;&#1085;&#1095;:Hercule]]
+[[xh:User:Hercule]]
+[[xmf:&#4315;&#4317;&#4315;&#4334;&#4315;&#4304;&#4320;&#4308;&#4305;&#4308;&#4314;&#4312;:Hercule]]
+[[yi:&#1489;&#1488;&#1463;&#1504;&#1497;&#1510;&#1506;&#1512;:Hercule]]
+[[yo:On&#237;&#7779;e:Hercule]]
+[[za:&#29992;&#25143;:Hercule]]
+[[zea:Gebruker:Hercule]]
+[[zh:User:Hercule]]
+[[zh-classical:User:Hercule]]
+[[zh-min-nan:User:Hercule]]
+[[zh-yue:User:Hercule]]
+[[zu:User:Hercule]]</text>
+      <sha1>76mn6m8dhkkmz6kmi93krpkc68ufuy9</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

@@ -1,0 +1,22 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Discussion utilisateur:MedBot</title>
+    <ns>3</ns>
+    <id>66964</id>
+    <restrictions>edit=sysop:move=sysop</restrictions>
+    <revision>
+      <id>7019871</id>
+      <parentid>7019870</parentid>
+      <timestamp>2006-05-01T01:05:53Z</timestamp>
+      <contributor>
+        <username>Solensean</username>
+        <id>29574</id>
+      </contributor>
+      <comment>tssk, pyb</comment>
+      <text xml:space="preserve">&lt;div style="font-size:200%;color:#FF0000"&gt;
+Pour toute remarque, laisser un message sur &lt;span style="text-decoration:blink"&gt;'''ma'''&lt;/span&gt; [[Discussion Utilisateur:Med|page de discussion]]
+&lt;/div&gt;</text>
+      <sha1>2og9d6pj6snjqah1mvq6u071uf1i43o</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

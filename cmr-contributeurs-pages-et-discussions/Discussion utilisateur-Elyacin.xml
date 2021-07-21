@@ -1,0 +1,291 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Discussion utilisateur:Elyacin</title>
+    <ns>3</ns>
+    <id>2758733</id>
+    <revision>
+      <id>92463922</id>
+      <parentid>66545887</parentid>
+      <timestamp>2013-04-25T16:12:27Z</timestamp>
+      <contributor>
+        <username>OrikriBot</username>
+        <id>1331319</id>
+      </contributor>
+      <minor/>
+      <comment>/* Parrain */[[Discussion_Projet:Aide_et_accueil/Bandeaux#Cat.C3.A9gorie:Mod.C3.A8le_obsol.C3.A8te|D&#233;cision P:A&amp;A]] : substitution mod&#232;le obsol&#232;te</comment>
+      <text xml:space="preserve">==Bienvenue sur Wikip&#233;dia==
+&lt;!-- les balises "div" servent ici &#224; faire le cadre autour du texte. Si tu n'es pas familier avec le HTML, ne t'emb&#234;tes pas dans l'imm&#233;diat a chercher comment elles fonctionnent --&gt;
+&lt;div style="margin-bottom:1.25em;border:1px solid #8898BF; background:white; padding:0;"&gt;
+&lt;div style="height:8px; margin:0; border:0; border-bottom:1px solid #8898BF; background:#C8D8FF; font-size:1px;"&gt;&lt;/div&gt;
+&lt;div style="padding:8px;"&gt;
+
+&lt;center&gt;&lt;big&gt;[[Wikip&#233;dia:Accueil des nouveaux arrivants|Bienvenue]] sur Wikip&#233;dia, '''{{BASEPAGENAME}} !'''&lt;/big&gt;&lt;/center&gt;
+
+[[Wikip&#233;dia]] est un projet de r&#233;daction collective d'une vaste encyclop&#233;die r&#233;alis&#233; actuellement dans 250 langues diff&#233;rentes de par le monde.
+
+===G&#233;n&#233;ralit&#233;s===
+Pour participer correctement ici, il me parait important de commencer par lire les [[Wikip&#233;dia:Principes fondateurs|principes fondateurs]].
+
+Moins urgentes, la lecture de pages comme [[Wikip&#233;dia:Citez vos sources]], [[Wikip&#233;dia:crit&#232;res d'admissibilit&#233; des articles]] et [[Wikip&#233;dia:Conventions de style]] s'av&#232;reront elles aussi instructives.
+
+===Syntaxe de base===
+Le [[Wikip&#233;dia:Bac &#224; sable|bac &#224; sable]] est l'endroit d&#233;di&#233; aux essais que tu ne manqueras pas de vouloir faire sur la syntaxe wiki (ou tu peux &#233;ventuellement te cr&#233;er une [[User:{{BASEPAGENAME}}/Bac &#224; sable|sous page]] &#224; cet effet).
+
+Si je devais r&#233;sumer la syntaxe wiki en quelques phrases...
+*&lt;nowiki&gt;~~~~&lt;/nowiki&gt; te permet de signer un message avec une date (exemple : [[user:{{BASEPAGENAME}}|{{BASEPAGENAME}}]] 23 f&#233;vrier 2007 &#224; 12:12 (CET)). Les messages aux autres contributeurs doivent &#234;tre sign&#233;s (pages de discussion), mais pas les articles ([http://fr.wikipedia.org/w/index.php?title=Pomme&amp;action=history l'historique] permet d'en retrouver les auteurs). &lt;small&gt;(voir [[Aide:Signature]])&lt;/small&gt;
+*Faire des liens internes : 
+**&lt;nowiki&gt;[[article]]&lt;/nowiki&gt; affichera [[article]], avec un lien vers la page du m&#234;me nom. Si le [[cet article n'existe pas ! d'ailleurs, ne le cr&#233;ez pas|lien est rouge]], alors la page de destination n'existe pas. 
+**&lt;nowiki&gt;[[Article|un autre texte]]&lt;/nowiki&gt; affichera [[Article|un autre texte]], toujours en pointant vers [[Article]].
+*&lt;nowiki&gt;'''gras''' et ''italique''&lt;/nowiki&gt; afficheront respectivement '''gras''' et ''italique''
+*&lt;nowiki&gt;== titre ==&lt;/nowiki&gt; (seul sur une ligne) permet de cr&#233;er un titre de section. Le nombre de "=" indique le niveau du titre, permettant de cr&#233;er une arborescence (ce message est un exemple d'arborescence de titres). &lt;small&gt;(voir [[Aide:Syntaxe#Titre]])&lt;/small&gt;
+*Un mod&#232;le (appel&#233; comme ceci : &lt;nowiki&gt;{{exemple de mod&#232;le}}&lt;/nowiki&gt;) utilis&#233; dans une page quelconque affiche un contenu qui se trouve en fait stock&#233; dans la page [[Mod&#232;le:exemple de mod&#232;le]]. Cela permet d'ins&#233;rer un m&#234;me texte ou code (bandeau de portail, etc.) dans de nombreuses pages sans devoir le r&#233;&#233;crire totalement &#224; chaque fois. Par exemple, {{M|Portail Japon et culture japonaise}} est utilis&#233; en bas de toutes les pages en rapport avec le Japon. &lt;small&gt;(voir [[Aide:Mod&#232;le]])&lt;/small&gt;
+*Il est recommand&#233; de classer les articles pour qu'ils soient trouvables plus facilement : il suffit de leur affecter des cat&#233;gories en ins&#233;rant &lt;nowiki&gt;[[Cat&#233;gorie:nom de la cat&#233;gorie]]&lt;/nowiki&gt; en bas de l'article. Attention toutefois &#224; v&#233;rifier que la cat&#233;gorie existe bien en pr&#233;visualisant la page : si le lien est rouge, alors la cat&#233;gorie n'existe pas. Exemple : [[Le Plessis-Bouchard]] a pour cat&#233;gorie [[:Cat&#233;gorie:Commune du Val-d'Oise]]. &lt;small&gt;(voir [[Aide:Cat&#233;gorie]])&lt;/small&gt;
+
+Une description beaucoup plus compl&#232;te est disponible sur '''[[Aide:syntaxe]]'''.
+
+===et sinon&#8230;===
+*Tu peux indiquer, sur ta [[Utilisateur:{{BASEPAGENAME}}|page utilisateur]], [[Wikip&#233;dia:Babel|les langues que tu parles]], tes centres d'int&#233;r&#234;t et/ou une br&#232;ve description. Dans la mesure du raisonnable, chaque utilisateur peut mettre &#224; peu pr&#232;s ce qu'il veut sur sa page personnelle... toutefois, la transformer en encart publicitaire ou tribune politique ne sera pas tol&#233;r&#233;. &lt;small&gt;([http://fr.wikipedia.org/w/index.php?title=Utilisateur:Sabri.labidi&amp;oldid=15804342 un exemple de ce qu'il ne faut pas faire])&lt;/small&gt;
+*Une '''guilde de parrains et marraines''' est l&#224; pour aider ceux qui le souhaitent. Ils sont joignable sur le [[Projet:Service de Parrainage Actif]]
+*Si tu as d'autres questions, tu peux consulter [[Aide:Sommaire|l'aide]] ou service de parrainage 
+
+Bonne continuation
+&lt;/div&gt;&lt;/div&gt; [[Utilisateur:Mmenal|Manuel Menal]]--6 f&#233;vrier 2008 &#224; 16:50 (CET)
+[http://fr.wikipedia.org/wiki/Discussion_Utilisateur:Elyacin/monBrouillon '''Mon Brouillon !''']
+
+==Parrain==
+
+&lt;div class="ModeleBUtilisateur" style="float:left; margin:1px; width:238px; border:1px solid #999999; -border-radius:0; -moz-border-radius:0; -webkit-border-radius:0;"&gt;
+{|width="100%" border="0" cellspacing="0" cellpadding="1" style="background-color:#bee4ef; color:black; -border-radius:0; -moz-border-radius:0; -webkit-border-radius:0;"
+|-
+|class="ModeleBUtilisateurGauche" valign="middle" align="center" style="width:47px; height:47px; background-color:#aaccff; color:black; text-align:center; -border-radius:0; -moz-border-radius:0; -webkit-border-radius:0;"|[[Fichier:Presa de decissions.png|40px|[[Projet:Service de Parrainage Actif|SPA]]]]
+|class="ModeleBUtilisateurInfo" valign="middle" align="center" style="padding:1px; padding-right:4px; padding-left:4px; text-align:center;"|&lt;div class="ModeleBUtilisateurLien plainlinks" style="float:right; margin:0; margin-left:1px; font-size:12px; line-height:1;"&gt;[[:Cat&#233;gorie:Utilisateur Offre de parrainage|&#8711;]]&lt;/div&gt;&lt;div class="ModeleBUtilisateurTitre" style="font-size:11px; line-height:1.25;"&gt;'''[[Projet:Service de Parrainage Actif|SPA]]'''&lt;/div&gt;&lt;div class="ModeleBUtilisateurTexte plainlinks" style="font-size:11px; line-height:1.25;"&gt;Moi, '''[[Utilisateur:Ouicoude|Ouicoude]]''', te propose de devenir ton '''[[Projet:Service de Parrainage Actif|parrain]]'''.&lt;br /&gt;&lt;small&gt;[[Discussion Utilisateur:Ouicoude|Contacte moi !]]&lt;/small&gt;&lt;/div&gt;
+|}
+&lt;/div&gt;
+
+Salut, fr&#233;quentant Wikipedia depuis quelques temps, tr&#233;s int&#233;ress&#233; aussi par la psychanalyse, je peux sans doute t'aider &#224; trouver ta place ici. Tu peux me contacter sur ma page de discussion (cliquer sur le ''Gn?'' &#224; c&#244;t&#233; de ma signature). Amicalement --[[Utilisateur:Ouicoude|Ouicoude]] [[Discussion Utilisateur:Ouicoude|&lt;sup&gt;(Gn?)&lt;/sup&gt;]] 21 f&#233;vrier 2008 &#224; 00:18 (CET)
+
+
+D'accord pour ce parrainage. mais je suis pour l'instant tr&#232;s paum&#233;e. Par quoi puis-je commencer pour participer ? J'ai vu que sur la psychanalyse qui est quand m&#234;me si je puis dire de mes comp&#233;tences, &#231;a semblait ne pas &#234;tre facile d'y travailler, (j'ai envie de tranquillit&#233; ),  alors je peux aussi m'int&#233;resser &#224; la litt&#233;rature. J'aurais bien aim&#233; &#233;voquer ce que Freud et Lacan on dit de l'oeuvre de Goethe. J'ai lu que ces deux approches n'avaient pas &#233;t&#233; mentionn&#233;es dans la rubique sur Goethe. Mais c'est difficile de modifier quelque chose de ce qui est d&#233;j&#224; en place sans perturber l'ensemble. Faut-il &#224; ce moment-l&#224; cr&#233;er une sous-rubrique ? Enfin ce sont des questions pour l'instant en vrac. 
+
+Qu'est-ce que c'est que cliquer su Gn ? je ne trouve pas o&#249; c'est. J'esp&#232;re que nous nous entendrons bien. Je suis de bonne compagnie moi aussi.
+
+==Ouicoude==
+Bonjour Elyacin, nous sommes ici sur ta page de discussion. C'est ici que tu avais mis ton pr&#233;c&#233;dent message. Lorsqu'on te laisse un message sur ta page de discussion, tu as une fen&#234;tre orange qui appara&#238;t en haut des pages que tu consultes. Pour communiquer avec moi, le mieux est de m'&#233;crire sur ma propre page de discussion (on dit "ma PdD"), afin que je sois averti que tu veux me parler. J'y ai transf&#233;r&#233; le message que tu m'as laiss&#233; sur ma page utilisateur. Ma PdD est [http://fr.wikipedia.org/wiki/Discussion_Utilisateur:Ouicoude#Elyacin ici] tu peux me r&#233;pondre l&#224;-bas, et je r&#233;pondrai sur ta PdD. Pour la psychanalyse, on manque de bras. Il faut c'est s&#251;r, &#233;viter de s'engager dans des d&#233;bats st&#233;riles, mais beaucoup de choses restent &#224; faire. Commencer par &#233;crire un chapitre sur l'oeuvre de Goethe vue par F et L est une tr&#233;s bonne id&#233;e. Pour t'entra&#238;ner, je te cr&#233;e une sous-page que tu peux utiliser comme un brouillon, c'est [http://fr.wikipedia.org/wiki/Discussion_Utilisateur:Elyacin/monBrouillon ici] (je te cr&#233;e aussi un lien direct vers cette page en haut de ta page). Commence &#224; &#233;crire, montre-moi et je te dirai. Amiti&#233;s --[[Utilisateur:Ouicoude|Ouicoude]] [[Discussion Utilisateur:Ouicoude|&lt;sup&gt;(Gn?)&lt;/sup&gt;]] 24 f&#233;vrier 2008 &#224; 22:21 (CET)
+:Tous les articles de psychanalyse ici : [http://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Psychanalyse] --[[Utilisateur:Ouicoude|Ouicoude]] [[Discussion Utilisateur:Ouicoude|&lt;sup&gt;(Gn?)&lt;/sup&gt;]] 24 f&#233;vrier 2008 &#224; 22:23 (CET)
+::Parfait, tes messages sont bien au bon endroit, je lirai ce que tu as &#233;crit ce soir. Sinon, pour pr&#233;senter les dialogues, tu peux utiliser le signe "deux points" en d&#233;but de paragraphe qui d&#233;cale ton texte et rend la lecture des pages de discussion plus facile. Amicalement, --[[Utilisateur:Ouicoude|Ouicoude]] [[Discussion Utilisateur:Ouicoude|&lt;sup&gt;(Gn?)&lt;/sup&gt;]] 26 f&#233;vrier 2008 &#224; 16:52 (CET)
+:::D&#233;sol&#233; Elyacin, mais j'ai un peu trop de travail dans la vraie vie et pour encore quelques jours, je te r&#233;ponds ensuite. Amicalement--[[Utilisateur:Ouicoude|Ouicoude]] [[Discussion Utilisateur:Ouicoude|&lt;sup&gt;(Gn?)&lt;/sup&gt;]] 2 mars 2008 &#224; 21:40 (CET)
+
+==Projet psycho==
+&lt;div title="&amp;#123;{subst:Bienvenue psycho}}" style="width:auto" style="margin-bottom:1.25em;border:1px solid #{{#switch:bleu|bleu=8898BF|vert=97BF87|jaune=AAAA66|or=777777|orange=AA8833|violet=7755AA|saumon=AA8866|sable=AA9955|vertmoyen=88BB55|bleufonc&#233;=1144AA|rouge=AA8866|&#233;carlate=AAAAAA|#default=AAAAAA}};  background:white;padding:0"&gt;
+
+&lt;center&gt;&lt;big&gt;[[Projet:Psychologie/Participants|Bienvenue]] sur le [[projet:psychologie|projet de psychologie]] de Wikip&#233;dia, '''{{BASEPAGENAME}} !'''&lt;/big&gt;&lt;/center&gt;
+
+
+{|
+|[[Image:Psi-stylized.png|40px|center]]
+|Ce [[Projet:Accueil|projet]] vise la '''coordination des efforts''' des contributeurs autour de la psychologie. Il regroupe des [[Projet:Psychologie/Ressources ext&#233;rieures|ressources]], des [[Discussion Projet:Psychologie|discussions]], des [[Projet:Psychologie/ContribuerPsychopedia|recommandations]] et des outils de travail. '''Ajouter &#224; votre liste de suivi''' la [[Projet:Psychologie/Annonces|page d'annonce]] et de [[Discussion Projet:Psychologie|discussion]] pour vous tenir au courant. Le projet psychologie a comme particularit&#233; de regrouper des visions de la nature humaine tr&#232;s diff&#233;rentes, voir parfois difficilement conciliables. Cependant il s'agit de '''travailler ensemble''' dans le but d'am&#233;liorer la qualit&#233; de Wikip&#233;dia, en s'appuyant notamment sur [[wikip&#233;dia:neutralit&#233;|une politique de neutralit&#233;]] et sur le principe de [[wikip&#233;dia:pertinence|pertinence]].
+
+|--
+|[[Image:Inkwell template.gif|left|50px]]
+|Si '''[[Aide:Comment cr&#233;er un article|vous cr&#233;ez un article]]''', prenez [[motivation|mod&#232;le]] ou lisez [[Aide:Comment r&#233;diger un article#Quelques principes g&#233;n&#233;raux|quelques principes]] qui vous y aideront. Si le sujet concerne la psychologie, et que l'article n'est qu'[[wikip&#233;dia:&#233;bauche|&#233;bauch&#233;]], vous pouvez apposer le bandeau ''{{m|&#233;bauche psychologie}}'' (ou ''{{m|&#233;bauche psychanalyse}}'') en haut de celui-ci. Ind&#233;pendamment du d&#233;veloppement de l'article, vous pouvez ajouter le bandeau ''{{m|portail psychologie}}'' tout en bas.
+
+|--
+|[[Image:No iwiki template.gif|left|50px]]
+|'''[[Aide:Cat&#233;gorie|Cat&#233;goriser les articles]]''' est important. En psychologie il est souvent difficile de le faire de fa&#231;on satisfaisante. Cependant, le projet a pris comme partie de cat&#233;goriser le moins d'articles possible dans la [[:cat&#233;gorie:psychologie|cat&#233;gorie m&#232;re de psychologie]], mais d'en dispatcher un maximum dans les ''cat&#233;gories filles'', tout en &#233;vitant si possible, les doubles et les triples cat&#233;gorisations.
+
+|---
+|[[Image:Interro icon.png|left|40px]]
+|'''[[Projet:Psychologie/Participants|Comptez sur les autres]]'''  pour r&#233;pondre &#224; vos questions, pour corriger les erreurs in&#233;vitables du d&#233;but. Ainsi le ma&#238;tre mot est de [[wikip&#233;dia:N'h&#233;sitez pas|ne pas h&#233;sitez &#224; contribuer]]. 
+
+'''Se pr&#233;senter sur sa [[Utilisateur:{{PAGENAME}}|page utilisateur]]''' est un bon moyen de s'exercer &#224; modifier une page sur Wikip&#233;dia. Vous pouvez par exemple exposer votre niveau de formation en psychologie (amateur, &#233;tudiant, psychologue...), ou vos centres d'int&#233;r&#234;ts sp&#233;cifiques (psychologie clinique, cognitive...), ou bien encore opter pour une pr&#233;sentation plus g&#233;n&#233;rale. Vous trouverez [[Wikip&#233;dia:Mod&#232;les/Espace Utilisateur/Bo&#238;te Utilisateur|des outils]] (voir notamment {{M|Utilisateur psychologie}}, {{m|Utilisateur Projet/Psychologie}}, {{m|Utilisateur Psychologue}}) pour vous y aider.
+|}
+
+&lt;/div&gt;&lt;/div&gt;{{#if:.|.|&lt;nowiki&gt;:&lt;/nowiki&gt; [[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 7 mars 2008 &#224; 11:31 (CET)}} &amp;nbsp;
+
+--[[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 7 mars 2008 &#224; 11:31 (CET)
+:Bienvenue sur wikipedia et bonnes contributions dans les domaines qui te plaisent. L'essentiel est d'apporter sa petite pierre &#224; l'&#233;difice en prenant du plaisir &#224; collaborer. Il y a encore beaucoup de travail &#224; faire sur wikip&#233;dia notamment dans le domaine des ''sciences sociales'' qui sont souvent cit&#233;es comme moins avanc&#233;es dans le projet. Bon courage --[[User:Yelkrokoyade|Yelkrokoyade]] ([[User talk:Yelkrokoyade|d]]) 9 mars 2008 &#224; 19:22 (CET)
+
+== Retrouver l'auteur d'une info ==
+
+Bonjour Elyacin, &lt;br /&gt; Trouver quel auteur a &#233;crit quoi exactement dans l'article rel&#232;ve parfois (sauf dans les tr&#232;s petits articles) de la recherche arch&#233;ologique. Voil&#224; comment la faire. En haut d'un article tu as un onglet ''historique''. En cliquant dessus apparait la liste de toutes les contributions avec le nom de son auteur. Pour savoir quelle a &#233;t&#233; la modification faite, il faut comparer les versions. Pour se faire voir [[Aide:Historique|l'aide consacr&#233;e]] ou [[Projet:&#201;cole/Wiklasses/Utiliser l'historique|l'aide annexe]]. Par exemple dans l'article Freud on peut comparer la derni&#232;re version (c'est toi qui &#224; fait la derni&#232;re modification), et celle pr&#233;c&#233;dante (celle de Vi..Cult...). Il faut donc s&#233;lectionner ces versions avec les boutons ronds et cliquer sur ''compareer les versions s&#233;lecrtionn&#233;es''. [http://fr.wikipedia.org/w/index.php?title=Sigmund_Freud&amp;diff=27117265&amp;oldid=27057171 Ca donne ca], ta contribution apparaissant surlign&#233;e en bleu. J'esp&#232;re que j'ai &#233;t&#233; clair {{mdr}}. Cordialement. --[[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 10 mars 2008 &#224; 11:43 (CET)
+
+== [[Transfert (psychanalyse)]] ==
+
+Super bien vos contributions ! Merci. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 13 mars 2008 &#224; 10:59 (CET)
+
+== Texte de sous-titre ==
+
+Bonjour Perky, je mets les messages l&#224; o&#249; ils tombent. Est-ce au d&#233;but ou la fin de la page de l'utilisateur qu'il faut les mettre ? Bon l&#224;, c'est comme &#231;a. 
+J'ai un probl&#232;me de mise en page avec ma contribution sur le transfert. Les num&#233;rotations 1,2, 3, qui rendent quand m&#234;me plus claire la d&#233;monstration refusent de rester en place et se collent les unes aux autres. j'ai essay&#233; par deux fois de les dissocier, mais elles refusent.  De m&#234;me il y a une partie du paragaphe qui s'isole au lieu de rester tranquille. Celle-l&#224; :  "Ce transfert quelle d&#233;finition conceptuelle pouvons-nous en proposer?"  il doit y avoir un truc.Merci de me l'indiquer si tu le connais. Cordialement. --[[User:Elyacin|Elyacin]] ([[User talk:Elyacin|d]]) 13 mars 2008 &#224; 14:03 (CET)
+
+:Bonjour Elyacin, :-) Il faut que tu &#233;crives sur la page de discussion (et non la page utilisateur) et &#224; la suite. Tout le contraire. Pour Serein, dans le message du dessus, c'est &#224; "blabla", pour toi, c'est &#224; "d", pour moi c'est &#224; la plume. Au sujet de la mise en page, j'ai bien vu les num&#233;rotations, mais je ne m'y connait pas trop. Il y a bien [[Aide:Syntaxe]] ...&#224; se farcir. Excuses mon humour de cuisini&#232;re. Surtout, on apprend au fur et &#224; mesure en testant. Bien cordialement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 13 mars 2008 &#224; 19:11 (CET)
+PS: je t'ai r&#233;pondu sur ma page aussi, pour les refs cit&#233;es.
+
+::La suite, tu vois, tu mets ":" pour ce que l'on appelle : l'indentation d'une conversation. Et pour [[Transfert (psychanalyse)]] tu regardes l'historique pour comparer ou bien, tu fais modifier, et l&#224; apparait le "code source" o&#249; tu peux voir la diff&#233;rence des syntaxes. Est ce mieux ainsi ? -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 13 mars 2008 &#224; 19:36 (CET)
+
+== Mazel Tov ==
+* Bienvenue ! [[User:L&#233;on99|L&#233;on99]] ([[User talk:L&#233;on99|d]]) 14 mars 2008 &#224; 15:03 (CET)
+== Que faire d'un petit texte sur les souvenirs-&#233;crans ? ==
+J'ai &#233;crit un petit texte sur les souvenirs-&#233;crans mais je ne sais vraiment pas o&#249; le caser. Je n'arrive pas &#224; trouver une logique dans le mode d'organisation de cette rubrique psychanalyse. Je suis parra&#238;n&#233;e mais mon parrain est submerg&#233; de travail et je ne pux compter sur lui. Cordialement.--[[User:Elyacin|Elyacin]] ([[User talk:Elyacin|d]]) 15 mars 2008 &#224; 10:55 (CET)
+:Bonjour Elyacin, essaie dans la page de discussion de l'article. Je ne vois pas o&#249; est ton texte. Cordialement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 15 mars 2008 &#224; 12:16 (CET)
+::Bonjour, j'ai d&#233;plac&#233; votre texte sur [[Discuter:Psychanalyse]], c'est l'endroit le plus simple pour poser toutes vos questions en rapport avec la psychanalyse. Cordialement.&#8201;&#8211;[[Utilisateur:Akeron|Akeron]]&amp;nbsp;&lt;small&gt;[[Discussion Utilisateur:Akeron|(d)]]&lt;/small&gt; 16 mars 2008 &#224; 02:23 (CET)
+:::Bonjour Elyacin. Ma th&#232;se &#233;tant boucl&#233;e et d&#233;pos&#233;e, je vais pouvoir me consacrer &#224; tes &#233;crits. Amicalement, --[[Utilisateur:Ouicoude|Ouicoude]] [[Discussion Utilisateur:Ouicoude|&lt;sup&gt;(Gn?)&lt;/sup&gt;]] 16 mars 2008 &#224; 02:36 (CET)
+
+== [[S'autoriser de]] ==
+
+Bonsoir Elyacin, et merci pour l'autre occurence. ;-) -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 2 avril 2008 &#224; 19:42 (CEST)
+
+== Onglet Modifier ==
+
+Bonjour Elyacin
+
+J'arrive ici par le projet psychologie ; pas pour r&#233;pondre &#224; la question de fond, mais &#224; propos des liens internes, et par un seul conseil : si tu veux savoir comment faire quelque chose, clique sur l'onglet Modifier et observe le codage. Tu as lu aussi [[Aide:Syntaxe]] je pense. En g&#233;n&#233;ral, c'est simple, faut juste faire attention &#224; pas se tromper, donc visualiser une fois, deux fois. Et puis, tout se corrige, sans formalit&#233;. Bonne continuation. &lt;br /&gt;[[Utilisateur:TigH|TigHerv&#233;]][[Discussion Utilisateur:TigH|  (d)]] 7 avril 2008 &#224; 13:01 (CEST) (Ah si quand m&#234;me : il est souvent plus facile de compl&#232;ter des paragraphes, sections ou articles que de trouver un endroit vierge pour un contenu complet... souvent, pas toujours non plus. )(vous pouvez r&#233;pondre ici si n&#233;cessaire)
+
+== Texte en attente de placement == 
+
+Je voudrais bien quelques conseils our savoir o&#249; placer ce texte. J'h&#233;site entre la rubrique psychopathologie ou alors la rubrique "textes de Freud" dans la chronologie. le premier choix me parait &#234;tre le plus judicieux mais j'aimerais avoir quelques avis. --[[User:Elyacin|Elyacin]] ([[User talk:Elyacin|d]]) 7 avril 2008 &#224; 15:07 (CEST)
+
+'''Ann&#233;es 1895. Premi&#232;res tentatives de Freud pour distinguer, d&#8217;une part hyst&#233;rie et n&#233;vrose obsessionnelle, d&#8217;autre part, n&#233;vrose et psychose.''' 
+Presque en m&#234;me temps que ses &#171; Etudes sur l&#8217;hyst&#233;rie &#187; qui ont &#233;t&#233; publi&#233;es en 1895, Freud avait d&#233;j&#224; d&#233;couvert, avec cette jeune science de l&#8217;inconscient qu&#8217;il &#233;tait entrain d&#8217;inventer, qu&#8217;il pouvait,   &#224; partir des m&#233;canismes de formation  des sympt&#244;mes hyst&#233;riques, rendre &#233;galement compte de la fabrication  d&#8217;autres sympt&#244;mes, obsessions, phobies et psychose. Ainsi faisait-il ses premiers pas dans ce rep&#233;rage n&#233;cessaire de la structure et de ce qui fait la diff&#233;rence, d&#8217;une part entre l&#8217;hyst&#233;rie et la n&#233;vrose obsessionnelle et d&#8217;autre part,  entre la n&#233;vrose et la psychose. Ce ne sont que des premiers pas,  mais ils sont quand m&#234;me d&#233;cisifs au moins quant &#224; la n&#233;vrose. Ces m&#233;canismes sont d&#233;crits  dans deux articles qui ont pour titre &#171; Neuropsychoses de d&#233;fense &#187;, de 1894,  et &#171; Nouvelles remarques sur les neuropsychoses de d&#233;fense &#187;, de 1896. 
+
+Diff&#233;rences entre hyst&#233;rie et n&#233;vrose obsessionnelle
+
+Les sympt&#244;mes de ces deux n&#233;vroses ont  le m&#234;me point de d&#233;part, une repr&#233;sentation inconciliable pour le moi, pour la conscience, li&#233;e &#224; un sentiment de honte ou de culpabilit&#233;, est, de ce fait m&#234;me,  rejet&#233;e hors du conscient. Mais l&#8217;affect qui l&#8217;accompagnait,  d&#233;sarrim&#233; de cette repr&#233;sentation,  va, en quelque sorte, aller se fourvoyer,  se fixer sur   une repr&#233;sentation substitutive. 
+C&#8217;est dans le choix de cette repr&#233;sentation substitutive que les deux destins de la n&#233;vrose vont diverger. 
+
+Dans l&#8217;hyst&#233;rie se produira une &#171; conversion somatique &#187;, c'est-&#224;-dire que c&#8217;est au niveau du corps que sera trouv&#233;e la repr&#233;sentation substitutive et que se produira le sympt&#244;me, douleurs et paralysies diverses. Freud nous l&#8217;indique, l&#8217;hyst&#233;rique redonne &#224; des expressions les plus usuelles, leur sens primitif, voire archa&#239;que : &#171; &#231;a m&#8217;a fait battre le c&#339;ur &#187;, &#171; &#231;a m&#8217;a &#233;c&#339;ur&#233; &#187;, &#171; les bras m&#8217;en sont tomb&#233;s &#187;.
+Lorsque cette possibilit&#233; de conversion n&#8217;existe pas ou peu, la repr&#233;sentation substitutive reste alors dans le psychique et se manifeste sous forme d&#8217;id&#233;es obs&#233;dantes.
+Ce double chemin m&#233;rite d&#8217;&#234;tre retrac&#233; pas &#224; pas : 
+&#171; Le moi qui se d&#233;fend, &#233;crit Freud, se propose de traiter comme &#171; non arriv&#233;e &#187; la repr&#233;sentation inconciliable, mais cette tache est insoluble de fa&#231;on directe &#187;. En effet la trace mn&#233;sique de cet &#233;v&#233;nement dit traumatique ne peut plus &#234;tre effac&#233;e. On parvient quand m&#234;me &#224; transformer cette &#171; repr&#233;sentation forte &#187; en repr&#233;sentation faible en lui &#171; arrachant  l&#8217;affect qui lui &#233;tait attach&#233; &#187;. Mais &#171; la somme d&#8217;excitation est report&#233;e dans le corporel, processus pour lequel je donnerais le nom de conversion [&#8230;] Nous voyons ainsi  que le facteur caract&#233;ristique de l&#8217;hyst&#233;rie n&#8217;est pas le clivage de conscience (th&#232;se de Janet) mais la capacit&#233; de conversion et nous poserons qu&#8217;une partie importante de la disposition &#224; l&#8217;hyst&#233;rie (disposition par ailleurs inconnue) r&#233;side dans l&#8217;aptitude psychophysique &#224; transposer de grandes sommes d&#8217;excitation dans l&#8217;innervation corporelle &#187; 
+A ce stade de la d&#233;couverte de Freud la caract&#233;risation de la n&#233;vrose obsessionnelle se fait par rapport &#224; l&#8217;hyst&#233;rie et de fa&#231;on n&#233;gative, c&#8217;est l&#8217;absence de possibilit&#233; de cette conversion ou transposition dans le corporel qui constitue la sp&#233;cificit&#233; de cette n&#233;vrose : 
+&#171; Lorsqu&#8217;il n&#8217;existe pas chez une personne pr&#233;dispos&#233;e, cette aptitude &#224; la conversion, et si n&#233;anmoins, dans un but de d&#233;fense contre une repr&#233;sentation inconciliable, la s&#233;paration de cette repr&#233;sentation et de son affect est mise en &#339;uvre, alors cet affect doit rester n&#233;cessairement rester dans le domaine psychique. La repr&#233;sentation d&#233;sormais affaiblie demeure dans la conscience &#224; part de toutes les associations, mais son affect devenu libre s&#8217;attache &#224; d&#8217;autres repr&#233;sentations, en elles-m&#234;mes non inconciliables, qui, par cette fausse connexion, se transforment en repr&#233;sentations obs&#233;dantes. Voil&#224; en peu de mots la th&#233;orie psychologique des obsessions et phobies dont j&#8217;ai parl&#233; au d&#233;but de cet article. &#187; 
+Freud r&#233;sume donc ce m&#233;canisme de formation d&#8217;une obsession : devant un &#233;v&#233;nement toujours d&#8217;ordre sexuel, pour refouler hors du conscient une repr&#233;sentation inconciliable, se produit &#171; une s&#233;paration de la repr&#233;sentation d&#8217;avec son affect et une fausse connexion de ce dernier &#187;. 
+En voici un exemple donn&#233; par Freud dans ce m&#234;me texte : 
+ 
+Une femme avait contract&#233; le besoin de compter toujours les marches de l&#8217;escalier ou les lattes du plancher. Or nous indique Freud, elle avait commenc&#233; &#224; compter pour se distraire de ses id&#233;es obs&#233;dantes de tentation. Freud ne nous dit pas, si ces id&#233;es de tentation, bien s&#251;r sexuelles,  &#233;taient conscientes pour elle, ou si elles avaient d&#233;j&#224; subi une premi&#232;re transformation  et s&#8217;exprimaient, par exemple, par la crainte de se jeter par la fen&#234;tre. Cette compulsion peut en effet &#234;tre rapproch&#233;e de ce qu&#8217;il appelle, &#171; phobie de la fen&#234;tre &#187; et qui est  analys&#233;e par lui dans l&#8217;une des lettres de Freud adress&#233;e &#224; Fliess. L&#8217;id&#233;e inconsciente qui s&#8217;exprimerait dans cette compulsion ou cette phobie, est simplement le d&#233;sir de faire signe &#224; un homme par la fen&#234;tre, lui faire signe de monter, comme le ferait une prostitu&#233;e. On peut se demander si de nos jours, cette id&#233;e aurait encore cours. Sans nul doute les fantasmes de prostitution sont tr&#232;s pr&#233;sents dans l&#8217;inconscient d&#8217;une femme, mais peut-&#234;tre prendraient-ils  une autre forme, plus rude, plus directe. 
+
+
+Diff&#233;rence entre n&#233;vroses et psychoses 
+
+En cette premi&#232;re tentative d&#8217;approche de la radicale diff&#233;rence de structure entre la n&#233;vrose et la psychose, voici comment Freud la d&#233;crit : 
+Par rapport &#224; ce qui se passe  dans la n&#233;vrose, &#171; il existe pourtant une esp&#232;ce  beaucoup plus &#233;nergique et efficace de mode de d&#233;fense. Elle consiste en ceci que le moi rejette la repr&#233;sentation insupportable en m&#234;me temps que son affect et se comporte comme si elle n&#8217;&#233;tait jamais parvenue jusqu&#8217;au moi. Mais au moment o&#249; ceci est accompli, la personne se trouve dans une psychose qu&#8217;on ne peut classifier que comme confusion hallucinatoire. 
+
+La repr&#233;sentation qui &#233;tait donc maintenue dans la n&#233;vrose, encore que d&#233;pourvue de son affect, dans la psychose est rejet&#233;e. Est-ce que nous ne trouvons pas d&#233;j&#224;, mais que nous ne pouvons lire que dans un effet d&#8217;apr&#232;s coup, et il est vrai encore &#224; peine &#233;bauch&#233;, ce concept de la forclusion, de la Verwerfung,  que Lacan opposera &#224; la Verdrangung, au concept de refoulement ? 
+
+Mais Freud  rajoute cet &#233;l&#233;ment clinique d&#8217;importance : &#171; J&#8217;attire l&#8217;attention sur le fait que la contenu d&#8217;une psychose hallucinatoire&#8230; consiste pr&#233;cis&#233;ment en la mise en place au premier plan de cette repr&#233;sentation &#187;.  Cette repr&#233;sentation  qui a donc &#233;t&#233; chass&#233;e du conscient, rejet&#233;e, comme &#233;tant absolument inconciliable, intol&#233;rable,  r&#233;apparait donc tout &#224; fait en clair dans le d&#233;lire.
+
+== Tes questions ==
+
+Bonjour. Je n'ai pas (encore) lu ton texte ci-dessus (il est tard et le texte est long ...) Je le mettrais &#233;ventuellement dans la psychopathologie.
+
+Un petit truc, si tu ne sais pas faire dans Wikip&#233;dia. Dans un article qui utilise ce que tu cherches  (p.ex. lien interne, photo) tu cliques sur "modifier" juste pour voire la syntaxe, et sur la page que tu veux modifier tu fais pareil. Si tu veux t'entrainer sans risque vas dans le [[Wikip&#233;dia:Bac &#224; sable|Bac &#224; sable]]. Amicalement [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 7 avril 2008 &#224; 23:12 (CEST)
+
+:Bonsoir. Apr&#232;s lecture de ton texte ci-dessus et l'article [[psychopathologie]] je te sugg&#232;re d'ajouter ton texte en-dessous des paragraphes existants. Il est possible de mettre un renvoi vers l'article psychopathologie dans l'article [[Sigmund Freud]]. Mais ce n'est pas l'endroit de traiter de la n&#233;vrose et la psychose. D'ailleurs je viens de constater que l'article [[n&#233;vrose]] commence avec Adler. (Entre parenth&#232;ses : tu &#233;cris qu'il s'agit de l'approche historique de Freud. Je peux t'assurer que, &#224; ma surprise, l'enseignement se base toujours sur ces anciens concepts - ce qui m'irrite &#233;norm&#233;ment.)
+:Je n'ai pas d'opinion sur Lacan ni l'intention de m'en occuper - avant d'arriver en France, il y a vingt ans, je n'avais jamais entendu son nom et il m'est rest&#233; &#233;tranger, d&#233;mod&#233; de mon point de vue personel. amicalement [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 8 avril 2008 &#224; 22:55 (CEST)
+::Psychosomatique...Je crois que tu as raison, en effet. Aucun inconv&#233;nient pour un retour &#224; une version sans le terme de psychosomatique.--[[User:Mercury Blues|Mercury Blues]] ([[User talk:Mercury Blues|d]]) 9 avril 2008 &#224; 22:46 (CEST)
+:::Je n'avais pas du tout l'intention de te vexer. Au contraire j'ai appr&#233;ci&#233; ton texte et m'&#233;tonne plut&#244;t de l'enseignement dans une universit&#233; particuli&#232;re (et viens d'entendre qu'une autre &#224; tout simplement abandonner l'enseignement de la psychopathologie, ce qui est tout aussi surprenant). Dans l'ensemble j'ai l'impression qu'on peut se parler ici. Mais de discuter que par messages avec des personnes qu'on ne connait pas dans la vraie vie comporte toujours un risque de malentendu. Pour te rassurer, depuis mon arriv&#233;e sur Wikip&#233;dia il y a deux ans et demi je n'ai eu qu'un seul vrai conflit, peut-&#234;tre parce que passe plus de temps &#224; cat&#233;goriser et wikifier qu'&#224; &#233;crire des articles. Amicalement [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 10 avril 2008 &#224; 23:29 (CEST)
+::Bonjour Elyacin, je viens de supprimer les ajouts concernant la psychosomatique, et j'ai rajout&#233; un court topo sur le processus analytique.--[[User:Mercury Blues|Mercury Blues]] ([[User talk:Mercury Blues|d]]) 11 avril 2008 &#224; 09:20 (CEST)
+
+== L'histoire de Dora dans les cinq psychanalyses ==
+
+&lt;!--
+
+--&gt;{{#if:||&lt;table class="WSerieH" class="plainlinks" style="width:100%; margin: 2ex 0em 4ex 0em; border-width: 1px 2px 2px 1px; border-color: #8888aa; border-style: solid; padding:5px; text-align: justify"&gt;
+&lt;tr&gt;
+&lt;td&gt;[[Image:Crystal Clear filesystem pipe.png|120px]]&lt;/td&gt;
+&lt;td&gt;}}Bonjour{{#ifeq: {{BASEPAGENAME}} | Faut sourcer | |, {{BASEPAGENAME}}}} !
+
+Nous {{#if:|te|vous}} remercions de contribuer &#224; Wikip&#233;dia.
+
+{{#if:|Tu pourrais|Vous pourriez}} aider plus encore en ajoutant des r&#233;f&#233;rences &#233;tayant {{#if:|tes|vos}} contributions  {{#if:L'histoire de Dora dans les cinq psychanalyses|{{#if:|aux articles|&#224; l'article}} {{MultiParam&#232;tres-Lien|L'histoire de Dora dans les cinq psychanalyses||||||||}}|[[Special:Contributions/{{BASEPAGENAME}}|aux articles que {{#if:|tu as|vous avez}} modifi&#233;s]]}}. En effet, Wikip&#233;dia n'est pas supervis&#233;e par des experts et c'est le seul moyen pour elle de donner des informations v&#233;rifiables et dignes de confiance.
+
+Pour en savoir plus, {{#if:|tu peux|vous pouvez}} consulter [[Projet:Sources/Aide:Sourcer|cette aide]] ou [[Projet:Sources/FAQ|cette FAQ]].
+
+Bonne continuation sur Wikip&#233;dia et surtout {{#if:|fais-toi|faites-vous}} plaisir !
+
+{{#if:||&lt;/td&gt;&lt;/table&gt;}}&lt;!--
+
+--&gt;[[User:Fatju13|Fatju13]] ([[User talk:Fatju13|d]]) 11 avril 2008 &#224; 17:30 (CEST)
+
+:j'ai blanchi cet article car il &#233;tait vide. cordialement [[User:Fatju13|Fatju13]] ([[User talk:Fatju13|d]]) 13 avril 2008 &#224; 11:20 (CEST)
+
+== [[Wikip&#233;dia:Proposition articles de qualit&#233;/Magn&#233;tisme animal]] ==
+
+Bonjour Elyacin, voici donc un article propos&#233; pour label, si tu veux bien donner ton avis. Amicalement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 11 avril 2008 &#224; 19:01 (CEST)
+
+== Analyse automatique de vos cr&#233;ations (V1) ==
+Bonjour.
+
+Je suis [[Utilisateur:Escalabot|Escalabot]], un robot dress&#233; par [[Utilisateur:Escaladix|Escaladix]]. Je fais l'analyse quotidienne de tous les articles cr&#233;&#233;s deux jours plus t&#244;t afin de d&#233;tecter les articles en impasse, les articles orphelins et les articles sans cat&#233;gorie.
+
+Un '''article en impasse''' est un article qui ne contient aucun lien interne et un '''article orphelin''' est un article vers lequel aucun article encyclop&#233;dique (donc hors portail, cat&#233;gorie, etc.) n'a de lien interne. Pour plus de d&#233;tails sur les liens internes, vous pouvez consulter [[Aide:Liens internes|cette page]].
+
+Les '''cat&#233;gories''' permettent une classification coh&#233;rente des articles et sont un des points forts de Wikip&#233;dia. Pour plus de d&#233;tails sur les cat&#233;gories, vous pouvez consulter [[Aide:Cat&#233;gorie|cette page]].
+
+Ajouter des liens ou des cat&#233;gories n'est pas obligatoire, bien s&#251;r, mais cela augmente fortement l'accessibilit&#233; &#224; votre article et donc ses chances d'&#234;tre lu par d'autres internautes d'une part et d'&#234;tre am&#233;lior&#233; par d'autres contributeurs d'autre part.
+
+Pour tout renseignement, n'h&#233;sitez pas &#224; passer voir [[Discussion_Utilisateur:Escaladix|mon dresseur]]. De m&#234;me, si vous constatez que mon analyse est erron&#233;e, merci de le lui indiquer.
+
+Si vous ne souhaitez plus recevoir mes messages, vous pouvez en faire la demande [[Discussion_Utilisateur:Escaladix|ici]], n&#233;anmoins, je vous conseille de laisser ce message tel quel et, dans ce cas, j'ajouterai simplement mes prochaines analyses, &#224; la suite les unes des autres. [[User:Escalabot|Escalabot]] ([[User talk:Escalabot|d]]) 13 avril 2008 &#224; 06:19 (CEST)
+
+===Analyse du 11 avril 2008 ===
+*[[L'histoire de Dora dans les cinq psychanalyses]] &#233;tait
+**un article non cat&#233;goris&#233;
+**un article orphelin &lt;small&gt;([http://fr.wikipedia.org/w/index.php?title=Special:Whatlinkshere&amp;target=L'histoire_de_Dora_dans_les_cinq_psychanalyses Pages li&#233;es])&lt;/small&gt;
+
+== Dora ==
+
+Bonjour. Je ne sais pas pourquoi tu as d&#233;cid&#233; de blanchir ton d&#233;but d'article [[L'histoire de Dora dans les cinq psychanalyses]]. Je me demande s'il ne serait pas mieux de compl&#233;ter plut&#244;t l'article existant [[Ida Bauer|Dora]]. (Si pour une raison ou une autre tu veux un jour supprimer un article que tu as toi m&#234;me cr&#233;&#233; et qui n'a pas d'autres contributeurs, il y a [[Wikip&#233;dia:Demande de suppression imm&#233;diate]]. L'article sur Dora m&#233;rite d'&#234;tre &#233;toff&#233;, le mieux c'est de citer directement tes sources. Il y a des recommandations ici : [[Wikip&#233;dia:Article bien sourc&#233;]]. Ne te laisse pas d&#233;courag&#233;. Wikip&#233;dia est complexe et au d&#233;but il n'est pas facile de s'y retrouver. Bon courage [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 13 avril 2008 &#224; 22:42 (CEST)
+
+==Discussions==
+Bonjour - je n'avais pas vu ton message en bas de ma page personnelle et donc je n'avais pu r&#233;pondre. Maintenant, oui il faut mettre son message &#224; la suite dans la page de discussion, comme je le fais ici, &#231;a envoie un message qui avertit le destinataire qu'il ne peut pas ne pas voir.
+
+Oui aussi pour une de tes questions actuelles, sur un wiki, on cr&#233;e autant de pages que l'on veut et notamment les pages de discussion (apr&#232;s quelqu'un peut ne pas &#234;tre d'accord, mais bon, si c'est possible, c'est autoris&#233; en gros).
+
+Malheureusement, ce n'est pas temporaire, il n'y a pas de vie autour de la psychologie depuis plus de 4 ans au moins ; pour des raisons qui m'&#233;chappent, sauf que ce n'est pas beaucoup mieux dans d'autres sciences humaines. Encore heureux quand on trouve ''un'' participant int&#233;ress&#233; &amp; comp&#233;tent ! &lt;br /&gt;[[Utilisateur:TigH|TigHerv&#233;]][[Discussion Utilisateur:TigH|  (d)]] 24 avril 2008 &#224; 13:32 (CEST)
+
+Tu peux r&#233;pondre ci-dessous, je garde cette page en suivi.
+
+Pour ce silence au sujet de la psychanalyse je pense que nous sommes en un temps de fermeture de l'inconscient. Ce dont on peut &#234;tre s&#251;r c'est qu'il s'ouvrira &#224; nouveau. Car le d&#233;sir inconscient, malgr&#233; toutes les r&#233;sistances, insiste toujours pour se faire reconna&#238;tre : Il ne d&#233;clare jamais forfait. Comme le disait Freud, la voix de l'incosncient est basse mais elle est pers&#233;v&#233;rante. L'ennui c'est qu'elle revient souvent comme un retour de baton. Donc restons optimistes. --[[User:Elyacin|Elyacin]] ([[User talk:Elyacin|d]]) 24 avril 2008 &#224; 16:27 (CEST)
+
+== [[Jacques Lacan]] ==
+
+Bonjour Elyacin,
+
+que penses tu de l'article ? Cordialement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 16 mai 2008 &#224; 14:05 (CEST)
+
+:Ch&#232;re Perky, tout d'abord contente d'avoir un message auquel r&#233;pondre ! 
+
+Pour ce texte sur Lacan il est tr&#232;s copieux et il est effectivement impossible de r&#233;sumer en quelques lignes ou quelques pages trente ann&#233;es de s&#233;minaires. Il me semble t&#233;moigner d'un grand effort de coh&#233;rence ce qui est en soi une prouesse. 
+
+Mais je ne me suis pas encore pench&#233;e sur ce texte ligne &#224; ligne parce que je voudrais suivre d'une fa&#231;on un peu coh&#233;rente, construite,   ce qui repr&#233;sente donc un certain travail d'&#233;laboration, la pr&#233;sentation des cinq psychanalyses de Freud. Si je pense que &#231;a vaut la peine de bien les pr&#233;senter c'est parce qu'elles donnent quand m&#234;me une id&#233;e de ce qi peut se passer d'efficace dans une psychanalyse et d'une fa&#231;on je dirais concr&#232;te. 
+
+Par contre j'ai essay&#233; de reprendre quelque chose qui m&#233;ritait d'&#234;tre soulign&#233; concernant le terme de "Lacanisme" car c'est un terme qui a &#233;t&#233; contest&#233; par Lacan lui-m&#234;me. il souhaitait en effet que gr&#226;ce &#224; lui on ne puisse jamis faire de son nom un nom en isme. 
+Mais le ciel de Wikip&#233;dia ne m'&#233;tait pas favorable et du coup je n'ai jmais pu indiquer ces r&#233;f&#233;rences qui donnaient &#224; ce terme un &#233;clairage inattendu. Du coup j'ai renonc&#233;. Mais si tu veux bien m'aider &#224; le remetre en ligne, je vais essayer de retrouver le passage que j'avais r&#233;dig&#233;.  Amicalement. Liliane.
+
+::Merci de ta r&#233;ponse :-) Je voulais ton avis, parce que je me sens un peu confuse. En effet, il a &#233;t&#233; principalement r&#233;dig&#233; par {{u|Pythakos}} et pour le faire valoir, sur un &#233;lan d'enthousiasme, qui s'est r&#233;v&#233;l&#233; d&#233;sinvolte, je l'ai pr&#233;sent&#233; pour le label de qualit&#233;, &#224; la mani&#232;re anglaise (un pair qui propose). De l&#224;, [[Wikip&#233;dia:Proposition articles de qualit&#233;/Jacques Lacan]], il y a eu des critiques et une discussion...et le d&#233;part de Pythakos...Enfin, depuis plus grand chose. hem, hem. N'h&#233;site pas &#224; me demander de t'aider dans la mesure de mes capacit&#233;s. ;-) Bien amicalement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 16 mai 2008 &#224; 19:19 (CEST)
+
+== Psycho/psycha ==
+
+N'es crainte Elyacin, je te r&#233;ponds en toute sympathie, j'avais bien compris que tu ne cherchais pas la basse pol&#233;mique. cela dit... Ah le vaste d&#233;bat! {{mdr}} C'est vrai que c'est une question int&#233;ressante. Tout d'abord Freud est-il l'inventeur de l'inconscient? Je pense sinc&#232;rement que non. Que fais tu des travaux de Pierre Janet, et de son [[subconscient]], pour ne donner que cet exemple? C'est vrai que la vrai question est sans doute ''qu'est-ce que Freud a t-il invent&#233; au juste?'' En fait, comme tout les penseurs-th&#233;oriciens, Freud n'a pas tant invent&#233; un concept innovant, qu'une logique, enfin c'est ce que je pense. Sa logique est celle de la sexualit&#233; infantile. Freud, mais comme d'autre, est all&#233; dans le sens contraire du syncr&#233;tisme, le but &#233;tant d'aller dans le sens d'une th&#233;orie explicative synth&#233;tique, o&#249; l'on pourrait d&#233;gager des lois fondamentales. Mais dans ce cas, et avec ce point de vu, Freud n'a rien fait de plus que Janet. Et Lacan rien de plus que Wallon... Pour ne prendre toujours que cet exemple. Dans ce cas, pourquoi extraire la psychanalyse de la psychologie, et pas extraire une autre th&#233;orie. La psychanalyse n'est, ne l'oublions pas, qu'un cadre th&#233;orique particulier expliquant (ou cherchant &#224; expliquer) le psychisme et plus globalement le fonctionnement humain. Donc, la psychanalyse a toute sa place me semble t-il dans la cat&#233;gorie: psychologie. Bon apr&#232;s restons pragmatique (il faut de temps en temps {{clin}}... pour 95%{{R&#233;f&#233;rence n&#233;cessaire}} du commun des mortels, la psychanalyse=psychologie clinique(ou inversement). Donc c'est plus clair comme ca. J'esp&#232;re que ma r&#233;ponse est &#224; la hauteur de tes esp&#233;rances {{mdr}}. Tr&#232;s cordialement. --[[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 26 mai 2008 &#224; 17:49 (CEST)
+
+== Coucou ==
+
+Ch&#232;re Elyacin, et un grand merci pour le morceau ''limpide''. Si tu avais une r&#233;f un peu plus d&#233;taill&#233;e sur les ''cl&#233;s''. Bien amicalement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 7 octobre 2008 &#224; 14:33 (CEST)
+
+== [[Jacques Lacan]] ==
+Hello, Perky, regarde un peu j'ai modifi&#233; le passage sur Hegel mais du coup il y une partie du texte qui s'isole malencontreusement. Je vais essayer de dire un peu ce que sont ces trois registres, RSI. si j'ai un peu de temps. Elyacin
+:Bonjour Elyacin, je viens de voir ton mot. Il faut que tu signes tes messages par quatres tildes (~). Merci. :). J'ai fait de mon mieux. J'esp&#232;re que &#231;a va. Aussi, il vient d'&#234;tre propos&#233; pour &#234;tre labelis&#233; comme "bon article" [[Wikip&#233;dia:Bons articles]]. Ce qui va apporter de nouveaux lecteurs et correcteurs. :-) Bon courage. Amicalement. -- [[Utilisatrice:Perky|Perky &#9825;]] [[Discussion Utilisateur:Perky|&#9997;]] 9 octobre 2008 &#224; 20:41 (CEST)
+
+== refonte du portail ==
+
+retrouvons-nous ici, si tu es toujours int&#233;ress&#233; : 
+{{Portail:Psychologie/Refonte/Ent&#234;te}}
+
+== Refonte&#160;[[projet:psychologie]] ==
+
+Bonjour, vous &#234;tes inscrit(e) sur le projet psychologie. Une restructuration du portail et du projet est en cours et nous en profitons pour le faire le point sur les volontaires inscrits. Si vous voulez continuer &#224; y participer, merci de vous rendre sur [http://fr.wikipedia.org/w/index.php?title=Projet:Psychologie/Participants&amp;action=edit cette page], d'effacer votre ancienne signature et de signer de nouveau. Merci aussi de pr&#233;ciser vos domaines et activit&#233;s. Cordialement, [[Utilisateur:Prosopee|Prosopee]] ([[Discussion utilisateur:Prosopee|d]]) 19 juin 2011 &#224; 09:11 (CEST)</text>
+      <sha1>64g2q2k2m5iw65whz8ohdb5jb799hwz</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

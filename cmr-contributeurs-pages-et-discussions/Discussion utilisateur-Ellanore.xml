@@ -1,0 +1,151 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Discussion utilisateur:Ellanore</title>
+    <ns>3</ns>
+    <id>2793594</id>
+    <revision>
+      <id>66545886</id>
+      <parentid>49250756</parentid>
+      <timestamp>2011-06-19T07:11:21Z</timestamp>
+      <contributor>
+        <username>Prosopee</username>
+        <id>355769</id>
+      </contributor>
+      <comment>/* Refonte&#160;projet:psychologie */ nouvelle section</comment>
+      <text xml:space="preserve">==Bienvenue sur Wikip&#233;dia==
+&lt;!-- les balises "div" servent ici &#224; faire le cadre autour du texte. Si tu n'es pas familier avec le HTML, ne t'emb&#234;tes pas dans l'imm&#233;diat a chercher comment elles fonctionnent --&gt;
+&lt;div style="margin-bottom:1.25em;border:1px solid #8898BF; background:white; padding:0;"&gt;
+&lt;div style="height:8px; margin:0; border:0; border-bottom:1px solid #8898BF; background:#C8D8FF; font-size:1px;"&gt;&lt;/div&gt;
+&lt;div style="padding:8px;"&gt;
+
+&lt;center&gt;&lt;big&gt;[[Wikip&#233;dia:Accueil des nouveaux arrivants|Bienvenue]] sur Wikip&#233;dia, '''{{BASEPAGENAME}} !'''&lt;/big&gt;&lt;/center&gt;
+
+[[Wikip&#233;dia]] est un projet de r&#233;daction collective d'une vaste encyclop&#233;die r&#233;alis&#233; actuellement dans 250 langues diff&#233;rentes de par le monde.
+
+===G&#233;n&#233;ralit&#233;s===
+Pour participer correctement ici, il me parait important de commencer par lire les [[Wikip&#233;dia:Principes fondateurs|principes fondateurs]].
+
+Moins urgentes, la lecture de pages comme [[Wikip&#233;dia:Citez vos sources]], [[Wikip&#233;dia:crit&#232;res d'admissibilit&#233; des articles]] et [[Wikip&#233;dia:Conventions de style]] s'av&#232;reront elles aussi instructives.
+
+===Syntaxe de base===
+Le [[Wikip&#233;dia:Bac &#224; sable|bac &#224; sable]] est l'endroit d&#233;di&#233; aux essais que tu ne manqueras pas de vouloir faire sur la syntaxe wiki (ou tu peux &#233;ventuellement te cr&#233;er une [[User:{{BASEPAGENAME}}/Bac &#224; sable|sous page]] &#224; cet effet).
+
+Si je devais r&#233;sumer la syntaxe wiki en quelques phrases...
+*&lt;nowiki&gt;~~~~&lt;/nowiki&gt; te permet de signer un message avec une date (exemple : [[user:{{BASEPAGENAME}}|{{BASEPAGENAME}}]] 23 f&#233;vrier 2007 &#224; 12:12 (CET)). Les messages aux autres contributeurs doivent &#234;tre sign&#233;s (pages de discussion), mais pas les articles ([http://fr.wikipedia.org/w/index.php?title=Pomme&amp;action=history l'historique] permet d'en retrouver les auteurs). &lt;small&gt;(voir [[Aide:Signature]])&lt;/small&gt;
+*Faire des liens internes : 
+**&lt;nowiki&gt;[[article]]&lt;/nowiki&gt; affichera [[article]], avec un lien vers la page du m&#234;me nom. Si le [[cet article n'existe pas ! d'ailleurs, ne le cr&#233;ez pas|lien est rouge]], alors la page de destination n'existe pas. 
+**&lt;nowiki&gt;[[Article|un autre texte]]&lt;/nowiki&gt; affichera [[Article|un autre texte]], toujours en pointant vers [[Article]].
+*&lt;nowiki&gt;'''gras''' et ''italique''&lt;/nowiki&gt; afficheront respectivement '''gras''' et ''italique''
+*&lt;nowiki&gt;== titre ==&lt;/nowiki&gt; (seul sur une ligne) permet de cr&#233;er un titre de section. Le nombre de "=" indique le niveau du titre, permettant de cr&#233;er une arborescence (ce message est un exemple d'arborescence de titres). &lt;small&gt;(voir [[Aide:Syntaxe#Titre]])&lt;/small&gt;
+*Un mod&#232;le (appel&#233; comme ceci : &lt;nowiki&gt;{{exemple de mod&#232;le}}&lt;/nowiki&gt;) utilis&#233; dans une page quelconque affiche un contenu qui se trouve en fait stock&#233; dans la page [[Mod&#232;le:exemple de mod&#232;le]]. Cela permet d'ins&#233;rer un m&#234;me texte ou code (bandeau de portail, etc.) dans de nombreuses pages sans devoir le r&#233;&#233;crire totalement &#224; chaque fois. Par exemple, {{M|Portail Japon et culture japonaise}} est utilis&#233; en bas de toutes les pages en rapport avec le Japon. &lt;small&gt;(voir [[Aide:Mod&#232;le]])&lt;/small&gt;
+*Il est recommand&#233; de classer les articles pour qu'ils soient trouvables plus facilement : il suffit de leur affecter des cat&#233;gories en ins&#233;rant &lt;nowiki&gt;[[Cat&#233;gorie:nom de la cat&#233;gorie]]&lt;/nowiki&gt; en bas de l'article. Attention toutefois &#224; v&#233;rifier que la cat&#233;gorie existe bien en pr&#233;visualisant la page : si le lien est rouge, alors la cat&#233;gorie n'existe pas. Exemple : [[Le Plessis-Bouchard]] a pour cat&#233;gorie [[:Cat&#233;gorie:Commune du Val-d'Oise]]. &lt;small&gt;(voir [[Aide:Cat&#233;gorie]])&lt;/small&gt;
+
+Une description beaucoup plus compl&#232;te est disponible sur '''[[Aide:syntaxe]]'''.
+
+===et sinon&#8230;===
+*Tu peux indiquer, sur ta [[Utilisateur:{{BASEPAGENAME}}|page utilisateur]], [[Wikip&#233;dia:Babel|les langues que tu parles]], tes centres d'int&#233;r&#234;t et/ou une br&#232;ve description. Dans la mesure du raisonnable, chaque utilisateur peut mettre &#224; peu pr&#232;s ce qu'il veut sur sa page personnelle... toutefois, la transformer en encart publicitaire ou tribune politique ne sera pas tol&#233;r&#233;. &lt;small&gt;([http://fr.wikipedia.org/w/index.php?title=Utilisateur:Sabri.labidi&amp;oldid=15804342 un exemple de ce qu'il ne faut pas faire])&lt;/small&gt;
+*Une '''guilde de parrains et marraines''' est l&#224; pour aider ceux qui le souhaitent. Ils sont joignable sur le [[Projet:Service de Parrainage Actif]]
+*Si tu as d'autres questions, tu peux consulter [[Aide:Sommaire|l'aide]] ou service de parrainage 
+
+Bonne continuation
+&lt;/div&gt;&lt;/div&gt; [[Utilisateur:Arria Belli|Arria Belli]]--21 f&#233;vrier 2008 &#224; 18:32 (CET)
+
+== Parrainage ==
+
+Bonsoir. Tu cherches un parrain ? Je veux bien t'aider, si tu as des probl&#232;mes pour d&#233;buter. En g&#233;n&#233;ral, je passe sur Wikip&#233;dia (presque) tous les soirs.
+
+Ne te g&#232;nes pas am&#233;liore l'article sur [[Carl Gustav Jung]]. J'ai essai&#233; un jour de faire de l'ordre dans la bibliographie, mais n'ai jamais fini. En effet l'introduction doit &#234;tre refaite. Elle n'est pas tr&#232;s lisible et beaucoup trop longue, peut-&#234;tre sera-t-il possible de d&#233;placer certains aspects dans les paragraphes suivants. A toi de voir. [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 21 f&#233;vrier 2008 &#224; 22:54 (CET)
+
+
+----
+Bonjour Traumrune, et merci de ton message !! J'ai pas mal de questions sur les us et coutumes des wikip&#233;diens et j'avoue me sentir un peu perdue. Par exemple, je suis sens&#233;e te r&#233;pondre ici, ou sur ta page d'utilisateur &#224; toi ?? 
+En tout cas, merci d'etre pass&#233;e, je vais essayer de faire une liste des questions que je me pose, et puis on verra bien !! Je te souhaite une bonne journ&#233;e, et m'attaquerai &#224; ce cher C G Jung ce week end !!
+--[[User:Ellanore|Ellanore]] ([[User talk:Ellanore|d]]) 22 f&#233;vrier 2008 &#224; 08:28 (CET)
+:je vois que Tramrune t'a propos&#233; d et'aider. Je me propose d'&#234;tre ton parrain officiel. Fais comme tu veux (feel free!) N'h&#233;site pas &#224; me laisser un mot sur ma page de discussion (en cliquant sur le "(d)" &#224; c&#244;t&#233; de ma signature). Cordialement. [[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 24 f&#233;vrier 2008 &#224; 13:18 (CET)
+::A propos de ta question ci-dessus, il est d'usage de r&#233;pondre plut&#244;t sur la page de discussion de l'autre utilisateur (parce que sinon &#231;a implique que l'autre utilisateur suive ta page pour savoir quand il y a une r&#233;ponse, tout le monde ne le fait pas, mais j'estime que c'est une question de courtoisie &#233;l&#233;mentaire). [[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 24 f&#233;vrier 2008 &#224; 15:15 (CET)
+:::Voil&#224; qui est fait {{sourire}}. C'est vrai que &#231;a parait plus logique, mais quitte &#224; faire des b&#233;tises, je pr&#233;f&#232;rais "polluer" ma propre page plutot que celle des gens qui se proposaient de m'aider...[[User:Ellanore|Ellanore]] ([[User talk:Ellanore|d]]) 24 f&#233;vrier 2008 &#224; 15:35 (CET)
+
+==Tes premi&#232;res contributions==
+Re! Je viens de parcourir tes contributions et et je dois te dire bravo! Je n'ai relev&#233; qu'une petite coquille sur l'article de Freud. Quant &#224; l'ensemble de tes autres contributions, &#231;a m'a l'air tr&#232;s bien, tu as corrig&#233; pas mal de petites fautes et reformul&#233; des passages en les rendant plus pertinents. Je ne suis pas sp&#233;cialiste du domaine mais je ne pense pas que tes contributions soient controversables, en plus tu as d&#233;j&#224; utilis&#233; les pages de discussion pour justifier tes changements et demander des pr&#233;cisions aux autres. Bref que du bon! Cordialement. [[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 24 f&#233;vrier 2008 &#224; 14:14 (CET)
+
+Et au fait:
+{{Bienvenue filleul|Xic667}}
+{{sourire}}
+[[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 24 f&#233;vrier 2008 &#224; 14:32 (CET)
+---
+==Liens vers pages des wikip&#233;diens==
+Pour faire &#231;a tu peux mettre par exemple tout simplement [[Utilisateur:Ellanore]] (qui est bien le nom de ta page utilisateur sur la wikipedia). Pour faire r&#233;f&#233;rence &#224; un utilisateur, tu peux aussi utiliser le mod&#232;le &lt;nowiki&gt;{{u|Ellanore}}&lt;/nowiki&gt;, qui va donner {{u|Ellanore}}, et a l'avantage de permettre d'acc&#233;der directement et au choix: &#224; la page utilisateur ou &#224; la page de discussion, ou aux contributions de la personne, ou encore de voir si elle a d&#233;j&#224; re&#231;u des blocages (et en plus je le trouve plut&#244;t sobre et joli!). Cordialement. [[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 24 f&#233;vrier 2008 &#224; 14:50 (CET)
+
+==Modifs mineures ou pas?==
+Il n'y a pas que je sache de convention officielle pour d&#233;terminer si une modif est mineure ou pas. C'est &#224; toi de voir. Une modification orthographique ou une reformulation sont logiquement &#224; consid&#233;rer comme des modifs mineures (et encore mieux, indique-le sur la boite de r&#233;sum&#233;, &#231;a aide, m&#234;me si je ne le fais pas toujours, c'est pas bien {{clin}}). Si tu ajoutes un paragraphe ou une id&#233;e importants, que tu changes en profondeur la structure d'un article, ou que tu en cr&#233;es un, ce n'est plus une modification mineure... Indiquer si une modification est mineure ou pas est seulement une aide pour les listes de suivi des utilisateurs. Tu remarqueras qu'on peut choisir de voir ou pas les modifications mineures. Personnellement je ne l'utilise jamais (je visualise toutes les modifs). Autre chose, &#233;tant donn&#233; que beaucoup de contributions sont souvent mineures, j'ai enregistr&#233; dans mes pr&#233;f&#233;reences (en haut de page) que toutes mes modifications &#233;taient mineures par d&#233;faut, tu peux le faire aussi. Cordialement. [[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 24 f&#233;vrier 2008 &#224; 14:58 (CET)
+
+==Absence==
+Bonjour,
+Je te pr&#233;viens, &#224; cause d'un imp&#233;ratif professionnel je ne pourrai probablement pas revenir sur l'encyclop&#233;die avant jeudi ou vendredi soir (c'est tr&#232;s rare mais &#231;a arrive 2/3 fois par an). Tu peux tout de m&#234;me me laisser des messages si tu as une question, j'y r&#233;pondrai d&#232;s que possible &lt;br/&gt; Cordialement. 
+[[User:Xic667|Xic667]] ([[User talk:Xic667|d]]) 25 f&#233;vrier 2008 &#224; 19:33 (CET)
+
+== Bonjour ==
+
+Merci pour le message que tu as laiss&#233; sur ma page de discussion. c'est  seulement &#224; ce moment que j'ai remarqu&#233; que je n'avais pas coch&#233; "suivre" pour ta page de discussion. Il faut dire que je ne le fait que rarement, parce que certains contributeurs ont beaucoup de messages sur des sujets divers. Je constate que Xic667 te donne beaucoup de conseils judicieux (moi p.ex. je me suis jamais donn&#233;e la peine d'utiliser les pr&#233;f&#233;rences). Si tu suis une page et quelqu'un a fait une modification "mineure" v&#233;rifie quand m&#234;me, parfois la modification est plus importante qu'elle pr&#233;tend (ou un petit vandalisme d'une IP). Amicalement [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 26 f&#233;vrier 2008 &#224; 22:23 (CET)
+
+== Bienvenue ==
+* juste une remarque la partie "cure classique" de l'artile [[Psychanalyse]] que vous avez modifi&#233;e m'a paru un peu touffue. J'ai essay&#233; de l'am&#233;liorer sans parler du fait qu'il faut respecter le fait que la position lacanienne (coupure des s&#233;ances, etc.) ne fait pour le moins pas l'unanimit&#233; ! Donc j'ai essay&#233; d'avoir des formulations plus ouvertes et plus directes. J'esp&#232;re que &#231;a vous conviendra ? Cordialement [[User:L&#233;on99|L&#233;on99]] ([[User talk:L&#233;on99|d]]) 27 f&#233;vrier 2008 &#224; 20:35 (CET)
+:Salut Ellanore, &#233;tant tr&#232;s absent de wikip&#233;dia en ce moment (et ceci pour quelques temps encore) je n'ai pas pu te r&#233;pondre, mais je vois que d'autre on heureusement eu un avis sur la question. {{clin}} J'en profite en passant:
+
+{|class="WSerieH" title="{{((}}subst:Bonjour IP{{))}}" class="plainlinks" id="vandale" align="center" style="width:100%;margin-bottom:2em;border:1px solid #FFFFFF;border-right-width:2px;border-bottom-width:2px;background-color:#FFFFFF;padding:5px;text-align:justify"
+|-
+|[[Image:Smiley.svg|45px]]
+|Bonjour ''{{BASEPAGENAME}}''. J'ai remarqu&#233; que vous avez contribu&#233; sur des articles li&#233;s &#224; la [[psychologie]] et je vous en remercie !
+
+Je suis un membre du '''[[projet:psychologie|projet de psychologie]]''' que je vous invite &#224; d&#233;couvrir. N'h&#233;sitez pas &#224; [[Projet:Psychologie/Participants|vous y inscrire]]. L'objectif du projet est de travailler en commun pour am&#233;liorer les articles concernant la psychologie et les disciplines connexes, et se coordonner pour des t&#226;ches diverses et vari&#233;es ([[Projet:Psychologie/&#201;valuation|&#233;valuation des articles]], [[Projet:Psychologie/ArticleDuMois|articles du mois]]...). Comme dans le reste de [[wikip&#233;dia]] ce projet est bas&#233; sur le b&#233;n&#233;volat, et n'engage pas &#224; une quelconque contribution. Cependant il est souhaitable de suivre la page du projet pour au moins se tenir inform&#233;.
+&lt;br /&gt;
+Quelle que soit votre d&#233;cision, bonne continuation&amp;nbsp;!
+|}--[[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 4 mars 2008 &#224; 08:35 (CET)
+
+&lt;div title="&amp;#123;{subst:Bienvenue psycho}}" style="width:auto" style="margin-bottom:1.25em;border:1px solid #{{#switch:bleu|bleu=8898BF|vert=97BF87|jaune=AAAA66|or=777777|orange=AA8833|violet=7755AA|saumon=AA8866|sable=AA9955|vertmoyen=88BB55|bleufonc&#233;=1144AA|rouge=AA8866|&#233;carlate=AAAAAA|#default=AAAAAA}};  background:white;padding:0"&gt;
+
+&lt;center&gt;&lt;big&gt;[[Projet:Psychologie/Participants|Bienvenue]] sur le [[projet:psychologie|projet de psychologie]] de Wikip&#233;dia, '''{{BASEPAGENAME}} !'''&lt;/big&gt;&lt;/center&gt;
+
+
+{|
+|[[Image:Psi-stylized.png|40px|center]]
+|Ce [[Projet:Accueil|projet]] vise la '''coordination des efforts''' des contributeurs autour de la psychologie. Il regroupe des [[Projet:Psychologie/Ressources ext&#233;rieures|ressources]], des [[Discussion Projet:Psychologie|discussions]], des [[Projet:Psychologie/ContribuerPsychopedia|recommandations]] et des outils de travail. '''Ajouter &#224; votre liste de suivi''' la [[Projet:Psychologie/Annonces|page d'annonce]] et de [[Discussion Projet:Psychologie|discussion]] pour vous tenir au courant. Le projet psychologie a comme particularit&#233; de regrouper des visions de la nature humaine tr&#232;s diff&#233;rentes, voir parfois difficilement conciliables. Cependant il s'agit de '''travailler ensemble''' dans le but d'am&#233;liorer la qualit&#233; de Wikip&#233;dia, en s'appuyant notamment sur [[wikip&#233;dia:neutralit&#233;|une politique de neutralit&#233;]] et sur le principe de [[wikip&#233;dia:pertinence|pertinence]].
+
+|--
+|[[Image:Inkwell template.gif|left|50px]]
+|Si '''[[Aide:Comment cr&#233;er un article|vous cr&#233;ez un article]]''', prenez [[motivation|mod&#232;le]] ou lisez [[Aide:Comment r&#233;diger un article#Quelques principes g&#233;n&#233;raux|quelques principes]] qui vous y aideront. Si le sujet concerne la psychologie, et que l'article n'est qu'[[wikip&#233;dia:&#233;bauche|&#233;bauch&#233;]], vous pouvez apposer le bandeau ''{{m|&#233;bauche psychologie}}'' (ou ''{{m|&#233;bauche psychanalyse}}'') en haut de celui-ci. Ind&#233;pendamment du d&#233;veloppement de l'article, vous pouvez ajouter le bandeau ''{{m|portail psychologie}}'' tout en bas.
+
+|--
+|[[Image:No iwiki template.gif|left|50px]]
+|'''[[Aide:Cat&#233;gorie|Cat&#233;goriser les articles]]''' est important. En psychologie il est souvent difficile de le faire de fa&#231;on satisfaisante. Cependant, le projet a pris comme partie de cat&#233;goriser le moins d'articles possible dans la [[:cat&#233;gorie:psychologie|cat&#233;gorie m&#232;re de psychologie]], mais d'en dispatcher un maximum dans les ''cat&#233;gories filles'', tout en &#233;vitant si possible, les doubles et les triples cat&#233;gorisations.
+
+|---
+|[[Image:Interro icon.png|left|40px]]
+|'''[[Projet:Psychologie/Participants|Comptez sur les autres]]'''  pour r&#233;pondre &#224; vos questions, pour corriger les erreurs in&#233;vitables du d&#233;but. Ainsi le ma&#238;tre mot est de [[wikip&#233;dia:N'h&#233;sitez pas|ne pas h&#233;sitez &#224; contribuer]]. 
+
+'''Se pr&#233;senter sur sa [[Utilisateur:{{PAGENAME}}|page utilisateur]]''' est un bon moyen de s'exercer &#224; modifier une page sur Wikip&#233;dia. Vous pouvez par exemple exposer votre niveau de formation en psychologie (amateur, &#233;tudiant, psychologue...), ou vos centres d'int&#233;r&#234;ts sp&#233;cifiques (psychologie clinique, cognitive...), ou bien encore opter pour une pr&#233;sentation plus g&#233;n&#233;rale. Vous trouverez [[Wikip&#233;dia:Mod&#232;les/Espace Utilisateur/Bo&#238;te Utilisateur|des outils]] (voir notamment {{M|Utilisateur psychologie}}, {{m|Utilisateur Projet/Psychologie}}, {{m|Utilisateur Psychologue}}) pour vous y aider.
+|}
+
+&lt;/div&gt;&lt;/div&gt;{{#if:.|.|&lt;nowiki&gt;:&lt;/nowiki&gt; [[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 5 mars 2008 &#224; 14:35 (CET)}} &amp;nbsp;
+
+--[[Utilisateur:Yugiz|Yugiz]] &lt;small&gt;([[Discussion Utilisateur:Yugiz|me r&#233;pondre]]; [[Utilisateur:Yugiz/Pr&#233;sentation|p]]; [[Utilisateur:Yugiz/contributions|c]]) &lt;/small&gt; 5 mars 2008 &#224; 14:35 (CET)
+
+== Article [[Psychanalyse]] ==
+
+Comme tu me l'as demand&#233;, j'ai relus tes changements dans l'article psychanalyse. La seule chose un peu irritant de l'article dans son ensemble, est l'absence de r&#233;f&#233;rences. Mais comme il s'agit d'un article g&#233;n&#233;ral sur la question cela peut se justifier. En survolant l'article j'ai vu qu'il y a un chapitre ''R&#234;ve &#233;veill&#233; en psychanalyse'' o&#249; il est dit que Freud a donn&#233; ce nom, or dans l'article [[R&#234;ve-&#233;veill&#233;]] on lit que la m&#233;thode fut invent&#233; par [[Robert Desoille]] dans les ann&#233;es 1930. C'est l'un ou l'autre? Je crois que je vais laisser un message &#224; ce sujet dans le [[Projet:Psychologie/Caf&#233; des psy]]. Bonne continuation. Tu as s&#251;rement remarqu&#233; que toucher aux articles sur la psychanalyse a comme effet d'avoir plein de messages sur sa page de discussion {{sourire}}. [[User:Traumrune|Traumrune]] ([[User talk:Traumrune|d]]) 4 mars 2008 &#224; 22:24 (CET)
+==Aide==
+J'ai un ami qui est psychologue en formation qui voudrait faire ses recherches sur un diagnostic psychologique de l'administration publique. Vos conseils pourront bien l'aider.
+[[Utilisateur:Oasisk|Oasisk]] ([[Discussion utilisateur:Oasisk|d]]) 30 mai 2009 &#224; 20:26 (CEST)
+
+== refonte du portail ==
+
+retrouvons-nous ici, si tu es toujours int&#233;ress&#233; : 
+{{Portail:Psychologie/Refonte/Ent&#234;te}}
+
+== Refonte&#160;[[projet:psychologie]] ==
+
+Bonjour, vous &#234;tes inscrit(e) sur le projet psychologie. Une restructuration du portail et du projet est en cours et nous en profitons pour le faire le point sur les volontaires inscrits. Si vous voulez continuer &#224; y participer, merci de vous rendre sur [http://fr.wikipedia.org/w/index.php?title=Projet:Psychologie/Participants&amp;action=edit cette page], d'effacer votre ancienne signature et de signer de nouveau. Merci aussi de pr&#233;ciser vos domaines et activit&#233;s. Cordialement, [[Utilisateur:Prosopee|Prosopee]] ([[Discussion utilisateur:Prosopee|d]]) 19 juin 2011 &#224; 09:11 (CEST)</text>
+      <sha1>1513xs5utl7y3viosi6lcvj4djylty3</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

@@ -1,0 +1,98 @@
+<page xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <title>Utilisateur:DumZiBoT</title>
+    <ns>2</ns>
+    <id>1892608</id>
+    <revision>
+      <id>99891564</id>
+      <parentid>94187579</parentid>
+      <timestamp>2014-01-04T14:00:16Z</timestamp>
+      <contributor>
+        <username>Bub's wikibot</username>
+        <id>373944</id>
+      </contributor>
+      <minor/>
+      <comment>Robot : Mise &#224; jour de l'activit&#233; d'un confr&#232;re (ancien depuis le 2 d&#233;cembre 2013)</comment>
+      <text xml:space="preserve">{{ic&#244;ne de titre|Lien=Wikip&#233;dia:Bot|Image=Crystal package system.png|Texte=Bot|Taille=64}}
+&lt;!--{{ic&#244;ne de titre|Lien=Wikip&#233;dia:Bot|Image=Crystal 128 kservices.png|Texte=Bot|Taille=90}}--&gt;
+
+&lt;!--&lt;center&gt;Il existe maintenant une '''page permettant l'arr&#234;t de DumZiBoT''' : [[/EditezCettePagePourMeStopper]].&lt;br/&gt;
+&#192; noter que cette page n'arr&#234;te que la t&#226;che [[/liensRefs]].&lt;/center&gt;--&gt;
+{{M&#233;ta bandeau d'avertissement
+| niveau = grave
+| ic&#244;ne = Nuvola apps important.svg
+| titre = Ce robot travaille depuis le toolserver, attention &#224; ne &lt;big&gt;jamais bloquer son IP !&lt;/big&gt;
+| texte = Bloquer l'adresse IP de ce robot reviendrait &#224; interdire l'acc&#232;s &#224; tous les outils travaillant &#224; partir du toolserver.
+}}
+
+
+{| style="width:90%;margin-left:10%"
+|-
+|
+| style="padding:1em" |
+&lt;div style="background-color:white; border: 1px gray solid; margin-bottom: 5px;width:55%;margin-left:15%"&gt;
+&lt;div style="background-color: #FF4040; border: 0px; border-bottom: 1px gray; border-style: solid; font: 11pt"&gt;
+{|style="background-color:transparent;width:100%;text-align:center"
+|-
+| '''Bonjour, &lt;big&gt;&lt;code&gt;humain&lt;/code&gt;&lt;/big&gt; !'''
+|}&lt;/div&gt;
+{| style="padding:1em;text-align:justify"
+|-
+|Sache que je ne suis pas en mesure de saisir par moi-m&#234;me la port&#233;e des millions d'op&#233;rations que je fais chaque seconde : je suis un robot, et seul mon '''dresseur, [[Utilisateur:NicDumZ|NicDumZ]],''' pourra t'expliquer ce qu'il me [[Sp&#233;cial:Contributions/DumZiBoT|'''fait faire''']], et c'est bien lui qu'il faut avertir en cas de souci.
+|-
+|style="text-align:center"|[[Image:Japan road sign 209.svg&lt;!--Sj&#246;v&#228;gm&#228;rke, Livsfarlig ledning.svg--&gt;|75px]]
+|-
+|Si toutefois, exceptionnellement, il n'&#233;tait pas joignable alors que je faisais des b&#234;tises, il demande &#224; ce que je sois [[Sp&#233;cial:Blockip/DumZiBoT|'''bloqu&#233;''']] en l'attente de son retour.
+|}
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="background-color:white; border: 1px gray solid; margin-bottom: 5px;width:55%;margin-left:15%;margin-top:1em"&gt;
+&lt;div style="background-color: chartreuse; border: 0px; border-bottom: 1px gray; border-style: solid; font: 11pt"&gt;
+{|style="background-color:transparent;width:100%;text-align:center"
+|-
+| '''Mon travail ?'''
+|}&lt;/div&gt;
+{| style="padding:1em;text-align:justify"
+|-
+|[[Image:Vista-kblackbox.png|35px|center]]
+|-
+|Le framework [[Wikip&#233;dia:Pywikipedia|'''Pywikipedia''']] retranscrit les souhaits de mon dresseur en instructions que je comprends.
+|-
+
+&lt;!--
+|[[Image:Crystal Clear app kalarm.png|45px|center]]
+|-
+--&gt;
+
+|[[Image:Exquisite-kalarm.png|45px|center]]
+|-
+|style="text-align:center"|''T&#226;ches [[anacron|quotidiennes]]''
+|-
+|
+* Conversion du mod&#232;le obsol&#232;te {{m|cite web}}, inser&#233; lors de traductions, en {{m|lien web}}
+* Retrait du bandeau {{m|Semi-protection}} des pages qui ne sont plus prot&#233;g&#233;es
+* Mise &#224; jour de [[Projet:Allier/Articles]] et [[Projet:Cr&#233;atures imaginaires/Index]]
+* [[Projet:Traduction/Bots#Bot pour le suivi des traductions|Suivi des traductions]] pour le [[Projet:Traduction]]
+|-
+|[[Image:Exquisite-battery charged.png|center|40px]]
+|-
+|En terme de nombre d'&#233;ditions ? '''[http://toolserver.org/~river/cgi-bin/count_edits?user=DumZiBoT&amp;dbname=frwiki_p C'est ici]''', &#224; comparer avec mes confr&#232;res '''[[Wikip&#233;dia:Liste de Wikip&#233;diens par nombre d'&#233;ditions#Bots|les robots]]'''.
+|-
+|[[Fichier:Copyleft.svg|center|30px]]
+|-
+|Mon code source est publi&#233; sous [[Licence MIT|license libre]] ''[http://bitbucket.org/nicdumz/wikipedia-dumzibot/src ici]''. Les outils non encore publi&#233;s, mais disponibles sur le toolserver, seront [https://wiki.toolserver.org/view/Default_license automatiques lib&#233;r&#233;s] si mon dresseur venait &#224; dispara&#238;tre. 
+|}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+|}
+
+{{bot|NicDumZ|masqu&#233;=1|autoris&#233;=1 septembre 2007|sommeil=25 septembre 2011|ancien=2 d&#233;cembre 2013}}
+
+[[de:Benutzer:DumZiBoT]]
+[[en:User:DumZiBoT]]</text>
+      <sha1>6x258ke44ffo3tctdxrhcb889pg25aj</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
