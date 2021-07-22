@@ -1,4 +1,10 @@
 {
+  "docs": [
+    "author_information.json",
+    "error.log",
+    "missing_lib.txt",
+    "program_description.txt"
+  ],
   "dev": [
     "ebayfr-e05p.xml",
     "ebayfr-e17p.xml",
@@ -8,6 +14,10 @@
     "wikiconflits_0_79.xml"
   ],
   "test": [
+    "ebayfr-e05p.xml",
+    "ebayfr-e17p.xml",
+    "ebayfr-e17x.xml",
+    "ebayfr-e18v.xml",
     "sms_44265_88522.xml",
     "wikiconflits_79_159.xml"
   ],

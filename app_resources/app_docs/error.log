@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 318, in run_program
+    func_list[function_number]()
+TypeError: get_text() missing 1 required positional argument: 'document'
+

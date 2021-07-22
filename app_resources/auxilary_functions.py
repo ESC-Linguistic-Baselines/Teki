@@ -61,7 +61,7 @@ def menu(output_menu, menu_name, menu_information):
                 choice_num = int(choice_str)
             except:
                 input(invalid_option)
-                with open("app_resources/app_docs/file.log", mode="a") as log:
+                with open("app_resources/app_docs/error.log", mode="a") as log:
                     log.write(traceback.format_exc())
             else:
                 if 0 < choice_num and choice_num <= len(output_menu):
@@ -75,6 +75,9 @@ def menu(output_menu, menu_name, menu_information):
         return options_func_dict()
 
     except:
-        with open("app_resources/app_docs/file.log", mode="a") as log:
+        with open("app_resources/app_docs/error.log", mode="a") as log:
             log.write(traceback.format_exc())
         return options_func_dict
+
+def clear_log():
+    pass

@@ -1,9 +1,13 @@
 import os,json
-
+#Gen
+doc=os.listdir(os.getcwd()+"\\app_docs")
 dev= os.listdir(os.getcwd()+"\\app_dev\\dev_files")
 test=os.listdir(os.getcwd()+"\\app_test\\test_files")
 compressed=os.listdir(os.getcwd()+"\\compressed_data")
-files={"dev":dev,
+
+
+files={"docs":doc,
+       "dev":dev,
        "test":test,
        "compressed":compressed}
 
