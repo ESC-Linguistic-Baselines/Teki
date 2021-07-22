@@ -79,5 +79,23 @@ def menu(output_menu, menu_name, menu_information):
             log.write(traceback.format_exc())
         return options_func_dict
 
-def clear_log():
-    pass
+def program_end():
+    '''
+    This function terminates the main menu and the main program.
+    '''
+
+    while True:
+        final_answer=input("⚠️ Do you really want to end the program?(y/n) ⚠️").lower()
+        if final_answer == "y":
+            print ("The program will now be terminated")
+
+            raise SystemExit
+        #No
+        elif final_answer == "n":
+            print("The program will not be terminated and you will be brought back to the main menu")
+            input("Press enter to continue:")
+            break
+
+        #Unknown, incorrect answer
+        else:
+            print(f"{final_answer} is not a vaild answer. Enter either 'y' or 'n'.")

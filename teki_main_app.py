@@ -81,9 +81,9 @@ def error_log():
     Some errors are intentionally, while others might occur
     due to improper file types.
     """
-
     with open("app_resources/app_docs/error.log", mode="a") as log:
-        log.write(traceback.format_exc()+"\n")
+        error=traceback.format_exc()
+        log.write(f"{error}\n")
 
 #########################
 #Importing pip libraries
@@ -159,7 +159,8 @@ if core_file_missing==False:
             program_description,
             author_information,
             menu,
-            file_finder)
+            file_finder,
+        program_end)
     except:
         pass
 
@@ -183,6 +184,14 @@ def get_text(document):
             read=file.read()
             return read
 
+def get_training_file():
+    training_file="app_resources/train_files/training_res.csv"
+    with open (training_file,mode="r",encoding="utf-8") as training:
+        csv_reader=csv.reader(training,delimiter=",")
+        for row in csv_reader:
+            print(row)
+
+
 def read_content(soup):
 
     def read_soup():
@@ -199,12 +208,13 @@ def read_content(soup):
 
         while True:
             corpus="Ebay","Sms","Wikiconflit"
-            for num,cor in corpus:
+            for num,cor in enumerate(corpus,start=1):
                 print(num,cor)
 
-            corpus_search=input("\nFrom which corpus do you wish to extract the message?")
+            corpus_search=input("\nFrom which corpus are you extracting the message?")
 
             xml_tag_id=list()
+
             if corpus_search=="1":
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
@@ -214,18 +224,18 @@ def read_content(soup):
             elif corpus_search=="3":
                 pass
             else:
-                print("You did not enter a valid corpus number.")
-
-            print(f"There are {len(xml_tag_id)} tags. Please enter a number from 0 - {len(xml_tag_id)}.")
-            corpus_tag_choice=input("Please choose a tag: ")
+                print("You did not enter a valid corpus number.\n")
 
             while True:
-                #Only digits are an accepted input.
-                if corpus_tag_choice.isdigit()==False:
-                    print("That is not a valid nubmer.")
-                elif corpus_tag_choice.isdigit()==True:
-                    tk = soup.find("div", id=xml_tag_id[int(corpus_tag_choice)]).getText().strip().split()
-                    return " ".join(tk)
+                print(f"There are {len(xml_tag_id)} tags. Please enter a number from 0 - {len(xml_tag_id)}.")
+                corpus_tag_choice = input("Please enter a valid tag: ")
+
+                try:
+                    choice=int(corpus_tag_choice)
+                    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
+                    return {xml_tag_id[choice]:" ".join(corpus_text)}
+                except:
+                    print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
 
     def text_extract():
         pass
@@ -245,48 +255,82 @@ def read_content(soup):
 
     return mn
 
-def tagger(content):
+def tagger(corpus_content):
     """
     This function relies on the Spacy module for assessing the linguistic properties of a given sentence or a batch of sentences.
     """
     print("The sentence is being tagged... Please wait...")
-
     nlp = spacy.load("fr_core_news_sm")
-    doc=nlp(content)
 
-    print("p")
+    doc=nlp(*corpus_content.values())
 
-    res={}
+    sentence_results={}
     i=0
-    for token in doc:
-        res[str(i)]=token.text, token.pos_, token.dep_
-        i+=1
-    return res
 
-def identify_oral_literal(tagged_res):
+    for token in doc:
+        sentence_results[str(i)]=token.text, token.pos_, token.dep_,*corpus_content
+        i+=1
+
+    return sentence_results
+
+def identify_oral_literal(sentence_results):
     """
     This function has the goal of assessing orality and literacy in a tag
-
     """
-    sentence=None
-    pos=None
+    analysis_results="app_resources/train_files/training_res.csv"
+    fnames ="token_text","token_pos","token_dep","token_id","oral_literate"
 
-    # Tagger using criteria
-    for word in tagged_res:
-        line=tagged_res[word]
+    sentence=""
+    pos={}
 
-    with open("app_resources/train_files/training_res.txt",mode="a+",encoding="utf-8") as training:
-        for word in tagged_res:
-            print(tagged_res[word][0])
-            training.write(str(tagged_res[word][0])+"\n")
-        print("file saved")
+    #Tagger using criteria
+    for word in sentence_results:
+        line=sentence_results[word]
 
+        # Reconstructing the sentence
+        sentence+=line[0]+" "
+
+        #counting POS
+        if line[1] not in pos:
+            pos[line[1]]=1
+        else:
+            pos[line[1]]+=1
+
+    if pos["NOUN"] > 2:
+        with open(analysis_results,mode="w",encoding="utf-8") as analysis:
+            writer = csv.DictWriter(analysis,fieldnames=fnames)
+
+            for word in sentence_results:
+                line = sentence_results[word]
+                writer.writerow(
+                    {"token_text":line[0],
+                     "token_pos":line[1],
+                     "token_dep":line[2],
+                     "token_id":line[3],
+                     "oral_literate":"oral"
+                })
 
     # Tagger using simplified criteria
 
 
-def evaluation():
+def naive_bayes():
     pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #########################
 # Main program
@@ -302,10 +346,10 @@ def run_program(debug):
     menu_option = {
                    "import file": get_text,
                    "read contents":read_content,
-
                     "author information": author_information,
                     "program description": program_description,
-                    "end program": sys.exit}
+                    "end program": program_end,
+                    "csv":get_training_file}
     while True:
             print()
             banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
@@ -325,36 +369,24 @@ def run_program(debug):
                     function_number = choice_num - 1
                     func_name=str(func_list[function_number]).split()[1]
 
-                    if func_name=="function":
-                        #Exits program
-                        func_list[function_number]("The program has been successfully terminated.")
+                    arg=0,1
+                    if function_number in arg:
 
+                        if func_name == "get_text":
+                            doc = get_text(file_finder())
+
+                        elif func_name == "read_content":
+                            try:
+                                content = read_content(doc)
+                                tagged = tagger(content)
+                                identify_oral_literal(tagged)
+
+                            except:
+                                input(f"An unexpected error occurred. {main_message} ")
+                                if debug: error_log()
                     else:
-
-                        try:
-                            #Executes functions that do not require arguments
-                            func_list[function_number]()
-
-                        except:
-                            #Loads the file into  memory
-                            if func_name== "get_text":
-                                doc=get_text(file_finder())
-                            elif func_name=="read_content":
-                                try:
-                                    content=read_content(doc)
-                                    tagged=tagger(content)
-                                    identify_oral_literal(tagged)
-
-                                except Exception:
-                                    input(f"You must first load the file into memory. {main_message} ")
-                                    # Error Log from second Try- Except
-                                    if debug: error_log()
-
-                            #Error Log from second Try-Except
-                            if debug: error_log()
-
-                else:
-                    input(f"You have entered an incorrect number. {main_message}")
+                        #executes functions that do not need argument
+                        func_list[function_number]()
 
 
 #########################
@@ -371,6 +403,8 @@ if __name__ == "__main__":
     #########################
 
     debug=True
+
+
     if bool(core_file_missing) == False and bool(missing_libraries) == False:
         print("All libraries have been successfully loaded. The program will now start.")
         run_program(debug)
@@ -378,3 +412,5 @@ if __name__ == "__main__":
         message = "An error has occurred because either files or directories are missing."
         continue_program(message)
         run_program(debug)
+
+
