@@ -1,245 +1,1 @@
-PAS,VERB,ROOT,e17p-057,oral
-DE,ADP,case,e17p-057,oral
-PRIX,NOUN,nmod,e17p-057,oral
-DE,ADP,case,e17p-057,oral
-RESERVE,PROPN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-Bien,ADV,mark,e17p-057,oral
-vouloir,VERB,acl,e17p-057,oral
-lire,VERB,xcomp,e17p-057,oral
-toutes,ADJ,amod,e17p-057,oral
-les,DET,det,e17p-057,oral
-informations,NOUN,obj,e17p-057,oral
-ci-dessous,ADV,amod,e17p-057,oral
-avant,ADP,mark,e17p-057,oral
-d',ADP,mark,e17p-057,oral
-enchérir,VERB,advcl,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-merci,NOUN,obl:mod,e17p-057,oral
-!,PUNCT,punct,e17p-057,oral
-Profils,NOUN,mark,e17p-057,oral
-0,NUM,nummod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-me,PRON,expl:comp,e17p-057,oral
-contacter,VERB,ROOT,e17p-057,oral
-avant,ADP,mark,e17p-057,oral
-de,ADP,mark,e17p-057,oral
-mettre,VERB,xcomp,e17p-057,oral
-une,DET,det,e17p-057,oral
-enchère,NOUN,obj,e17p-057,oral
-ou,CCONJ,cc,e17p-057,oral
-votre,DET,det,e17p-057,oral
-enchère,NOUN,conj,e17p-057,oral
-sera,AUX,aux:pass,e17p-057,oral
-supprimée,VERB,conj,e17p-057,oral
-Alfa,PROPN,obj,e17p-057,oral
-Roméo,PROPN,flat:name,e17p-057,oral
-147,NUM,flat:name,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-16,NUM,nummod,e17p-057,oral
-v,NOUN,parataxis,e17p-057,oral
-jtd,PRON,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-140,NUM,dep,e17p-057,oral
-cv,NOUN,flat:name,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-lègere,ADJ,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-faible,ADJ,amod,e17p-057,oral
-consomation,NOUN,obl:mod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-5,NUM,nummod,e17p-057,oral
-portes,NOUN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-couleur,NOUN,appos,e17p-057,oral
-gris,NOUN,amod,e17p-057,oral
-bleu,ADJ,amod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-intérieur,NOUN,amod,e17p-057,oral
-tissus,NOUN,conj,e17p-057,oral
-noir,ADJ,amod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-boite,NOUN,nmod,e17p-057,oral
-6,NUM,nummod,e17p-057,oral
-vitesses,NOUN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-jantes,ADJ,amod,e17p-057,oral
-alu,PROPN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-fc,PROPN,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-ve,ADV,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-appuis,VERB,cc,e17p-057,oral
-tetes,VERB,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-console,NOUN,appos,e17p-057,oral
-centrale,ADJ,amod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-radio,VERB,acl,e17p-057,oral
-cd,NOUN,obj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-clim,NOUN,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-régulateur,NOUN,obl:mod,e17p-057,oral
-de,ADP,case,e17p-057,oral
-vitesses,NOUN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-bon,ADJ,amod,e17p-057,oral
-état,NOUN,obl:mod,e17p-057,oral
-génerale,ADJ,amod,e17p-057,oral
-mais,CCONJ,cc,e17p-057,oral
-pas,ADV,advmod,e17p-057,oral
-neuve,ADJ,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-ct,CCONJ,appos,e17p-057,oral
-dépassé,VERB,amod,e17p-057,oral
-avec,ADP,case,e17p-057,oral
-contre,ADP,case,e17p-057,oral
-visite,NOUN,obl:mod,e17p-057,oral
-non,ADV,advmod,e17p-057,oral
-effectuée,VERB,acl,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-Nombreuses,ADJ,amod,e17p-057,oral
-factures,NOUN,conj,e17p-057,oral
-d',ADP,case,e17p-057,oral
-entretien,NOUN,nmod,e17p-057,oral
-depuis,ADP,case,e17p-057,oral
-de,DET,det,e17p-057,oral
-longues,ADJ,amod,e17p-057,oral
-années,NOUN,obl:mod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-embrayage,NOUN,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-distri,NOUN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-frein,ADV,conj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-environ,ADV,advmod,e17p-057,oral
-2600,NUM,nummod,e17p-057,oral
-euros,NOUN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-factures,NOUN,conj,e17p-057,oral
-disponibles,ADJ,amod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-roule,VERB,advcl,e17p-057,oral
-bien,ADV,advmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-mais,CCONJ,cc,e17p-057,oral
-prévoir,VERB,aux:tense,e17p-057,oral
-petits,ADJ,amod,e17p-057,oral
-frais,NOUN,conj,e17p-057,oral
-récurant,VERB,xcomp,e17p-057,oral
-sur,ADP,case,e17p-057,oral
-les,DET,det,e17p-057,oral
-Alfa,NOUN,obl:arg,e17p-057,oral
-dont,PRON,nmod,e17p-057,oral
-les,DET,det,e17p-057,oral
-pneus,NOUN,acl:relcl,e17p-057,oral
-Cg,AUX,ROOT,e17p-057,oral
-non,ADV,advmod,e17p-057,oral
-effectuée,VERB,acl,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-documents,NOUN,conj,e17p-057,oral
-doubles,ADJ,amod,e17p-057,oral
-non,ADV,advmod,e17p-057,oral
-envoyés,VERB,acl,e17p-057,oral
-à,ADP,case,e17p-057,oral
-la,DET,det,e17p-057,oral
-préfecture,NOUN,obl:arg,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-possibilité,NOUN,appos,e17p-057,oral
-de,ADP,mark,e17p-057,oral
-la,PRON,obj,e17p-057,oral
-faire,VERB,acl,e17p-057,oral
-en,ADP,case,e17p-057,oral
-fonction,NOUN,obl:arg,e17p-057,oral
-du,DET,case,e17p-057,oral
-prix,NOUN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-pas,ADV,advmod,e17p-057,oral
-de,ADP,case,e17p-057,oral
-soucis,NOUN,nmod,e17p-057,oral
-!,PUNCT,punct,e17p-057,oral
-Bien,ADV,advmod,e17p-057,oral
-vouloir,VERB,advcl,e17p-057,oral
-poser,VERB,xcomp,e17p-057,oral
-toutes,ADJ,amod,e17p-057,oral
-les,DET,det,e17p-057,oral
-questions,NOUN,obj,e17p-057,oral
-avant,ADP,advmod,e17p-057,oral
-et,CCONJ,cc,e17p-057,oral
-ou,CCONJ,cc,e17p-057,oral
-venir,VERB,conj,e17p-057,oral
-voir,VERB,xcomp,e17p-057,oral
-la,DET,det,e17p-057,oral
-voiture,NOUN,obj,e17p-057,oral
-en,ADP,case,e17p-057,oral
-Bourgogne,PROPN,nmod,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-afin,ADV,advmod,e17p-057,oral
-d',ADP,case,e17p-057,oral
-éviter,VERB,obl:arg,e17p-057,oral
-tous,DET,det,e17p-057,oral
-quiproquos,NOUN,obj,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-pas,ADV,advmod,e17p-057,oral
-de,ADP,case,e17p-057,oral
-réclamations,NOUN,nmod,e17p-057,oral
-après,ADP,case,e17p-057,oral
-Voiture,NOUN,nmod,e17p-057,oral
-au,DET,case,e17p-057,oral
-look,NOUN,nmod,e17p-057,oral
-toujours,ADV,advmod,e17p-057,oral
-sympa,ADJ,amod,e17p-057,oral
-et,CCONJ,cc,e17p-057,oral
-très,ADV,advmod,e17p-057,oral
-économiques,ADJ,conj,e17p-057,oral
-Ne,ADV,advmod,e17p-057,oral
-pas,ADV,advmod,e17p-057,oral
-attendre,VERB,ROOT,e17p-057,oral
-le,DET,det,e17p-057,oral
-dernier,ADJ,amod,e17p-057,oral
-moment,NOUN,obj,e17p-057,oral
-pour,ADP,mark,e17p-057,oral
-enchérir,VERB,advcl,e17p-057,oral
-",",PUNCT,punct,e17p-057,oral
-en,ADP,case,e17p-057,oral
-vente,NOUN,obl:mod,e17p-057,oral
-sur,ADP,case,e17p-057,oral
-d',DET,det,e17p-057,oral
-autres,ADJ,amod,e17p-057,oral
-supports,ADJ,nmod,e17p-057,oral
-Paiement,NOUN,nmod,e17p-057,oral
-et,CCONJ,cc,e17p-057,oral
-enlevement,NOUN,conj,e17p-057,oral
-sous,ADP,case,e17p-057,oral
-8,NUM,nummod,e17p-057,oral
-huits,NOUN,nmod,e17p-057,oral
-et,CCONJ,cc,e17p-057,oral
-ou,CCONJ,cc,e17p-057,oral
-sauf,ADP,conj,e17p-057,oral
-accord,NOUN,fixed,e17p-057,oral
-de,ADP,case,e17p-057,oral
-ma,DET,det,e17p-057,oral
-part,NOUN,conj,e17p-057,oral
-avant,ADP,case,e17p-057,oral
-avec,ADP,case,e17p-057,oral
-un,DET,det,e17p-057,oral
-accompte,NOUN,obl:mod,e17p-057,oral
-de,ADP,case,e17p-057,oral
-30,NUM,nummod,e17p-057,oral
-%,NOUN,nmod,e17p-057,oral
-à,ADP,case,e17p-057,oral
-la,DET,det,e17p-057,oral
-fin,NOUN,nmod,e17p-057,oral
-des,ADP,case,e17p-057,oral
-enchères,NOUN,nmod,e17p-057,oral
-Pas,ADV,nmod,e17p-057,oral
-sérieux,ADJ,amod,e17p-057,oral
-ou,CCONJ,cc,e17p-057,oral
-plaisantins,NOUN,conj,e17p-057,oral
-s',PRON,expl:pass,e17p-057,oral
-abstenir,VERB,acl,e17p-057,oral
-Bonnes,NOUN,advmod,e17p-057,oral
-enchères,NOUN,amod,e17p-057,oral
+Frais,NOUN,ROOT,e17x-090,ORALde,ADP,case,e17x-090,ORALport,ADJ,amod,e17x-090,ORALgroupés,PROPN,nmod,e17x-090,ORAL.,PUNCT,punct,e17x-090,ORALFrais,NOUN,ROOT,e17x-090,ORALde,ADP,case,e17x-090,ORALport,VERB,amod,e17x-090,ORALofferts,NOUN,nmod,e17x-090,ORALdès,ADP,case,e17x-090,ORAL80,NUM,obl:mod,e17x-090,ORAL€,NOUN,nmod,e17x-090,ORALd',ADP,case,e17x-090,ORALachat,NOUN,nmod,e17x-090,ORAL(,PUNCT,punct,e17x-090,ORALFrance,PROPN,nmod,e17x-090,ORALuniquement,ADV,advmod,e17x-090,ORAL),PUNCT,punct,e17x-090,ORALConsultez,VERB,ROOT,e17x-090,ORALmon,DET,det,e17x-090,ORALautre,ADJ,amod,e17x-090,ORALboutique,ADJ,nsubj,e17x-090,ORAL=,VERB,xcomp,e17x-090,ORALl,NOUN,xcomp,e17x-090,ORALIncontournable,ADJ,det,e17x-090,ORALAccess,NOUN,obj,e17x-090,ORALEnsemble,ADJ,ROOT,e17x-090,ORALmarque,VERB,flat:name,e17x-090,ORALPAZ,X,ROOT,e17x-090,ORALTORRAS,PROPN,obj,e17x-090,ORALMatière,NOUN,ROOT,e17x-090,ORALlégère,ADJ,amod,e17x-090,ORAL",",PUNCT,punct,e17x-090,ORALlien,NOUN,amod,e17x-090,ORALà,ADP,mark,e17x-090,ORALnouer,VERB,acl,e17x-090,ORALà,ADP,case,e17x-090,ORALboutique,ADJ,nsubj,e17x-090,LIT=,VERB,xcomp,e17x-090,LITl,NOUN,xcomp,e17x-090,LITIncontournable,ADJ,det,e17x-090,LITAccess,NOUN,obj,e17x-090,LITEnsemble,ADJ,ROOT,e17x-090,LITmarque,VERB,flat:name,e17x-090,LITPAZ,X,ROOT,e17x-090,LITTORRAS,PROPN,obj,e17x-090,LITMatière,NOUN,ROOT,e17x-090,LITlégère,ADJ,amod,e17x-090,LIT",",PUNCT,punct,e17x-090,LITlien,NOUN,amod,e17x-090,LITà,ADP,mark,e17x-090,LITnouer,VERB,acl,e17x-090,LITà,ADP,case,e17x-090,LITla,DET,det,e17x-090,LITbase,NOUN,obl:arg,e17x-090,LITde,ADP,case,e17x-090,LITla,DET,det,e17x-090,LITchemise,NOUN,nmod,e17x-090,LITPantalon,PROPN,amod,e17x-090,LITcoupe,NOUN,nmod,e17x-090,LITlarge,ADJ,amod,e17x-090,LIT&,CCONJ,cc,e17x-090,LITamp,NOUN,conj,e17x-090,LIT;,PUNCT,punct,e17x-090,LITtaille,NOUN,ROOT,e17x-090,LITélastique,NOUN,amod,e17x-090,LITTaille,NOUN,ROOT,e17x-090,LIT:,PUNCT,punct,e17x-090,LITchemise,NOUN,nmod,e17x-090,LITT46,ADP,nmod,e17x-090,LIT/,SYM,cc,e17x-090,LITPantalon,PROPN,nmod,e17x-090,LITT44,PROPN,ROOT,e17x-090,LITComposition,NOUN,ROOT,e17x-090,LIT:,PUNCT,punct,e17x-090,LIT57,NUM,nummod,e17x-090,LIT%,NOUN,nmod,e17x-090,LITviscose/43,NOUN,amod,e17x-090,LIT%,NOUN,appos,e17x-090,LITacétate,NOUN,acl,e17x-090,LITMesures,PROPN,obj,e17x-090,LIT:,PUNCT,punct,e17x-090,LIT-,PUNCT,punct,e17x-090,LIT>,NOUN,ROOT,e17x-090,LITChemise,PROPN,ROOT,e17x-090,LIT:,PUNCT,punct,e17x-090,LITCarrure,PROPN,nsubj,e17x-090,LIT=,VERB,parataxis,e17x-090,LIT44cm,NUM,obj,e17x-090,LIT/,CCONJ,cc,e17x-090,LITAisselles,NOUN,nmod,e17x-090,LIT=,VERB,xcomp,e17x-090,LIT52cm,NUM,obj,e17x-090,LIT/,ADP,case,e17x-090,LITLongueur,NOUN,nmod,e17x-090,LIT=,VERB,parataxis,e17x-090,LIT57,NUM,dep,e17x-090,LITcm,NOUN,dep,e17x-090,LIT-,NOUN,dep,e17x-090,LIT>,NOUN,obj,e17x-090,LITPantalon,PROPN,obj,e17x-090,LIT:,PUNCT,punct,e17x-090,LITTaille,NOUN,nsubj,e17x-090,LIT=,VERB,ROOT,e17x-090,LIT36,NUM,nummod,e17x-090,LITcm,NOUN,det,e17x-090,LITextensible,ADJ,obj,e17x-090,LITjusqu',ADP,case,e17x-090,LITà,ADP,case,e17x-090,LIT48cm,NUM,dep,e17x-090,LIT/,CCONJ,dep,e17x-090,LITHanches,PROPN,obl:arg,e17x-090,LIT=,VERB,xcomp,e17x-090,LIT70cm/,NUM,obj,e17x-090,LITLongueur,NOUN,obj,e17x-090,LIT=,VERB,parataxis,e17x-090,LIT105cm,NUM,obj,e17x-090,LIT/,ADP,case,e17x-090,LITEntrejambe,NOUN,obj,e17x-090,LIT=,VERB,xcomp,e17x-090,LIT75,PRON,obj,e17x-090,LITcm,NOUN,dep,e17x-090,LITExcellent,ADJ,obj,e17x-090,LITétat,NOUN,acl,e17x-090,LIT

@@ -186,10 +186,13 @@ def get_text(document):
 
 def get_training_file():
     training_file="app_resources/train_files/training_res.csv"
+    res=list()
     with open (training_file,mode="r",encoding="utf-8") as training:
         csv_reader=csv.reader(training,delimiter=",")
         for row in csv_reader:
-            print(row)
+            if row:
+                res.append(row)
+    return res
 
 
 def read_content(soup):
@@ -296,33 +299,139 @@ def identify_oral_literal(sentence_results):
         else:
             pos[line[1]]+=1
 
-    if pos["NOUN"] > 2:
-        with open(analysis_results,mode="w",encoding="utf-8") as analysis:
-            writer = csv.DictWriter(analysis,fieldnames=fnames)
+    def res(feature):
+        with open(analysis_results, mode="w", encoding="utf-8") as analysis:
+            writer = csv.DictWriter(analysis, fieldnames=fnames)
 
             for word in sentence_results:
                 line = sentence_results[word]
                 writer.writerow(
-                    {"token_text":line[0],
-                     "token_pos":line[1],
-                     "token_dep":line[2],
-                     "token_id":line[3],
-                     "oral_literate":"oral"
-                })
+                    {"token_text": line[0],
+                     "token_pos": line[1],
+                     "token_dep": line[2],
+                     "token_id": line[3],
+                     "oral_literate": feature
+                     })
+
+    if pos["NOUN"] > 2:
+        res("litereate")
 
     # Tagger using simplified criteria
 
+def get_freq(csv_reader):
+    freq={"ORAL":0,  "LIT":0}
+    feat_1="ORAL"
+    feat_2="LIT"
 
-def naive_bayes():
-    pass
+    for row in csv_reader:
+
+        if row[4]==feat_1:
+            freq[feat_1]=freq.get(feat_1)+1
+        else:
+            if row[4]==feat_2:
+                freq[feat_2] = freq.get(feat_2) + 1
+    return freq
 
 
+def get_probs(freq,csv_reader):
+    lit=dict()
+    oral=dict()
+
+    vocabluary=set()
+    lit_tokens=list()
+    oral_tokens=list()
+
+    res=dict()
+    for word in csv_reader:
+        voc=word[0]
+        feat=word[4]
+        vocabluary.add(voc)
+
+        if feat=="ORAL":
+            oral_tokens.append((voc,feat))
+        else:
+            lit_tokens.append((voc,feat))
+
+    for word in csv_reader:
+        if word[4]=="ORAL":
+            lit[word[0]]=lit.get(word[0],0)+1
+        else:
+            oral[word[0]] = oral.get(word[0], 0)+1
+
+    for word in vocabluary:
+
+        if lit.get(word,0) > 0:
+            tr=lit.get(word)/freq["LIT"]
+        else:
+            tr=freq["LIT"]/(sum(freq.values())**2)
+
+        if oral.get(word,0) > 0:
+            fl=oral.get(word)/freq["LIT"]
+        else:
+            fl=freq["LIT"]/(sum(freq.values())**2)
+
+        res[word]=tr,fl
+
+    return res
 
 
+def classify(text,probs,prior_prob):
+    print(probs)
+    true = prior_prob["ORAL"] / (prior_prob["ORAL"] + prior_prob["LIT"])
+    false = prior_prob["LIT"] / (prior_prob["ORAL"] + prior_prob["LIT"])
+    true_smooth = prior_prob["ORAL"] / (sum(prior_prob.values()) ** 2)
+    false_smooth = prior_prob["LIT"] / (sum(prior_prob.values()) ** 2)
 
+    s = dict()
 
+    for word in text:
+        if bool(probs.get(word)):
+            s[word] = probs.get(word)
+        else:
+            s[word] = true_smooth, false_smooth
 
+    for word in s:
+        true *= s[word][0]
 
+        false *= s[word][1]
+
+    res = true, false
+    ans = 1
+
+    system_results = {"TP": 0, "FP": 0, "FN": 0}
+
+    if true > false:
+        ans = 0
+
+        print(f" is true with {true}")
+    else:
+        print(f" ' {text} ' is false with ", false)
+
+    for word in s:
+        system = s[word][ans]
+        max_arg = max(s[word])
+
+        if system == max_arg:
+            system_results["TP"] = system_results.get("TP") + 1
+
+        elif system == s[word][1]:
+            system_results["FP"] = system_results.get("FP") + 1
+
+        elif system == s[word][0]:
+            system_results["FN"] = system_results.get("FN") + 1
+
+    TP, FP, FN = system_results["TP"], system_results["FP"], system_results["FN"]
+
+    precision = TP / (TP + FP)
+    recall = TP / (TP + FN)
+
+    system_prob = 1
+    values = list()
+    for i in s:
+        values.append(max(s[i]))
+
+    for i in values:
+        system_prob *= i
 
 
 
@@ -336,7 +445,16 @@ def naive_bayes():
 # Main program
 #########################
 def run_program(debug):
+    text="Qui es tu"
+    probs=get_probs(get_freq(get_training_file()),get_training_file())
+    prior_prob=get_freq(get_training_file())
 
+
+    classify(text,probs,prior_prob)
+
+
+
+    raise SystemExit
     """
     This is the main function of the program. It incorporates all other functions from this file
     as well as the from the secondary python file.
@@ -381,13 +499,13 @@ def run_program(debug):
                                 tagged = tagger(content)
                                 identify_oral_literal(tagged)
 
+
                             except:
                                 input(f"An unexpected error occurred. {main_message} ")
                                 if debug: error_log()
                     else:
                         #executes functions that do not need argument
                         func_list[function_number]()
-
 
 #########################
 #dev_documentation Execution

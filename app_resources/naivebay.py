@@ -13,7 +13,6 @@ def doc_prior(data):
     prob={"true":0,"false":0}
 
     for doc in data:
-
         prob[data[doc]]=prob.get(data[doc])+1
 
     s=sum(prob.values())
