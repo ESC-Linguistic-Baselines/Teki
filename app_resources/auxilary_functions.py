@@ -13,6 +13,7 @@ def author_information():
         data=json.load(file)
         for line in data:
             print(line,data[line])
+
         input("Press enter to continue")
 
 def program_description():
@@ -20,7 +21,7 @@ def program_description():
     with open(text,mode="r",encoding="utf-8") as file:
         for line in file:
             print(line)
-        input("Press enter to continue")
+        input("\nPress enter to continue")
 
 def file_finder():
     '''

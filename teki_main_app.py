@@ -49,9 +49,10 @@ def continue_program(*args):
 
         #Incorrect answer
         else:
-            print(f"{user} is not a valid  response. Please enter a valid response.\n")
+            print(f"{user} is not a valid response. Please enter a valid response.\n")
 
 print("Please wait while libraries and files are being imported...")
+print("This could take a while depending on your system resources.\n")
 
 def missing_files(file_list,path):
     """
@@ -88,33 +89,32 @@ def error_log():
 #########################
 #Importing pip libraries
 #########################
-
 """
 The libraries are iteratively imported. 
-The libraries that are missing will be saved
+The libraries that are missing will be saved in a list that will be referenced against later
 """
 
 pip_lib = "bs4", "spacy", "lxml"
 missing_libraries=[]
 
 for lib in pip_lib:
+    #Iteratively loads the libraries using importlib
         try:
             globals()[lib] = importlib.import_module(lib)
         except ModuleNotFoundError as error:
             missing_libraries.append(lib)
 
 if missing_libraries==False:
-    """
-    if no libraries are missing, then the necessary modules will  be imported
-    """
+    #If no libraries are missing, then the necessary modules will be imported.
+
     #Spacy imports
     from spacy.lang.fr import French
     from spacy.tokenizer import Tokenizer
+    from bs4 import BeautifulSoup
 
 #########################
 #Importing custom files and modules
 #########################
-
 """
 A program-wide check is performed. 
 The program can still be started if any of the necessary files are missing, 
@@ -126,8 +126,8 @@ data=open("app_resource_files.json", mode="r", encoding="utf-8")
 necessary_files=json.load(data)
 
 if os.path.exists("app_resources"):
-    #Text files
 
+    #Text files
     missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_docs")
 
     #Development and training data
@@ -171,7 +171,7 @@ if core_file_missing==False:
 def get_text(document):
     """
     This reads in the file to be analyzed. The function separates the files into two types:
-    .xml and other.  The program assumes that other file type is some variant of a normal .txt file.
+    .xml and other. The program assumes that other file type is some variant of a normal .txt file.
     """
 
     if ".xml" in document:
@@ -184,27 +184,37 @@ def get_text(document):
             read=file.read()
             return read
 
-def get_training_file():
-    training_file="app_resources/train_files/training_res.csv"
-    res=list()
-    with open (training_file,mode="r",encoding="utf-8") as training:
-        csv_reader=csv.reader(training,delimiter=",")
+def get_database():
+    '''
+    This function reads in the training file saved in the progam.
+    It will be used with the naive bayes classifier.
+    '''
+
+    database="app_resources/train_files/training_res.csv"
+    csv_data=list()
+
+    with open (database,mode="r",encoding="utf-8") as data:
+        csv_reader=csv.reader(data,delimiter=",")
         for row in csv_reader:
+
+            #Skips empty lines
             if row:
-                res.append(row)
-    return res
+                csv_data.append(row)
 
+    return csv_data
 
-def read_content(soup):
+def analyze_content(soup):
 
     def read_soup():
         """
         Reads in the .xml soup
         """
 
-        if str(type(soup))=="<class 'bs4.BeautifulSoup'>":  print(soup)
+        if str(type(soup))=="<class 'bs4.BeautifulSoup'>":
+            print(soup)
+            return False
 
-    def soup_extract():
+    def extract_text():
         """
         This function extracts the entries from the respective .xml.
         """
@@ -244,14 +254,15 @@ def read_content(soup):
         pass
 
     def quit():
+        #Returns false to break the loop in the menu.
         return False
 
-    output_menu={"Read soup":read_soup,
-                 "Extract soup text":soup_extract,
+    output_menu={"read file":read_soup,
+                 "extract entry":extract_text,
                  "quit":quit
-    }
+                }
 
-    # Submenu
+    #Submenu
     menu_name="option menu"
     menu_information="How would you like to proceed with the file:"
     mn=menu(output_menu,menu_name,  menu_information)
@@ -262,6 +273,7 @@ def tagger(corpus_content):
     """
     This function relies on the Spacy module for assessing the linguistic properties of a given sentence or a batch of sentences.
     """
+
     print("The sentence is being tagged... Please wait...")
     nlp = spacy.load("fr_core_news_sm")
 
@@ -278,8 +290,9 @@ def tagger(corpus_content):
 
 def identify_oral_literal(sentence_results):
     """
-    This function has the goal of assessing orality and literacy in a tag
+    This function has the goal of assessing orality and literacy in a tag.
     """
+
     analysis_results="app_resources/train_files/training_res.csv"
     fnames ="token_text","token_pos","token_dep","token_id","oral_literate"
 
@@ -290,7 +303,7 @@ def identify_oral_literal(sentence_results):
     for word in sentence_results:
         line=sentence_results[word]
 
-        # Reconstructing the sentence
+        #Reconstructing the sentence
         sentence+=line[0]+" "
 
         #counting POS
@@ -316,7 +329,7 @@ def identify_oral_literal(sentence_results):
     if pos["NOUN"] > 2:
         res("litereate")
 
-    # Tagger using simplified criteria
+    #Tagger using simplified criteria
 
 def get_freq(csv_reader):
     freq={"ORAL":0,  "LIT":0}
@@ -371,12 +384,10 @@ def get_probs(freq,csv_reader):
             fl=freq["LIT"]/(sum(freq.values())**2)
 
         res[word]=tr,fl
-
     return res
 
-
 def classify(text,probs,prior_prob):
-    print(probs)
+
     true = prior_prob["ORAL"] / (prior_prob["ORAL"] + prior_prob["LIT"])
     false = prior_prob["LIT"] / (prior_prob["ORAL"] + prior_prob["LIT"])
     true_smooth = prior_prob["ORAL"] / (sum(prior_prob.values()) ** 2)
@@ -433,28 +444,11 @@ def classify(text,probs,prior_prob):
     for i in values:
         system_prob *= i
 
-
-
-
-
-
-
-
-
 #########################
-# Main program
+#Main program
 #########################
 def run_program(debug):
-    text="Qui es tu"
-    probs=get_probs(get_freq(get_training_file()),get_training_file())
-    prior_prob=get_freq(get_training_file())
 
-
-    classify(text,probs,prior_prob)
-
-
-
-    raise SystemExit
     """
     This is the main function of the program. It incorporates all other functions from this file
     as well as the from the secondary python file.
@@ -463,11 +457,12 @@ def run_program(debug):
 
     menu_option = {
                    "import file": get_text,
-                   "read contents":read_content,
+                    "analyze contents":analyze_content,
+                    "load training file": get_database,
+                    "classify string": classify,
                     "author information": author_information,
                     "program description": program_description,
-                    "end program": program_end,
-                    "csv":get_training_file}
+                    "end program": program_end}
     while True:
             print()
             banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
@@ -487,7 +482,7 @@ def run_program(debug):
                     function_number = choice_num - 1
                     func_name=str(func_list[function_number]).split()[1]
 
-                    arg=0,1
+                    arg=list(range(4))
                     if function_number in arg:
 
                         if func_name == "get_text":
@@ -495,14 +490,36 @@ def run_program(debug):
 
                         elif func_name == "read_content":
                             try:
-                                content = read_content(doc)
-                                tagged = tagger(content)
-                                identify_oral_literal(tagged)
+                                content = analyze_content(doc)
 
+                                #Other functions will be carried out if conent comes back as True
+                                if content:
 
+                                    tagged = tagger(content)
+                                    identify_oral_literal(tagged)
                             except:
                                 input(f"An unexpected error occurred. {main_message} ")
                                 if debug: error_log()
+
+                        elif func_name=="classify":
+                            '''
+                            This calls up the naive bayes function to classifiy the texts.
+                            '''
+
+                            text = input("Enter the sentence that you would like to classify: ")
+
+                            #The training corpus
+                            train=get_database()
+
+                            #This gets the frequency of ORAL and LIT (the features) of the data set.
+                            freq=get_freq(train)
+
+                            #This returns the MLE prob of the features.
+                            probs = get_probs(freq, train)
+
+                            #Naive bayes
+                            classify(text, probs, freq)
+
                     else:
                         #executes functions that do not need argument
                         func_list[function_number]()
@@ -516,13 +533,8 @@ if __name__ == "__main__":
     The main program will only run if all of the necessary files are available and if all of the main libraries have been installed. 
     This can be overridden by the user, but it is not advised as it can lead to the program becoming unstable.  
     """
-    #########################
-    # Main master check
-    #########################
 
     debug=True
-
-
     if bool(core_file_missing) == False and bool(missing_libraries) == False:
         print("All libraries have been successfully loaded. The program will now start.")
         run_program(debug)
@@ -530,5 +542,3 @@ if __name__ == "__main__":
         message = "An error has occurred because either files or directories are missing."
         continue_program(message)
         run_program(debug)
-
-

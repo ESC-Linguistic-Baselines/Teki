@@ -1,1 +1,245 @@
-Frais,NOUN,ROOT,e17x-090,ORALde,ADP,case,e17x-090,ORALport,ADJ,amod,e17x-090,ORALgroupés,PROPN,nmod,e17x-090,ORAL.,PUNCT,punct,e17x-090,ORALFrais,NOUN,ROOT,e17x-090,ORALde,ADP,case,e17x-090,ORALport,VERB,amod,e17x-090,ORALofferts,NOUN,nmod,e17x-090,ORALdès,ADP,case,e17x-090,ORAL80,NUM,obl:mod,e17x-090,ORAL€,NOUN,nmod,e17x-090,ORALd',ADP,case,e17x-090,ORALachat,NOUN,nmod,e17x-090,ORAL(,PUNCT,punct,e17x-090,ORALFrance,PROPN,nmod,e17x-090,ORALuniquement,ADV,advmod,e17x-090,ORAL),PUNCT,punct,e17x-090,ORALConsultez,VERB,ROOT,e17x-090,ORALmon,DET,det,e17x-090,ORALautre,ADJ,amod,e17x-090,ORALboutique,ADJ,nsubj,e17x-090,ORAL=,VERB,xcomp,e17x-090,ORALl,NOUN,xcomp,e17x-090,ORALIncontournable,ADJ,det,e17x-090,ORALAccess,NOUN,obj,e17x-090,ORALEnsemble,ADJ,ROOT,e17x-090,ORALmarque,VERB,flat:name,e17x-090,ORALPAZ,X,ROOT,e17x-090,ORALTORRAS,PROPN,obj,e17x-090,ORALMatière,NOUN,ROOT,e17x-090,ORALlégère,ADJ,amod,e17x-090,ORAL",",PUNCT,punct,e17x-090,ORALlien,NOUN,amod,e17x-090,ORALà,ADP,mark,e17x-090,ORALnouer,VERB,acl,e17x-090,ORALà,ADP,case,e17x-090,ORALboutique,ADJ,nsubj,e17x-090,LIT=,VERB,xcomp,e17x-090,LITl,NOUN,xcomp,e17x-090,LITIncontournable,ADJ,det,e17x-090,LITAccess,NOUN,obj,e17x-090,LITEnsemble,ADJ,ROOT,e17x-090,LITmarque,VERB,flat:name,e17x-090,LITPAZ,X,ROOT,e17x-090,LITTORRAS,PROPN,obj,e17x-090,LITMatière,NOUN,ROOT,e17x-090,LITlégère,ADJ,amod,e17x-090,LIT",",PUNCT,punct,e17x-090,LITlien,NOUN,amod,e17x-090,LITà,ADP,mark,e17x-090,LITnouer,VERB,acl,e17x-090,LITà,ADP,case,e17x-090,LITla,DET,det,e17x-090,LITbase,NOUN,obl:arg,e17x-090,LITde,ADP,case,e17x-090,LITla,DET,det,e17x-090,LITchemise,NOUN,nmod,e17x-090,LITPantalon,PROPN,amod,e17x-090,LITcoupe,NOUN,nmod,e17x-090,LITlarge,ADJ,amod,e17x-090,LIT&,CCONJ,cc,e17x-090,LITamp,NOUN,conj,e17x-090,LIT;,PUNCT,punct,e17x-090,LITtaille,NOUN,ROOT,e17x-090,LITélastique,NOUN,amod,e17x-090,LITTaille,NOUN,ROOT,e17x-090,LIT:,PUNCT,punct,e17x-090,LITchemise,NOUN,nmod,e17x-090,LITT46,ADP,nmod,e17x-090,LIT/,SYM,cc,e17x-090,LITPantalon,PROPN,nmod,e17x-090,LITT44,PROPN,ROOT,e17x-090,LITComposition,NOUN,ROOT,e17x-090,LIT:,PUNCT,punct,e17x-090,LIT57,NUM,nummod,e17x-090,LIT%,NOUN,nmod,e17x-090,LITviscose/43,NOUN,amod,e17x-090,LIT%,NOUN,appos,e17x-090,LITacétate,NOUN,acl,e17x-090,LITMesures,PROPN,obj,e17x-090,LIT:,PUNCT,punct,e17x-090,LIT-,PUNCT,punct,e17x-090,LIT>,NOUN,ROOT,e17x-090,LITChemise,PROPN,ROOT,e17x-090,LIT:,PUNCT,punct,e17x-090,LITCarrure,PROPN,nsubj,e17x-090,LIT=,VERB,parataxis,e17x-090,LIT44cm,NUM,obj,e17x-090,LIT/,CCONJ,cc,e17x-090,LITAisselles,NOUN,nmod,e17x-090,LIT=,VERB,xcomp,e17x-090,LIT52cm,NUM,obj,e17x-090,LIT/,ADP,case,e17x-090,LITLongueur,NOUN,nmod,e17x-090,LIT=,VERB,parataxis,e17x-090,LIT57,NUM,dep,e17x-090,LITcm,NOUN,dep,e17x-090,LIT-,NOUN,dep,e17x-090,LIT>,NOUN,obj,e17x-090,LITPantalon,PROPN,obj,e17x-090,LIT:,PUNCT,punct,e17x-090,LITTaille,NOUN,nsubj,e17x-090,LIT=,VERB,ROOT,e17x-090,LIT36,NUM,nummod,e17x-090,LITcm,NOUN,det,e17x-090,LITextensible,ADJ,obj,e17x-090,LITjusqu',ADP,case,e17x-090,LITà,ADP,case,e17x-090,LIT48cm,NUM,dep,e17x-090,LIT/,CCONJ,dep,e17x-090,LITHanches,PROPN,obl:arg,e17x-090,LIT=,VERB,xcomp,e17x-090,LIT70cm/,NUM,obj,e17x-090,LITLongueur,NOUN,obj,e17x-090,LIT=,VERB,parataxis,e17x-090,LIT105cm,NUM,obj,e17x-090,LIT/,ADP,case,e17x-090,LITEntrejambe,NOUN,obj,e17x-090,LIT=,VERB,xcomp,e17x-090,LIT75,PRON,obj,e17x-090,LITcm,NOUN,dep,e17x-090,LITExcellent,ADJ,obj,e17x-090,LITétat,NOUN,acl,e17x-090,LIT
+PAS,VERB,ROOT,e17p-057,litereate
+DE,ADP,case,e17p-057,litereate
+PRIX,NOUN,nmod,e17p-057,litereate
+DE,ADP,case,e17p-057,litereate
+RESERVE,PROPN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+Bien,ADV,mark,e17p-057,litereate
+vouloir,VERB,acl,e17p-057,litereate
+lire,VERB,xcomp,e17p-057,litereate
+toutes,ADJ,amod,e17p-057,litereate
+les,DET,det,e17p-057,litereate
+informations,NOUN,obj,e17p-057,litereate
+ci-dessous,ADV,amod,e17p-057,litereate
+avant,ADP,mark,e17p-057,litereate
+d',ADP,mark,e17p-057,litereate
+enchérir,VERB,advcl,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+merci,NOUN,obl:mod,e17p-057,litereate
+!,PUNCT,punct,e17p-057,litereate
+Profils,NOUN,mark,e17p-057,litereate
+0,NUM,nummod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+me,PRON,expl:comp,e17p-057,litereate
+contacter,VERB,ROOT,e17p-057,litereate
+avant,ADP,mark,e17p-057,litereate
+de,ADP,mark,e17p-057,litereate
+mettre,VERB,xcomp,e17p-057,litereate
+une,DET,det,e17p-057,litereate
+enchère,NOUN,obj,e17p-057,litereate
+ou,CCONJ,cc,e17p-057,litereate
+votre,DET,det,e17p-057,litereate
+enchère,NOUN,conj,e17p-057,litereate
+sera,AUX,aux:pass,e17p-057,litereate
+supprimée,VERB,conj,e17p-057,litereate
+Alfa,PROPN,obj,e17p-057,litereate
+Roméo,PROPN,flat:name,e17p-057,litereate
+147,NUM,flat:name,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+16,NUM,nummod,e17p-057,litereate
+v,NOUN,parataxis,e17p-057,litereate
+jtd,PRON,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+140,NUM,dep,e17p-057,litereate
+cv,NOUN,flat:name,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+lègere,ADJ,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+faible,ADJ,amod,e17p-057,litereate
+consomation,NOUN,obl:mod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+5,NUM,nummod,e17p-057,litereate
+portes,NOUN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+couleur,NOUN,appos,e17p-057,litereate
+gris,NOUN,amod,e17p-057,litereate
+bleu,ADJ,amod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+intérieur,NOUN,amod,e17p-057,litereate
+tissus,NOUN,conj,e17p-057,litereate
+noir,ADJ,amod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+boite,NOUN,nmod,e17p-057,litereate
+6,NUM,nummod,e17p-057,litereate
+vitesses,NOUN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+jantes,ADJ,amod,e17p-057,litereate
+alu,PROPN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+fc,PROPN,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+ve,ADV,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+appuis,VERB,cc,e17p-057,litereate
+tetes,VERB,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+console,NOUN,appos,e17p-057,litereate
+centrale,ADJ,amod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+radio,VERB,acl,e17p-057,litereate
+cd,NOUN,obj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+clim,NOUN,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+régulateur,NOUN,obl:mod,e17p-057,litereate
+de,ADP,case,e17p-057,litereate
+vitesses,NOUN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+bon,ADJ,amod,e17p-057,litereate
+état,NOUN,obl:mod,e17p-057,litereate
+génerale,ADJ,amod,e17p-057,litereate
+mais,CCONJ,cc,e17p-057,litereate
+pas,ADV,advmod,e17p-057,litereate
+neuve,ADJ,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+ct,CCONJ,appos,e17p-057,litereate
+dépassé,VERB,amod,e17p-057,litereate
+avec,ADP,case,e17p-057,litereate
+contre,ADP,case,e17p-057,litereate
+visite,NOUN,obl:mod,e17p-057,litereate
+non,ADV,advmod,e17p-057,litereate
+effectuée,VERB,acl,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+Nombreuses,ADJ,amod,e17p-057,litereate
+factures,NOUN,conj,e17p-057,litereate
+d',ADP,case,e17p-057,litereate
+entretien,NOUN,nmod,e17p-057,litereate
+depuis,ADP,case,e17p-057,litereate
+de,DET,det,e17p-057,litereate
+longues,ADJ,amod,e17p-057,litereate
+années,NOUN,obl:mod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+embrayage,NOUN,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+distri,NOUN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+frein,ADV,conj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+environ,ADV,advmod,e17p-057,litereate
+2600,NUM,nummod,e17p-057,litereate
+euros,NOUN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+factures,NOUN,conj,e17p-057,litereate
+disponibles,ADJ,amod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+roule,VERB,advcl,e17p-057,litereate
+bien,ADV,advmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+mais,CCONJ,cc,e17p-057,litereate
+prévoir,VERB,aux:tense,e17p-057,litereate
+petits,ADJ,amod,e17p-057,litereate
+frais,NOUN,conj,e17p-057,litereate
+récurant,VERB,xcomp,e17p-057,litereate
+sur,ADP,case,e17p-057,litereate
+les,DET,det,e17p-057,litereate
+Alfa,NOUN,obl:arg,e17p-057,litereate
+dont,PRON,nmod,e17p-057,litereate
+les,DET,det,e17p-057,litereate
+pneus,NOUN,acl:relcl,e17p-057,litereate
+Cg,AUX,ROOT,e17p-057,litereate
+non,ADV,advmod,e17p-057,litereate
+effectuée,VERB,acl,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+documents,NOUN,conj,e17p-057,litereate
+doubles,ADJ,amod,e17p-057,litereate
+non,ADV,advmod,e17p-057,litereate
+envoyés,VERB,acl,e17p-057,litereate
+à,ADP,case,e17p-057,litereate
+la,DET,det,e17p-057,litereate
+préfecture,NOUN,obl:arg,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+possibilité,NOUN,appos,e17p-057,litereate
+de,ADP,mark,e17p-057,litereate
+la,PRON,obj,e17p-057,litereate
+faire,VERB,acl,e17p-057,litereate
+en,ADP,case,e17p-057,litereate
+fonction,NOUN,obl:arg,e17p-057,litereate
+du,DET,case,e17p-057,litereate
+prix,NOUN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+pas,ADV,advmod,e17p-057,litereate
+de,ADP,case,e17p-057,litereate
+soucis,NOUN,nmod,e17p-057,litereate
+!,PUNCT,punct,e17p-057,litereate
+Bien,ADV,advmod,e17p-057,litereate
+vouloir,VERB,advcl,e17p-057,litereate
+poser,VERB,xcomp,e17p-057,litereate
+toutes,ADJ,amod,e17p-057,litereate
+les,DET,det,e17p-057,litereate
+questions,NOUN,obj,e17p-057,litereate
+avant,ADP,advmod,e17p-057,litereate
+et,CCONJ,cc,e17p-057,litereate
+ou,CCONJ,cc,e17p-057,litereate
+venir,VERB,conj,e17p-057,litereate
+voir,VERB,xcomp,e17p-057,litereate
+la,DET,det,e17p-057,litereate
+voiture,NOUN,obj,e17p-057,litereate
+en,ADP,case,e17p-057,litereate
+Bourgogne,PROPN,nmod,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+afin,ADV,advmod,e17p-057,litereate
+d',ADP,case,e17p-057,litereate
+éviter,VERB,obl:arg,e17p-057,litereate
+tous,DET,det,e17p-057,litereate
+quiproquos,NOUN,obj,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+pas,ADV,advmod,e17p-057,litereate
+de,ADP,case,e17p-057,litereate
+réclamations,NOUN,nmod,e17p-057,litereate
+après,ADP,case,e17p-057,litereate
+Voiture,NOUN,nmod,e17p-057,litereate
+au,DET,case,e17p-057,litereate
+look,NOUN,nmod,e17p-057,litereate
+toujours,ADV,advmod,e17p-057,litereate
+sympa,ADJ,amod,e17p-057,litereate
+et,CCONJ,cc,e17p-057,litereate
+très,ADV,advmod,e17p-057,litereate
+économiques,ADJ,conj,e17p-057,litereate
+Ne,ADV,advmod,e17p-057,litereate
+pas,ADV,advmod,e17p-057,litereate
+attendre,VERB,ROOT,e17p-057,litereate
+le,DET,det,e17p-057,litereate
+dernier,ADJ,amod,e17p-057,litereate
+moment,NOUN,obj,e17p-057,litereate
+pour,ADP,mark,e17p-057,litereate
+enchérir,VERB,advcl,e17p-057,litereate
+",",PUNCT,punct,e17p-057,litereate
+en,ADP,case,e17p-057,litereate
+vente,NOUN,obl:mod,e17p-057,litereate
+sur,ADP,case,e17p-057,litereate
+d',DET,det,e17p-057,litereate
+autres,ADJ,amod,e17p-057,litereate
+supports,ADJ,nmod,e17p-057,litereate
+Paiement,NOUN,nmod,e17p-057,litereate
+et,CCONJ,cc,e17p-057,litereate
+enlevement,NOUN,conj,e17p-057,litereate
+sous,ADP,case,e17p-057,litereate
+8,NUM,nummod,e17p-057,litereate
+huits,NOUN,nmod,e17p-057,litereate
+et,CCONJ,cc,e17p-057,litereate
+ou,CCONJ,cc,e17p-057,litereate
+sauf,ADP,conj,e17p-057,litereate
+accord,NOUN,fixed,e17p-057,litereate
+de,ADP,case,e17p-057,litereate
+ma,DET,det,e17p-057,litereate
+part,NOUN,conj,e17p-057,litereate
+avant,ADP,case,e17p-057,litereate
+avec,ADP,case,e17p-057,litereate
+un,DET,det,e17p-057,litereate
+accompte,NOUN,obl:mod,e17p-057,litereate
+de,ADP,case,e17p-057,litereate
+30,NUM,nummod,e17p-057,litereate
+%,NOUN,nmod,e17p-057,litereate
+à,ADP,case,e17p-057,litereate
+la,DET,det,e17p-057,litereate
+fin,NOUN,nmod,e17p-057,litereate
+des,ADP,case,e17p-057,litereate
+enchères,NOUN,nmod,e17p-057,litereate
+Pas,ADV,nmod,e17p-057,litereate
+sérieux,ADJ,amod,e17p-057,litereate
+ou,CCONJ,cc,e17p-057,litereate
+plaisantins,NOUN,conj,e17p-057,litereate
+s',PRON,expl:pass,e17p-057,litereate
+abstenir,VERB,acl,e17p-057,litereate
+Bonnes,NOUN,advmod,e17p-057,litereate
+enchères,NOUN,amod,e17p-057,litereate

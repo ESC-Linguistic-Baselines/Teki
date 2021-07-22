@@ -1,5 +1,8 @@
 # Téki <font size="5">A Naïve Bayesian Chat Discourse Analyzer</font>
 
+Teki is an naive baysian classifier that is used to tag french chat data according their orality and literacy. 
+
+___
 ## Academic Formalities
 * Titel: From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Literate and
 Oral Discourse in Nonstandard French Language Data
@@ -12,8 +15,54 @@ im Rahmen des 2-Fach-Modells an der RUB vom 03. November 2016)
 * Matrikelnummer: 108017107247
 
 # License 
+MIT License
 
+Copyright (c) 2021 Christopher Chandler
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+_____
 # Requierments 
+
+## Installation
+This program was created and designed with **python 3.9.1**. This is therefore the recommended version.
+It is possible to run the program using any version above 3.6, but program stability cannot be guaranteed. 
+
+The following pip packages must be installed for the program to run properly:
+* bs4>=0.0.1
+* beautifulsoup4>=4.9.3
+* matplotlib>=3.4.1
+* lxml>=4.6.1
+* spacy>=2.3.5
+
+There are three ways to install the *requirements.txt* file:
+
+* 1 install all modules individually via pip
+
+* 2 install with pip using the requirements.txt without specifying the version number:
+```
+pip install -r requirements.txt
+```
+
+* 3 install with pip using the requirements.txt with specifying the version number:
+```
+pip3.9 install -r requirements.txt
+```
 
 # Description
 
