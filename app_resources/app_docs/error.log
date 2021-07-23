@@ -1,0 +1,212 @@
+
+ERROR_TIME: 2021-07-23 14:36:36,880
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 551
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 545, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 480, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:37:52,705
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 552
+ERROR_NAME: local variable 'content' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 546, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 481, in run_program
+    print(bool(content))
+UnboundLocalError: local variable 'content' referenced before assignment
+
+ERROR_TIME: 2021-07-23 14:38:32,897
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 494
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 485, in run_program
+    content = analyze_content(doc)
+UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-23 14:41:09,697
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 495
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 485, in run_program
+    content = analyze_content(doc)
+UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-23 14:41:14,505
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 553
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 547, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 480, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:42:08,771
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 554
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 548, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 481, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:46:02,015
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 554
+ERROR_NAME: argument of type 'NoneType' is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 548, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 481, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 166, in get_text
+    if ".xml" in document:
+TypeError: argument of type 'NoneType' is not iterable
+
+ERROR_TIME: 2021-07-23 14:46:34,043
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 554
+ERROR_NAME: argument of type 'NoneType' is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 548, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 481, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 166, in get_text
+    if ".xml" in document:
+TypeError: argument of type 'NoneType' is not iterable
+
+ERROR_TIME: 2021-07-23 14:47:30,004
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 557
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 551, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 482, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:47:47,098
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 558
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 552, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 482, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:47:58,161
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 557
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 551, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 482, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:48:19,411
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 557
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 551, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 482, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:49:12,942
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 553
+ERROR_NAME: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 547, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 480, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 172, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-23 14:50:32,066
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 499
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 489, in run_program
+    content = analyze_content(doc)
+UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-23 14:51:43,723
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 500
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 489, in run_program
+    content = analyze_content(doc)
+UnboundLocalError: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\auxilary_functions.py", line 77, in menu
+    return options_func_dict()
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 226, in extract_text
+    xml_tag_id.append(tag["id"])
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\bs4\element.py", line 1406, in __getitem__
+    return self.attrs[key]
+KeyError: 'id'
+
+ERROR_TIME: 2021-07-23 14:56:13,680
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 498
+ERROR_NAME: 'function' object has no attribute 'values'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 492, in run_program
+    tagged = tagger(content)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 271, in tagger
+    doc=nlp(*corpus_content.values())
+AttributeError: 'function' object has no attribute 'values'

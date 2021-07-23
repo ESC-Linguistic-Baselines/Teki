@@ -26,6 +26,8 @@ def program_description():
 def file_finder():
     '''
     This initiates a filedialog that is allows the user to dynamically select a file.
+    The user will be prompted to select a file until a file has been choosen.
+    The user also aslo
     '''
 
     root = Tk()
@@ -33,7 +35,6 @@ def file_finder():
     root.withdraw()
     filename = filedialog.askopenfilename()
     root.withdraw()
-    print("Please wait while your file is being loaded. Larger files might require more time. ")
 
     return filename
 

@@ -3,7 +3,7 @@
 #########################
 #Importing standard python libraries
 #########################
-import importlib,os,sys,traceback,csv,json
+import importlib,os,sys,traceback,csv,json,logging
 
 #########################
 #Program description
@@ -74,17 +74,6 @@ def missing_files(file_list,path):
     #False is the desired result. This means that all files are available i.e. not missing
     else:
         return False
-
-def error_log():
-    """
-    This logs all of the error files that occur within the program.
-    This will only be activated if the variable debug is set to true.
-    Some errors are intentionally, while others might occur
-    due to improper file types.
-    """
-    with open("app_resources/app_docs/error.log", mode="a") as log:
-        error=traceback.format_exc()
-        log.write(f"{error}\n")
 
 #########################
 #Importing pip libraries
@@ -220,33 +209,42 @@ def analyze_content(soup):
         """
 
         while True:
-            corpus="Ebay","Sms","Wikiconflit"
-            for num,cor in enumerate(corpus,start=1):
-                print(num,cor)
+            corpus = "eBay", "SMS", "Wikiconflit"
+            for num, cor in enumerate(corpus, start=1):
+                print(num, cor)
 
-            corpus_search=input("\nFrom which corpus are you extracting the message?")
+            corpus_search = input("\nFrom which corpus are you extracting the message?")
 
-            xml_tag_id=list()
+            xml_tag_id = list()
 
-            if corpus_search=="1":
+            if corpus_search == "1":
+                # eBay listing
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
 
-            elif corpus_search=="2":
-                pass
-            elif corpus_search=="3":
-                pass
+            elif corpus_search in ("2", "3"):
+                # SMS, Wikiconflict
+                for tag in soup.select("post"):
+                    xml_tag_id.append(tag["xml:id"])
             else:
                 print("You did not enter a valid corpus number.\n")
-
+            print(xml_tag_id[1])
             while True:
                 print(f"There are {len(xml_tag_id)} tags. Please enter a number from 0 - {len(xml_tag_id)}.")
                 corpus_tag_choice = input("Please enter a valid tag: ")
 
                 try:
-                    choice=int(corpus_tag_choice)
-                    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-                    return {xml_tag_id[choice]:" ".join(corpus_text)}
+                    choice = int(corpus_tag_choice)
+                    print(corpus_search)
+                    if corpus_search == "1":
+                        corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
+
+                    else:
+                        print(xml_tag_id[choice])
+                        corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
+
+                    return {xml_tag_id[choice]: " ".join(corpus_text)}
+
                 except:
                     print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
 
@@ -449,80 +447,98 @@ def classify(text,probs,prior_prob):
 #########################
 def run_program(debug):
 
-    """
-    This is the main function of the program. It incorporates all other functions from this file
-    as well as the from the secondary python file.
-    It is executed under the if __name__ statement.
-    """
+        """
+        This is the main function of the program. It incorporates all other functions from this file
+        as well as the from the secondary python file.
+        It is executed under the if __name__ statement.
+        """
 
-    menu_option = {
-                   "import file": get_text,
-                    "analyze contents":analyze_content,
-                    "load training file": get_database,
-                    "classify string": classify,
-                    "author information": author_information,
-                    "program description": program_description,
-                    "end program": program_end}
-    while True:
-            print()
-            banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
-            for word in banner: print(word.center(50))
-            for num, elem in enumerate(menu_option, start=1):
-                print(f'{num}: {elem}')
+        menu_option = {
+                       "import file": get_text,
+                        "analyze contents":analyze_content,
+                        "load training file": get_database,
+                        "classify string": classify,
+                        "author information": author_information,
+                        "program description": program_description,
+                        "end program": program_end}
+        while True:
+                print("")
+                banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
+                for word in banner: print(word.center(50))
+                for num, elem in enumerate(menu_option, start=1):
+                    print(f'{num}: {elem}')
 
-            choice_str = input('\nPlease enter the number of your entry: ')
-            main_message="Please the enter key to return to the main menu."
+                choice_str = input('\nPlease enter the number of your entry: ')
+                main_message="Please the enter key to return to the main menu.\n"
 
-            #Executes the function as specified by the user via the number
-            if choice_str.isdigit():
-                choice_num = int(choice_str)
+                #Executes the function as specified by the user via the number
+                if choice_str.isdigit():
+                    choice_num = int(choice_str)
 
-                if 0 < choice_num and choice_num <= len(menu_option):
-                    func_list = list(menu_option.values())
-                    function_number = choice_num - 1
-                    func_name=str(func_list[function_number]).split()[1]
+                    if 0 < choice_num and choice_num <= len(menu_option):
+                        func_list = list(menu_option.values())
+                        function_number = choice_num - 1
+                        func_name=str(func_list[function_number]).split()[1]
 
-                    arg=list(range(4))
-                    if function_number in arg:
+                        if function_number in list(range(4)):
 
-                        if func_name == "get_text":
-                            doc = get_text(file_finder())
+                            if func_name == "get_text":
 
-                        elif func_name == "read_content":
-                            try:
-                                content = analyze_content(doc)
+                                try:
+                                    doc = get_text(file_finder())
+                                except:
+                                    input(f"You did not select a file. {main_message} ")
 
-                                #Other functions will be carried out if conent comes back as True
-                                if content:
+                            elif func_name == "analyze_content":
 
-                                    tagged = tagger(content)
-                                    identify_oral_literal(tagged)
-                            except:
-                                input(f"An unexpected error occurred. {main_message} ")
-                                if debug: error_log()
+                                try:
+                                    content = analyze_content(doc)
 
-                        elif func_name=="classify":
-                            '''
-                            This calls up the naive bayes function to classifiy the texts.
-                            '''
+                                    #Other functions will be carried out if bool(content) == True
+                                    if content:
+                                        tagged = tagger(content)
+                                        identify_oral_literal(tagged)
 
-                            text = input("Enter the sentence that you would like to classify: ")
+                                except Exception as error:
+                                    print("This error most likely occurred because you forgot to first select a file.")
+                                    input(f"{main_message} ")
+                                    logging.exception(error)
 
-                            #The training corpus
-                            train=get_database()
 
-                            #This gets the frequency of ORAL and LIT (the features) of the data set.
-                            freq=get_freq(train)
+                            elif func_name=="classify":
+                                '''
+                                This calls up the naive bayes function to classifiy the texts.
+                                '''
 
-                            #This returns the MLE prob of the features.
-                            probs = get_probs(freq, train)
+                                text = input("Enter the sentence that you would like to classify: ")
 
-                            #Naive bayes
-                            classify(text, probs, freq)
+                                #The training corpus
+                                train=get_database()
 
-                    else:
-                        #executes functions that do not need argument
-                        func_list[function_number]()
+                                #This gets the frequency of ORAL and LIT (the features) of the data set.
+                                freq=get_freq(train)
+
+                                #This returns the MLE prob of the features.
+                                probs = get_probs(freq, train)
+
+                                #Naive bayes
+                                classify(text, probs, freq)
+
+                        else:
+                            #executes functions that do not need argument
+                            func_list[function_number]()
+
+#########################
+#Debugger
+#########################
+"""
+This logs all of the error files that occur within the program.
+This will only be activated if the variable debug is set to true.
+Some errors are intentionally, while others might occur due to improper file types.
+"""
+logging.basicConfig(filename='app_resources/app_docs/error.log',
+                    level=logging.DEBUG,
+                    format="\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s\nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n")
 
 #########################
 #dev_documentation Execution
@@ -534,11 +550,14 @@ if __name__ == "__main__":
     This can be overridden by the user, but it is not advised as it can lead to the program becoming unstable.  
     """
 
-    debug=True
-    if bool(core_file_missing) == False and bool(missing_libraries) == False:
-        print("All libraries have been successfully loaded. The program will now start.")
-        run_program(debug)
-    else:
-        message = "An error has occurred because either files or directories are missing."
-        continue_program(message)
-        run_program(debug)
+    try:
+        debug=True
+        if bool(core_file_missing) == False and bool(missing_libraries) == False:
+            print("All libraries have been successfully loaded. The program will now start.")
+            run_program(debug)
+        else:
+            message = "An error has occurred because either files or directories are missing."
+            continue_program(message)
+            run_program(debug)
+    except Exception as error:
+        logging.exception(error)
