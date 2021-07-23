@@ -1,4 +1,5 @@
 
+
 def sentence_tokenizer(tokens_orth):
     new_tokens = list()
     sentences = list()
@@ -55,7 +56,7 @@ def tagger(corpus_content):
     return result
 
 words=tagger(tk)
-
+print(words)
 def identify_oral_literal(sentence_results):
     """
     This function has the goal of assessing orality and literacy in a tag.
@@ -98,4 +99,3 @@ def identify_oral_literal(sentence_results):
     if pos["NOUN"] > 2:
         res("litereate")
 
-identify_oral_literal(tk)

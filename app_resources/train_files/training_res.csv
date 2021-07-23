@@ -1,19 +1,21 @@
- Je,PRON,nsubj,e05p-008,ORAL
-vend,VERB,ROOT,e05p-008,ORAL
-mon,DET,det,e05p-008,ORAL
-échappement,NOUN,obj,e05p-008,ORAL
-de,ADP,case,e05p-008,ORAL
-moto,PROPN,nmod,e05p-008,ORAL
-BANDIT,PROPN,nmod,e05p-008,ORAL
-600,NUM,amod,e05p-008,ORAL
-.,PUNCT,punct,e05p-008,ORAL
-Etat,NOUN,ROOT,e05p-008,ORAL
-neuf,ADJ,dep,e05p-008,ORAL
-",",PUNCT,punct,e05p-008,ORAL
-servi,VERB,conj,e05p-008,ORAL
-.,PUNCT,punct,e05p-008,ORAL
+Je,PRON,nsubj,e05p-008,LIT
+vend,VERB,ROOT,e05p-008,LIT
+mon,DET,det,e05p-008,LIT
+échappement,NOUN,obj,e05p-008,LIT
+de,ADP,case,e05p-008,LIT
+moto,NOUN,obl:arg,e05p-008,LIT
+BANDIT,PROPN,amod,e05p-008,LIT
+600,NUM,xcomp,e05p-008,LIT
+.,PUNCT,punct,e05p-008,LIT
+ ,SPACE,case,e05p-008,LIT
+Etat,NOUN,obl:mod,e05p-008,LIT
+neuf,ADJ,amod,e05p-008,LIT
+",",PUNCT,punct,e05p-008,LIT
+servi,VERB,ROOT,e05p-008,LIT
+.,PUNCT,punct,e05p-008,LIT
+ ,SPACE,ROOT,e05p-008,LIT
 En,ADP,case,e05p-008,LIT
-effet,NOUN,obl:mod,e05p-008,LIT
+effet,NOUN,nmod,e05p-008,LIT
 ",",PUNCT,punct,e05p-008,LIT
 lors,ADV,advmod,e05p-008,LIT
 de,ADP,case,e05p-008,LIT
@@ -22,18 +24,19 @@ achat,NOUN,obl:arg,e05p-008,LIT
 de,ADP,case,e05p-008,LIT
 la,DET,det,e05p-008,LIT
 moto,NOUN,nmod,e05p-008,LIT
-il,PRON,case,e05p-008,LIT
-y,PRON,fixed,e05p-008,LIT
-a,VERB,fixed,e05p-008,LIT
+il,PRON,expl:subj,e05p-008,LIT
+y,PRON,iobj,e05p-008,LIT
+a,VERB,obl:mod,e05p-008,LIT
 1,NUM,nummod,e05p-008,LIT
-an,NOUN,nmod,e05p-008,LIT
+an,NOUN,obj,e05p-008,LIT
 ",",PUNCT,punct,e05p-008,LIT
-j',PRON,nsubj,e05p-008,LIT
-ai,AUX,aux:tense,e05p-008,LIT
-fais,VERB,ROOT,e05p-008,LIT
-placer,VERB,xcomp,e05p-008,LIT
+j',PRON,nmod,e05p-008,LIT
+ai,AUX,punct,e05p-008,LIT
+fais,ADV,ROOT,e05p-008,LIT
+placer,VERB,ROOT,e05p-008,LIT
 un,DET,det,e05p-008,LIT
 pot,NOUN,obj,e05p-008,LIT
 ninja,ADJ,advmod,e05p-008,LIT
-dessus,VERB,amod,e05p-008,LIT
+dessus,ADJ,amod,e05p-008,LIT
 .,PUNCT,punct,e05p-008,LIT
+   ,SPACE,ROOT,e05p-008,LIT

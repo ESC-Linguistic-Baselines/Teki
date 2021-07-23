@@ -242,23 +242,18 @@ def analyze_content(text_object,abbr):
                         results = sentence_tokenizer(corpus_text, abbr)
 
                         input(msg)
+                        return (results,xml_tag_id[choice])
 
-                        if results:
-                            return (results,xml_tag_id[choice])
-                        else:
-                            return (corpus_text,xml_tag_id[choice])
                     else:
-                        input(msg)
                         corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
                         results = sentence_tokenizer(corpus_text, abbr)
                         input(msg)
 
-                        if results:
-                            return (results, xml_tag_id[choice])
-                        else:
-                            return (corpus_text, xml_tag_id[choice])
+                        return (results, xml_tag_id[choice])
 
-                except:
+                except Exception as error:
+                    print(error)
+                    logging.exception(error)
                     print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
 
     def extract_text():
@@ -294,73 +289,56 @@ def spacy_tagger(corpus_content):
     corpus=corpus_content[0]
     tag=corpus_content[1]
     result = {sen: list() for sen in range(len(corpus))}
+    nlp = spacy.load("fr_core_news_sm")
 
     for i in range(len(corpus)):
         s = " ".join(corpus[i])
-        nlp = spacy.load("fr_core_news_sm")
         doc = nlp(s)
         for token in doc:
             sentence_results = token.text, token.pos_, token.dep_
-
             result[i].append((sentence_results))
 
-    print(tag,sentence_results)
     input("The sentences have been succesfully tagged. Please press enter to continue")
-
     return (result,tag)
 
 def identify_oral_literal(sentence_results):
-    print(type(sentence_results))
-    print(len(sentence_results))
-    print(sentence_results)
+    pos = {}
 
-    import pickle
-    fileame="tags"
-    outfile=open(fileame,"wb")
-    pickle.dump(sentence_results,outfile)
-    outfile.close()
-    print("pickled")
-    """
-    This function has the goal of assessing orality and literacy in a tag.
-    """
-    #
-    # analysis_results="app_resources/train_files/training_res.csv"
-    # fnames ="token_text","token_pos","token_dep","token_id","oral_literate"
-    #
-    # sentence=""
-    # pos={}
-    #
-    # #Tagger using criteria
-    # for word in sentence_results:
-    #     line=sentence_results[word]
-    #
-    #     #Reconstructing the sentence
-    #     sentence+=line[0]+" "
-    #
-    #     #counting POS
-    #     if line[1] not in pos:
-    #         pos[line[1]]=1
-    #     else:
-    #         pos[line[1]]+=1
-    #
-    # def res(feature):
-    #     with open(analysis_results, mode="w", encoding="utf-8") as analysis:
-    #         writer = csv.DictWriter(analysis, fieldnames=fnames)
-    #
-    #         for word in sentence_results:
-    #             line = sentence_results[word]
-    #             writer.writerow(
-    #                 {"token_text": line[0],
-    #                  "token_pos": line[1],
-    #                  "token_dep": line[2],
-    #                  "token_id": line[3],
-    #                  "oral_literate": feature
-    #                  })
-    #
-    # if pos["NOUN"] > 2:
-    #     res("litereate")
+    analysis_results = "app_resources/train_files/training_res.csv"
+    fnames = "token_text", "token_pos", "token_dep", "token_id", "oral_literate"
 
-    #Tagger using simplified criteria
+    def res(sen_info, feature, ID):
+
+        with open(analysis_results, mode="a", encoding="utf-8", newline="") as analysis:
+            writer = csv.DictWriter(analysis, fieldnames=fnames)
+
+            for entry in sen_info:
+                tok_txt = entry[0]
+                tok_pos = entry[1]
+                tok_dep = entry[2]
+
+                writer.writerow(
+                    {"token_text": tok_txt,
+                     "token_pos": tok_pos,
+                     "token_dep": tok_dep,
+                     "token_id": ID,
+                     "oral_literate": feature
+                     })
+
+    sentence_info = sentence_results[0]
+
+    id = sentence_results[1]
+    for entry in sentence_info:
+        for i in sentence_info[entry]:
+            POS = i[1]
+
+            # counting POS
+            if POS not in pos:
+                pos[POS] = 1
+            else:
+                pos[POS] += 1
+
+        res(sentence_info[entry], "LIT", id)
 
 def get_freq(csv_reader):
     freq={"ORAL":0,  "LIT":0}
@@ -375,7 +353,6 @@ def get_freq(csv_reader):
             if row[4]==feat_2:
                 freq[feat_2] = freq.get(feat_2) + 1
     return freq
-
 
 def get_probs(freq,csv_reader):
     lit=dict()
@@ -518,7 +495,7 @@ def run_program(debug):
                             if func_name == "get_text":
 
                                 try:
-                                    d=r"C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\app_resources\app_dev\dev_files\ebayfr-e05p.xml"
+                                    d=r"/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/app_resources/app_test/test_files/ebayfr-e05p.xml"
                                     doc = get_text(d)
                                 except:
                                     input(f"You did not select a file. {main_message}")

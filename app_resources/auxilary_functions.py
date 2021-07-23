@@ -28,31 +28,27 @@ def sentence_tokenizer(tokens_orth,abbrev):
     sentences = list()
     tokens_orth.append(" ")
 
+    new_sentence=""
+
+    punctuation="!",".","?"
+
     for tok in tokens_orth:
-        context = tokens_orth.index(tok)
         # Wort
-        if tok.endswith(".") == False:
+        if (tok[-1] in punctuation)==False:
+            new_sentence+=tok+" "
             new_tokens.append(tok)
 
         # Satzterminierend
         else:
-            if tok in abbrev:
-                new_tokens.append(tok)
 
-            elif tokens_orth[context + 1].islower():
-                new_tokens.append(tok)
+            new_sentence+=f"{tok} <END>"
+            sentences.append(new_tokens)
+            new_tokens = list()
 
-            else:
-                new_tokens.append(tok[:-1])
-                new_tokens.append(".")
-                if tokens_orth[context].endswith(".") and tokens_orth[context + 1].endswith("."):
-                    continue
+    res=[new_sentence.split("<END>")]
 
-                else:
+    return res
 
-                    sentences.append(new_tokens)
-                    new_tokens = list()
-    return sentences
 
 def file_finder():
     '''
