@@ -1,34 +1,8 @@
-def get_text(datei):
-    token_text = list()
-    with open(datei, mode="r", encoding="utf-8") as infile:
-        read = infile.read()
-        for tok in read.split():
-            token_text.append(tok)
-    return token_text
 
-
-##############################################
-# Lexikon einlesen
-# Input:  Dateiname (str)
-# Output: Abkuerzungen in geeigneter Datenstruktur
-
-def read_lex(datei):
-    token_lex = set()
-    with open(datei, mode="r", encoding="utf-8") as infile:
-        read = infile.read()
-        for tok in read.split():
-            token_lex.add(tok)
-    return token_lex
-
-
-##############################################
-# Tokengrenzen bestimmen
-# Input:  Tokens_orth mit vorlaeufigen Tokengrenzen (list)
-#         Abbrev (dict)
-#
-# Output: Tokens mit korrigierten Tokengrenzen (list)
-def tokenize(tokens_orth, abbrev):
+def sentence_tokenizer(tokens_orth):
     new_tokens = list()
+    sentences = list()
+    tokens_orth.append(" ")
 
     for tok in tokens_orth:
         context = tokens_orth.index(tok)
@@ -38,53 +12,46 @@ def tokenize(tokens_orth, abbrev):
 
         # Satzterminierend
         else:
-            if tok in abbrev:
+            if tokens_orth[context+1].islower():
                 new_tokens.append(tok)
-            elif tokens_orth[context + 1].islower():
-                new_tokens.append(tok)
+
             else:
                 new_tokens.append(tok[:-1])
                 new_tokens.append(".")
                 if tokens_orth[context].endswith(".") and tokens_orth[context + 1].endswith("."):
                     continue
+
                 else:
-                    new_tokens.append("")
-    return new_tokens
+
+                    sentences.append(new_tokens)
+                    new_tokens=list()
+
+    return sentences
+
+#tokens="Das ist ein Bsp-Text, d.h. er enthält bzw. beinhaltet i.A. Sonderzeichen. Hier beginnt ein zweiter Satz. Und hier eine unbek. schoene Abkuerzung. Und hier eine schw. Abkuerzung."
+tokens="L'histoire du nu non consenti est un peu conne. Je suis la. Et toi. Je suis la? Et toi. Mon."
+t=tokens.split()
+tk=sentence_tokenizer(t)
+
+import spacy
+nlp = spacy.load("fr_core_news_sm")
+
+def tagger(corpus_content):
+    """
+    This function relies on the Spacy module for assessing the linguistic properties of a given sentence or a batch of sentences.
+    """
 
 
-##############################################
-# Tokens ausgeben
-# Input: Tokens (list)
-# Output: --    (Konsole)
+    result= {sen:list() for sen in range(len(corpus_content)) }
 
-def print_out(tokens):
-    for tok in tokens:
-        print(tok)
+    for i in range (len(corpus_content)):
+        s=" ".join(corpus_content[i])
 
+        doc=nlp(s)
+        for token in doc:
+            sentence_results=token.text, token.pos_, token.dep_
+            result[i].append(sentence_results)
 
-##############################################
-# Funktion, die alle weiteren Funktionen aufruft
+    return result
 
-def run_script(input_text, input_lex):
-    # 1. Datei „text.txt“ einlesen
-    text = get_text(input_text)
-
-    # 2. Abkuerzungslexikon einlesen
-    lex = read_lex(input_lex)
-    # 3. Tokengrenzen bestimmen
-    token_grenzen = tokenize(text, lex)
-    # 4. Tokens ausgeben
-    # print_out(text)
-    # print_out(lex)
-    print_out(token_grenzen)
-
-
-###########################################################
-# Hauptprogramm
-###########################################################
-
-if __name__ == "__main__":
-    input_text = "french_texts.txt"
-    input_lex = "abbrev.lex"
-    # Funktion, die alle weiteren Funktionen aufruft
-    run_script(input_text, input_lex)
+tagger(tk)

@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d914cb98-58ba-4b73-b7f8-f1cb98a572c1" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/abbrev.lex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_resources/french.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abbrev.lex" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_docs/abbrev.lex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resource_files.json" beforeDir="false" afterPath="$PROJECT_DIR$/app_resource_files.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/app_docs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_docs/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/auxilary_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/auxilary_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resources/nec_fil.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/nec_fil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resources/train_files/training_res.csv" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/train_files/training_res.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/teki_main_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/teki_main_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Documents/Academic Documents/RUB UNI/8. Semester/CL 2/Kurs/Übungen/Übung 2-20201105/Übung/2_tokenizer.py" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -63,27 +66,69 @@
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\Program\app_ressources\compressed_language_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\app_resources\app_docs" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\app_dev\train_files" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\app_dev\dev_documentation\articles" />
-      <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\app_test\test_files" />
     </key>
   </component>
   <component name="RunManager" selected="Python.sandbox">
-    <configuration name="auxilary_functions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2_tokenizer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bachleorarbeit" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../Documents/Academic Documents/RUB UNI/8. Semester/CL 2/Kurs/Übungen/Übung 2-20201105/Übung" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../Documents/Academic Documents/RUB UNI/8. Semester/CL 2/Kurs/Übungen/Übung 2-20201105/Übung/2_tokenizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="auxilary_functions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bachleorarbeit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\chris\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_resources" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_resources/auxilary_functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="nec_fil" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bachleorarbeit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\chris\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_resources" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_resources/nec_fil.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,9 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sandbox" />
         <item itemvalue="Python.teki_main_app" />
+        <item itemvalue="Python.sandbox" />
         <item itemvalue="Python.auxilary_functions" />
+        <item itemvalue="Python.2_tokenizer" />
+        <item itemvalue="Python.nec_fil" />
       </list>
     </recent_temporary>
   </component>

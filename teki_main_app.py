@@ -149,7 +149,8 @@ if core_file_missing==False:
             author_information,
             menu,
             file_finder,
-        program_end)
+            sentence_tokenizer,
+            program_end)
     except:
         pass
 
@@ -192,7 +193,7 @@ def get_database():
 
     return csv_data
 
-def analyze_content(text_object):
+def analyze_content(text_object,abbr):
 
     def read_contents():
         """
@@ -205,6 +206,8 @@ def analyze_content(text_object):
         """
         This function extracts the entries from the respective .xml. files
         """
+        soup=text_object
+        msg=input("The text has been parsed into sentences. Press enter to continue.")
 
         while True:
             corpus = "eBay", "SMS", "Wikiconflit"
@@ -226,7 +229,7 @@ def analyze_content(text_object):
                     xml_tag_id.append(tag["xml:id"])
             else:
                 print("You did not enter a valid corpus number.\n")
-            print(xml_tag_id[1])
+
             while True:
                 print(f"There are {len(xml_tag_id)} tags. Please enter a number from 0 - {len(xml_tag_id)}.")
                 corpus_tag_choice = input("Please enter a valid tag: ")
@@ -236,26 +239,33 @@ def analyze_content(text_object):
                     print(corpus_search)
                     if corpus_search == "1":
                         corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-
+                        results = sentence_tokenizer(corpus_text, abbr)
+                        msg
+                        return (results,xml_tag_id[choice])
                     else:
-                        print(xml_tag_id[choice])
+                        msg
                         corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
-
-                    return {xml_tag_id[choice]: " ".join(corpus_text)}
+                        results = sentence_tokenizer(corpus_text, abbr)
+                    msg
+                    return (results, xml_tag_id[choice])
 
                 except:
                     print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
 
     def extract_text():
-        pass
 
+        tokens=text_object.split()
+        results=sentence_tokenizer(tokens, abbr)
+        msg=input("The text has been parsed into sentences. Press enter to continue.")
+        return (results,"NO_TAG")
 
     def quit():
         #Returns false to break the loop in the menu.
         return False
 
     output_menu={"read file":read_contents,
-                 "extract XML text":extract_xml,
+                 "extract XML":extract_xml,
+                 "extract txt":extract_text,
                  "quit":quit
                 }
 
@@ -270,20 +280,20 @@ def tagger(corpus_content):
     """
     This function relies on the Spacy module for assessing the linguistic properties of a given sentence or a batch of sentences.
     """
+    corpus=corpus_content[0]
+    tag=corpus_content[1]
+    result = {sen: list() for sen in range(len(corpus))}
 
-    print("The sentence is being tagged... Please wait...")
-    nlp = spacy.load("fr_core_news_sm")
-
-    doc=nlp(*corpus_content.values())
-
-    sentence_results={}
-    i=0
-
-    for token in doc:
-        sentence_results[str(i)]=token.text, token.pos_, token.dep_,*corpus_content
-        i+=1
-
-    return sentence_results
+    for i in range(len(corpus)):
+        s = " ".join(corpus[i])
+        nlp = spacy.load("fr_core_news_sm")
+        doc = nlp(s)
+        for token in doc:
+            sentence_results = token.text, token.pos_, token.dep_
+            result[i].append(sentence_results+","+str(tag))
+    print(result)
+    input("waiting....")
+    return result
 
 def identify_oral_literal(sentence_results):
     """
@@ -491,7 +501,8 @@ def run_program(debug):
                             elif func_name == "analyze_content":
 
                                 try:
-                                    content = analyze_content(doc)
+                                    abbr="app_resources/app_docs/abbrev.lex"
+                                    content = analyze_content(doc,abbr)
 
                                     #Other functions will be carried out if bool(content) == True
                                     if content:
@@ -535,9 +546,11 @@ This logs all of the error files that occur within the program.
 This will only be activated if the variable debug is set to true.
 Some errors are intentionally, while others might occur due to improper file types.
 """
-logging.basicConfig(filename='app_resources/app_docs/error.log',
+f='app_resources/app_docs/error.log'
+logging.basicConfig(filename=f,
                     level=logging.DEBUG,
-                    format="\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s\nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n")
+                    format="\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s\nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n"
+                    )
 
 #########################
 #dev_documentation Execution

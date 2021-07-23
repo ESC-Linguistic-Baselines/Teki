@@ -1,5 +1,6 @@
 {
   "docs": [
+    "abbrev.lex",
     "author_information.json",
     "error.log",
     "missing_lib.txt",

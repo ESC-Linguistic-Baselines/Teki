@@ -11,9 +11,9 @@ files={"docs":doc,
        "test":test,
        "compressed":compressed}
 
-out=r"C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\req_files.json"
+out=r"C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\app_resource_files.json"
 out_file = open(out, "w+")
 
 json.dump(files,out_file,indent = 2)
 
-
+print("updated")
