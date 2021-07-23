@@ -1,55 +1,90 @@
-import bs4
-from bs4 import BeautifulSoup
+def get_text(datei):
+    token_text = list()
+    with open(datei, mode="r", encoding="utf-8") as infile:
+        read = infile.read()
+        for tok in read.split():
+            token_text.append(tok)
+    return token_text
 
 
-document=r"C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\app_dev\dev_files\wikiconflits_0_79.xml"
-with open(document, mode="r", encoding="utf-8") as file:
-    soup = bs4.BeautifulSoup(file, "lxml")
+##############################################
+# Lexikon einlesen
+# Input:  Dateiname (str)
+# Output: Abkuerzungen in geeigneter Datenstruktur
 
-def extract_text():
-    """
-    This function extracts the entries from the respective .xml.
-    """
+def read_lex(datei):
+    token_lex = set()
+    with open(datei, mode="r", encoding="utf-8") as infile:
+        read = infile.read()
+        for tok in read.split():
+            token_lex.add(tok)
+    return token_lex
 
-    while True:
-        corpus = "eBay", "SMS", "Wikiconflit"
-        for num, cor in enumerate(corpus, start=1):
-            print(num, cor)
 
-        corpus_search = input("\nFrom which corpus are you extracting the message?")
+##############################################
+# Tokengrenzen bestimmen
+# Input:  Tokens_orth mit vorlaeufigen Tokengrenzen (list)
+#         Abbrev (dict)
+#
+# Output: Tokens mit korrigierten Tokengrenzen (list)
+def tokenize(tokens_orth, abbrev):
+    new_tokens = list()
 
-        xml_tag_id = list()
+    for tok in tokens_orth:
+        context = tokens_orth.index(tok)
+        # Wort
+        if tok.endswith(".") == False:
+            new_tokens.append(tok)
 
-        if corpus_search == "1":
-            # eBay listing
-            for tag in soup.select("div[id]"):
-                xml_tag_id.append(tag["id"])
-
-        elif corpus_search in ("2", "3"):
-            # SMS, Wikiconflict
-            for tag in soup.select("post"):
-                xml_tag_id.append(tag["xml:id"])
+        # Satzterminierend
         else:
-            print("You did not enter a valid corpus number.\n")
-        print(xml_tag_id[1])
-        while True:
-            print(f"There are {len(xml_tag_id)} tags. Please enter a number from 0 - {len(xml_tag_id)}.")
-            corpus_tag_choice = input("Please enter a valid tag: ")
-
-            try:
-                choice = int(corpus_tag_choice)
-                print(corpus_search)
-                if corpus_search == "1":
-                    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-
+            if tok in abbrev:
+                new_tokens.append(tok)
+            elif tokens_orth[context + 1].islower():
+                new_tokens.append(tok)
+            else:
+                new_tokens.append(tok[:-1])
+                new_tokens.append(".")
+                if tokens_orth[context].endswith(".") and tokens_orth[context + 1].endswith("."):
+                    continue
                 else:
-                    print(xml_tag_id[choice])
-                    corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
-
-                return {xml_tag_id[choice]: " ".join(corpus_text)}
-
-            except:
-                print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
+                    new_tokens.append("")
+    return new_tokens
 
 
-extract_text()
+##############################################
+# Tokens ausgeben
+# Input: Tokens (list)
+# Output: --    (Konsole)
+
+def print_out(tokens):
+    for tok in tokens:
+        print(tok)
+
+
+##############################################
+# Funktion, die alle weiteren Funktionen aufruft
+
+def run_script(input_text, input_lex):
+    # 1. Datei „text.txt“ einlesen
+    text = get_text(input_text)
+
+    # 2. Abkuerzungslexikon einlesen
+    lex = read_lex(input_lex)
+    # 3. Tokengrenzen bestimmen
+    token_grenzen = tokenize(text, lex)
+    # 4. Tokens ausgeben
+    # print_out(text)
+    # print_out(lex)
+    print_out(token_grenzen)
+
+
+###########################################################
+# Hauptprogramm
+###########################################################
+
+if __name__ == "__main__":
+    input_text = "french_texts.txt"
+    input_lex = "abbrev.lex"
+    # Funktion, die alle weiteren Funktionen aufruft
+    run_script(input_text, input_lex)

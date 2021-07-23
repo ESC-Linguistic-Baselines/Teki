@@ -170,8 +170,8 @@ def get_text(document):
 
     else:
         with open(document, mode="r", encoding="utf-8") as file:
-            read=file.read()
-            return read
+            text=file.read()
+            return text
 
 def get_database():
     '''
@@ -192,20 +192,18 @@ def get_database():
 
     return csv_data
 
-def analyze_content(soup):
+def analyze_content(text_object):
 
-    def read_soup():
+    def read_contents():
         """
-        Reads in the .xml soup
+        This function simply displays the contents of the xml file in console.
         """
 
-        if str(type(soup))=="<class 'bs4.BeautifulSoup'>":
-            print(soup)
-            return False
+        print(text_object)
 
-    def extract_text():
+    def extract_xml():
         """
-        This function extracts the entries from the respective .xml.
+        This function extracts the entries from the respective .xml. files
         """
 
         while True:
@@ -218,12 +216,12 @@ def analyze_content(soup):
             xml_tag_id = list()
 
             if corpus_search == "1":
-                # eBay listing
+                #eBay listing
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
 
             elif corpus_search in ("2", "3"):
-                # SMS, Wikiconflict
+                #SMS, Wikiconflict
                 for tag in soup.select("post"):
                     xml_tag_id.append(tag["xml:id"])
             else:
@@ -248,15 +246,16 @@ def analyze_content(soup):
                 except:
                     print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
 
-    def text_extract():
+    def extract_text():
         pass
+
 
     def quit():
         #Returns false to break the loop in the menu.
         return False
 
-    output_menu={"read file":read_soup,
-                 "extract entry":extract_text,
+    output_menu={"read file":read_contents,
+                 "extract XML text":extract_xml,
                  "quit":quit
                 }
 

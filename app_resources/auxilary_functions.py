@@ -23,6 +23,31 @@ def program_description():
             print(line)
         input("\nPress enter to continue")
 
+def tokenize(tokens_orth, abbrev):
+    new_tokens = list()
+
+    for tok in tokens_orth:
+        context = tokens_orth.index(tok)
+        # Wort
+        if tok.endswith(".") == False:
+            new_tokens.append(tok)
+
+        # Satzterminierend
+        else:
+            if tok in abbrev:
+                new_tokens.append(tok)
+            elif tokens_orth[context + 1].islower():
+                new_tokens.append(tok)
+            else:
+                new_tokens.append(tok[:-1])
+                new_tokens.append(".")
+                if tokens_orth[context].endswith(".") and tokens_orth[context + 1].endswith("."):
+                    continue
+                else:
+                    new_tokens.append("")
+    return new_tokens
+
+
 def file_finder():
     '''
     This initiates a filedialog that is allows the user to dynamically select a file.

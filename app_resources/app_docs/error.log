@@ -210,3 +210,15 @@ Traceback (most recent call last):
   File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 271, in tagger
     doc=nlp(*corpus_content.values())
 AttributeError: 'function' object has no attribute 'values'
+
+ERROR_TIME: 2021-07-23 15:44:56,652
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 566
+ERROR_NAME: name 'author_information' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 564, in <module>
+    run_program(debug)
+  File "C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\teki_main_app.py", line 464, in run_program
+    "author information": author_information,
+NameError: name 'author_information' is not defined

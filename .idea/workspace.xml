@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d914cb98-58ba-4b73-b7f8-f1cb98a572c1" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abbrev.lex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/app_docs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_docs/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/auxilary_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/auxilary_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_resources/train_files/training_res.csv" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/train_files/training_res.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/teki_main_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/teki_main_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +46,14 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
