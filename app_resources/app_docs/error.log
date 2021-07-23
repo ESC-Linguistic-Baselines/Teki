@@ -1,12 +1,261 @@
 
-ERROR_TIME: 2021-07-23 19:35:49,171
+ERROR_TIME: 2021-07-23 19:41:02,695
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
 LINE_NO: 515
-ERROR_NAME: name 'nlp' is not defined
+ERROR_NAME: list.extend() takes exactly one argument (2 given)
 Traceback (most recent call last):
   File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 509, in run_program
     tagged = tagger(content)
-  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 290, in tagger
-    doc = nlp(s)
-NameError: name 'nlp' is not defined
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 293, in tagger
+    result[i].extend(sentence_results,tag)
+TypeError: list.extend() takes exactly one argument (2 given)
+
+ERROR_TIME: 2021-07-23 19:44:35,930
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 515
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 510, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 314, in identify_oral_literal
+    sentence+=line[0]+" "
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 19:49:07,245
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 515
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 510, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 336, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 19:53:35,345
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 516
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 511, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 314, in identify_oral_literal
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 20:01:24,010
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 522
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 517, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 342, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:02:01,470
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 522
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 517, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 320, in identify_oral_literal
+    sentence+=line[0]+" "
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 20:02:42,089
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 522
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 517, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 342, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:04:49,159
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 524
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 519, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 344, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:05:12,185
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 524
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 519, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 344, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:05:25,155
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 524
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 519, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 344, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:08:33,598
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 529
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 524, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 327, in identify_oral_literal
+    sentence+=line[0]+" "
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 20:13:48,910
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 529
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 524, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 349, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:14:26,289
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 529
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 524, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 327, in identify_oral_literal
+    sentence+=line[0]+" "
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 20:15:20,263
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 529
+ERROR_NAME: 'NOUN'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 524, in run_program
+    identify_oral_literal(tagged)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 349, in identify_oral_literal
+    if pos["NOUN"] > 2:
+KeyError: 'NOUN'
+
+ERROR_TIME: 2021-07-23 20:18:34,092
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 529
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 519, in run_program
+    content = analyze_content(doc,abbr)
+UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-23 20:45:35,062
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 542
+ERROR_NAME: name 'tupl' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 536, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 308, in spacy_tagger
+    result[i].extend((sentence_results+tupl(tag)))
+NameError: name 'tupl' is not defined
+
+ERROR_TIME: 2021-07-23 20:45:54,567
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 542
+ERROR_NAME: name 'tupl' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 536, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 308, in spacy_tagger
+    result[i].extend((sentence_results+tupl(tag)))
+NameError: name 'tupl' is not defined
+
+ERROR_TIME: 2021-07-23 20:48:13,077
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 542
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 536, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 308, in spacy_tagger
+    result[i].extend((sentence_results+tag))
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 20:49:21,192
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 539
+ERROR_NAME: can only concatenate tuple (not "list") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 533, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 304, in spacy_tagger
+    result[i].extend((sentence_results+[tag]
+TypeError: can only concatenate tuple (not "list") to tuple
+
+ERROR_TIME: 2021-07-23 20:50:48,588
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 540
+ERROR_NAME: can only concatenate tuple (not "list") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 534, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 306, in spacy_tagger
+    result[i].extend((sentence_results+list(tag)))
+TypeError: can only concatenate tuple (not "list") to tuple
+
+ERROR_TIME: 2021-07-23 20:52:24,734
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 540
+ERROR_NAME: can only concatenate tuple (not "str") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 534, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 306, in spacy_tagger
+    result[i].extend((sentence_results+str(tag)))
+TypeError: can only concatenate tuple (not "str") to tuple
+
+ERROR_TIME: 2021-07-23 21:03:35,100
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 540
+ERROR_NAME: bad operand type for unary +: 'tuple'
+Traceback (most recent call last):
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 534, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\teki_main_app.py", line 305, in spacy_tagger
+    result[i].extend((sentence_results,+tuple(tag)))
+TypeError: bad operand type for unary +: 'tuple'

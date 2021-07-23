@@ -207,7 +207,7 @@ def analyze_content(text_object,abbr):
         This function extracts the entries from the respective .xml. files
         """
         soup=text_object
-        msg=input("The text has been parsed into sentences. Press enter to continue.")
+        msg="The text has been parsed into sentences. Press enter to continue."
 
         while True:
             corpus = "eBay", "SMS", "Wikiconflit"
@@ -236,18 +236,27 @@ def analyze_content(text_object,abbr):
 
                 try:
                     choice = int(corpus_tag_choice)
-                    print(corpus_search)
+
                     if corpus_search == "1":
                         corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
                         results = sentence_tokenizer(corpus_text, abbr)
-                        msg
-                        return (results,xml_tag_id[choice])
+
+                        input(msg)
+
+                        if results:
+                            return (results,xml_tag_id[choice])
+                        else:
+                            return (corpus_text,xml_tag_id[choice])
                     else:
-                        msg
+                        input(msg)
                         corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
                         results = sentence_tokenizer(corpus_text, abbr)
-                    msg
-                    return (results, xml_tag_id[choice])
+                        input(msg)
+
+                        if results:
+                            return (results, xml_tag_id[choice])
+                        else:
+                            return (corpus_text, xml_tag_id[choice])
 
                 except:
                     print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
@@ -276,10 +285,12 @@ def analyze_content(text_object,abbr):
 
     return mn
 
-def tagger(corpus_content):
+def spacy_tagger(corpus_content):
     """
     This function relies on the Spacy module for assessing the linguistic properties of a given sentence or a batch of sentences.
     """
+    print("The individual sentences are now being tagged for parts of speech. Please wait.")
+
     corpus=corpus_content[0]
     tag=corpus_content[1]
     result = {sen: list() for sen in range(len(corpus))}
@@ -290,51 +301,64 @@ def tagger(corpus_content):
         doc = nlp(s)
         for token in doc:
             sentence_results = token.text, token.pos_, token.dep_
-            result[i].append(sentence_results+","+str(tag))
-    print(result)
-    input("waiting....")
-    return result
+
+            result[i].append((sentence_results))
+
+    print(tag,sentence_results)
+    input("The sentences have been succesfully tagged. Please press enter to continue")
+
+    return (result,tag)
 
 def identify_oral_literal(sentence_results):
+    print(type(sentence_results))
+    print(len(sentence_results))
+    print(sentence_results)
+
+    import pickle
+    fileame="tags"
+    outfile=open(fileame,"wb")
+    pickle.dump(sentence_results,outfile)
+    outfile.close()
+    print("pickled")
     """
     This function has the goal of assessing orality and literacy in a tag.
     """
-
-    analysis_results="app_resources/train_files/training_res.csv"
-    fnames ="token_text","token_pos","token_dep","token_id","oral_literate"
-
-    sentence=""
-    pos={}
-
-    #Tagger using criteria
-    for word in sentence_results:
-        line=sentence_results[word]
-
-        #Reconstructing the sentence
-        sentence+=line[0]+" "
-
-        #counting POS
-        if line[1] not in pos:
-            pos[line[1]]=1
-        else:
-            pos[line[1]]+=1
-
-    def res(feature):
-        with open(analysis_results, mode="w", encoding="utf-8") as analysis:
-            writer = csv.DictWriter(analysis, fieldnames=fnames)
-
-            for word in sentence_results:
-                line = sentence_results[word]
-                writer.writerow(
-                    {"token_text": line[0],
-                     "token_pos": line[1],
-                     "token_dep": line[2],
-                     "token_id": line[3],
-                     "oral_literate": feature
-                     })
-
-    if pos["NOUN"] > 2:
-        res("litereate")
+    #
+    # analysis_results="app_resources/train_files/training_res.csv"
+    # fnames ="token_text","token_pos","token_dep","token_id","oral_literate"
+    #
+    # sentence=""
+    # pos={}
+    #
+    # #Tagger using criteria
+    # for word in sentence_results:
+    #     line=sentence_results[word]
+    #
+    #     #Reconstructing the sentence
+    #     sentence+=line[0]+" "
+    #
+    #     #counting POS
+    #     if line[1] not in pos:
+    #         pos[line[1]]=1
+    #     else:
+    #         pos[line[1]]+=1
+    #
+    # def res(feature):
+    #     with open(analysis_results, mode="w", encoding="utf-8") as analysis:
+    #         writer = csv.DictWriter(analysis, fieldnames=fnames)
+    #
+    #         for word in sentence_results:
+    #             line = sentence_results[word]
+    #             writer.writerow(
+    #                 {"token_text": line[0],
+    #                  "token_pos": line[1],
+    #                  "token_dep": line[2],
+    #                  "token_id": line[3],
+    #                  "oral_literate": feature
+    #                  })
+    #
+    # if pos["NOUN"] > 2:
+    #     res("litereate")
 
     #Tagger using simplified criteria
 
@@ -494,9 +518,10 @@ def run_program(debug):
                             if func_name == "get_text":
 
                                 try:
-                                    doc = get_text(file_finder())
+                                    d=r"C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\app_resources\app_dev\dev_files\ebayfr-e05p.xml"
+                                    doc = get_text(d)
                                 except:
-                                    input(f"You did not select a file. {main_message} ")
+                                    input(f"You did not select a file. {main_message}")
 
                             elif func_name == "analyze_content":
 
@@ -506,11 +531,11 @@ def run_program(debug):
 
                                     #Other functions will be carried out if bool(content) == True
                                     if content:
-                                        tagged = tagger(content)
+                                        tagged = spacy_tagger(content)
                                         identify_oral_literal(tagged)
 
                                 except Exception as error:
-                                    print("This error most likely occurred because you forgot to first select a file.")
+                                    print("An unknown error occured.")
                                     input(f"{main_message} ")
                                     logging.exception(error)
 

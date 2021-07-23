@@ -50,8 +50,52 @@ def tagger(corpus_content):
         doc=nlp(s)
         for token in doc:
             sentence_results=token.text, token.pos_, token.dep_
-            result[i].append(sentence_results)
+            result[i].extend((sentence_results,"Tag"))
 
     return result
 
-tagger(tk)
+words=tagger(tk)
+
+def identify_oral_literal(sentence_results):
+    """
+    This function has the goal of assessing orality and literacy in a tag.
+    """
+
+    print(sentence_results)
+    analysis_results="app_resources/train_files/training_res.csv"
+    fnames ="token_text","token_pos","token_dep","token_id","oral_literate"
+
+    sentence=""
+    pos={}
+
+    #Tagger using criteria
+    for word in sentence_results:
+        line=sentence_results[word]
+
+        #Reconstructing the sentence
+        sentence+=line[0]+" "
+
+        #counting POS
+        if line[1] not in pos:
+            pos[line[1]]=1
+        else:
+            pos[line[1]]+=1
+
+    def res(feature):
+        with open(analysis_results, mode="w", encoding="utf-8") as analysis:
+            writer = csv.DictWriter(analysis, fieldnames=fnames)
+
+            for word in sentence_results:
+                line = sentence_results[word]
+                writer.writerow(
+                    {"token_text": line[0],
+                     "token_pos": line[1],
+                     "token_dep": line[2],
+                     "token_id": line[3],
+                     "oral_literate": feature
+                     })
+
+    if pos["NOUN"] > 2:
+        res("litereate")
+
+identify_oral_literal(tk)
