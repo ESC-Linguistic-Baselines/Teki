@@ -2,7 +2,7 @@ import json, os, sys
 import re,os,shutil,tkinter
 from datetime import datetime
 from tkinter import filedialog, Tk, messagebox
-import traceback
+import logging
 
 def author_information():
     '''
@@ -117,6 +117,7 @@ def program_end():
             input("Press enter to continue:")
             break
 
-        #Unknown, incorrect answer
-        else:
-            print(f"{final_answer} is not a vaild answer. Enter either 'y' or 'n'.")
+
+def clear_log(f):
+    logging.FileHandler(f, "w")
+    print("The log file will be cleared after restarting the program.")
