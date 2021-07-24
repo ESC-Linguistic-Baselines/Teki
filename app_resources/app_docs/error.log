@@ -315,3 +315,297 @@ Traceback (most recent call last):
   File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki_main_app.py", line 235, in extract_xml
     corpus_tag_choice = input("Please enter a valid tag: ")
 KeyboardInterrupt
+
+ERROR_TIME: 2021-07-24 08:05:24,006
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 574
+ERROR_NAME: string index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 568, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 528, in run_program
+    freq=get_freq(train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 343, in get_freq
+    if row[4]==feat_1:
+IndexError: string index out of range
+
+ERROR_TIME: 2021-07-24 08:06:16,015
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 574
+ERROR_NAME: local variable 'train' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 568, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 528, in run_program
+    freq=get_freq(train)
+UnboundLocalError: local variable 'train' referenced before assignment
+
+ERROR_TIME: 2021-07-24 08:08:00,094
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 516
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 506, in run_program
+    content = analyze_content(doc,abbr)
+UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-24 08:08:08,786
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 573
+ERROR_NAME: string index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 567, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 527, in run_program
+    freq=get_freq(train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 343, in get_freq
+    if row[4]==feat_1:
+IndexError: string index out of range
+
+ERROR_TIME: 2021-07-24 08:08:55,548
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 574
+ERROR_NAME: string index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 568, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 528, in run_program
+    freq=get_freq(train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 344, in get_freq
+    if row[4]==feat_1:
+IndexError: string index out of range
+
+ERROR_TIME: 2021-07-24 08:11:02,630
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 580
+ERROR_NAME: name 'database' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 574, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 534, in run_program
+    freq=get_freq(train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 338, in get_freq
+    with open(database, mode="r", encoding="utf-8") as data:
+NameError: name 'database' is not defined
+
+ERROR_TIME: 2021-07-24 08:11:42,999
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 580
+ERROR_NAME: string index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 574, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 537, in run_program
+    probs = get_probs(freq, train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 368, in get_probs
+    feat=word[4]
+IndexError: string index out of range
+
+ERROR_TIME: 2021-07-24 08:14:15,837
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 578
+ERROR_NAME: local variable 'train' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 572, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 532, in run_program
+    freq=get_freq(train)
+UnboundLocalError: local variable 'train' referenced before assignment
+
+ERROR_TIME: 2021-07-24 08:14:32,847
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 578
+ERROR_NAME: string index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 572, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 535, in run_program
+    probs = get_probs(freq, train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 366, in get_probs
+    feat=word[4]
+IndexError: string index out of range
+
+ERROR_TIME: 2021-07-24 08:16:14,809
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 583
+ERROR_NAME: string index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 577, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 540, in run_program
+    probs = get_probs(freq, train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 371, in get_probs
+    feat=word[4]
+IndexError: string index out of range
+
+ERROR_TIME: 2021-07-24 08:22:42,058
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 589
+ERROR_NAME: name 'csv_data' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 583, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 546, in run_program
+    probs = get_probs(freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 384, in get_probs
+    for word in csv_data:
+NameError: name 'csv_data' is not defined
+
+ERROR_TIME: 2021-07-24 08:23:24,439
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 589
+ERROR_NAME: tuple indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 583, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 549, in run_program
+    classify(text, probs, freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 408, in classify
+    true = prior_prob["ORAL"] / (prior_prob["ORAL"] + prior_prob["LIT"])
+TypeError: tuple indices must be integers or slices, not str
+
+ERROR_TIME: 2021-07-24 08:28:34,326
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 592
+ERROR_NAME: tuple indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 586, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 552, in run_program
+    classify(text, probs, freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 411, in classify
+    true = prior_prob["ORAL"] / (prior_prob["ORAL"] + prior_prob["LIT"])
+TypeError: tuple indices must be integers or slices, not str
+
+ERROR_TIME: 2021-07-24 10:05:28,329
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 557
+ERROR_NAME: classify() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 551, in <module>
+    run_program(debug)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 517, in run_program
+    classify(text, probs, freq)
+TypeError: classify() takes 2 positional arguments but 3 were given
+
+ERROR_TIME: 2021-07-24 10:33:30,564
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 505
+ERROR_NAME: identify_oral_literal() missing 1 required positional argument: 'database'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 500, in run_program
+    identify_oral_literal(tagged)
+TypeError: identify_oral_literal() missing 1 required positional argument: 'database'
+
+ERROR_TIME: 2021-07-24 10:35:12,029
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 505
+ERROR_NAME: local variable 'train' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 500, in run_program
+    identify_oral_literal(tagged,train)
+UnboundLocalError: local variable 'train' referenced before assignment
+
+ERROR_TIME: 2021-07-24 10:35:26,479
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 505
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 495, in run_program
+    content = analyze_content(doc,abbr)
+UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-24 10:37:24,808
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 563
+ERROR_NAME: Main Exceptiondivision by zero
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 553, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-24 10:42:57,117
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 506
+ERROR_NAME: local variable 'train' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 501, in run_program
+    identify_oral_literal(tagged,train)
+UnboundLocalError: local variable 'train' referenced before assignment
+
+ERROR_TIME: 2021-07-24 10:43:44,962
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 506
+ERROR_NAME: can only concatenate tuple (not "int") to tuple
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 501, in run_program
+    identify_oral_literal(tagged,train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 335, in identify_oral_literal
+    i+=1
+TypeError: can only concatenate tuple (not "int") to tuple
+
+ERROR_TIME: 2021-07-24 10:44:49,721
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 506
+ERROR_NAME: 'int' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 501, in run_program
+    identify_oral_literal(tagged,train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 334, in identify_oral_literal
+    res(sentence_info[entry], "LIT", id+tuple(l))
+TypeError: 'int' object is not iterable
+
+ERROR_TIME: 2021-07-24 10:45:49,959
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 506
+ERROR_NAME: 'int' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 501, in run_program
+    identify_oral_literal(tagged,train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 334, in identify_oral_literal
+    res(sentence_info[entry], "LIT", id+tuple(l))
+TypeError: 'int' object is not iterable
+
+ERROR_TIME: 2021-07-24 10:48:48,050
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 247
+ERROR_NAME: invalid literal for int() with base 10: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 229, in extract_xml
+    choice = int(corpus_tag_choice)
+ValueError: invalid literal for int() with base 10: ''
+
+ERROR_TIME: 2021-07-24 10:49:12,852
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 506
+ERROR_NAME: can only concatenate str (not "tuple") to str
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 501, in run_program
+    identify_oral_literal(tagged,train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 334, in identify_oral_literal
+    res(sentence_info[entry], "LIT", id+tuple(str(l)))
+TypeError: can only concatenate str (not "tuple") to str

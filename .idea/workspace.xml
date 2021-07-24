@@ -2,16 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d914cb98-58ba-4b73-b7f8-f1cb98a572c1" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_resources/test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_resources/train_files/test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/app_docs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_docs/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e05p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e05p.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e17p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e17p.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e17x.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e17x.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e18v.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/app_test/test_files/ebayfr-e18v.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/auxilary_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/auxilary_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_resources/naivebay.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/naivebay.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_resources/train_files/training_res.csv" beforeDir="false" afterPath="$PROJECT_DIR$/app_resources/train_files/training_res.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_resources/train_files/training_res.csvf" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/sandbox_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/sanbox_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/sanbox_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/sandbox_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/sandbox_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/teki_main_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/teki_main_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/sanbox_3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +61,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app_resources" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Desktop\Bachleorarbeit\app_resources" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\app_test\test_files" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\Program\app_ressources\compressed_language_data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Desktop\Bachleorarbeit\sandbox" />
       <recent name="$PROJECT_DIR$/sandbox" />
       <recent name="C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\app_resources\app_docs" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources" />
       <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit\app_resources\app_dev\train_files" />
-      <recent name="C:\Users\chris\iCloudDrive\Documents\Academic Documents\RUB UNI\0 - Files\Lingustik PL\B.A\Bachleorarbeit" />
     </key>
   </component>
   <component name="RunManager" selected="Python.teki_main_app">
@@ -97,6 +103,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bachleorarbeit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/classifier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sanbox_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bachleorarbeit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/sanbox_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="sandbox_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bachleorarbeit" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,27 +158,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/sandbox_1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sandbox_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Bachleorarbeit" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.9" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/sandbox_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,15 +190,17 @@
     <list>
       <item itemvalue="Python.auxilary_functions" />
       <item itemvalue="Python.sandbox_1" />
-      <item itemvalue="Python.sandbox_2" />
       <item itemvalue="Python.teki_main_app" />
+      <item itemvalue="Python.classifier" />
+      <item itemvalue="Python.sanbox_3" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.teki_main_app" />
+        <item itemvalue="Python.sanbox_3" />
+        <item itemvalue="Python.classifier" />
         <item itemvalue="Python.sandbox_1" />
         <item itemvalue="Python.auxilary_functions" />
-        <item itemvalue="Python.sandbox_2" />
       </list>
     </recent_temporary>
   </component>

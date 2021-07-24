@@ -1,5 +1,7 @@
 import bs4
 from bs4 import BeautifulSoup
+import re
+
 document="sandbox/test.xml"
 with open(document, mode="r", encoding="utf-8") as file:
     soup = bs4.BeautifulSoup(file, "lxml")
@@ -10,30 +12,29 @@ with open(document, mode="r", encoding="utf-8") as file:
 def sentence_tokenizer(tokens_orth,abbrev):
     new_tokens = list()
     sentences = list()
-    tokens_orth.append(" ")
-
     new_sentence=""
-
-    punctuation="!",".","?"
+    regex=re.compile("[a-zàâçéèêëîïôûùüÿñæœ]+[.!?]|[*!?.]|\s[.·]+")
 
     for tok in tokens_orth:
-        # Wort
-        if (tok[-1] in punctuation)==False:
-            new_sentence+=tok+" "
+
+        if regex.findall(tok):
+            new_sentence += f" {tok} <END>"
             new_tokens.append(tok)
-
-        # Satzterminierend
         else:
+            new_sentence += f" {tok}"
 
-            new_sentence+=f"{tok} <END>"
-            sentences.append(new_tokens)
-            new_tokens = list()
+    new=new_sentence.split("<END>")
+    res=[sen for sen in new if bool(sen)==True]
 
-    res=[new_sentence.split("<END>")]
-    print(len(res[0]))
-    return res
+    return [res]
+
 
 
 corpus_text = soup.find("div", id=xml_tag_id[2]).getText().strip().split()
+#corpus_text="tu es qui? je suis chez moi!"
+c="Oui, une fin est prévue, en cherchant on tombe rapidement sur des chiffres mais ceux-ci ne se sont jamais montrés très précis dans le passé ... On parle de quelques années, mais sans doute pas une dizaine"
+corpus_text=c.split()
 
-sentence_tokenizer(corpus_text,list())
+s=sentence_tokenizer(corpus_text,list())
+
+print(s)

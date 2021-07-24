@@ -26,29 +26,21 @@ def program_description():
 def sentence_tokenizer(tokens_orth,abbrev):
     new_tokens = list()
     sentences = list()
-    tokens_orth.append(" ")
-
-    new_sentence=""
-
-    punctuation="!",".","?"
+    new_sentence = ""
+    regex = re.compile("[a-zàâçéèêëîïôûùüÿñæœ]+[.!?]|[*!?.]|\s[.·]+")
 
     for tok in tokens_orth:
-        # Wort
-        if (tok[-1] in punctuation)==False:
-            new_sentence+=tok+" "
+
+        if regex.findall(tok):
+            new_sentence += f" {tok} <END>"
             new_tokens.append(tok)
-
-        # Satzterminierend
         else:
+            new_sentence += f" {tok}"
 
-            new_sentence+=f"{tok} <END>"
-            sentences.append(new_tokens)
-            new_tokens = list()
+    new = new_sentence.split("<END>")
+    res = [sen for sen in new if bool(sen) == True]
 
-    res=[new_sentence.split("<END>")]
-
-    return res
-
+    return [res]
 
 def file_finder():
     '''

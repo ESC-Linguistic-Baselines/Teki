@@ -3,7 +3,7 @@
 #########################
 #Importing standard python libraries
 #########################
-import importlib,os,sys,traceback,csv,json,logging
+import importlib,os,sys,traceback,csv,json,logging,pickle
 
 #########################
 #Program description
@@ -180,18 +180,9 @@ def get_database():
     It will be used with the naive bayes classifier.
     '''
 
-    database="app_resources/train_files/training_res.csv"
-    csv_data=list()
+    database=r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\training_res.csv"
 
-    with open (database,mode="r",encoding="utf-8") as data:
-        csv_reader=csv.reader(data,delimiter=",")
-        for row in csv_reader:
-
-            #Skips empty lines
-            if row:
-                csv_data.append(row)
-
-    return csv_data
+    return database
 
 def analyze_content(text_object,abbr):
 
@@ -282,37 +273,45 @@ def analyze_content(text_object,abbr):
 
 def spacy_tagger(corpus_content):
     """
-    This function relies on the Spacy module for assessing the linguistic properties of a given sentence or a batch of sentences.
+    After the the texts have been parsed into sentences,
+    the respective sentences will then be tokenized
     """
-    print("The individual sentences are now being tagged for parts of speech. Please wait.")
 
-    corpus=corpus_content[0]
+    print("The individual sentences are now being tagged for parts of speech. Please wait...")
+
+    print(corpus_content)
+    corpus=corpus_content[0][0]
     tag=corpus_content[1]
     result = {sen: list() for sen in range(len(corpus))}
     nlp = spacy.load("fr_core_news_sm")
 
     for i in range(len(corpus)):
-        s = " ".join(corpus[i])
+        s = "".join(corpus[i])
         doc = nlp(s)
         for token in doc:
             sentence_results = token.text, token.pos_, token.dep_
             result[i].append((sentence_results))
 
-    input("The sentences have been succesfully tagged. Please press enter to continue")
+
+    input("The sentences have been succesfully tagged. Please press enter to continue...")
+    print(result)
     return (result,tag)
 
-def identify_oral_literal(sentence_results):
+
+def identify_oral_literal(sentence_results,database):
     pos = {}
 
-    analysis_results = "app_resources/train_files/training_res.csv"
-    fnames = "token_text", "token_pos", "token_dep", "token_id", "oral_literate"
 
-    def res(sen_info, feature, ID):
+    analysis_results = database
+    fnames = "token_text", "token_pos", "token_dep", "token_id","sen_no", "oral_literate"
+
+    def res(sen_info, feature, ID,sen_no):
 
         with open(analysis_results, mode="a", encoding="utf-8", newline="") as analysis:
             writer = csv.DictWriter(analysis, fieldnames=fnames)
 
             for entry in sen_info:
+
                 tok_txt = entry[0]
                 tok_pos = entry[1]
                 tok_dep = entry[2]
@@ -321,14 +320,17 @@ def identify_oral_literal(sentence_results):
                     {"token_text": tok_txt,
                      "token_pos": tok_pos,
                      "token_dep": tok_dep,
-                     "token_id": ID,
+                     "token_id": ID+f"{sen_no}",
+                     "sen_no":f"SEN:{sen_no}",
                      "oral_literate": feature
                      })
 
     sentence_info = sentence_results[0]
 
     id = sentence_results[1]
+    sen_no=0
     for entry in sentence_info:
+        sen_no+=1
         for i in sentence_info[entry]:
             POS = i[1]
 
@@ -338,119 +340,108 @@ def identify_oral_literal(sentence_results):
             else:
                 pos[POS] += 1
 
-        res(sentence_info[entry], "LIT", id)
+        res(sentence_info[entry], "LIT", id,sen_no)
 
-def get_freq(csv_reader):
-    freq={"ORAL":0,  "LIT":0}
-    feat_1="ORAL"
-    feat_2="LIT"
+def get_freq(file):
+    '''
+    This function gets the counter for ORAL and LIT in the training file.
+    It returns the frequency of the features and the entries from the csv files
+    '''
 
-    for row in csv_reader:
+    with open(file, mode="r", encoding="utf-8") as file_data:
+        csv_reader = csv.reader(file_data, delimiter=",")
+        file_data = [row for row in csv_reader]
 
-        if row[4]==feat_1:
-            freq[feat_1]=freq.get(feat_1)+1
+        ###
+        # only one feature per  sentence, not per word
+        ####
+        freq = {"ORAL": 0, "LIT": 0}
+        feat_1, feat_2 = "ORAL", "LIT"
+
+        for row in file_data:
+            if row:
+                if row[4] == feat_1:
+                    freq[feat_1] = freq.get(feat_1) + 1
+                elif row[4] == feat_2:
+                    freq[feat_2] = freq.get(feat_2) + 1
+
+        return freq,file_data
+
+def get_probs(csv_results):
+    '''
+    This function returns the frequency of the oral and lit features for each word.
+    '''
+    results = dict()
+
+    freq = csv_results[0]
+    csv_data = csv_results[1]
+    freq["LIT"] = 2
+    freq["ORAL"] = 4
+
+    lit_freq,oral_freq = dict(),dict()
+    lit_tokens,oral_tokens=list(),list()
+    vocabluary = set()
+    ng_smooth=sum(freq.values()) ** 2
+
+    for element in csv_data:
+        word,feat = element[0],element[4]
+        vocabluary.add(word)
+
+        if feat == "ORAL":
+            oral_tokens.append((word, feat))
+            oral_freq[element[0]] = oral_freq.get(element[0], 0) + 1
+
+        elif feat == "LIT":
+
+            lit_tokens.append((word, feat))
+            lit_freq[element[0]] = lit_freq.get(element[0], 0) + 1
+
+    for element in vocabluary:
+
+        if lit_freq.get(element, 0) > 0:
+            lit = lit_freq.get(element) / freq["LIT"]
         else:
-            if row[4]==feat_2:
-                freq[feat_2] = freq.get(feat_2) + 1
-    return freq
+            lit = freq["LIT"] / (ng_smooth)
 
-def get_probs(freq,csv_reader):
-    lit=dict()
-    oral=dict()
-
-    vocabluary=set()
-    lit_tokens=list()
-    oral_tokens=list()
-
-    res=dict()
-    for word in csv_reader:
-        voc=word[0]
-        feat=word[4]
-        vocabluary.add(voc)
-
-        if feat=="ORAL":
-            oral_tokens.append((voc,feat))
+        if oral_freq.get(element, 0) > 0:
+            oral = oral_freq.get(element) / freq["ORAL"]
         else:
-            lit_tokens.append((voc,feat))
 
-    for word in csv_reader:
-        if word[4]=="ORAL":
-            lit[word[0]]=lit.get(word[0],0)+1
-        else:
-            oral[word[0]] = oral.get(word[0], 0)+1
+            oral = freq["ORAL"] / (ng_smooth)
 
-    for word in vocabluary:
+        results[element] = oral,lit
 
-        if lit.get(word,0) > 0:
-            tr=lit.get(word)/freq["LIT"]
-        else:
-            tr=freq["LIT"]/(sum(freq.values())**2)
+    return results,freq
 
-        if oral.get(word,0) > 0:
-            fl=oral.get(word)/freq["LIT"]
-        else:
-            fl=freq["LIT"]/(sum(freq.values())**2)
+def classify(text, res):
 
-        res[word]=tr,fl
-    return res
 
-def classify(text,probs,prior_prob):
+   #Text classification
+    probs,prior_prob=res[0],res[1]
 
-    true = prior_prob["ORAL"] / (prior_prob["ORAL"] + prior_prob["LIT"])
-    false = prior_prob["LIT"] / (prior_prob["ORAL"] + prior_prob["LIT"])
-    true_smooth = prior_prob["ORAL"] / (sum(prior_prob.values()) ** 2)
-    false_smooth = prior_prob["LIT"] / (sum(prior_prob.values()) ** 2)
+    oral_prob,lit_prob=prior_prob["ORAL"],prior_prob["LIT"]
+    orality = oral_prob/ (oral_prob + lit_prob)
+    literality = lit_prob / (oral_prob + lit_prob)
+    ng=sum(prior_prob.values()) ** 2
+    orality_smooth = oral_prob/ ng
+    literacy_smooth = lit_prob / ng
 
-    s = dict()
+    sentence_prob = dict()
 
     for word in text:
-        if bool(probs.get(word)):
-            s[word] = probs.get(word)
-        else:
-            s[word] = true_smooth, false_smooth
+        if bool(probs.get(word)): sentence_prob[word] = probs.get(word)
+        else: sentence_prob[word] = orality_smooth, literacy_smooth
 
-    for word in s:
-        true *= s[word][0]
+    for word in sentence_prob:
 
-        false *= s[word][1]
+        orality *= sentence_prob[word][0]
+        literality *= sentence_prob[word][1]
 
-    res = true, false
-    ans = 1
-
-    system_results = {"TP": 0, "FP": 0, "FN": 0}
-
-    if true > false:
-        ans = 0
-
-        print(f" is true with {true}")
+    if literality > orality :
+        print(f" {text} is literal {literality}")
     else:
-        print(f" ' {text} ' is false with ", false)
-
-    for word in s:
-        system = s[word][ans]
-        max_arg = max(s[word])
-
-        if system == max_arg:
-            system_results["TP"] = system_results.get("TP") + 1
-
-        elif system == s[word][1]:
-            system_results["FP"] = system_results.get("FP") + 1
-
-        elif system == s[word][0]:
-            system_results["FN"] = system_results.get("FN") + 1
-
-    TP, FP, FN = system_results["TP"], system_results["FP"], system_results["FN"]
-
-    precision = TP / (TP + FP)
-    recall = TP / (TP + FN)
-
-    system_prob = 1
-    values = list()
-    for i in s:
-        values.append(max(s[i]))
-
-    for i in values:
-        system_prob *= i
+        print(f" '  {text} ' is oral {orality}")
+    print(literality,orality)
 
 #########################
 #Main program
@@ -465,8 +456,8 @@ def run_program(debug):
 
         menu_option = {
                        "import file": get_text,
-                        "analyze contents":analyze_content,
                         "load training file": get_database,
+                        "analyze contents":analyze_content,
                         "classify string": classify,
                         "author information": author_information,
                         "program description": program_description,
@@ -495,8 +486,14 @@ def run_program(debug):
                             if func_name == "get_text":
 
                                 try:
-                                    d=r"/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/app_resources/app_test/test_files/ebayfr-e05p.xml"
+                                    d=r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_test\test_files\ebayfr-e05p.xml"
                                     doc = get_text(d)
+                                except:
+                                    input(f"You did not select a file. {main_message}")
+
+                            elif func_name=="get_database":
+                                try:
+                                    train=get_database()
                                 except:
                                     input(f"You did not select a file. {main_message}")
 
@@ -509,32 +506,29 @@ def run_program(debug):
                                     #Other functions will be carried out if bool(content) == True
                                     if content:
                                         tagged = spacy_tagger(content)
-                                        identify_oral_literal(tagged)
+                                        identify_oral_literal(tagged,train)
 
                                 except Exception as error:
                                     print("An unknown error occured.")
                                     input(f"{main_message} ")
                                     logging.exception(error)
 
-
                             elif func_name=="classify":
                                 '''
                                 This calls up the naive bayes function to classifiy the texts.
                                 '''
 
-                                text = input("Enter the sentence that you would like to classify: ")
-
-                                #The training corpus
-                                train=get_database()
+                                #text = input("Enter the sentence that you would like to classify: ")
+                                text="a seat at the bar which serves up surprisingly"
 
                                 #This gets the frequency of ORAL and LIT (the features) of the data set.
                                 freq=get_freq(train)
 
                                 #This returns the MLE prob of the features.
-                                probs = get_probs(freq, train)
+                                probs = get_probs(freq)
 
-                                #Naive bayes
-                                classify(text, probs, freq)
+                                #Naive bayes classifier
+                                classify(text.split(), probs)
 
                         else:
                             #executes functions that do not need argument
@@ -574,4 +568,4 @@ if __name__ == "__main__":
             continue_program(message)
             run_program(debug)
     except Exception as error:
-        logging.exception(error)
+        logging.exception("Main Exception in "+str(error))
