@@ -355,6 +355,7 @@ def get_freq(file):
         ###
         # only one feature per  sentence, not per word
         ####
+
         freq = {"ORAL": 0, "LIT": 0}
         feat_1, feat_2 = "ORAL", "LIT"
 
