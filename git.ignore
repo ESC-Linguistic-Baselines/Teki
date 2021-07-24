@@ -1,2 +1,4 @@
 .idea
-.venv
+.venv/Lib/site-packages
+.idea
+__pycache__
