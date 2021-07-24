@@ -8,3 +8,93 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 511, in run_program
     content = analyze_content(doc,abbr)
 UnboundLocalError: local variable 'doc' referenced before assignment
+
+ERROR_TIME: 2021-07-24 21:17:33,310
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 510
+ERROR_NAME: Main Exception in [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 507, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-24 21:20:35,787
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 601
+ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
+    get_text(doc)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
+
+ERROR_TIME: 2021-07-24 21:20:48,016
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 601
+ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
+    get_text(doc)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
+
+ERROR_TIME: 2021-07-24 21:23:14,722
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 601
+ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
+    get_text(doc)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
+
+ERROR_TIME: 2021-07-24 21:23:41,806
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 601
+ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
+    get_text(doc)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
+
+ERROR_TIME: 2021-07-24 21:28:29,345
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 600
+ERROR_NAME: Main Exception in list index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 592, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 543, in run_program
+    freq = get_freq(train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 356, in get_freq
+    sentence_id = {(row[3], row[4], row[5]) for row in file_data}
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 356, in <setcomp>
+    sentence_id = {(row[3], row[4], row[5]) for row in file_data}
+IndexError: list index out of range

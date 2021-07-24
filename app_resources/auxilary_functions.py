@@ -23,9 +23,9 @@ def program_description():
             print(line)
         input("\nPress enter to continue")
 
-def sentence_tokenizer(tokens_orth,abbrev):
+def sentence_tokenizer(tokens_orth):
     new_tokens = list()
-    sentences = list()
+
     new_sentence = ""
     regex = re.compile("[a-zàâçéèêëîïôûùüÿñæœ]+[.!?]|[*!?.]|\s[.·]+")
 

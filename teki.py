@@ -1,16 +1,21 @@
-# -*- coding: utf-8 -*-
+#  -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
     print("Please wait while libraries and files are being imported...")
     print("This could take a while depending on your system resources.\n")
 
 #########################
-#Importing standard python libraries
+# Importing standard python libraries
 #########################
-import importlib,os,sys,traceback,csv,json,logging,pickle
+import importlib
+import os
+import sys
+import csv
+import json
+import logging
 
 #########################
-#Program description
+#  Program description
 #########################
 """
 This program's function is to access the literate and oral nature of French chat data
@@ -18,47 +23,48 @@ by using markers that can identify said features.
 """
 
 #########################
-#Program continuation function
+# Program continuation function
 #########################
 
+
 def continue_program(*args):
-    """
-    input:
+    """ input:
 
     function
 
     output:
     """
 
-    #Displays the error prompt messages.
+    # Displays the error prompt messages.
     for message in args:
         print(message)
     print("")
 
     while True:
-        #The while-loop remains in place until the user provides an appropriate response
+        # The while-loop remains in place until the user provides an appropriate response
         user = input("Would you still like to continue with the program (y/n) ?: ").lower()
 
-        #Yes answer
-        if user=="y":
-            user=input("Are you sure? Program stability cannot be guaranteed (y/n)?: ").lower()
+        # Yes answer
+        if user == "y":
+            user = input("Are you sure? Program stability cannot be guaranteed (y/n)?: ").lower()
 
-            #Yes answer
-            if user=="y":
+            #  Yes answer
+            if user == "y":
                 break
-                #The program will be continued even though there is no stability.
+                # The program will be continued even though there is no stability.
             else:
                 sys.exit("The program will now be terminated.")
 
-        #No answer
-        elif user=="n":
+        # No answer
+        elif user == "n":
             sys.exit("The program will now be terminated.")
 
-        #Incorrect answer
+        # Incorrect answer
         else:
             print(f"{user} is not a valid response. Please enter a valid response.\n")
 
-def missing_files(file_list,path):
+
+def missing_files(file_list, path):
     """
     This function is make sure that all of the necessary files are available.
     Without all of the files, the stability of the program cannot be ensured.
@@ -66,20 +72,21 @@ def missing_files(file_list,path):
 
     missing = list()
 
-    #This checks to make sure that the files are available.
+    # This checks to make sure that the files are available.
     for root in os.listdir(path):
         if root not in file_list:
             missing.append(root)
 
-    #If not all files are available, then a list of said files are returned.
+    # If not all files are available, then a list of said files are returned.
     if missing:
         return missing
-    #False is the desired result. This means that all files are available i.e. not missing
+    # False is the desired result. This means that all files are available i.e. not missing
     else:
         return False
 
+
 #########################
-#Importing pip libraries
+# Importing pip libraries
 #########################
 """
 The libraries are iteratively imported. 
@@ -87,25 +94,20 @@ The libraries that are missing will be saved in a list that will be referenced a
 """
 
 pip_lib = "bs4", "spacy", "lxml"
-missing_libraries=[]
+missing_libraries = []
 
 for lib in pip_lib:
-    #Iteratively loads the libraries using importlib
-        try:
-            globals()[lib] = importlib.import_module(lib)
-        except ModuleNotFoundError as error:
-            missing_libraries.append(lib)
-
-#If no libraries are missing, then the necessary modules will be imported.
-if missing_libraries==False:
-
-    #Spacy imports
-    from spacy.lang.fr import French
-    from spacy.tokenizer import Tokenizer
-    from bs4 import BeautifulSoup
+    # Iteratively loads the libraries using importlib
+    try:
+        globals()[lib] = importlib.import_module(lib)
+        from spacy.lang.fr import French
+        from spacy.tokenizer import Tokenizer
+        from bs4 import BeautifulSoup
+    except ModuleNotFoundError as error:
+        missing_libraries.append(lib)
 
 #########################
-#Importing custom files and modules
+# Importing custom files and modules
 #########################
 """
 A program-wide check is performed. 
@@ -113,32 +115,21 @@ The program can still be started if any of the necessary files are missing,
 but the program stability will be greatly compromised. 
 """
 
-#Necessary file names stored in json format
-data=open("app_resource_files.json", mode="r", encoding="utf-8")
-necessary_files=json.load(data)
+# Necessary file names stored in json format
+data = open("app_resource_files.json", mode="r", encoding="utf-8")
+necessary_files = json.load(data)
 
 if os.path.exists("app_resources"):
-    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_docs")#Text files
-    missing_dev_files = missing_files(necessary_files["dev"], "app_resources/app_dev/dev_files")#Development and training data
-    missing_test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files") #Test Data
-    missing_compressed_respostiory = missing_files(necessary_files["compressed"], "app_resources/compressed_data")#Compressed repository
-else:
-    message="The app resource directory is either missing or has been renamed."
-    continue_program(message)
+    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_docs")  # Text files
+    missing_dev_files = missing_files(necessary_files["dev"],
+                                      "app_resources/app_dev/dev_files")  # Development and training data
+    missing_test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")  # Test Data
+    missing_compressed_repository = missing_files(necessary_files["compressed"],
+                                                  "app_resources/compressed_data")  # Compressed repository
+    #  This lets the program know if files are missing.
+    core_files = missing_dev_files, missing_doc_files, missing_test_files, missing_compressed_repository
+    core_file_missing = sum([bool(i) for i in core_files])
 
-#This lets the program know if files are missing.
-core_files = missing_dev_files, missing_doc_files, missing_test_files, missing_compressed_respostiory
-core_file_missing=sum([bool(i) for i in core_files])
-
-#########################
-#Custom modules
-#########################
-"""
-These are custom modules that are quality of life improvements.
-They are stored in the app_resource directory. 
-"""
-
-if core_file_missing==False:
     try:
         from app_resources.auxilary_functions import (
             program_description,
@@ -148,14 +139,20 @@ if core_file_missing==False:
             file_finder,
             sentence_tokenizer,
             program_end)
-    except ImportError as error:
-        pass
+    except Exception as error:
+        logging.exception(error)
+
+else:
+    message = "The app resource directory is either missing or has been renamed."
+    continue_program(message)
 
 #########################
-#Main Program Functions
+# Main Program Functions
 #########################
+
 
 def get_text(document):
+
     """
     This reads in the file to be analyzed. The function separates the files into two types:
     .xml and other. The program assumes that other file type is some variant of a normal .txt file.
@@ -168,21 +165,22 @@ def get_text(document):
 
     else:
         with open(document, mode="r", encoding="utf-8") as file:
-            text=file.read()
+            text = file.read()
             return text
+
 
 def get_database():
     """
-    This function reads in the training file saved in the progam.
+    This function reads in the training file saved in the program.
     It will be used with the naive bayes classifier.
     """
 
-    database=r"C:\Users\chris\Desktop\Bachleorarbeit\sandbox\cl_2.csv"
+    database = r"C:\Users\chris\Desktop\Bachleorarbeit\sandbox\cl_2.csv"
 
     return database
 
-def analyze_content(text_object,abbr):
 
+def analyze_content(text_object):
     def read_contents():
         """
         This function simply displays the contents of the xml file in console.
@@ -194,11 +192,11 @@ def analyze_content(text_object,abbr):
         """
         This function extracts the entries from the respective .xml. files
         """
-        soup=text_object
-        msg="The text has been parsed into sentences. Press enter to continue."
+        soup = text_object
+        msg = "The text has been parsed into sentences. Press enter to continue."
 
         while True:
-            corpus = "eBay", "SMS", "Wikiconflit"
+            corpus = "eBay", "SMS", "Wikiconflict"
             for num, cor in enumerate(corpus, start=1):
                 print(num, cor)
 
@@ -207,12 +205,12 @@ def analyze_content(text_object,abbr):
             xml_tag_id = list()
 
             if corpus_search == "1":
-                #eBay listing
+                # eBay listing
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
 
             elif corpus_search in ("2", "3"):
-                #SMS, Wikiconflict
+                # SMS, Wikiconflict
                 for tag in soup.select("post"):
                     xml_tag_id.append(tag["xml:id"])
             else:
@@ -227,17 +225,17 @@ def analyze_content(text_object,abbr):
 
                     if corpus_search == "1":
                         corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-                        results = sentence_tokenizer(corpus_text, abbr)
+                        results = sentence_tokenizer(corpus_text)
 
                         input(msg)
-                        return (results,xml_tag_id[choice])
+                        return results, xml_tag_id[choice]
 
                     else:
                         corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
-                        results = sentence_tokenizer(corpus_text, abbr)
+                        results = sentence_tokenizer(corpus_text)
                         input(msg)
 
-                        return (results, xml_tag_id[choice])
+                        return results, xml_tag_id[choice]
 
                 except Exception as error:
                     print(error)
@@ -246,27 +244,28 @@ def analyze_content(text_object,abbr):
 
     def extract_text():
 
-        tokens=text_object.split()
-        results=sentence_tokenizer(tokens, abbr)
-        msg=input("The text has been parsed into sentences. Press enter to continue.")
-        return (results,"NO_TAG")
+        tokens = text_object.split()
+        results = sentence_tokenizer(tokens)
+        input("The text has been parsed into sentences. Press enter to continue.")
+        return results, "NO_TAG"
 
-    def quit():
-        #Returns false to break the loop in the menu.
+    def quit_function():
+        # Returns false to break the loop in the menu.
         return False
 
-    output_menu={"read file":read_contents,
-                 "extract XML":extract_xml,
-                 "extract txt":extract_text,
-                 "quit":quit
-                }
+    output_menu = {"read file": read_contents,
+                   "extract XML": extract_xml,
+                   "extract txt": extract_text,
+                   "quit": quit_function
+                   }
 
-    #Submenu
-    menu_name="option menu"
-    menu_information="How would you like to proceed with the file:"
-    mn=menu(output_menu,menu_name,  menu_information)
+    # Submenu
+    menu_name = "option menu"
+    menu_information = "How would you like to proceed with the file:"
+    mn = menu(output_menu, menu_name, menu_information)
 
     return mn
+
 
 def spacy_tagger(corpus_content):
     """
@@ -277,8 +276,8 @@ def spacy_tagger(corpus_content):
     print("The individual sentences are now being tagged for parts of speech. Please wait...")
 
     print(corpus_content)
-    corpus=corpus_content[0][0]
-    tag=corpus_content[1]
+    corpus = corpus_content[0][0]
+    tag = corpus_content[1]
     result = {sen: list() for sen in range(len(corpus))}
     nlp = spacy.load("fr_core_news_sm")
 
@@ -287,12 +286,13 @@ def spacy_tagger(corpus_content):
         doc = nlp(s)
         for token in doc:
             sentence_results = token.text, token.pos_, token.dep_
-            result[i].append((sentence_results))
+            result[i].append(sentence_results)
 
-    input("The sentences have been succesfully tagged. Please press enter to continue...")
-    return (result,tag)
+    input("The sentences have been successfully tagged. Please press enter to continue...")
+    return result, tag
 
-def identify_oral_literal(sentence_results,database):
+
+def identify_oral_literal(sentence_results, database):
     """
     input:
 
@@ -302,15 +302,14 @@ def identify_oral_literal(sentence_results,database):
     """
 
     analysis_results = database
-    fnames = "token_text", "token_pos", "token_dep", "token_id","sen_no", "oral_literate"
+    fnames = "token_text", "token_pos", "token_dep", "token_id", "sen_no", "oral_literate"
 
-    def res(sen_info, feature, ID,sen_no):
+    def res(sen_info, feature, sen_id, sen_no):
 
         with open(analysis_results, mode="a", encoding="utf-8", newline="") as analysis:
             writer = csv.DictWriter(analysis, fieldnames=fnames)
 
             for entry in sen_info:
-
                 tok_txt = entry[0]
                 tok_pos = entry[1]
                 tok_dep = entry[2]
@@ -319,29 +318,31 @@ def identify_oral_literal(sentence_results,database):
                     {"token_text": tok_txt,
                      "token_pos": tok_pos,
                      "token_dep": tok_dep,
-                     "token_id": ID,
-                     "sen_no":f"SEN:{sen_no}",
+                     "token_id": sen_id,
+                     "sen_no": f"SEN:{sen_no}",
                      "oral_literate": feature
                      })
 
     sentence_info = sentence_results[0]
 
-    id = sentence_results[1]
-    sen_no=0
+    sen_id = sentence_results[1]
+    sen_no = 0
     pos = {}
 
     for entry in sentence_info:
-        sen_no+=1
+        sen_no += 1
         for i in sentence_info[entry]:
-            POS = i[1]
-
-            # counting POS
-            if POS not in pos:
-                pos[POS] = 1
+            pos = i[1]
+            #  counting POS
+            if pos not in pos:
+                pos[pos] = 1
             else:
-                pos[POS] += 1
+                pos[pos] += 1
 
-        res(sentence_info[entry], "ORAL", id,sen_no)
+        res(sentence_info[entry], "ORAL", sen_id, sen_no)
+
+        return pos
+
 
 def get_freq(file):
     """
@@ -354,12 +355,13 @@ def get_freq(file):
         file_data = [row for row in csv_reader]
         freq = {"ORAL": 0, "LIT": 0}
 
-        sentence_id={(row[3],row[4],row[5]) for row in file_data}
+        sentence_id = {(row[3], row[4], row[5]) for row in file_data}
         for sentence in sentence_id:
-            entry=sentence[2]
+            entry = sentence[2]
             freq[entry] = freq.get(entry) + 1
 
-        return freq,file_data
+        return freq, file_data
+
 
 def get_probs(csv_results):
     """
@@ -375,14 +377,14 @@ def get_probs(csv_results):
     freq = csv_results[0]
     csv_data = csv_results[1]
 
-    lit_freq,oral_freq = dict(),dict()
-    lit_tokens,oral_tokens=list(),list()
-    vocabluary = set()
-    ng_smooth=sum(freq.values()) ** 2
+    lit_freq, oral_freq = dict(), dict()
+    lit_tokens, oral_tokens = list(), list()
+    vocabulary = set()
+    ng_smooth = sum(freq.values()) ** 2
 
     for element in csv_data:
-        word,feat = element[0],element[5]
-        vocabluary.add(word)
+        word, feat = element[0], element[5]
+        vocabulary.add(word)
 
         if feat == "ORAL":
             oral_tokens.append((word, feat))
@@ -392,22 +394,22 @@ def get_probs(csv_results):
             lit_tokens.append((word, feat))
             lit_freq[element[0]] = lit_freq.get(element[0], 0) + 1
 
-
-    for element in vocabluary:
+    for element in vocabulary:
         if lit_freq.get(element, 0) > 0:
             lit = lit_freq.get(element) / freq["LIT"]
 
         else:
-            lit = freq["LIT"] / (ng_smooth)
+            lit = freq["LIT"] / ng_smooth
 
         if oral_freq.get(element, 0) > 0:
             oral = oral_freq.get(element) / freq["ORAL"]
 
         else:
-            oral = freq["ORAL"] / (ng_smooth)
+            oral = freq["ORAL"] / ng_smooth
 
-        results[element] = oral,lit
-    return results,freq
+        results[element] = oral, lit
+    return results, freq
+
 
 def classify(text, res):
     """
@@ -418,13 +420,13 @@ def classify(text, res):
     output:
     """
 
-    probs,prior_prob=res[0],res[1]
+    probs, prior_prob = res[0], res[1]
 
-    oral_prob,lit_prob=prior_prob["ORAL"],prior_prob["LIT"]
-    orality = oral_prob/ (oral_prob + lit_prob)
+    oral_prob, lit_prob = prior_prob["ORAL"], prior_prob["LIT"]
+    orality = oral_prob / (oral_prob + lit_prob)
     literality = lit_prob / (oral_prob + lit_prob)
-    ng=sum(prior_prob.values()) ** 2
-    orality_smooth = oral_prob/ ng
+    ng = sum(prior_prob.values()) ** 2
+    orality_smooth = oral_prob / ng
     literacy_smooth = lit_prob / ng
 
     sentence_prob = dict()
@@ -434,26 +436,27 @@ def classify(text, res):
             sentence_prob[word] = probs.get(word)
 
         else:
-           sentence_prob[word] = orality_smooth, literacy_smooth
+            sentence_prob[word] = orality_smooth, literacy_smooth
 
     for word in sentence_prob:
-
         orality *= sentence_prob[word][0]
         literality *= sentence_prob[word][1]
 
-    if literality > orality :
+    if literality > orality:
         print(f" {text} is literal {literality}")
     else:
         print(f" '  {text} ' is oral {orality}")
-    print(sentence_prob)
-    input()
+
+    input("Please press enter to return to the main menu.")
+
+
 ######
 
 
 #########################
-#Main program
+# Main program
 #########################
-def run_program(debug):
+def run_program(default_doc, default_train):
     """
     input:
 
@@ -463,125 +466,136 @@ def run_program(debug):
     """
 
     menu_option = {
-                   "import file": get_text,
-                    "load training file": get_database,
-                    "analyze contents":analyze_content,
-                    "classify string": classify,
-                    "clear log file":clear_log,
-                    "author information": author_information,
-                    "program description": program_description,
-                    "end program": program_end
-                    }
+        "import file": get_text,
+        "load training file": get_database,
+        "analyze contents": analyze_content,
+        "classify string": classify,
+        "clear log file": clear_log,
+        "author information": author_information,
+        "program description": program_description,
+        "end program": program_end
+    }
+    print(default_doc)
+    doc = get_text(default_doc)
+    train = default_train
 
     while True:
         print("")
         banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
-        for word in banner: print(word.center(50))
+        for word in banner:
+            print(word.center(50))
+
         for num, elem in enumerate(menu_option, start=1):
             print(f'{num}: {elem}')
 
         choice_str = input('\nPlease enter the number of your entry: ')
-        main_message="Please the enter key to return to the main menu.\n"
+        main_message = "Please the enter key to return to the main menu.\n"
 
-        #Executes the function as specified by the user via the number
+        # Executes the function as specified by the user via the number
         if choice_str.isdigit():
             choice_num = int(choice_str)
 
             if 0 < choice_num and choice_num <= len(menu_option):
                 func_list = list(menu_option.values())
                 function_number = choice_num - 1
-                func_name=str(func_list[function_number]).split()[1]
+                func_name = str(func_list[function_number]).split()[1]
 
                 if function_number in list(range(5)):
 
                     if func_name == "get_text":
 
                         try:
-                            d=r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_test\test_files\ebayfr-e05p.xml"
-                            doc = get_text(d)
-                        except:
+                            doc = get_text(file_finder())
+                        except Exception as error:
                             input(f"You did not select a file. {main_message}")
+                            logging.exception("Main Exception in " + str(error))
 
-                    elif func_name=="get_database":
+                    elif func_name == "get_database":
                         try:
-                            train=get_database()
-                        except:
+                            train = get_database()
+                        except Exception as error:
                             input(f"You did not select a file. {main_message}")
+                            logging.exception("Main Exception in " + str(error))
 
                     elif func_name == "analyze_content":
 
                         try:
-                            abbr="app_resources/app_docs/abbrev.lex"
-                            content = analyze_content(doc,abbr)
+                            content = analyze_content(doc)
 
-                            #Other functions will be carried out if bool(content) == True
+                            # Other functions will be carried out if bool(content) is True
                             if content:
                                 tagged = spacy_tagger(content)
-                                identify_oral_literal(tagged,train)
+                                identify_oral_literal(tagged, train)
 
                         except Exception as error:
-                            print("An unknown error occured.")
+                            print("An unknown error occurred.")
                             input(f"{main_message} ")
                             logging.exception(error)
 
-                    elif func_name=="classify":
+                    elif func_name == "classify":
                         """
-                        This calls up the naive bayes function to classifiy the texts.
+                        This calls up the naive bayes function to classify the texts.
                         """
 
-                        #text = input("Enter the sentence that you would like to classify: ")
-                        text="a seat at the bar which serves up surprisingly"
+                        # text = input("Enter the sentence that you would like to classify: ")
+                        text = "a seat at the bar which serves up surprisingly"
 
-                        #This gets the frequency of ORAL and LIT (the features) of the data set.
-                        freq=get_freq(train)
+                        # This gets the frequency of ORAL and LIT (the features) of the data set.
+                        freq = get_freq(train)
 
-                        #This returns the MLE prob of the features.
+                        # This returns the MLE prob of the features.
                         probs = get_probs(freq)
 
-                        #Naive bayes classifier
+                        # Naive bayes classifier
                         classify(text.split(), probs)
 
-                    elif func_name=="clear_log":
+                    elif func_name == "clear_log":
                         clear_log('app_resources/app_docs/error.log')
 
-
                 else:
-                    #executes functions that do not need argument
+                    # executes functions that do not need argument
                     func_list[function_number]()
 
 #########################
-#Debugger
+# Debugger
 #########################
+
+
 """
 This logs all of the error files that occur within the program.
 This will only be activated if the variable debug is set to true.
 Some errors are intentionally, while others might occur due to improper file types.
 """
-f='app_resources/app_docs/error.log'
+f = 'app_resources/app_docs/error.log'
 
 logging.basicConfig(filename=f,
                     level=logging.DEBUG,
-                    format="\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s\nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n"
+                    format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
+                    \nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n"""
                     )
 
 #########################
-#dev_documentation Execution
+# dev_documentation Execution
 #########################
 
 if __name__ == "__main__":
     """
-    The main program will only run if all of the necessary files are available and if all of the main libraries have been installed. 
+    The main program will only run if all of the necessary files are available and 
+    if all of the main libraries have been installed. 
     This can be overridden by the user, but it is not advised as it can lead to the program becoming unstable.  
     """
-
     try:
-        debug=True
-        if bool(core_file_missing) == False and bool(missing_libraries) == False:
+        default_doc = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_test\test_files\ebayfr-e05p.xml"
+        default_train = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\test.csv"
+
+        if bool(core_file_missing) is False and bool(missing_libraries) is False:
             print("All libraries have been successfully loaded. The program will now start.")
-            run_program(debug)
+            run_program(default_doc, default_train)
+
         else:
             message = "An error has occurred because either files or directories are missing."
             continue_program(message)
-            run_program(debug)
+            run_program(default_doc, default_train)
+
     except Exception as error:
-        logging.exception("Main Exception in "+str(error))
+        logging.exception("Main Exception in " + str(error))
