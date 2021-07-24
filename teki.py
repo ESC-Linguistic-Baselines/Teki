@@ -66,8 +66,14 @@ def continue_program(*args):
 
 def missing_files(file_list, path):
     """
-    This function is make sure that all of the necessary files are available.
-    Without all of the files, the stability of the program cannot be ensured.
+    function description
+
+
+    input:
+
+
+
+    output:
     """
 
     missing = list()
@@ -154,8 +160,14 @@ else:
 def get_text(document):
 
     """
-    This reads in the file to be analyzed. The function separates the files into two types:
-    .xml and other. The program assumes that other file type is some variant of a normal .txt file.
+    function description
+
+
+    input:
+
+
+
+    output:
     """
 
     if ".xml" in document:
@@ -171,26 +183,59 @@ def get_text(document):
 
 def get_database():
     """
-    This function reads in the training file saved in the program.
-    It will be used with the naive bayes classifier.
+    function description
+
+
+    input:
+
+
+
+    output:
     """
 
-    database = r"C:\Users\chris\Desktop\Bachleorarbeit\sandbox\cl_2.csv"
+    database = file_finder()
 
     return database
 
 
 def analyze_content(text_object):
+
+    """
+    function description
+
+
+    input:
+
+
+
+    output:
+    """
+
     def read_contents():
+
         """
-        This function simply displays the contents of the xml file in console.
+        function description
+
+
+        input:
+
+
+
+        output:
         """
 
         print(text_object)
 
     def extract_xml():
         """
-        This function extracts the entries from the respective .xml. files
+        function description
+
+
+        input:
+
+
+
+        output:
         """
         soup = text_object
         msg = "The text has been parsed into sentences. Press enter to continue."
@@ -244,6 +289,18 @@ def analyze_content(text_object):
 
     def extract_text():
 
+        """
+        function description
+
+
+        input:
+
+
+
+        output:
+        """
+
+
         tokens = text_object.split()
         results = sentence_tokenizer(tokens)
         input("The text has been parsed into sentences. Press enter to continue.")
@@ -269,8 +326,14 @@ def analyze_content(text_object):
 
 def spacy_tagger(corpus_content):
     """
-    After the the texts have been parsed into sentences,
-    the respective sentences will then be tokenized
+    function description
+
+
+    input:
+
+
+
+    output:
     """
 
     print("The individual sentences are now being tagged for parts of speech. Please wait...")
@@ -346,8 +409,14 @@ def identify_oral_literal(sentence_results, database):
 
 def get_freq(file):
     """
-    This function gets the counter for ORAL and LIT in the training file.
-    It returns the frequency of the features and the entries from the csv files.
+    function description
+
+
+    input:
+
+
+
+    output:
     """
 
     with open(file, mode="r", encoding="utf-8") as file_data:
@@ -495,7 +564,7 @@ def run_program(default_doc, default_train):
         if choice_str.isdigit():
             choice_num = int(choice_str)
 
-            if 0 < choice_num and choice_num <= len(menu_option):
+            if 0 < choice_num <= len(menu_option):
                 func_list = list(menu_option.values())
                 function_number = choice_num - 1
                 func_name = str(func_list[function_number]).split()[1]
@@ -582,7 +651,8 @@ if __name__ == "__main__":
     """
     The main program will only run if all of the necessary files are available and 
     if all of the main libraries have been installed. 
-    This can be overridden by the user, but it is not advised as it can lead to the program becoming unstable.  
+    This can be overridden by the user, 
+    but it is not advised as it can lead to the program becoming unstable.  
     """
     try:
         default_doc = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_test\test_files\ebayfr-e05p.xml"

@@ -98,3 +98,18 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 356, in <setcomp>
     sentence_id = {(row[3], row[4], row[5]) for row in file_data}
 IndexError: list index out of range
+
+ERROR_TIME: 2021-07-24 22:37:51,810
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 671
+ERROR_NAME: Main Exception in [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_test\\test_files\\ebayfr-e05p.xml'
+Traceback (most recent call last):
+  File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 663, in <module>
+    run_program(default_doc, default_train)
+  File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 548, in run_program
+    doc = get_text(default_doc)
+  File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 174, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_test\\test_files\\ebayfr-e05p.xml'
