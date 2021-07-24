@@ -1,5 +1,6 @@
 def get_text(file):
     data=dict()
+    print(file)
     with open(file, mode="r", encoding="utf-8") as text_file:
         for line in text_file:
             line=line.strip().lower()
@@ -51,15 +52,18 @@ def feature_prob(features,prior_prob):
         if word[1]=="true": true_count[word[0]]=true_count.get(word[0],0)+1
         else:false_count[word[0]] = false_count.get(word[0], 0)+1
 
-    for word in vobulary:
+    print(true_count)
 
+    for word in vobulary:
         if true_count.get(word,0) > 0:
             tr=true_count.get(word)/prior_prob["true"]
+
         else:
             tr=prior_prob["true"]/(sum(prior_prob.values())**2)
 
         if false_count.get(word,0) > 0:
             fl=false_count.get(word)/prior_prob["false"]
+
         else:
             fl=prior_prob["false"]/(sum(prior_prob.values())**2)
 
@@ -74,16 +78,20 @@ def classify(text,probs,prior_prob):
     false=prior_prob["false"]/(prior_prob["true"]+prior_prob["false"])
     true_smooth=prior_prob["true"]/(sum(prior_prob.values())**2)
     false_smooth=prior_prob["false"]/(sum(prior_prob.values())**2)
-
-    s=dict()
+    s = dict()
 
     for word in text:
         if bool(probs.get(word)):
             s[word]=probs.get(word)
+
         else:
             s[word] = true_smooth, false_smooth
 
+
+
+
     for word in s:
+
         true*=s[word][0]
 
         false*=s[word][1]
@@ -126,6 +134,7 @@ def classify(text,probs,prior_prob):
     for i in values:
         system_prob*=i
 
+
 def run_script(input,text):
 
     # Read File
@@ -145,7 +154,7 @@ def run_script(input,text):
 
 if __name__ == "__main__":
 
-    input = "test_set_3"
+    input = r"C:\Users\chris\Desktop\Bachleorarbeit\test code\test_set_3.txt"
     text = "a seat at the bar which serves up surprisingly"
 
     run_script(input,text.split())

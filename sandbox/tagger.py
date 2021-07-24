@@ -52,23 +52,23 @@ def identify_oral_literal(sentence_results,database):
 
     def res(sen_info, feature, ID,sen_no):
 
-        with open(analysis_results, mode="a", encoding="utf-8", newline="") as analysis:
-            writer = csv.DictWriter(analysis, fieldnames=fnames)
+                with open(analysis_results, mode="a", encoding="utf-8", newline="") as analysis:
+                    writer = csv.DictWriter(analysis, fieldnames=fnames)
 
-            for entry in sen_info:
+                    for entry in sen_info:
 
-                tok_txt = entry[0]
-                tok_pos = entry[1]
-                tok_dep = entry[2]
+                        tok_txt = entry[0]
+                        tok_pos = entry[1]
+                        tok_dep = entry[2]
 
-                writer.writerow(
-                    {"token_text": tok_txt,
-                     "token_pos": tok_pos,
-                     "token_dep": tok_dep,
-                     "token_id": ID+f"{sen_no}",
-                     "sen_no":f"SEN:{sen_no}",
-                     "oral_literate": feature
-                     })
+                        writer.writerow(
+                            {"token_text": tok_txt,
+                             "token_pos": tok_pos,
+                             "token_dep": tok_dep,
+                             "token_id": ID+f"{sen_no}",
+                             "sen_no":f"SEN:{sen_no}",
+                             "oral_literate": feature
+                             })
 
     sentence_info = sentence_results[0]
 

@@ -11,7 +11,7 @@ files={"docs":doc,
        "test":test,
        "compressed":compressed}
 
-out=r"C:\Users\chris\iCloudDrive\Desktop\CodingProjects\Github\Bachleorarbeit\app_resource_files.json"
+out=r"C:\Users\chris\Desktop\Bachleorarbeit\app_resource_files.json"
 out_file = open(out, "w+")
 
 json.dump(files,out_file,indent = 2)

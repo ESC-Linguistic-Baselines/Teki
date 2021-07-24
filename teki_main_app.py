@@ -70,7 +70,6 @@ def missing_files(file_list,path):
     #If not all files are available, then a list of said files are returned.
     if missing:
         return missing
-
     #False is the desired result. This means that all files are available i.e. not missing
     else:
         return False
@@ -80,7 +79,7 @@ def missing_files(file_list,path):
 #########################
 """
 The libraries are iteratively imported. 
-The libraries that are missing will be saved in a list that will be referenced against later
+The libraries that are missing will be saved in a list that will be referenced against later.
 """
 
 pip_lib = "bs4", "spacy", "lxml"
@@ -93,8 +92,8 @@ for lib in pip_lib:
         except ModuleNotFoundError as error:
             missing_libraries.append(lib)
 
+#If no libraries are missing, then the necessary modules will be imported.
 if missing_libraries==False:
-    #If no libraries are missing, then the necessary modules will be imported.
 
     #Spacy imports
     from spacy.lang.fr import French
@@ -115,18 +114,10 @@ data=open("app_resource_files.json", mode="r", encoding="utf-8")
 necessary_files=json.load(data)
 
 if os.path.exists("app_resources"):
-
-    #Text files
-    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_docs")
-
-    #Development and training data
-    missing_dev_files = missing_files(necessary_files["dev"], "app_resources/app_dev/dev_files")
-
-    #Test Data
-    missing_test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")
-
-    #Compressed repository
-    missing_compressed_respostiory = missing_files(necessary_files["compressed"], "app_resources/compressed_data")
+    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_docs")#Text files
+    missing_dev_files = missing_files(necessary_files["dev"], "app_resources/app_dev/dev_files")#Development and training data
+    missing_test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files") #Test Data
+    missing_compressed_respostiory = missing_files(necessary_files["compressed"], "app_resources/compressed_data")#Compressed repository
 else:
     message="The app resource directory is either missing or has been renamed."
     continue_program(message)
@@ -142,6 +133,7 @@ core_file_missing=sum([bool(i) for i in core_files])
 These are custom modules that are quality of life improvements.
 They are stored in the app_resource directory. 
 """
+
 if core_file_missing==False:
     try:
         from app_resources.auxilary_functions import (
@@ -151,7 +143,7 @@ if core_file_missing==False:
             file_finder,
             sentence_tokenizer,
             program_end)
-    except:
+    except ImportError as error:
         pass
 
 #########################
@@ -175,12 +167,12 @@ def get_text(document):
             return text
 
 def get_database():
-    '''
+    """
     This function reads in the training file saved in the progam.
     It will be used with the naive bayes classifier.
-    '''
+    """
 
-    database=r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\training_res.csv"
+    database=r"C:\Users\chris\Desktop\Bachleorarbeit\sandbox\cl_2.csv"
 
     return database
 
@@ -292,15 +284,20 @@ def spacy_tagger(corpus_content):
             sentence_results = token.text, token.pos_, token.dep_
             result[i].append((sentence_results))
 
-
     input("The sentences have been succesfully tagged. Please press enter to continue...")
-    print(result)
     return (result,tag)
 
-
 def identify_oral_literal(sentence_results,database):
-    pos = {}
+    """
+    input:
 
+    function
+
+    output:
+    """
+
+
+    pos = {}
 
     analysis_results = database
     fnames = "token_text", "token_pos", "token_dep", "token_id","sen_no", "oral_literate"
@@ -320,7 +317,7 @@ def identify_oral_literal(sentence_results,database):
                     {"token_text": tok_txt,
                      "token_pos": tok_pos,
                      "token_dep": tok_dep,
-                     "token_id": ID+f"{sen_no}",
+                     "token_id": ID,
                      "sen_no":f"SEN:{sen_no}",
                      "oral_literate": feature
                      })
@@ -340,44 +337,34 @@ def identify_oral_literal(sentence_results,database):
             else:
                 pos[POS] += 1
 
-        res(sentence_info[entry], "LIT", id,sen_no)
+        res(sentence_info[entry], "ORAL", id,sen_no)
 
 def get_freq(file):
-    '''
+    """
     This function gets the counter for ORAL and LIT in the training file.
     It returns the frequency of the features and the entries from the csv files
-    '''
+    """
 
     with open(file, mode="r", encoding="utf-8") as file_data:
         csv_reader = csv.reader(file_data, delimiter=",")
         file_data = [row for row in csv_reader]
-
-        ###
-        # only one feature per  sentence, not per word
-        ####
-
         freq = {"ORAL": 0, "LIT": 0}
-        feat_1, feat_2 = "ORAL", "LIT"
 
-        for row in file_data:
-            if row:
-                if row[4] == feat_1:
-                    freq[feat_1] = freq.get(feat_1) + 1
-                elif row[4] == feat_2:
-                    freq[feat_2] = freq.get(feat_2) + 1
+        sentence_id={(row[3],row[4],row[5]) for row in file_data}
+        for sentence in sentence_id:
+            entry=sentence[2]
+            freq[entry] = freq.get(entry) + 1
 
         return freq,file_data
 
 def get_probs(csv_results):
-    '''
+    """
     This function returns the frequency of the oral and lit features for each word.
-    '''
+    """
     results = dict()
 
     freq = csv_results[0]
     csv_data = csv_results[1]
-    freq["LIT"] = 2
-    freq["ORAL"] = 4
 
     lit_freq,oral_freq = dict(),dict()
     lit_tokens,oral_tokens=list(),list()
@@ -385,7 +372,7 @@ def get_probs(csv_results):
     ng_smooth=sum(freq.values()) ** 2
 
     for element in csv_data:
-        word,feat = element[0],element[4]
+        word,feat = element[0],element[5]
         vocabluary.add(word)
 
         if feat == "ORAL":
@@ -393,30 +380,27 @@ def get_probs(csv_results):
             oral_freq[element[0]] = oral_freq.get(element[0], 0) + 1
 
         elif feat == "LIT":
-
             lit_tokens.append((word, feat))
             lit_freq[element[0]] = lit_freq.get(element[0], 0) + 1
 
-    for element in vocabluary:
 
+    for element in vocabluary:
         if lit_freq.get(element, 0) > 0:
             lit = lit_freq.get(element) / freq["LIT"]
+
         else:
             lit = freq["LIT"] / (ng_smooth)
 
         if oral_freq.get(element, 0) > 0:
             oral = oral_freq.get(element) / freq["ORAL"]
-        else:
 
+        else:
             oral = freq["ORAL"] / (ng_smooth)
 
         results[element] = oral,lit
-
     return results,freq
 
 def classify(text, res):
-
-
    #Text classification
     probs,prior_prob=res[0],res[1]
 
@@ -430,8 +414,11 @@ def classify(text, res):
     sentence_prob = dict()
 
     for word in text:
-        if bool(probs.get(word)): sentence_prob[word] = probs.get(word)
-        else: sentence_prob[word] = orality_smooth, literacy_smooth
+        if bool(probs.get(word)):
+            sentence_prob[word] = probs.get(word)
+
+        else:
+           sentence_prob[word] = orality_smooth, literacy_smooth
 
     for word in sentence_prob:
 
@@ -442,7 +429,10 @@ def classify(text, res):
         print(f" {text} is literal {literality}")
     else:
         print(f" '  {text} ' is oral {orality}")
-    print(literality,orality)
+    print(sentence_prob)
+    input()
+######
+
 
 #########################
 #Main program
@@ -515,9 +505,9 @@ def run_program(debug):
                                     logging.exception(error)
 
                             elif func_name=="classify":
-                                '''
+                                """
                                 This calls up the naive bayes function to classifiy the texts.
-                                '''
+                                """
 
                                 #text = input("Enter the sentence that you would like to classify: ")
                                 text="a seat at the bar which serves up surprisingly"

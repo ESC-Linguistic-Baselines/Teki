@@ -29,7 +29,6 @@ def sentence_tokenizer(tokens_orth,abbrev):
     return [res]
 
 
-
 corpus_text = soup.find("div", id=xml_tag_id[2]).getText().strip().split()
 #corpus_text="tu es qui? je suis chez moi!"
 c="Oui, une fin est prévue, en cherchant on tombe rapidement sur des chiffres mais ceux-ci ne se sont jamais montrés très précis dans le passé ... On parle de quelques années, mais sans doute pas une dizaine"

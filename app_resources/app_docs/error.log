@@ -609,3 +609,13 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 334, in identify_oral_literal
     res(sentence_info[entry], "LIT", id+tuple(str(l)))
 TypeError: can only concatenate str (not "tuple") to str
+
+ERROR_TIME: 2021-07-24 17:17:56,025
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+LINE_NO: 506
+ERROR_NAME: local variable 'doc' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 496, in run_program
+    content = analyze_content(doc,abbr)
+UnboundLocalError: local variable 'doc' referenced before assignment
