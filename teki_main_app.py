@@ -13,6 +13,13 @@ import json
 import logging
 
 if __name__ == "__main__":
+    '''
+    Starting the program will take a bit of time 
+    due to the amount of libraries being imported. 
+    This is to measure the loading time of the program. 
+    It should take around 3 - 8 seconds to load everything.
+    '''
+
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     start = timeit.default_timer()
@@ -24,8 +31,8 @@ if __name__ == "__main__":
 #  Program description
 #########################
 """
-This program's function is to access the literate and oral nature of French chat data
-by using markers that can identify said features.
+This program's function is to access the literacy and orality 
+of French chat data by using markers that can identify said features.
 """
 
 #########################
@@ -34,11 +41,15 @@ by using markers that can identify said features.
 
 
 def continue_program(*args):
-    """ input:
+    """
+    This function acts as a prompt for the user.
+    They can choose to either continue with the program or exit.
 
-    function
+    Parameters:
+        It can take as many string arguments as necessary.
 
-    output:
+    Returns:
+        None
     """
 
     # Displays the error prompt messages.
@@ -47,44 +58,51 @@ def continue_program(*args):
     print("")
 
     while True:
-        # The while-loop remains in place until the user provides an appropriate response
+        # The while-loop remains in place until the user provides an appropriate response.
         user = input("Would you still like to continue with the program (y/n) ?: ").lower()
 
-        # Yes answer
+        # Yes
         if user == "y":
             user = input("Are you sure? Program stability cannot be guaranteed (y/n)?: ").lower()
 
-            #  Yes answer
+            #  Yes
             if user == "y":
+                """
+                This will cause the loop to be broken. 
+                This will therefore also allow the main program to continue running. 
+                However, stability cannot be guaranteed. 
+                """
                 break
-                # The program will be continued even though there is no stability.
             else:
+                # The entire program will be shut down
                 sys.exit("The program will now be terminated.")
 
         # No answer
         elif user == "n":
-            sys.exit("The program will now be terminated.")
+            sys.exit("The program will not be terminated.")
 
         # Incorrect answer
         else:
-            print(f"{user} is not a valid response. Please enter a valid response.\n")
+            print(f"'{user}' is not a valid response. Please enter a valid response.\n")
 
 
 def missing_files(file_list, path):
     """
-    function description
+    This checks to see if all of the necessary files
+    are available so that the program can start and be stable.
 
-
-    input:
-
-
-
-    output:
+    Parameters:
+        'file_list': list of the files which should be available
+        'path': name of the folder from which the file names are retrieved.
+    Returns:
+        if file names are missing, then the missing files are return.
+        Otherwise, false is returned
+        false is the ideal value because it means that all files were found.
     """
-
+    # the missing files are stored here
     missing = list()
 
-    # This checks to make sure that the files are available.
+    # This checks the respective directly for the desired files.
     for root in os.listdir(path):
         if root not in file_list:
             missing.append(root)
@@ -92,7 +110,8 @@ def missing_files(file_list, path):
     # If not all files are available, then a list of said files are returned.
     if missing:
         return missing
-    # False is the desired result. This means that all files are available i.e. not missing
+
+    # False is the desired result. This means that all files are available i.e. not missing.
     else:
         return False
 
@@ -102,21 +121,25 @@ def missing_files(file_list, path):
 #########################
 """
 The libraries are iteratively imported. 
-The libraries that are missing will be saved in a list that will be referenced against later.
+The libraries that are missing will be saved in a list 
+that will be referenced against later.
 """
-
-pip_lib = "bs4", "spacy", "lxml"
 missing_libraries = []
+pip_lib = "bs4", "spacy", "lxml"
 
 for lib in pip_lib:
     # Iteratively loads the libraries using importlib
     try:
         globals()[lib] = importlib.import_module(lib)
-        from spacy.lang.fr import French
-        from spacy.tokenizer import Tokenizer
-        from bs4 import BeautifulSoup
     except ModuleNotFoundError as error:
         missing_libraries.append(lib)
+try:
+    from spacy.lang.fr import French
+    from spacy.tokenizer import Tokenizer
+    from bs4 import BeautifulSoup
+except Exception as error:
+    print("It seems that some pip modules could not be imported. Please check the log file.")
+    logging.exception(f" pip module import': is due to '{error})'")
 
 #########################
 # Importing custom files and modules
@@ -132,14 +155,22 @@ data = open("app_resource_files.json", mode="r", encoding="utf-8")
 necessary_files = json.load(data)
 
 if os.path.exists("app_resources"):
-    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_content_docs")  # Text files
-    missing_dev_files = missing_files(necessary_files["dev"],
-                                      "app_resources/app_dev/dev_files")  # Development and training data
-    missing_test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")  # Test Data
-    missing_compressed_repository = missing_files(necessary_files["compressed"],
-                                                  "app_resources/app_compressed_data")  # Compressed repository
+    """
+    this checks for the existence of the app resource directory
+    and the contents therein.
+    """
+
+    doc_files = missing_files(necessary_files["docs"],
+                                      "app_resources/app_content_docs")
+    dev_files = missing_files(necessary_files["dev"],
+                                      "app_resources/app_dev/dev_files")
+    test_files = missing_files(necessary_files["test"],
+                                       "app_resources/app_test/test_files")
+    compressed_repository = missing_files(necessary_files["compressed"],
+                                                  "app_resources/app_compressed_data")
+
     #  This lets the program know if files are missing.
-    core_files = missing_dev_files, missing_doc_files, missing_test_files, missing_compressed_repository
+    core_files = dev_files, doc_files, test_files, compressed_repository
     core_file_missing = sum([bool(i) for i in core_files])
 
     try:
@@ -154,7 +185,8 @@ if os.path.exists("app_resources"):
             write_to_database)
 
     except Exception as error:
-        logging.exception(error)
+        print("It seems that not all custom modules could be imported. Please check the log file")
+        logging.exception(f" custom module import': is due to '{error})'")
 
 else:
     message = "The app resource directory is either missing or has been renamed."
@@ -175,7 +207,7 @@ def get_text(document):
 
 
 
-    output:
+    Returns
     """
 
     if ".xml" in document:
@@ -198,7 +230,7 @@ def get_database():
 
 
 
-    output:
+    Returns
     """
 
     database = file_finder()
@@ -216,7 +248,7 @@ def analyze_content(text_object):
 
 
 
-    output:
+    Returns
     """
 
     def read_contents():
@@ -229,7 +261,7 @@ def analyze_content(text_object):
 
 
 
-        output:
+        Returns
         """
 
         print(text_object)
@@ -246,7 +278,7 @@ def analyze_content(text_object):
 
 
 
-        output:
+        Returns
         """
         soup = text_object
         msg = "The text has been parsed into sentences. Press enter to continue."
@@ -316,7 +348,7 @@ def analyze_content(text_object):
 
 
 
-        output:
+        Returns
         """
 
         tokens = text_object.split()
@@ -356,7 +388,7 @@ def spacy_tagger(corpus_content):
 
 
 
-    output:
+    Returns
     """
     print("The individual sentences are now being tagged for parts of speech. Please wait...")
 
@@ -385,7 +417,7 @@ def identify_oral_literal(sentence_results, database):
 
     function
 
-    output:
+    Returns
     """
 
     for sentences in sentence_results:
@@ -402,7 +434,7 @@ def get_freq(file):
 
 
 
-    output:
+    Returns
     """
     with open(file, mode="r", encoding="utf-8") as file_data:
         csv_reader = csv.reader(file_data, delimiter=",")
@@ -423,7 +455,7 @@ def get_probs(csv_results):
 
     function
 
-    output:
+    Returns
     """
     results = dict()
 
@@ -472,7 +504,7 @@ def classify(text, res):
 
     function
 
-    output:
+    Returns
     """
 
     probs, prior_prob = res[0], res[1]
@@ -515,13 +547,13 @@ def run_program(default_doc, default_train):
 
     function
 
-    output:
+    Returns
     """
 
     # The loading time here is assumed be less than one minute i.e. less than 60 seconds.
     stop = timeit.default_timer()
     execution_time = round(stop - start)
-    print(f"All libraries have been were loaded {execution_time} seconds. The program can now start. \n")
+    print(f"All libraries were loaded {execution_time} seconds. The program can now start. \n")
 
     menu_option = {
         "import file": get_text,
@@ -650,7 +682,7 @@ if __name__ == "__main__":
     """
     try:
 
-        default_doc = r"app_resources\app_dev\dev_files\french_text_1.txt"
+        default_doc = r"app_resources/app_dev/dev_files/french_text_1.txt"
         default_train = r"app_resources/app_databases/training_res.csv"
 
         if bool(core_file_missing) is False and bool(missing_libraries) is False:

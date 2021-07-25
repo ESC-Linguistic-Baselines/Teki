@@ -207,18 +207,19 @@ def program_end():
 
 def clear_log(f):
     """
-    function description
+    Function description:
+        This function deletes the error log file by overwriting it with a error log
+        file of the same name.
 
+    Parameters:
+        The path name of the log file to be cleared.
 
-    input:
-
-
-
-    output:
+    Returns:
+        None
     """
 
     logging.FileHandler(f, "w")
-    print("The log file will be cleared after restarting the program.\n")
+    input("The log file will be cleared after restarting the program.\n")
 
 
 def dependency_generate():
