@@ -233,6 +233,9 @@ def analyze_content(text_object):
         """
 
         print(text_object)
+        input("\nPlease press enter to continue to the main menu")
+
+        return text_object
 
     def extract_xml():
         """
@@ -286,7 +289,6 @@ def analyze_content(text_object):
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
                         input(msg)
-
                         return collective_results
 
                     elif corpus_search in ("2", "3"):
@@ -321,21 +323,27 @@ def analyze_content(text_object):
         path_id = input("Enter a unique identifier for this text: ")
 
         results = sentence_tokenizer(tokens)
-        input(f"The text has been parsed into {len(results[0])} sentences. Press enter to continue.")
+        collective_results=dict()
 
-        return results, path_id
+        for num,sen in enumerate(results):
+            id=f"{path_id}_{num}"
+            collective_results[id]=sen
+
+        input(f"The text has been parsed into {len(results)} sentences. Press enter to continue.")
+
+        return  collective_results
 
     output_menu = {"read file": read_contents,
-                   "extract XML": extract_xml,
-                   "extract txt": extract_text,
+                   "extract and tag": extract_xml,
+                   "extract text and tag": extract_text,
                    "return to menu": lambda: False
                    }
 
     # Submenu
+
     menu_name = "option menu"
     menu_information = "How would you like to proceed with the file:"
     mn = menu(output_menu, menu_name, menu_information)
-
     return mn
 
 
@@ -396,7 +404,6 @@ def get_freq(file):
 
     output:
     """
-    print(file)
     with open(file, mode="r", encoding="utf-8") as file_data:
         csv_reader = csv.reader(file_data, delimiter=",")
         file_data = [row for row in csv_reader]
@@ -487,17 +494,12 @@ def classify(text, res):
             sentence_prob[word] = orality_smooth, literacy_smooth
 
     for word in sentence_prob:
-        print(word)
-
         orality *= sentence_prob[word][0]
         literality *= sentence_prob[word][1]
 
-    if literality > orality:
-        print(f" {text} is literal {literality}")
-    else:
-        print(f" '  {text} ' is oral {orality}")
+    if literality > orality: print(f" '{text} 'is literal {literality}")
+    else: print(f" '{text}' is oral {orality}")
 
-    print(orality, literality)
     input("Please press enter to return to the main menu.")
 
 
@@ -589,7 +591,7 @@ def run_program(default_doc, default_train):
                                 identify_oral_literal(tagged, train)
 
                         except Exception as error:
-                            print(f"An unknown error occurred.{main_message}")
+                            print(f"An unknown error occurred. {main_message}")
                             logging.exception(error)
 
                     elif func_name == "classify":
@@ -649,7 +651,7 @@ if __name__ == "__main__":
     try:
 
         default_doc = r"app_resources\app_dev\dev_files\french_text_1.txt"
-        default_train = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\cl_2_updated.csv"
+        default_train = r"app_resources/app_databases/training_res.csv"
 
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train)
