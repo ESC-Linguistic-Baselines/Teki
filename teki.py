@@ -1,18 +1,26 @@
 #  -*- coding: utf-8 -*-
 
-if __name__ == '__main__':
-    print("Please wait while libraries and files are being imported...")
-    print("This could take a while depending on your system resources.\n")
-
 #########################
 # Importing standard python libraries
 #########################
+from datetime import datetime
+import timeit
 import importlib
 import os
+import re
+import random
 import sys
 import csv
 import json
 import logging
+
+if __name__ == "__main__":
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    start = timeit.default_timer()
+    print(f"The current time is {current_time}.")
+    print("Please wait while libraries and files are being imported...")
+    print("This could take a while depending on your system resources.\n")
 
 #########################
 #  Program description
@@ -144,7 +152,9 @@ if os.path.exists("app_resources"):
             clear_log,
             file_finder,
             sentence_tokenizer,
-            program_end)
+            program_end,
+            write_to_database)
+
     except Exception as error:
         logging.exception(error)
 
@@ -211,6 +221,9 @@ def analyze_content(text_object):
     output:
     """
 
+    file_tag = re.compile("\w+\.[0-9a-z]+$")
+    rand = random.randint(0, 100000000)
+
     def read_contents():
 
         """
@@ -266,14 +279,19 @@ def analyze_content(text_object):
                 corpus_tag_choice = input("Please enter a valid tag: ")
 
                 try:
-                    choice = int(corpus_tag_choice)
+                    choice = corpus_tag_choice.split()
+                    start, stop = int(choice[0]), int(choice[1])
+                    collective_results = dict()
 
                     if corpus_search == "1":
-                        corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-                        results = sentence_tokenizer(corpus_text)
 
-                        input(msg)
-                        return results, xml_tag_id[choice]
+                            for i in range(start,stop):
+
+                                corpus_text = soup.find("div", id=xml_tag_id[i]).getText().strip().split()
+                                results = sentence_tokenizer(corpus_text)
+
+                                collective_results[xml_tag_id[i]]=results
+                            return collective_results
 
                     else:
                         corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
@@ -301,18 +319,17 @@ def analyze_content(text_object):
         """
 
         tokens = text_object.split()
-        results = sentence_tokenizer(tokens)
-        input("The text has been parsed into sentences. Press enter to continue.")
-        return results, "NO_TAG"
+        path_id=input("Enter a unique identifier for this text: ")
 
-    def quit_function():
-        # Returns false to break the loop in the menu.
-        return False
+        results = sentence_tokenizer(tokens)
+        input(f"The text has been parsed into {len(results[0])} sentences. Press enter to continue.")
+
+        return results, path_id
 
     output_menu = {"read file": read_contents,
                    "extract XML": extract_xml,
                    "extract txt": extract_text,
-                   "quit": quit_function
+                   "return to menu": lambda:False
                    }
 
     # Submenu
@@ -334,24 +351,25 @@ def spacy_tagger(corpus_content):
 
     output:
     """
-
     print("The individual sentences are now being tagged for parts of speech. Please wait...")
 
-    print(corpus_content)
-    corpus = corpus_content[0][0]
-    tag = corpus_content[1]
-    result = {sen: list() for sen in range(len(corpus))}
+    collective_results_tagged=dict()
     nlp = spacy.load("fr_core_news_sm")
 
-    for i in range(len(corpus)):
-        s = "".join(corpus[i])
-        doc = nlp(s)
-        for token in doc:
-            sentence_results = token.text, token.pos_, token.dep_
-            result[i].append(sentence_results)
+    for key in corpus_content:
+
+        sentence=corpus_content[key]
+        new_sentence=list()
+        for no, sen in enumerate(sentence):
+            doc=nlp(sen)
+            for token in doc:
+                new_sentence.append((token.text, token.pos_, token.dep_,key,f"SEN:{no}"))
+            new_key=f"{key}-sen_no-{no}"
+            collective_results_tagged[new_key]=new_sentence
+            new_sentence=list()
 
     input("The sentences have been successfully tagged. Please press enter to continue...")
-    return result, tag
+    return collective_results_tagged
 
 
 def identify_oral_literal(sentence_results, database):
@@ -363,47 +381,10 @@ def identify_oral_literal(sentence_results, database):
     output:
     """
 
-    analysis_results = database
-    fnames = "token_text", "token_pos", "token_dep", "token_id", "sen_no", "oral_literate"
-
-    def res(sen_info, feature, sen_id, sen_no):
-
-        with open(analysis_results, mode="a", encoding="utf-8", newline="") as analysis:
-            writer = csv.DictWriter(analysis, fieldnames=fnames)
-
-            for entry in sen_info:
-                tok_txt = entry[0]
-                tok_pos = entry[1]
-                tok_dep = entry[2]
-
-                writer.writerow(
-                    {"token_text": tok_txt,
-                     "token_pos": tok_pos,
-                     "token_dep": tok_dep,
-                     "token_id": sen_id,
-                     "sen_no": f"SEN:{sen_no}",
-                     "oral_literate": feature
-                     })
-
-    sentence_info = sentence_results[0]
-
-    sen_id = sentence_results[1]
-    sen_no = 0
-    pos = {}
-
-    for entry in sentence_info:
-        sen_no += 1
-        for i in sentence_info[entry]:
-            pos = i[1]
-            #  counting POS
-            if pos not in pos:
-                pos[pos] = 1
-            else:
-                pos[pos] += 1
-
-        res(sentence_info[entry], "ORAL", sen_id, sen_no)
-
-        return pos
+    for sentences in sentence_results:
+        sub_sentences=sentence_results[sentences]
+        print(sub_sentences)
+        write_to_database("ORAL",sub_sentences,database)
 
 
 def get_freq(file):
@@ -533,6 +514,11 @@ def run_program(default_doc, default_train):
     output:
     """
 
+    # The loading time here is assumed be less than one minute i.e. less than 60 seconds.
+    stop = timeit.default_timer()
+    execution_time = round(stop - start)
+    print(f"All libraries have been were loaded {execution_time} seconds. The program can now start. \n")
+
     menu_option = {
         "import file": get_text,
         "load training file": get_database,
@@ -543,13 +529,17 @@ def run_program(default_doc, default_train):
         "program description": program_description,
         "end program": program_end
     }
-    print(default_doc)
     doc = get_text(default_doc)
     train = default_train
+    print("You are currently using the default files:\n")
+    print(f"Default Text: '{default_doc}'")
+    print(f"Default Training: '{default_train}'")
+    print(" \nIf you wish to proceed with other files, please load them from respective directories.")
 
     while True:
         print("")
         banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
+
         for word in banner:
             print(word.center(50))
 
@@ -573,7 +563,9 @@ def run_program(default_doc, default_train):
                     if func_name == "get_text":
 
                         try:
-                            doc = get_text(file_finder())
+                            path_name=file_finder()
+                            doc = get_text(path_name)
+
                         except Exception as error:
                             input(f"You did not select a file. {main_message}")
                             logging.exception("Main Exception in " + str(error))
@@ -586,7 +578,6 @@ def run_program(default_doc, default_train):
                             logging.exception("Main Exception in " + str(error))
 
                     elif func_name == "analyze_content":
-
                         try:
                             content = analyze_content(doc)
 
@@ -599,14 +590,13 @@ def run_program(default_doc, default_train):
                             print("An unknown error occurred.")
                             input(f"{main_message} ")
                             logging.exception(error)
-
                     elif func_name == "classify":
                         """
                         This calls up the naive bayes function to classify the texts.
                         """
 
                         # text = input("Enter the sentence that you would like to classify: ")
-                        text = "a seat at the bar which serves up surprisingly"
+                        text = input("Please enter a sentence: ")
 
                         # This gets the frequency of ORAL and LIT (the features) of the data set.
                         freq = get_freq(train)
@@ -654,11 +644,10 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
     try:
-        default_doc = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_test\test_files\ebayfr-e05p.xml"
-        default_train = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\test.csv"
+        default_doc = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\dev_files\french_text_1.txt"
+        default_train = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\french_text.csv"
 
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
-            print("All libraries have been successfully loaded. The program will now start.")
             run_program(default_doc, default_train)
 
         else:

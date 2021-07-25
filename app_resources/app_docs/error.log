@@ -113,3 +113,239 @@ Traceback (most recent call last):
   File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 174, in get_text
     with open(document, mode="r", encoding="utf-8") as file:
 FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_test\\test_files\\ebayfr-e05p.xml'
+
+ERROR_TIME: 2021-07-25 08:19:06,557
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 579
+ERROR_NAME: Main Exception in [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 576, in run_program
+    doc = get_text(file_finder())
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 179, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-25 08:19:52,008
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 601
+ERROR_NAME: string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 596, in run_program
+    identify_oral_literal(tagged, train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 402, in identify_oral_literal
+    pos[pos] += 1
+TypeError: string indices must be integers
+
+ERROR_TIME: 2021-07-25 09:18:39,524
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 620
+ERROR_NAME: 'builtin_function_or_method' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 614, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 349, in spacy_tagger
+    corpus = corpus_content[0][0]
+TypeError: 'builtin_function_or_method' object is not subscriptable
+
+ERROR_TIME: 2021-07-25 09:33:13,982
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 615
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
+    content = analyze_content(doc,path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 09:35:37,781
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 619
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
+    if path_name:
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 09:39:52,646
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 619
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
+    if path_name:
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 09:42:32,967
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 615
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
+    content = analyze_content(doc, path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 09:43:34,934
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 686
+ERROR_NAME: Main Exception in local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 678, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 603, in run_program
+    print(path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:12:47,626
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 623
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
+    content = analyze_content(doc, path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:15:29,026
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 623
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
+    content = analyze_content(doc, path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:17:13,349
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 623
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
+    content = analyze_content(doc, path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:17:48,753
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 623
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
+    content = analyze_content(doc, path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:19:01,201
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 690
+ERROR_NAME: Main Exception in local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 682, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 611, in run_program
+    print(path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:20:14,336
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 623
+ERROR_NAME: local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
+    content = analyze_content(doc, path_name)
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:22:01,683
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 690
+ERROR_NAME: Main Exception in local variable 'path_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 682, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 611, in run_program
+    user_path=path_name
+UnboundLocalError: local variable 'path_name' referenced before assignment
+
+ERROR_TIME: 2021-07-25 10:33:52,670
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 688
+ERROR_NAME: Main Exception in division by zero
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 680, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 637, in run_program
+    classify(text.split(), probs)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 504, in classify
+    orality = oral_prob / (oral_prob + lit_prob)
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 11:01:28,208
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 302
+ERROR_NAME: list indices must be integers or slices, not list
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 287, in extract_xml
+    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
+TypeError: list indices must be integers or slices, not list
+
+ERROR_TIME: 2021-07-25 11:02:48,528
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 303
+ERROR_NAME: list indices must be integers or slices, not list
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 288, in extract_xml
+    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
+TypeError: list indices must be integers or slices, not list
+
+ERROR_TIME: 2021-07-25 11:04:06,248
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 303
+ERROR_NAME: list indices must be integers or slices, not list
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 288, in extract_xml
+    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
+TypeError: list indices must be integers or slices, not list
+
+ERROR_TIME: 2021-07-25 11:04:56,720
+FILE_NAME: teki.py
+MODULE: teki
+                    
+LINE_NO: 303
+ERROR_NAME: list indices must be integers or slices, not list
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 295, in extract_xml
+    corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
+TypeError: list indices must be integers or slices, not list

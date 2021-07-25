@@ -4,6 +4,7 @@
 # Importing standard python libraries
 #########################
 
+import csv
 import json
 import logging
 import re
@@ -80,15 +81,15 @@ def sentence_tokenizer(tokens_orth):
     for tok in tokens_orth:
 
         if regex.findall(tok):
-            new_sentence += f" {tok} <END>"
+            new_sentence += f"{tok}<END>"
             new_tokens.append(tok)
         else:
-            new_sentence += f" {tok}"
+            new_sentence += f"{tok} "
 
     new = new_sentence.split("<END>")
     res = [sen for sen in new if bool(sen) is True]
 
-    return [res]
+    return res
 
 
 def file_finder():
@@ -110,6 +111,28 @@ def file_finder():
     root.withdraw()
 
     return filename
+
+
+def write_to_database(feature, sentence, database):
+    with open(database, mode="a", encoding="utf-8", newline="") as analysis:
+        fnames = "token_text", "token_pos", "token_dep", "token_id", "sen_no", "oral_literate"
+        writer = csv.DictWriter(analysis, fieldnames=fnames)
+
+        for element in sentence:
+            sen_word = element[0]
+            sen_word_pos = element[1]
+            sen_word_dep = element[2]
+            sen_word_id = element[3]
+            sen_word_tag = element[4]
+
+            writer.writerow(
+                {"token_text": sen_word,
+                 "token_pos": sen_word_pos,
+                 "token_dep": sen_word_dep,
+                 "token_id": sen_word_tag,
+                 "sen_no": sen_word_id,
+                 "oral_literate": feature
+                 })
 
 
 def menu(output_menu, menu_name, menu_information):
