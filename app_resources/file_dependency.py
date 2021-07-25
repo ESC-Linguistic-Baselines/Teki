@@ -2,10 +2,10 @@ import os,json
 
 def dependency_generate():
 
-       doc=os.listdir(os.getcwd()+"\\app_docs")
+       doc=os.listdir(os.getcwd()+"\\app_content_docs")
        dev= os.listdir(os.getcwd()+"\\app_dev\\dev_files")
        test=os.listdir(os.getcwd()+"\\app_test\\test_files")
-       compressed=os.listdir(os.getcwd()+"\\compressed_data")
+       compressed=os.listdir(os.getcwd()+"\\app_compressed_data")
 
 
        files={"docs":doc,

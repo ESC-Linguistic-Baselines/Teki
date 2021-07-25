@@ -132,12 +132,12 @@ data = open("app_resource_files.json", mode="r", encoding="utf-8")
 necessary_files = json.load(data)
 
 if os.path.exists("app_resources"):
-    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_docs")  # Text files
+    missing_doc_files = missing_files(necessary_files["docs"], "app_resources/app_content_docs")  # Text files
     missing_dev_files = missing_files(necessary_files["dev"],
                                       "app_resources/app_dev/dev_files")  # Development and training data
     missing_test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")  # Test Data
     missing_compressed_repository = missing_files(necessary_files["compressed"],
-                                                  "app_resources/compressed_data")  # Compressed repository
+                                                  "app_resources/app_compressed_data")  # Compressed repository
     #  This lets the program know if files are missing.
     core_files = missing_dev_files, missing_doc_files, missing_test_files, missing_compressed_repository
     core_file_missing = sum([bool(i) for i in core_files])
@@ -289,7 +289,7 @@ def analyze_content(text_object):
 
                         return collective_results
 
-                    elif corpus_search in ("2","3"):
+                    elif corpus_search in ("2", "3"):
 
                         for i in range(start, stop):
 
@@ -396,15 +396,14 @@ def get_freq(file):
 
     output:
     """
-
+    print(file)
     with open(file, mode="r", encoding="utf-8") as file_data:
         csv_reader = csv.reader(file_data, delimiter=",")
         file_data = [row for row in csv_reader]
         freq = {"ORAL": 0, "LIT": 0}
 
-        sentence_id = {(row[2], row[3], row[4]) for row in file_data}
+        sentence_id = {(row[3], row[4], row[5]) for row in file_data}
         for sentence in sentence_id:
-            print(sentence)
             entry = sentence[2]
             freq[entry] = freq.get(entry) + 1
 
@@ -419,7 +418,6 @@ def get_probs(csv_results):
 
     output:
     """
-
     results = dict()
 
     freq = csv_results[0]
@@ -431,7 +429,8 @@ def get_probs(csv_results):
     ng_smooth = sum(freq.values()) ** 2
 
     for element in csv_data:
-        word, feat = element[0], element[4]
+        word, feat = element[0], element[5]
+
         vocabulary.add(word)
 
         if feat == "ORAL":
@@ -443,9 +442,10 @@ def get_probs(csv_results):
             lit_freq[element[0]] = lit_freq.get(element[0], 0) + 1
 
     for element in vocabulary:
-        if lit_freq.get(element, 0) > 0:
-            lit = lit_freq.get(element) / freq["LIT"]
 
+        if lit_freq.get(element, 0) > 0:
+
+            lit = lit_freq.get(element) / freq["LIT"]
         else:
             lit = freq["LIT"] / ng_smooth
 
@@ -456,7 +456,6 @@ def get_probs(csv_results):
             oral = freq["ORAL"] / ng_smooth
 
         results[element] = oral, lit
-
     return results, freq
 
 
@@ -488,6 +487,8 @@ def classify(text, res):
             sentence_prob[word] = orality_smooth, literacy_smooth
 
     for word in sentence_prob:
+        print(word)
+
         orality *= sentence_prob[word][0]
         literality *= sentence_prob[word][1]
 
@@ -496,8 +497,7 @@ def classify(text, res):
     else:
         print(f" '  {text} ' is oral {orality}")
 
-    print(probs, prior_prob)
-
+    print(orality, literality)
     input("Please press enter to return to the main menu.")
 
 
@@ -589,8 +589,7 @@ def run_program(default_doc, default_train):
                                 identify_oral_literal(tagged, train)
 
                         except Exception as error:
-                            print("An unknown error occurred.")
-                            input(f"{main_message} ")
+                            print(f"An unknown error occurred.{main_message}")
                             logging.exception(error)
 
                     elif func_name == "classify":
@@ -611,35 +610,36 @@ def run_program(default_doc, default_train):
                         classify(text.split(), probs)
 
                     elif func_name == "clear_log":
-                        clear_log('app_resources/app_docs/error.log')
+                        clear_log('app_resources/app_content_docs/error.log')
 
                 else:
                     # executes functions that do not need argument
                     func_list[function_number]()
 
-#########################
-# Debugger
-#########################
-
-
-"""
-This logs all of the error files that occur within the program.
-This will only be activated if the variable debug is set to true.
-Some errors are intentionally, while others might occur due to improper file types.
-"""
-f = 'app_resources/app_docs/error.log'
-
-logging.basicConfig(filename=f,
-                    level=logging.DEBUG,
-                    format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
-                    \nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n"""
-                    )
-
-#########################
-# dev_documentation Execution
-#########################
 
 if __name__ == "__main__":
+
+    #########################
+    # Debugger
+    #########################
+
+    """
+    This logs all of the error files that occur within the program.
+    This will only be activated if the variable debug is set to true.
+    Some errors are intentionally, while others might occur due to improper file types.
+    """
+    f = 'app_resources/app_content_docs/error.log'
+
+    logging.basicConfig(filename=f,
+                        level=logging.DEBUG,
+                        format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
+                        \nLINE_NO: %(lineno)d\nERROR_SCOPE %(message)s\n"""
+                        )
+
+    #########################
+    # Program Execution
+    #########################
+
     """
     The main program will only run if all of the necessary files are available and 
     if all of the main libraries have been installed. 
@@ -647,8 +647,9 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
     try:
+
         default_doc = r"app_resources\app_dev\dev_files\french_text_1.txt"
-        default_train = r"app_resources\train_files\cl_2_set.csv"
+        default_train = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\train_files\cl_2_updated.csv"
 
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train)
@@ -659,4 +660,5 @@ if __name__ == "__main__":
             run_program(default_doc, default_train)
 
     except Exception as error:
-        logging.exception("Main Exception in " + str(error))
+        print("An unexpected error occurred. Please check the error log.")
+        logging.exception(f" 'if __name__ == __main__': is due to '{error})'")

@@ -13,13 +13,7 @@ from tkinter import filedialog, Tk
 #########################
 # auxiliary functions
 #########################
-f = 'app_resources/app_docs/error.log'
-logging.basicConfig(filename=f,
-                    level=logging.DEBUG,
-                    format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
-                    \nLINE_NO: %(lineno)d\nERROR_NAME: %(message)s\n"""
-                    )
-
+f = 'app_resources/app_content_docs/error.log'
 
 def author_information():
     """
@@ -33,7 +27,7 @@ def author_information():
     output:
     """
 
-    text = "app_resources/app_docs/author_information.json"
+    text = "app_resources/app_content_docs/author_information.json"
     with open(text, mode="r", encoding="utf-8") as file:
         data = json.load(file)
         for line in data:
@@ -54,7 +48,7 @@ def program_description():
     output:
     """
 
-    text = "app_resources/app_docs/program_description.txt"
+    text = "app_resources/app_content_docs/program_description.txt"
     with open(text, mode="r", encoding="utf-8") as file:
         for line in file:
             print(line)

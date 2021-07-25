@@ -1,0 +1,77 @@
+ 
+ERROR_TIME: 2021-07-25 21:04:32,452
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                    
+LINE_NO: 663
+ERROR_NAME: Main Exception in division by zero)
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 649, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 21:05:28,563
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                    
+LINE_NO: 665
+ERROR_NAME: Main Exception in division by zero)
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 651, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 21:06:01,062
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                    
+LINE_NO: 665
+ERROR_LOCATION: Main Exception in division by zero)
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 651, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 21:06:23,578
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 665
+ERROR_LOCATION: Main Exception in division by zero)
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 651, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 21:08:20,263
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 665
+ERROR_DESCRIPTION Main Exception: is due to ' division by zero)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 651, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 21:09:41,902
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 665
+ERROR_LOCATION  'if __name__ == __main__': is due to ' division by zero)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 651, in <module>
+    4/0
+ZeroDivisionError: division by zero
+
+ERROR_TIME: 2021-07-25 21:10:18,824
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 665
+ERROR_SCOPE  'if __name__ == __main__': is due to 'division by zero)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 651, in <module>
+    4/0
+ZeroDivisionError: division by zero
