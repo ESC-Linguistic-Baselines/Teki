@@ -1,351 +1,62 @@
 
-ERROR_TIME: 2021-07-24 19:40:32,245
+ERROR_TIME: 2021-07-25 15:47:03,738
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
-LINE_NO: 521
-ERROR_NAME: local variable 'doc' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 511, in run_program
-    content = analyze_content(doc,abbr)
-UnboundLocalError: local variable 'doc' referenced before assignment
-
-ERROR_TIME: 2021-07-24 21:17:33,310
-FILE_NAME: teki.py
-MODULE: teki
                     
-LINE_NO: 510
-ERROR_NAME: Main Exception in [Errno 2] No such file or directory: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 507, in run_program
-    doc = get_text(file_finder())
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-07-24 21:20:35,787
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 601
-ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
-    run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
-    get_text(doc)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
-
-ERROR_TIME: 2021-07-24 21:20:48,016
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 601
-ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
-    run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
-    get_text(doc)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
-
-ERROR_TIME: 2021-07-24 21:23:14,722
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 601
-ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
-    run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
-    get_text(doc)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
-
-ERROR_TIME: 2021-07-24 21:23:41,806
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 601
-ERROR_NAME: Main Exception in expected str, bytes or os.PathLike object, not BeautifulSoup
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 593, in <module>
-    run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 481, in run_program
-    get_text(doc)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 166, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-TypeError: expected str, bytes or os.PathLike object, not BeautifulSoup
-
-ERROR_TIME: 2021-07-24 21:28:29,345
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 600
+LINE_NO: 658
 ERROR_NAME: Main Exception in list index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 592, in <module>
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 650, in <module>
     run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 543, in run_program
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 601, in run_program
     freq = get_freq(train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 356, in get_freq
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 406, in get_freq
     sentence_id = {(row[3], row[4], row[5]) for row in file_data}
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 356, in <setcomp>
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 406, in <setcomp>
     sentence_id = {(row[3], row[4], row[5]) for row in file_data}
 IndexError: list index out of range
 
-ERROR_TIME: 2021-07-24 22:37:51,810
-FILE_NAME: teki.py
-MODULE: teki
+ERROR_TIME: 2021-07-25 15:48:10,962
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
                     
-LINE_NO: 671
-ERROR_NAME: Main Exception in [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_test\\test_files\\ebayfr-e05p.xml'
-Traceback (most recent call last):
-  File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 663, in <module>
-    run_program(default_doc, default_train)
-  File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 548, in run_program
-    doc = get_text(default_doc)
-  File "/Users/christopherchandler/Documents/Academic Documents/RUB UNI/0 - Files/Lingustik PL/B.A/B.A./Bachleorarbeit/teki.py", line 174, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_test\\test_files\\ebayfr-e05p.xml'
-
-ERROR_TIME: 2021-07-25 08:19:06,557
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 579
+LINE_NO: 570
 ERROR_NAME: Main Exception in [Errno 2] No such file or directory: ''
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 576, in run_program
-    doc = get_text(file_finder())
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 179, in get_text
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 566, in run_program
+    doc = get_text(path_name)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 187, in get_text
     with open(document, mode="r", encoding="utf-8") as file:
 FileNotFoundError: [Errno 2] No such file or directory: ''
 
-ERROR_TIME: 2021-07-25 08:19:52,008
-FILE_NAME: teki.py
-MODULE: teki
+ERROR_TIME: 2021-07-25 15:49:34,330
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
                     
-LINE_NO: 601
-ERROR_NAME: string indices must be integers
+LINE_NO: 658
+ERROR_NAME: Main Exception in list index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 596, in run_program
-    identify_oral_literal(tagged, train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 402, in identify_oral_literal
-    pos[pos] += 1
-TypeError: string indices must be integers
-
-ERROR_TIME: 2021-07-25 09:18:39,524
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 620
-ERROR_NAME: 'builtin_function_or_method' object is not subscriptable
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 614, in run_program
-    tagged = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 349, in spacy_tagger
-    corpus = corpus_content[0][0]
-TypeError: 'builtin_function_or_method' object is not subscriptable
-
-ERROR_TIME: 2021-07-25 09:33:13,982
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 615
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
-    content = analyze_content(doc,path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 09:35:37,781
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 619
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
-    if path_name:
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 09:39:52,646
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 619
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
-    if path_name:
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 09:42:32,967
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 615
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 605, in run_program
-    content = analyze_content(doc, path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 09:43:34,934
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 686
-ERROR_NAME: Main Exception in local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 678, in <module>
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 650, in <module>
     run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 603, in run_program
-    print(path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 601, in run_program
+    freq = get_freq(train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 406, in get_freq
+    sentence_id = {(row[3], row[4], row[5]) for row in file_data}
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 406, in <setcomp>
+    sentence_id = {(row[3], row[4], row[5]) for row in file_data}
+IndexError: list index out of range
 
-ERROR_TIME: 2021-07-25 10:12:47,626
-FILE_NAME: teki.py
-MODULE: teki
+ERROR_TIME: 2021-07-25 15:54:16,815
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
                     
-LINE_NO: 623
-ERROR_NAME: local variable 'path_name' referenced before assignment
+LINE_NO: 660
+ERROR_NAME: Main Exception in list index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
-    content = analyze_content(doc, path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:15:29,026
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 623
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
-    content = analyze_content(doc, path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:17:13,349
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 623
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
-    content = analyze_content(doc, path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:17:48,753
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 623
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
-    content = analyze_content(doc, path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:19:01,201
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 690
-ERROR_NAME: Main Exception in local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 682, in <module>
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 652, in <module>
     run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 611, in run_program
-    print(path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:20:14,336
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 623
-ERROR_NAME: local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 613, in run_program
-    content = analyze_content(doc, path_name)
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:22:01,683
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 690
-ERROR_NAME: Main Exception in local variable 'path_name' referenced before assignment
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 682, in <module>
-    run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 611, in run_program
-    user_path=path_name
-UnboundLocalError: local variable 'path_name' referenced before assignment
-
-ERROR_TIME: 2021-07-25 10:33:52,670
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 688
-ERROR_NAME: Main Exception in division by zero
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 680, in <module>
-    run_program(default_doc, default_train)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 637, in run_program
-    classify(text.split(), probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 504, in classify
-    orality = oral_prob / (oral_prob + lit_prob)
-ZeroDivisionError: division by zero
-
-ERROR_TIME: 2021-07-25 11:01:28,208
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 302
-ERROR_NAME: list indices must be integers or slices, not list
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 287, in extract_xml
-    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-TypeError: list indices must be integers or slices, not list
-
-ERROR_TIME: 2021-07-25 11:02:48,528
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 303
-ERROR_NAME: list indices must be integers or slices, not list
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 288, in extract_xml
-    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-TypeError: list indices must be integers or slices, not list
-
-ERROR_TIME: 2021-07-25 11:04:06,248
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 303
-ERROR_NAME: list indices must be integers or slices, not list
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 288, in extract_xml
-    corpus_text = soup.find("div", id=xml_tag_id[choice]).getText().strip().split()
-TypeError: list indices must be integers or slices, not list
-
-ERROR_TIME: 2021-07-25 11:04:56,720
-FILE_NAME: teki.py
-MODULE: teki
-                    
-LINE_NO: 303
-ERROR_NAME: list indices must be integers or slices, not list
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki.py", line 295, in extract_xml
-    corpus_text = soup.find("post", {"xml:id": xml_tag_id[choice]}).getText().strip().split()
-TypeError: list indices must be integers or slices, not list
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 606, in run_program
+    probs = get_probs(freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 435, in get_probs
+    word, feat = element[0], element[5]
+IndexError: list index out of range
