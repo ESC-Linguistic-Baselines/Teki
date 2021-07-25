@@ -1,0 +1,6 @@
+
+*.iml
+.idea/misc.xml
+.idea/workspace.xml
+app_resources/__pycache__/auxilary_functions.cpython-39.pyc
+*.pyc
