@@ -300,7 +300,6 @@ def analyze_content(text_object):
         output:
         """
 
-
         tokens = text_object.split()
         results = sentence_tokenizer(tokens)
         input("The text has been parsed into sentences. Press enter to continue.")

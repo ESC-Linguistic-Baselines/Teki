@@ -39,16 +39,21 @@ SOFTWARE.
 _____
 # Requierments 
 
-## Installation
-This program was created and designed with **python 3.9.1**. This is therefore the recommended version.
-It is possible to run the program using any version above 3.6, but program stability cannot be guaranteed. 
+## Python version
+This program was created and designed with **python 3.9.1** in mined. Therefore, that is the recommended version.
+It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed. 
+
+## Pip modules
+
 
 The following pip packages must be installed for the program to run properly:
+```
 * bs4>=0.0.1
 * beautifulsoup4>=4.9.3
 * matplotlib>=3.4.1
 * lxml>=4.6.1
 * spacy>=2.3.5
+```
 
 There are three ways to install the *requirements.txt* file:
 
@@ -64,7 +69,22 @@ pip install -r requirements.txt
 pip3.9 install -r requirements.txt
 ```
 
-# Description
+# Program
 
-# Report
+If the modules  have been succesfully loaded, then you will be greeted with a menu system:
+
+```
+1: import file
+2: load training file
+3: analyze contents
+4: classify string
+5: clear log file
+6: author information
+7: program description
+8: end program
+
+```
+
+
+
 
