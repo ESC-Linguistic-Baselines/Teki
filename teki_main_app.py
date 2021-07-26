@@ -553,7 +553,7 @@ def sentence_identification(collective_results_tagged, database):
 
 def get_freq(file):
     """
-    This function retrieves the count of ORAL,  LIT in the database.
+    This function retrieves the count of the features in the database.
 
     :param
         :type str
@@ -584,7 +584,25 @@ def get_freq(file):
 
 def get_probs(freq_training_data):
     """
-    This function calculates the probability of  the features
+    This function calculates the probability of the features.
+
+        P(s) = the probability of a sentence
+        c = the count of a word
+        s = meaning of word
+        w = the word
+
+    a-prior probability:
+        Determine the proportions (= probabilities) of the different possible meanings s of a word w
+        P(s) = C(s,w)/C(w)
+
+    individual feature probabilities:
+        count how often each classification feature occurs with the different possible features
+        p(Cj|S) = C(Cj,s)/C(s)
+
+    for OOV (out of vocabulary) words, the following smoothing formula is used.
+    Smoothing the data using the method from Ng (1997)
+        p(Cj|Sn) = P(Sn)/N = C(Sn)/N**2 for (Cj,Sn) = 0
+        N is the training data.
 
     :param
         :type tuple
@@ -597,6 +615,7 @@ def get_probs(freq_training_data):
         :rtype dict
             'prob_results': the probability of the each word having a certain feature.
     """
+
     prior_prob, training_data = freq_training_data[0], freq_training_data[1]
 
     prob_results = dict()
@@ -608,7 +627,7 @@ def get_probs(freq_training_data):
 
     for element in training_data:
         """
-         smoothing the data using the method from Ng (1997)
+         Smoothing the data using the method from Ng (1997)
          p(Cj|Sn) = P(Sn)/N = C(Sn)/N**2 for (Cj,Sn) = 0
          N is the training data
          """
@@ -645,7 +664,30 @@ def get_probs(freq_training_data):
 
 def classify_sentence(text, probabilities):
     """
-    This function calculates the probability of  the features
+    This function calculates the probability of the sentence.
+    Using comparative product values, the biggest product with respect to feature 1 and feature 2 is chosen.
+    The bigger value indicates that the sentence most likely belongs to this value as opposed to the other value
+
+    This is based on bayes rule which is P(s|c) = P(c|s)·P(s)/P(c)
+        * a-posterior = P(s|c)
+        * feature = P(c|s)
+        * a priori = P(s)
+
+    The value is calculated using a variation of bayes called 'naive bayes'
+       A naive bayes assumes that all individual features cj of context c used in classification are independent of each other.
+       This contextual independence is therefore the nativity.
+
+        s′ = argmaxs∈S  ( P(c|s) · P(s)/ P(c) ) = argmaxs∈S P(c|s) · P(s)
+
+        The only relevant part is the maximum argument which is then:
+            argmaxs∈S P(c|s) · P(s)
+            P(c|s)= πCj∈cP(Cj|s)
+
+        Result:
+            The product of the probabilities (word count/feature count) are multiplied together and then with the a priori probability.
+             if a value is not available, then it is smoothed according to Ng(1997)
+
+            This product is the final value of the naive bayes.
 
     :param
         :type str
@@ -670,20 +712,20 @@ def classify_sentence(text, probabilities):
     feat_2_total_prob = feat_2_prob / (feat_1_prob + feat_2_prob)
 
     n_training_data = sum(prob_results.values()) ** 2
-    orality_smooth = feat_1_prob / n_training_data
-    literacy_smooth = feat_2_prob / n_training_data
+    feature_1_smooth = feat_1_prob / n_training_data
+    feature_2_smooth = feat_2_prob / n_training_data
 
-    sentence_prob = dict()
+    word_feat_prob = dict()
 
     for word in text:
         if bool(prior_prob.get(word)):
-            sentence_prob[word] = prior_prob.get(word)
+            word_feat_prob[word] = prior_prob.get(word)
         else:
-            sentence_prob[word] = orality_smooth, literacy_smooth
+            word_feat_prob[word] = feature_1_smooth, feature_2_smooth
 
-    for word in sentence_prob:
-        feat_1_total_prob *= sentence_prob[word][0]
-        feat_2_total_prob *= sentence_prob[word][1]
+    for word in word_feat_prob:
+        feat_1_total_prob *= word_feat_prob[word][0]
+        feat_2_total_prob *= word_feat_prob[word][1]
 
     if feat_2_total_prob > feat_1_total_prob:
         print(f" '{text} 'is literal {feat_2_total_prob}")
