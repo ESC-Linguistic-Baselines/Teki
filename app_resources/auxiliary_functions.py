@@ -14,101 +14,104 @@ from tkinter import filedialog, Tk
 #########################
 # auxiliary functions
 #########################
-f = 'app_resources/app_content_docs/error.log'
+error_log = 'app_resources/app_content_docs/error.log'
 
-def author_information():
+
+def about_program():
     """
-    function description
+    This reads in the readme file and displays it to the user
 
+    :param
+        There are no parameters as it has access to the necessary data which
 
-    input:
-
-
-
-    output:
+    :return
+        :rtype None
     """
 
-    text = "app_resources/app_content_docs/author_information.json"
-    with open(text, mode="r", encoding="utf-8") as file:
-        data = json.load(file)
-        for line in data:
-            print(line, data[line])
+    text = r"README.MD"
+    with open(text, mode="r", encoding="utf-8") as read_me:
+        for line in read_me:
+            print(line.strip())
+        input("\nPlease press enter to continue...")
 
-        input("Press enter to continue")
-
-
-def clear_log(f):
+def clear_log(error_log):
     """
-    Function description:
         This function deletes the error log file by overwriting it with a error log
         file of the same name.
 
-    Parameters:
-        The path name of the log file to be cleared.
+    :param str
+        'error_log': The name of the log file to be cleared.
 
-    Returns:
-        None
+     :return
+        :rtype None
     """
 
-    logging.FileHandler(f, "w")
+    logging.FileHandler(error_log, "w")
     input("The log file will be cleared after restarting the program.\n")
 
 
 def dependency_generate():
+    """
+        This function generates the dependencies that that the main script needs to run properly
 
-       doc=os.listdir(os.getcwd()+"\\app_content_docs")
-       dev= os.listdir(os.getcwd()+"\\app_dev\\dev_files")
-       test=os.listdir(os.getcwd()+"\\app_test\\test_files")
-       compressed=os.listdir(os.getcwd()+"\\app_compressed_data")
+    :param str
+        'error_log': The name of the log file to be cleared.
 
+     :return
+        :rtype None
+        There is no object, but a file is created that is placed in the main directory
+    """
 
-       files={"docs":doc,
-              "dev":dev,
-              "test":test,
-              "compressed":compressed}
+    doc = os.listdir(os.getcwd()+"\\app_content_docs")
+    dev = os.listdir(os.getcwd()+"\\app_dev\\dev_files")
+    test = os.listdir(os.getcwd()+"\\app_test\\test_files")
+    compressed = os.listdir(os.getcwd()+"\\app_compressed_data")
 
-       out=r"C:\Users\chris\Desktop\Bachleorarbeit\app_resource_files.json"
-       out_file = open(out, "w+")
+    files = {"docs": doc,
+              "dev": dev,
+              "test": test,
+              "compressed": compressed}
 
-       json.dump(files,out_file,indent = 2)
+    out = "app_resource_files.json"
+    out_file = open(out, "w+")
+    json.dump(files, out_file, indent = 2)
 
-       print("updated")
+    print("The app resource directory file has been updated.")
+
 
 def end_program():
     """
-    function description
+        This function ends the main app or brings back to the main menu
 
+    :param
+        There are no parameters as it has access to the necessary data which
 
-    input:
-
-
-
-    output:
+     :return
+        :rtype None
     """
 
     while True:
-        final_answer = input("Do you really want to end the program?(y/n) ").lower()
+        final_answer = input("Do you really want to end the program (y/n) ?: ").lower()
         if final_answer == "y":
-            print("The program will now be terminated")
-
+            print("The program will now be terminated...")
             raise SystemExit
         # No
         elif final_answer == "n":
-            print("The program will not be terminated and you will be brought back to the main menu")
-            input("Press enter to continue:")
+            print("The program will not be terminated and you will be brought back to the main menu.")
+            input("Press enter to continue...")
             break
 
 
 def file_finder():
     """
-    function description
+        This function allows to the user to select a file using the dialog with tkinter.
 
+    :param
+        There are no parameters as it has access to the necessary data which
 
-    input:
-
-
-
-    output:
+     :return
+        :rtype str
+        'filename': this returns the path name of the selected file.
     """
 
     root = Tk()
@@ -120,54 +123,43 @@ def file_finder():
     return filename
 
 
-def program_description():
+def sentence_tokenizer(simple_split_tokens):
     """
-    function description
+        This function takes in a text tokenized by .split() method and reconstructs them into sentences
+        using regular expressions
 
+    :param
+        :type list
+            'simple_split_tokens': The list of tokens of the sentences/text
 
-    input:
-
-
-
-    output:
-    """
-
-    text = "app_resources/app_content_docs/program_description.txt"
-    with open(text, mode="r", encoding="utf-8") as file:
-        for line in file:
-            print(line)
-        input("\nPress enter to continue")
-
-
-def sentence_tokenizer(tokens_orth):
-    """
-    function description
-
-
-    input:
-
-
-
-    output:
+     :return
+        :rtype list
+        'filename': this returns the path name of the selected file.
     """
 
-    new_tokens = list()
+    # regex expression for recognizing sentences
+    regex = re.compile(rf'''(?P<sentence_basic>[a-zàâçéèêëîïôûùüÿñæœ]+[.!?])|# single punctutation marks
+                            (?P<sentence_punctuatuion>)[*!?.]|
+                            (?P<sentencec_period>)[.·]
+                            ''', re.VERBOSE)
 
-    new_sentence = ""
-    regex = re.compile("[a-zàâçéèêëîïôûùüÿñæœ]+[.!?]|[*!?.]|\s[.·]+")
+    new_tokens, sentence = list(), str()
 
-    for tok in tokens_orth:
+    for tokens in simple_split_tokens:
+        match=regex.findall(tokens)
 
-        if regex.findall(tok):
-            new_sentence += f"{tok}<END>"
-            new_tokens.append(tok)
+        if match:
+            sentence += f"{tokens}<END>"
+            new_tokens.append(tokens)
         else:
-            new_sentence += f"{tok} "
+            sentence += f"{tokens} "
 
-    new = new_sentence.split("<END>")
-    res = [sen for sen in new if bool(sen) is True]
+    new_sentence = sentence.split("<END>")
 
-    return res
+    # Filters out sentences that only consist of white space.
+    sentence_results = [sen for sen in new_sentence if bool(sen) is True]
+
+    return sentence_results
 
 def save_sentences(collective_results,file):
 
@@ -184,16 +176,25 @@ def save_sentences(collective_results,file):
                       "sentence_id":res
                     })
 
+
 def sub_menu(output_menu, menu_name, menu_information):
     """
-    function description
+    This is a simplified version of the menu  found in the main application
 
+    :param
+        :type dict
 
-    input:
+        'output_menu' the functions that should be executed as desired.
 
+        :type str
+            'menu_name:' name of the respective menu
 
+        :type str
+            'menu information': information that should be displayed in the sub_menu
 
-    output:
+     :return
+        :rtype
+            returns the value of the respective function
     """
 
     invalid_option = f'An error occurred. You can return to {menu_name} by pressing enter.'
@@ -230,7 +231,7 @@ def sub_menu(output_menu, menu_name, menu_information):
         return options_func_dict()
 
     except Exception as error:
-        logging.exception(error)
+        logging.exception(f"Sub menu errror: {error}")
         return options_func_dict
 
 
@@ -255,6 +256,7 @@ def write_to_database(feature, sentence, database):
                  "oral_literate": feature
                  })
 
-
-
-
+if __name__ == "__main__":
+   text="who are you. I am yoô. ... !!! ??? with . "
+   r= sentence_tokenizer(text.split())
+   print(r)

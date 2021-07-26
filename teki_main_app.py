@@ -10,16 +10,11 @@ import logging
 import os
 import sys
 import timeit
-
 from datetime import datetime
 
 if __name__ == "__main__":
-    '''
-    Starting the program will take a bit of time 
-    due to the amount of libraries being imported. 
-    This is to measure the loading time of the program. 
-    It should take around 3 - 8 seconds to load everything.
-    '''
+    # Starting the program will take a bit of time  due to the amount of libraries being imported.
+    # This is to measure the loading time of the program. It should take around 3 - 8 seconds to load everything.
 
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
@@ -35,6 +30,7 @@ if __name__ == "__main__":
 This program's function is to access the literacy and orality 
 of French chat data by using markers that can identify said features.
 """
+
 
 #########################
 # Program continuation function
@@ -124,16 +120,16 @@ def missing_files(file_list, path):
     else:
         return False
 
+
 #########################
 # Importing pip libraries
 #########################
-
-
 """
 The libraries are iteratively imported. 
 The libraries that are missing will be saved in a list 
 that will be referenced against later.
 """
+
 missing_libraries = []
 pip_lib = "bs4", "spacy", "lxml"
 
@@ -142,6 +138,7 @@ for lib in pip_lib:
     try:
         globals()[lib] = importlib.import_module(lib)
     except ModuleNotFoundError as error:
+        logging.exception(f" pip module import': is due to '{error})'")
         missing_libraries.append(lib)
 
 """
@@ -155,7 +152,7 @@ try:
     from bs4 import BeautifulSoup
 except Exception as error:
     print("It seems that some pip modules could not be imported. Please check the log file.")
-    logging.exception(f" pip module import': is due to '{error})'")
+    logging.exception(f" pip library import': is due to '{error})'")
     sys.exit()
 
 #########################
@@ -175,7 +172,7 @@ if os.path.exists("app_resources"):
 
     # This checks for the existence of the app resource directory and the contents therein.
     doc_files = missing_files(necessary_files["docs"], "app_resources/app_content_docs")
-    dev_files = missing_files(necessary_files["dev"],  "app_resources/app_dev/dev_files")
+    dev_files = missing_files(necessary_files["dev"], "app_resources/app_dev/dev_files")
     test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")
     compressed_repository = missing_files(necessary_files["compressed"], "app_resources/app_compressed_data")
 
@@ -186,12 +183,11 @@ if os.path.exists("app_resources"):
     try:
         # importing custom modules from the auxiliary functions file
         from app_resources.auxiliary_functions import (
-            author_information,
+            about_program,
             clear_log,
             end_program,
             file_finder,
             sub_menu,
-            program_description,
             save_sentences,
             sentence_tokenizer,
             write_to_database)
@@ -204,13 +200,13 @@ else:
     message = "The app resource directory is either missing or has been renamed."
     continue_program(message)
 
+
 #########################
 # Main Program Functions
 #########################
 
 
 def get_text(document):
-
     """
     This functions reads in a text file. This file is either the default file
     or it is the file that has been dynamically specified by the user.
@@ -263,7 +259,6 @@ def get_database():
 
 
 def analyze_content(text):
-
     """
     This function has the main function of returning the results of the sub-functions.
     it is therefore more of a container of sorts.
@@ -321,7 +316,7 @@ def analyze_content(text):
         the user will be forwarded to the main menu.
 
         :param
-            There are no parameters.
+           There are no parameters as it has access to the necessary data which
 
         :return
             :rtype None
@@ -383,11 +378,11 @@ def analyze_content(text):
             # xml id tags are only relevant for the .xml corpora as  .txt do not have xml tags.
             xml_tag_id = list()
 
-            if corpus_choice == 1:   # eBay listing
+            if corpus_choice == 1:  # eBay listing
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
 
-            elif corpus_choice == 2 or 3:   # SMS, Wikiconflict
+            elif corpus_choice == 2 or 3:  # SMS, Wikiconflict
                 for tag in soup.select("post"):
                     xml_tag_id.append(tag["xml:id"])
             else:
@@ -403,7 +398,7 @@ def analyze_content(text):
                     """
                     If the user has entered a valid selection, 
                     then this range i.e. selection is extracted from the desired corpus. 
-                    The sentences are then parsed using the sentence_tokenizier located in the auxiliary_functions.
+                    The sentences are then parsed using the sentence_tokenizer located in the auxiliary_functions.
                     It returns the parsed sentences and they are saved together with their respective id in a dictionary.
                     """
 
@@ -432,9 +427,8 @@ def analyze_content(text):
                     return tag_save(sentence_count, collective_results)
 
                 except Exception as error:
-                    logging.exception(error)
+                    logging.exception(f"xml_analysis error due to: {error}")
                     print(f"{corpus_range_choice} is not a valid selection. Please enter a valid choice.\n")
-
 
     def txt_analysis():
 
@@ -537,8 +531,7 @@ def spacy_tagger(corpus_content):
 
 def sentence_identification(collective_results_tagged, database):
     """
-    This function takes the sentence and its lexical information
-    to determine the most appropriate feature to be assigned to said sentence
+    This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence
 
     :parameter
         :type dict
@@ -636,21 +629,21 @@ def get_probs(freq_training_data):
             feat_1_prob = freq_feat_1.get(word) / prior_prob["LIT"]
         else:
             # Ng Smoothing
-            feat_1_prob = prior_prob["LIT"] / n_training_data**2
+            feat_1_prob = prior_prob["LIT"] / n_training_data ** 2
 
         # Calculating the MLE probability of Feat 2
         if freq_feat_2.get(word, 0) > 0:
             feat_2_prob = freq_feat_2.get(word) / prior_prob["ORAL"]
         else:
             # Ng smooth
-            feat_2_prob = prior_prob["ORAL"] / n_training_data**2
+            feat_2_prob = prior_prob["ORAL"] / n_training_data ** 2
 
         prob_results[word] = feat_1_prob, feat_2_prob
 
     return prior_prob, prob_results
 
 
-def classify(text, probabilities):
+def classify_sentence(text, probabilities):
     """
     This function calculates the probability of  the features
 
@@ -699,54 +692,72 @@ def classify(text, probabilities):
 
     input("Please press enter to return to the main menu.")
 
-
-######
-
-
 #########################
 # Main program
 #########################
+
+
 def run_program(default_doc, default_train):
     """
-    input:
+    This function contains all other functions listed within this script. The functions
+    can be selected
+    It automatically loads the two standard files, but these can be changed dynamically by the user
+    while the script is running.
 
-    function
+    :parameter
+        :type str
+        'default_doc' the path file name for the default document
 
-    Returns
+        :type str,
+        default_doc' the path file name for the default training file
+    :return
+        :type None
+            This function has no return value
     """
 
-    # The loading time here is assumed be less than one minute i.e. less than 60 seconds.
+    # The loading time here is assumed to be less than one minute i.e. less than 60 seconds.
     stop = timeit.default_timer()
     execution_time = round(stop - start)
-    print(f"All libraries were loaded {execution_time} seconds. The program can now start. \n")
+    print(f"All libraries were loaded {execution_time} seconds. The program can now start.\n")
 
-    menu_option = {
-        "import file": get_text,
+    # This is the menu from which the user can dynamically select an option by entering the respective menu option number.
+    main_menu = {
+        "load .xml or .txt file": get_text,
         "load training file": get_database,
         "analyze contents": analyze_content,
-        "classify string": classify,
-        "clear log file": clear_log,
-        "author information": author_information,
-        "program description": program_description,
+        "classify sentence": classify_sentence,
+        "clear error log file": clear_log,
+        "about program": about_program,
         "end program": end_program
-    }
+        }
+
+    # default data files
     doc = get_text(default_doc)
     database = default_train
+
     print("You are currently using the default files:\n")
     print(f"Default Text: '{default_doc}'")
     print(f"Default Training: '{default_train}'")
     print(" \nIf you wish to proceed with other files, please load them from respective directories.")
 
     while True:
-        print("")
-        banner = "~ Teki - French Chat Analyzer ~ ", "#### Main Menu ####"
+        """
+        The loop is broken once the user has selected an option from the menu. 
+        after the desired function has been executed, the user is returned to the main menu 
+        unless the program has been terminated by the respective function.
+        """
 
+        print("")
+        # Text menu message prompt
+        banner = "~ Teki - French Discourse Analyzer ~ ", "#### Main Menu ####"
         for word in banner:
             print(word.center(50))
 
-        for num, elem in enumerate(menu_option, start=1):
-            print(f'{num}: {elem}')
+        # Listing the menu options
+        for menu_number, menu_item in enumerate(main_menu, start=1):
+            print(f'{menu_number}: {menu_item}')
 
+        # Standard message prompts
         choice_str = input('\nPlease enter the number of your entry: ')
         main_message = "Please the enter key to return to the main menu.\n"
 
@@ -754,82 +765,65 @@ def run_program(default_doc, default_train):
         if choice_str.isdigit():
             choice_num = int(choice_str)
 
-            if 0 < choice_num <= len(menu_option):
-                func_list = list(menu_option.values())
+            # Only menu options that are within the scope of the main menu are allowed
+            if 0 < choice_num <= len(main_menu):
+                function_values = list(main_menu.values())
                 function_number = choice_num - 1
-                func_name = str(func_list[function_number]).split()[1]
+                function_name = str(function_values[function_number]).split()[1]
 
+                # Functions that required parameters are executed here.
                 if function_number in list(range(5)):
 
-                    if func_name == "get_text":
-
+                    if function_name == "get_text":
                         try:
                             path_name = file_finder()
                             doc = get_text(path_name)
-
                         except Exception as error:
                             input(f"You did not select a file. {main_message}")
-                            logging.exception("Main Exception in " + str(error))
+                            logging.exception(f"No txt/xml selection: {error}")
 
-                    elif func_name == "get_database":
+                    elif function_name == "get_database":
                         try:
                             database = get_database()
                         except Exception as error:
                             input(f"You did not select a file. {main_message}")
-                            logging.exception("Main Exception in " + str(error))
+                            logging.exception(f"No database selection: {error}")
 
-                    elif func_name == "analyze_content":
+                    elif function_name == "analyze_content":
                         try:
                             content = analyze_content(doc)
 
-                            # Other functions will be carried out if bool(content) is True
                             if content:
+                                #  Other functions will be carried out if bool(content) is True
                                 collective_results_tagged = spacy_tagger(content)
                                 sentence_identification(collective_results_tagged, database)
 
                         except Exception as error:
                             print(f"An unknown error occurred. {main_message}")
-                            logging.exception(error)
+                            logging.exception(f"Main Menu: {error}")
 
-                    elif func_name == "classify":
-                        """
-                        This calls up the naive bayes function to classify the texts.
-                        """
+                    elif function_name == "classify_sentence":
 
                         # text = input("Enter the sentence that you would like to classify: ")
                         text = "a seat at the bar which serves up surprisingly"
-
-                        # This gets the frequency of ORAL and LIT (the features) of the data set.
                         freq = get_freq(database)
-
-                        # This returns the MLE prob of the features.
                         probs = get_probs(freq)
+                        classifier = classify_sentence(text.split(), probs)
 
-                        # Naive bayes classifier
-                        classify(text.split(), probs)
-
-                    elif func_name == "clear_log":
+                    elif function_name == "clear_log":
                         clear_log('app_resources/app_content_docs/error.log')
-
                 else:
                     # executes functions that do not need argument
-                    func_list[function_number]()
+                    function_values[function_number]()
 
 
 if __name__ == "__main__":
 
     #########################
-    # Debugger
+    # Error Logger
     #########################
-
-    """
-    This logs all of the error files that occur within the program.
-    This will only be activated if the variable debug is set to true.
-    Some errors are intentionally, while others might occur due to improper file types.
-    """
-    f = 'app_resources/app_content_docs/error.log'
-
-    logging.basicConfig(filename=f,
+    log_file = 'app_resources/app_content_docs/error.log'
+    logging.basicConfig(filename=log_file,
                         level=logging.DEBUG,
                         format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
                         \nLINE_NO: %(lineno)d\nERROR_SCOPE %(message)s\n"""
@@ -838,21 +832,16 @@ if __name__ == "__main__":
     #########################
     # Program Execution
     #########################
-
     """
     The main program will only run if all of the necessary files are available and 
-    if all of the main libraries have been installed. 
-    This can be overridden by the user, 
+    if all of the main libraries have been installed.  This can be overridden by the user, 
     but it is not advised as it can lead to the program becoming unstable.  
     """
     try:
-
         default_doc = r"app_resources/app_dev/dev_files/french_text_1.txt"
         default_train = r"app_resources/app_databases/cl_2_updated.csv"
-
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train)
-
         else:
             message = "An error has occurred because either files or directories are missing."
             continue_program(message)

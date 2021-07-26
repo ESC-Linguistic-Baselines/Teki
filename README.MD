@@ -84,7 +84,3 @@ If the modules  have been succesfully loaded, then you will be greeted with a me
 8: end program
 
 ```
-
-
-
-
