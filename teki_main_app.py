@@ -273,9 +273,46 @@ def analyze_content(text):
             'text' is the the data from the get_text function.
 
     :return
-        :rtype
+        :rtype dict
+        the collective results of the user
 
     """
+
+    def tag_save(sentence_count,collective_results):
+        """
+        This function gives the user the option of either tagging their results or
+        saving them in a designated file.
+
+        :param
+            :type int
+             'sentence_count': the number of sentences in the selection
+
+        :param
+            :type dict
+            'collective_results': all of the sentences with their respective id.s
+
+        :return:
+            if user tags
+            :rtype None
+            else
+            :rtype
+                returns the collective results back so that they can be tagged.
+        """
+        while True:
+            user = input(
+                f"The text has been parsed into {sentence_count} sentences. Would you like to tag or save the sentences (tag/save): ")
+
+            if user == "tag":
+                input("The results will now be tagged. Please press enter to continue with the tagging process.")
+                return collective_results
+            elif user == "save":
+                print("Please select the directory:")
+                path = file_finder()
+                save_sentences(collective_results, path)
+                input(f"The results have been saved in {path}. Press enter to the main menu.")
+                return False
+            else:
+                print(f"{user} that is not a valid option.")
 
     def read_contents():
 
@@ -294,7 +331,7 @@ def analyze_content(text):
         input("\nPlease press enter to continue to the main menu.")
 
 
-    def extract_xml_text():
+    def xml_analysis():
         """
         This function automatically extracts textual information from
         the .xml files that are located in the app resource directory.
@@ -306,12 +343,17 @@ def analyze_content(text):
 
 
         :param:
-            There are no parameters as it has access the necessary data which
+            There are no parameters as it has access to the necessary data which
             is within the scope of this function.
 
+        :return:
+            if user tags
+            :rtype collective results
 
-
-        Returns
+            else
+            :rtype
+                None
+                the user is brought back to the main menu
         """
         # renamed to  be consistent with beautiful soup terminology
         soup = text
@@ -386,111 +428,127 @@ def analyze_content(text):
 
                     #  Calculating the total amount of sentences
                     for sentence in collective_results:
-                        sentence_count+=len(collective_results[sentence])
+                        sentence_count += len(collective_results[sentence])
 
-                    while True:
-                        user = input(f"The text has been parsed into {sentence_count} sentences. Would you like to tag or save the sentences (tag/save): ")
-
-                        if user == "tag":
-                            input("The results will now be tagged. Please press enter to continue with the tagging process.")
-                            return collective_results
-                        elif user == "save":
-                            print("Please select the directory:")
-                            path=file_finder()
-                            save_sentences(collective_results, path)
-                            print(f"The results have been saved in {path}. Press enter to the main menu.")
-                            return False
-                        else:
-                            print(f"{user} that is not a valid option.")
+                    return tag_save(sentence_count, collective_results)
 
                 except Exception as error:
                     logging.exception(error)
                     print(f"{corpus_range_choice} is not a valid selection. Please enter a valid choice.\n")
 
-    def extract_text():
+    def txt_analysis():
 
         """
-        function description
+        This function tokenizes any text that is saved in .txt-style document.
 
+        :param:
+            There are no parameters as it has access to the necessary data which
+            is within the scope of this function.
 
-        input:
+        :return:
+            if user tags
+            :rtype collective results
 
+            else
+            :rtype
+                None
+                the user is brought back to the main menu
+        """
 
-
-        Returns
+        """
+        Creates simplified tokens for the sake of creating sentence-level tokens
+        The real tokens will be down with spacy. 
         """
 
         tokens = text.split()
-        path_id = input("Enter a unique identifier for this text: ")
 
+        user = input("Please enter a unique identifier using number of characters from (a-z, A-Z, 0-9) for this text: ")
         results = sentence_tokenizer(tokens)
-        collective_results=dict()
+        collective_results = dict()
 
         for num,sen in enumerate(results):
-            id=f"{path_id}_{num}"
-            collective_results[id]=sen
+            path_id=f"{user}_{num}"
+            collective_results[path_id] = [sen]
 
-        input(f"The text has been parsed into {len(results)} sentences. Press enter to continue.")
+        return tag_save(len(results), collective_results)
 
-        return  collective_results
-
-    output_menu = {"read file": read_contents,
-                   "extract and tag": extract_xml_text,
-                   "extract text and tag": extract_text,
+    # This is the dynamic menu that the user has access during this function
+    output_menu = {"read file contents": read_contents,
+                   "analyze XML data": xml_analysis,
+                   "analyze .TXT data": txt_analysis,
                    "return to menu": lambda: False
                    }
 
-    # Submenu
-
-    menu_name = "option menu"
+    # Submenu parameters
+    menu_name = "Analysis Menu"
     menu_information = "How would you like to proceed with the file:"
-    mn = sub_menu(output_menu, menu_name, menu_information)
-    return mn
+    menu = sub_menu(output_menu, menu_name, menu_information)
+
+    return menu
 
 
 def spacy_tagger(corpus_content):
     """
-    function description
+    This function works with the spacy tagger. It has the goal of parsing the sentences into their respective tokens.
+
+    The relevant elements from spacy are:
+    Word
+    Part-of-speech
+    Dependencies
 
 
-    input:
+    :parameter:
+       :type dict
+        'corpus_content': the results from the extract functions are processed here
 
-
-
-    Returns
+    :return
+        :type dict
+        'collective_results_tagged': the tagged and tokenized results of the corpus content.
     """
-    print("The individual sentences are now being tagged for parts of speech. Please wait...")
+    print("The individual sentences are now being tagged.")
+    print("The duration will depend on your system  resources and the number of sentences being tagged.")
+    print("Please wait...\n")
 
     collective_results_tagged = dict()
     nlp = spacy.load("fr_core_news_sm")
 
-    for key in corpus_content:
+    for sent in corpus_content:
 
-        sentence = corpus_content[key]
+        corpus_sentence = corpus_content[sent]
         new_sentence = list()
-        for no, sen in enumerate(sentence):
-            doc = nlp(sen)
+
+        for number, sentence in enumerate(corpus_sentence):
+            # Creates a doc object with all lexical information using spacy
+            doc = nlp(sentence)
+
             for token in doc:
-                new_sentence.append((token.text, token.pos_, token.dep_, key, f"SEN:{no}"))
-            new_key = f"{key}-sen_no-{no}"
+                # the results of the analysis
+                new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}"))
+
+            #  generates a unique identifier for the sentences
+            new_key = f"{sent}-sen_no-{number}"
             collective_results_tagged[new_key] = new_sentence
+
+            # overwriting the old with a new list so that the new results can be saved.
             new_sentence = list()
 
     input("The sentences have been successfully tagged. Please press enter to continue...")
     return collective_results_tagged
 
 
-def identify_oral_literal(sentence_results, database):
+def sentence_identification(collective_results_tagged, database):
     """
-    input:
+    This function takes the sentence and its lexical information
+    to determine the most appropriate feature to be assigned to said sentence
 
-    function
+    :parameter
+        :type
 
     Returns
     """
 
-    for sentences in sentence_results:
-        sub_sentences = sentence_results[sentences]
+    for sentences in collective_results_tagged:
+        sub_sentences = collective_results_tagged[sentences]
         write_to_database("ORAL", sub_sentences, database)
 
 
@@ -689,7 +747,7 @@ def run_program(default_doc, default_train):
                             # Other functions will be carried out if bool(content) is True
                             if content:
                                 tagged = spacy_tagger(content)
-                                identify_oral_literal(tagged, train)
+                                sentence_identification(tagged, train)
 
                         except Exception as error:
                             print(f"An unknown error occurred. {main_message}")

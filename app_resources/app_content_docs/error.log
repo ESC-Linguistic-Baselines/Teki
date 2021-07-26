@@ -85,3 +85,29 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 402, in extract_xml_text
     corpus_text = soup.find("post", {"xml:id": xml_tag_id[i]}).getText().strip().split()
 AttributeError: 'NoneType' object has no attribute 'getText'
+
+ERROR_TIME: 2021-07-26 10:25:19,688
+FILE_NAME: auxiliary_functions.py
+MODULE: auxiliary_functions
+                        
+LINE_NO: 233
+ERROR_SCOPE name 'res' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\auxiliary_functions.py", line 230, in sub_menu
+    return options_func_dict()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 439, in extract_text
+    print(res)
+NameError: name 'res' is not defined
+
+ERROR_TIME: 2021-07-26 10:25:25,824
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 701
+ERROR_SCOPE 'function' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 696, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 472, in spacy_tagger
+    for key in corpus_content:
+TypeError: 'function' object is not iterable

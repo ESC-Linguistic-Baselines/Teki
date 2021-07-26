@@ -184,7 +184,6 @@ def save_sentences(collective_results,file):
                       "sentence_id":res
                     })
 
-
 def sub_menu(output_menu, menu_name, menu_information):
     """
     function description
