@@ -165,27 +165,27 @@ but the program stability will be greatly compromised.
 """
 
 # Necessary file names stored in json format in the main  app directory
-data = open("app_resource_files.json", mode="r", encoding="utf-8")
+data = open("teki_resource_list.json", mode="r", encoding="utf-8")
 necessary_files = json.load(data)
 
 if os.path.exists("app_resources"):
 
     # This checks for the existence of the app resource directory and the contents therein.
-    doc_files = missing_files(necessary_files["docs"], "app_resources/app_content_docs")
-    dev_files = missing_files(necessary_files["dev"], "app_resources/app_dev/dev_files")
-    test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")
-    compressed_repository = missing_files(necessary_files["compressed"], "app_resources/app_compressed_data")
+    dev_files = missing_files(necessary_files["app_dev"], "app_resources/app_dev/dev_files")
+    test_files = missing_files(necessary_files["app_test"], "app_resources/app_test/app_test")
+    compressed_repository = missing_files(necessary_files["compressed_data"], "app_resources/app_compressed_data")
 
     #  This lets the program know if files are missing.
-    core_files = dev_files, doc_files, test_files, compressed_repository
+    core_files = dev_files, test_files, compressed_repository
     core_file_missing = sum([bool(i) for i in core_files])
 
     try:
         # importing custom modules from the auxiliary functions file
-        from app_resources.auxiliary_functions import (
+        from app_resources.app_auxiliary_functions import (
             about_program,
             clear_log,
             end_program,
+            evaluation,
             file_finder,
             sub_menu,
             save_sentences,
@@ -252,7 +252,7 @@ def get_database():
             'database' is  the path name of the database.
     """
 
-    # It retrieves the file by invoking the function file_finder from auxiliary_functions.py
+    # It retrieves the file by invoking the function file_finder from app_auxiliary_functions.py
     database = file_finder()
 
     return database
@@ -769,6 +769,7 @@ def run_program(default_doc, default_train):
         "analyze contents": analyze_content,
         "classify sentence": classify_sentence,
         "clear error log file": clear_log,
+        "evaluation": evaluation,
         "about program": about_program,
         "end program": end_program
         }
@@ -853,7 +854,7 @@ def run_program(default_doc, default_train):
                         classifier = classify_sentence(text.split(), probs)
 
                     elif function_name == "clear_log":
-                        clear_log('app_resources/app_content_docs/error.log')
+                        clear_log('app_resources/app_content_docs/teki_error.log')
                 else:
                     # executes functions that do not need argument
                     function_values[function_number]()
@@ -864,7 +865,7 @@ if __name__ == "__main__":
     #########################
     # Error Logger
     #########################
-    log_file = 'app_resources/app_content_docs/error.log'
+    log_file = 'teki_error.log'
     logging.basicConfig(filename=log_file,
                         level=logging.DEBUG,
                         format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
@@ -880,8 +881,8 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
     try:
-        default_doc = r"app_resources/app_dev/dev_files/french_text_1.txt"
-        default_train = r"app_resources/app_databases/cl_2_updated.csv"
+        default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
+        default_train = r"app_resources/app_databases/new_cl_2_updated.csv"
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train)
         else:
