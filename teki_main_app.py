@@ -278,7 +278,7 @@ def analyze_content(text):
 
     """
 
-    def tag_save(sentence_count,collective_results):
+    def tag_save(sentence_count, collective_results):
         """
         This function gives the user the option of either tagging their results or
         saving them in a designated file.
@@ -330,7 +330,6 @@ def analyze_content(text):
         print(text)
         input("\nPlease press enter to continue to the main menu.")
 
-
     def xml_analysis():
         """
         This function automatically extracts textual information from
@@ -375,7 +374,7 @@ def analyze_content(text):
                 if corpus_choice.isdigit():
                     check_choice = int(corpus_choice)
 
-                    if check_choice in list(range(1,4)):
+                    if check_choice in list(range(1, 4)):
                         corpus_choice = int(corpus_choice)
                         break
                     else:
@@ -411,7 +410,7 @@ def analyze_content(text):
                     corpus_range_choice = corpus_range_choice.split()
                     start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
                     collective_results = dict()
-                    sentence_count=0
+                    sentence_count = 0
 
                     for i in range(start, stop):
 
@@ -435,6 +434,7 @@ def analyze_content(text):
                 except Exception as error:
                     logging.exception(error)
                     print(f"{corpus_range_choice} is not a valid selection. Please enter a valid choice.\n")
+
 
     def txt_analysis():
 
@@ -466,8 +466,8 @@ def analyze_content(text):
         results = sentence_tokenizer(tokens)
         collective_results = dict()
 
-        for num,sen in enumerate(results):
-            path_id=f"{user}_{num}"
+        for num, sen in enumerate(results):
+            path_id = f"{user}_{num}"
             collective_results[path_id] = [sen]
 
         return tag_save(len(results), collective_results)
@@ -495,7 +495,6 @@ def spacy_tagger(corpus_content):
     Word
     Part-of-speech
     Dependencies
-
 
     :parameter:
        :type dict
@@ -542,9 +541,16 @@ def sentence_identification(collective_results_tagged, database):
     to determine the most appropriate feature to be assigned to said sentence
 
     :parameter
-        :type
+        :type dict
+            'collective_results_tagged': The results that have been tagged. The should be saved somewhere in the
+            the programs directory
 
-    Returns
+        :type str
+        ' database': the path file to the respective directory
+
+    :return
+        :rtype None
+            This function has no return, but saves the result to the specified database.
     """
 
     for sentences in collective_results_tagged:
@@ -554,110 +560,142 @@ def sentence_identification(collective_results_tagged, database):
 
 def get_freq(file):
     """
-    function description
+    This function retrieves the count of ORAL,  LIT in the database.
 
+    :param
+        :type str
+            'file'': the path file of the database
 
-    input:
+    :return
+        :rtype dict
+            'prior_prob': the frequency of  said features.
 
-
-
-    Returns
+        :rtype list
+            'training_data': the data from the csv file saved in a list.
     """
-    with open(file, mode="r", encoding="utf-8") as file_data:
-        csv_reader = csv.reader(file_data, delimiter=",")
-        file_data = [row for row in csv_reader]
-        freq = {"ORAL": 0, "LIT": 0}
 
-        sentence_id = {(row[3], row[4], row[5]) for row in file_data}
-        for sentence in sentence_id:
+    with open(file, mode="r", encoding="utf-8") as training_data:
+        csv_reader = csv.reader(training_data, delimiter=",")
+        training_data = [row for row in csv_reader]
+
+        # Features to be found in the text
+        prior_prob = {"ORAL": 0, "LIT": 0}
+        sentence_lex = {(row[3], row[4], row[5]) for row in training_data}
+
+        for sentence in sentence_lex:
             entry = sentence[2]
-            freq[entry] = freq.get(entry) + 1
+            prior_prob[entry] = prior_prob.get(entry) + 1
 
-        return freq, file_data
+        return prior_prob, training_data
 
 
-def get_probs(csv_results):
+def get_probs(freq_training_data):
     """
-    input:
+    This function calculates the probability of  the features
 
-    function
+    :param
+        :type tuple
+            'csv_results': is a tuple which contains the frequency of the feature and the file_data
 
-    Returns
+    :return
+        :rtype dict
+            'freq': the frequency of said features.
+
+        :rtype dict
+            'prob_results': the probability of the each word having a certain feature.
     """
-    results = dict()
+    prior_prob, training_data = freq_training_data[0], freq_training_data[1]
 
-    freq = csv_results[0]
-    csv_data = csv_results[1]
+    prob_results = dict()
+    freq_feat_1, freq_feat_2 = dict(), dict()
+    tokens_feat_1, tokens_feat_2 = list(), list()
 
-    lit_freq, oral_freq = dict(), dict()
-    lit_tokens, oral_tokens = list(), list()
     vocabulary = set()
-    ng_smooth = sum(freq.values()) ** 2
+    n_training_data = sum(prior_prob.values())
 
-    for element in csv_data:
+    for element in training_data:
+        """
+         smoothing the data using the method from Ng (1997)
+         p(Cj|Sn) = P(Sn)/N = C(Sn)/N**2 for (Cj,Sn) = 0
+         N is the training data
+         """
+
         word, feat = element[0], element[5]
-
         vocabulary.add(word)
 
-        if feat == "ORAL":
-            oral_tokens.append((word, feat))
-            oral_freq[element[0]] = oral_freq.get(element[0], 0) + 1
+        if feat == "LIT":
+            tokens_feat_1.append((word, feat))
+            freq_feat_1[word] = freq_feat_1.get(word, 0) + 1
 
-        elif feat == "LIT":
-            lit_tokens.append((word, feat))
-            lit_freq[element[0]] = lit_freq.get(element[0], 0) + 1
+        elif feat == "ORAL":
+            tokens_feat_2.append((word, feat))
+            freq_feat_2[word] = freq_feat_2.get(word, 0) + 1
 
-    for element in vocabulary:
-
-        if lit_freq.get(element, 0) > 0:
-
-            lit = lit_freq.get(element) / freq["LIT"]
+        # Calculating the MLE probability of Feat 1
+        if freq_feat_1.get(word, 0) > 0:
+            feat_1_prob = freq_feat_1.get(word) / prior_prob["LIT"]
         else:
-            lit = freq["LIT"] / ng_smooth
+            # Ng Smoothing
+            feat_1_prob = prior_prob["LIT"] / n_training_data**2
 
-        if oral_freq.get(element, 0) > 0:
-            oral = oral_freq.get(element) / freq["ORAL"]
-
+        # Calculating the MLE probability of Feat 2
+        if freq_feat_2.get(word, 0) > 0:
+            feat_2_prob = freq_feat_2.get(word) / prior_prob["ORAL"]
         else:
-            oral = freq["ORAL"] / ng_smooth
+            # Ng smooth
+            feat_2_prob = prior_prob["ORAL"] / n_training_data**2
 
-        results[element] = oral, lit
-    return results, freq
+        prob_results[word] = feat_1_prob, feat_2_prob
+
+    return prior_prob, prob_results
 
 
-def classify(text, res):
+def classify(text, probabilities):
     """
-    input:
+    This function calculates the probability of  the features
 
-    function
+    :param
+        :type str
+            the sentence to identified.
 
-    Returns
+        :type tuple
+            'probabilities': is a tuple which contains the frequency of the feature and the probability results
+
+    :return
+        :rtype dict
+            'freq': the frequency of said features.
+
+        :rtype dict
+            'prob_results': the probability of the each word having a certain feature.
     """
 
-    probs, prior_prob = res[0], res[1]
+    prior_prob, prob_results = probabilities[1], probabilities[0]
 
-    oral_prob, lit_prob = prior_prob["ORAL"], prior_prob["LIT"]
-    orality = oral_prob / (oral_prob + lit_prob)
-    literality = lit_prob / (oral_prob + lit_prob)
-    ng = sum(prior_prob.values()) ** 2
-    orality_smooth = oral_prob / ng
-    literacy_smooth = lit_prob / ng
+    feat_1_prob, feat_2_prob = prob_results["LIT"], prob_results["ORAL"]
+
+    feat_1_total_prob = feat_1_prob / (feat_1_prob + feat_2_prob)
+    feat_2_total_prob = feat_2_prob / (feat_1_prob + feat_2_prob)
+
+    n_training_data = sum(prob_results.values()) ** 2
+    orality_smooth = feat_1_prob / n_training_data
+    literacy_smooth = feat_2_prob / n_training_data
 
     sentence_prob = dict()
 
     for word in text:
-        if bool(probs.get(word)):
-            sentence_prob[word] = probs.get(word)
-
+        if bool(prior_prob.get(word)):
+            sentence_prob[word] = prior_prob.get(word)
         else:
             sentence_prob[word] = orality_smooth, literacy_smooth
 
     for word in sentence_prob:
-        orality *= sentence_prob[word][0]
-        literality *= sentence_prob[word][1]
+        feat_1_total_prob *= sentence_prob[word][0]
+        feat_2_total_prob *= sentence_prob[word][1]
 
-    if literality > orality: print(f" '{text} 'is literal {literality}")
-    else: print(f" '{text}' is oral {orality}")
+    if feat_2_total_prob > feat_1_total_prob:
+        print(f" '{text} 'is literal {feat_2_total_prob}")
+    else:
+        print(f" '{text}' is oral {feat_1_total_prob}")
 
     input("Please press enter to return to the main menu.")
 
@@ -693,7 +731,7 @@ def run_program(default_doc, default_train):
         "end program": end_program
     }
     doc = get_text(default_doc)
-    train = default_train
+    database = default_train
     print("You are currently using the default files:\n")
     print(f"Default Text: '{default_doc}'")
     print(f"Default Training: '{default_train}'")
@@ -735,7 +773,7 @@ def run_program(default_doc, default_train):
 
                     elif func_name == "get_database":
                         try:
-                            train = get_database()
+                            database = get_database()
                         except Exception as error:
                             input(f"You did not select a file. {main_message}")
                             logging.exception("Main Exception in " + str(error))
@@ -746,8 +784,8 @@ def run_program(default_doc, default_train):
 
                             # Other functions will be carried out if bool(content) is True
                             if content:
-                                tagged = spacy_tagger(content)
-                                sentence_identification(tagged, train)
+                                collective_results_tagged = spacy_tagger(content)
+                                sentence_identification(collective_results_tagged, database)
 
                         except Exception as error:
                             print(f"An unknown error occurred. {main_message}")
@@ -762,7 +800,7 @@ def run_program(default_doc, default_train):
                         text = "a seat at the bar which serves up surprisingly"
 
                         # This gets the frequency of ORAL and LIT (the features) of the data set.
-                        freq = get_freq(train)
+                        freq = get_freq(database)
 
                         # This returns the MLE prob of the features.
                         probs = get_probs(freq)
@@ -810,7 +848,7 @@ if __name__ == "__main__":
     try:
 
         default_doc = r"app_resources/app_dev/dev_files/french_text_1.txt"
-        default_train = r"app_resources/app_databases/training_res.csv"
+        default_train = r"app_resources/app_databases/cl_2_updated.csv"
 
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train)

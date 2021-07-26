@@ -111,3 +111,78 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 472, in spacy_tagger
     for key in corpus_content:
 TypeError: 'function' object is not iterable
+
+ERROR_TIME: 2021-07-26 12:02:51,926
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 856
+ERROR_SCOPE  'if __name__ == __main__': is due to 'unhashable type: 'list')'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 847, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 799, in run_program
+    probs = get_probs(freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 641, in get_probs
+    if freq_feat_1.get(element, 0) > 0:
+TypeError: unhashable type: 'list'
+
+ERROR_TIME: 2021-07-26 12:03:28,409
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 856
+ERROR_SCOPE  'if __name__ == __main__': is due to 'unhashable type: 'list')'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 847, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 799, in run_program
+    probs = get_probs(freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 653, in get_probs
+    results[element] = oral, lit
+TypeError: unhashable type: 'list'
+
+ERROR_TIME: 2021-07-26 12:04:44,801
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 853
+ERROR_SCOPE  'if __name__ == __main__': is due to 'local variable 'word' referenced before assignment)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 844, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 796, in run_program
+    probs = get_probs(freq)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 627, in get_probs
+    vocabulary.add(word)
+UnboundLocalError: local variable 'word' referenced before assignment
+
+ERROR_TIME: 2021-07-26 12:10:39,063
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 851
+ERROR_SCOPE  'if __name__ == __main__': is due to ''ORAL')'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 842, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 797, in run_program
+    classify(text.split(), probs)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 665, in classify
+    oral_prob, lit_prob = prior_prob["ORAL"], prior_prob["LIT"]
+KeyError: 'ORAL'
+
+ERROR_TIME: 2021-07-26 12:18:54,491
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 863
+ERROR_SCOPE  'if __name__ == __main__': is due to 'name 'nN' is not defined)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 854, in <module>
+    run_program(default_doc, default_train)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 809, in run_program
+    classify(text.split(), probs)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 682, in classify
+    literacy_smooth = lit_prob / nN
+NameError: name 'nN' is not defined
