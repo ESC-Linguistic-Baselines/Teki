@@ -34,6 +34,7 @@ def about_program():
             print(line.strip())
         input("\nPlease press enter to continue...")
 
+
 def clear_log(error_log):
     """
         This function deletes the error log file by overwriting it with a error log
@@ -67,14 +68,16 @@ def dependency_generate():
     test = os.listdir(os.getcwd()+"\\app_test\\test_files")
     compressed = os.listdir(os.getcwd()+"\\app_compressed_data")
 
-    files = {"docs": doc,
-              "dev": dev,
-              "test": test,
-              "compressed": compressed}
+    files = {
+        "docs": doc,
+        "dev": dev,
+        "test": test,
+        "compressed": compressed
+        }
 
     out = "app_resource_files.json"
     out_file = open(out, "w+")
-    json.dump(files, out_file, indent = 2)
+    json.dump(files, out_file, indent=2)
 
     print("The app resource directory file has been updated.")
 
@@ -146,7 +149,7 @@ def sentence_tokenizer(simple_split_tokens):
     new_tokens, sentence = list(), str()
 
     for tokens in simple_split_tokens:
-        match=regex.findall(tokens)
+        match = regex.findall(tokens)
 
         if match:
             sentence += f"{tokens}<END>"
@@ -161,20 +164,31 @@ def sentence_tokenizer(simple_split_tokens):
 
     return sentence_results
 
-def save_sentences(collective_results,file):
 
-    with open(file,mode="a+", encoding="utf-8",newline="") as results:
+def save_sentences(collective_results, file):
+    """
+    this saves the untagged sentences to a desired text file
+    :param
+        :type dict
+            'collective_results': The results from the sentence tokenization.
+
+        :type str
+            'file': the path name of the text where the sentences should be saved.
+
+     :return
+        :rtype
+            returns the value of the respective function
+    """
+
+    with open(file, mode="a+", encoding="utf-8", newline="") as results:
         fieldnames = "sentence", "sentence_id"
-        writer=csv.DictWriter(results,fieldnames=fieldnames)
+        writer = csv.DictWriter(results, fieldnames=fieldnames)
 
         for res in collective_results:
             sentence = collective_results[res]
             for sen in sentence:
-                writer.writerow(
-                    {
-                     "sentence":sen,
-                      "sentence_id":res
-                    })
+                writer.writerow({"sentence": sen,
+                                 "sentence_id": res})
 
 
 def sub_menu(output_menu, menu_name, menu_information):
@@ -207,7 +221,6 @@ def sub_menu(output_menu, menu_name, menu_information):
             print(f'{num}: {elem}')
 
         choice_str = input("\nPlease enter the menu number:")
-
         menu_option = output_menu.get(choice_str.title())
 
         if menu_option:
@@ -218,7 +231,6 @@ def sub_menu(output_menu, menu_name, menu_information):
             except Exception as error:
                 logging.exception(error)
                 input(invalid_option)
-
             else:
                 if 0 < choice_num <= len(output_menu):
                     func_list = list(output_menu.values())
@@ -231,11 +243,30 @@ def sub_menu(output_menu, menu_name, menu_information):
         return options_func_dict()
 
     except Exception as error:
-        logging.exception(f"Sub menu errror: {error}")
+        logging.exception(f"Sub menu error: {error}")
         return options_func_dict
 
 
 def write_to_database(feature, sentence, database):
+    """
+    This writes the tagging results to the desired database
+
+    :param
+        :type str
+
+        'feature' the feature of the sentence
+
+        :type str
+            'sentence:' the sentence to be written to the file
+
+        :type str
+            'database': the path name of the database
+
+     :return
+        :rtype
+            returns the value of the respective function
+    """
+
     with open(database, mode="a", encoding="utf-8", newline="") as analysis:
         fnames = "token_text", "token_pos", "token_dep", "token_id", "sen_no", "oral_literate"
         writer = csv.DictWriter(analysis, fieldnames=fnames)
@@ -254,9 +285,5 @@ def write_to_database(feature, sentence, database):
                  "token_id": sen_word_tag,
                  "sen_no": sen_word_id,
                  "oral_literate": feature
-                 })
-
-if __name__ == "__main__":
-   text="who are you. I am yoô. ... !!! ??? with . "
-   r= sentence_tokenizer(text.split())
-   print(r)
+                 }
+            )
