@@ -1,0 +1,87 @@
+
+ERROR_TIME: 2021-07-26 09:16:39,285
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 401
+ERROR_SCOPE dict contains fields not in fieldnames: 'sentence:'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 385, in extract_xml_text
+    save_sentences(collective_results,"hope.csv")
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\auxiliary_functions.py", line 179, in save_sentences
+    writer.writerow(
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\csv.py", line 154, in writerow
+    return self.writer.writerow(self._dict_to_list(rowdict))
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\csv.py", line 149, in _dict_to_list
+    raise ValueError("dict contains fields not in fieldnames: "
+ValueError: dict contains fields not in fieldnames: 'sentence:'
+
+ERROR_TIME: 2021-07-26 09:16:45,420
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 401
+ERROR_SCOPE invalid literal for int() with base 10: '0,9'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 370, in extract_xml_text
+    start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
+ValueError: invalid literal for int() with base 10: '0,9'
+
+ERROR_TIME: 2021-07-26 09:33:53,528
+FILE_NAME: auxiliary_functions.py
+MODULE: auxiliary_functions
+                        
+LINE_NO: 234
+ERROR_SCOPE local variable 'print' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\auxiliary_functions.py", line 231, in sub_menu
+    return options_func_dict()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 329, in extract_xml_text
+    print(num, corpus)
+UnboundLocalError: local variable 'print' referenced before assignment
+
+ERROR_TIME: 2021-07-26 09:34:00,276
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 699
+ERROR_SCOPE 'function' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 694, in run_program
+    tagged = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 470, in spacy_tagger
+    for key in corpus_content:
+TypeError: 'function' object is not iterable
+
+ERROR_TIME: 2021-07-26 09:35:50,415
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 410
+ERROR_SCOPE 'NoneType' object has no attribute 'getText'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 402, in extract_xml_text
+    corpus_text = soup.find("post", {"xml:id": xml_tag_id[i]}).getText().strip().split()
+AttributeError: 'NoneType' object has no attribute 'getText'
+
+ERROR_TIME: 2021-07-26 09:37:48,494
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 410
+ERROR_SCOPE 'NoneType' object has no attribute 'getText'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 402, in extract_xml_text
+    corpus_text = soup.find("post", {"xml:id": xml_tag_id[i]}).getText().strip().split()
+AttributeError: 'NoneType' object has no attribute 'getText'
+
+ERROR_TIME: 2021-07-26 09:40:51,211
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 410
+ERROR_SCOPE 'NoneType' object has no attribute 'getText'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 402, in extract_xml_text
+    corpus_text = soup.find("post", {"xml:id": xml_tag_id[i]}).getText().strip().split()
+AttributeError: 'NoneType' object has no attribute 'getText'

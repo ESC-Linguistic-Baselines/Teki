@@ -3,14 +3,15 @@
 #########################
 # Importing standard python libraries
 #########################
-from datetime import datetime
-import timeit
-import importlib
-import os
-import sys
 import csv
 import json
+import importlib
 import logging
+import os
+import sys
+import timeit
+
+from datetime import datetime
 
 if __name__ == "__main__":
     '''
@@ -45,11 +46,12 @@ def continue_program(*args):
     This function acts as a prompt for the user.
     They can choose to either continue with the program or exit.
 
-    Parameters:
-        It can take as many string arguments as necessary.
+    :param
+        :type str
+            '*args': It can take as many string arguments as necessary.
 
-    Returns:
-        None
+    :return
+       :rtype None
     """
 
     # Displays the error prompt messages.
@@ -91,13 +93,20 @@ def missing_files(file_list, path):
     This checks to see if all of the necessary files
     are available so that the program can start and be stable.
 
-    Parameters:
-        'file_list': list of the files which should be available
-        'path': name of the folder from which the file names are retrieved.
-    Returns:
-        if file names are missing, then the missing files are return.
-        Otherwise, false is returned
-        false is the ideal value because it means that all files were found.
+    :param
+        :type str
+            'file_list': list of the files which should be available
+
+        :type str
+            'path': name of the folder from which the file names are retrieved.
+
+    :return
+        :rtype list
+            'missing':  a list of the missing files
+
+        :rtype  False
+            This means that no files are missing.
+
     """
     # the missing files are stored here
     missing = list()
@@ -115,10 +124,11 @@ def missing_files(file_list, path):
     else:
         return False
 
-
 #########################
 # Importing pip libraries
 #########################
+
+
 """
 The libraries are iteratively imported. 
 The libraries that are missing will be saved in a list 
@@ -133,6 +143,12 @@ for lib in pip_lib:
         globals()[lib] = importlib.import_module(lib)
     except ModuleNotFoundError as error:
         missing_libraries.append(lib)
+
+"""
+Libraries from the modules are imported. 
+If they cannot be imported, then the program will shut down. 
+"""
+
 try:
     from spacy.lang.fr import French
     from spacy.tokenizer import Tokenizer
@@ -140,48 +156,44 @@ try:
 except Exception as error:
     print("It seems that some pip modules could not be imported. Please check the log file.")
     logging.exception(f" pip module import': is due to '{error})'")
+    sys.exit()
 
 #########################
 # Importing custom files and modules
 #########################
 """
-A program-wide check is performed. 
+A program-wide check is performed for the necessary files . 
 The program can still be started if any of the necessary files are missing, 
 but the program stability will be greatly compromised. 
 """
 
-# Necessary file names stored in json format
+# Necessary file names stored in json format in the main  app directory
 data = open("app_resource_files.json", mode="r", encoding="utf-8")
 necessary_files = json.load(data)
 
 if os.path.exists("app_resources"):
-    """
-    this checks for the existence of the app resource directory
-    and the contents therein.
-    """
 
-    doc_files = missing_files(necessary_files["docs"],
-                                      "app_resources/app_content_docs")
-    dev_files = missing_files(necessary_files["dev"],
-                                      "app_resources/app_dev/dev_files")
-    test_files = missing_files(necessary_files["test"],
-                                       "app_resources/app_test/test_files")
-    compressed_repository = missing_files(necessary_files["compressed"],
-                                                  "app_resources/app_compressed_data")
+    # This checks for the existence of the app resource directory and the contents therein.
+    doc_files = missing_files(necessary_files["docs"], "app_resources/app_content_docs")
+    dev_files = missing_files(necessary_files["dev"],  "app_resources/app_dev/dev_files")
+    test_files = missing_files(necessary_files["test"], "app_resources/app_test/test_files")
+    compressed_repository = missing_files(necessary_files["compressed"], "app_resources/app_compressed_data")
 
     #  This lets the program know if files are missing.
     core_files = dev_files, doc_files, test_files, compressed_repository
     core_file_missing = sum([bool(i) for i in core_files])
 
     try:
-        from app_resources.auxilary_functions import (
-            program_description,
+        # importing custom modules from the auxiliary functions file
+        from app_resources.auxiliary_functions import (
             author_information,
-            menu,
             clear_log,
+            end_program,
             file_finder,
+            sub_menu,
+            program_description,
+            save_sentences,
             sentence_tokenizer,
-            program_end,
             write_to_database)
 
     except Exception as error:
@@ -200,12 +212,20 @@ else:
 def get_text(document):
 
     """
-    function description
+    This functions reads in a text file. This file is either the default file
+    or it is the file that has been dynamically specified by the user.
+    The check is done by looking for the .xml ending in the program file.
 
+    :param
+       :type str 'document':
+            a path to the desired document file.
 
-    input:
+    :return
+        :rtype <class 'bs4.BeautifulSoup>
+        'soup': if the user chooses an xml-file, then a beautiful object is returned
 
-
+        :rtype str
+            'text': if the user chooses anything else other than .xml file
 
     Returns
     """
@@ -223,120 +243,169 @@ def get_text(document):
 
 def get_database():
     """
-    function description
+    This function retrieves the designated database file that is saved in an .csv file
+    The database should have the following format for it to be properly processed.
+    Word, POS, Dep, Sentence number, Corpus Tag, Feature, Tag
+    corrélés,VERB,acl:relcl,SEN:2,cmr-wiki-c001-a1,LIT
 
+    :param
+        There are no parameters.
 
-    input:
-
-
-
-    Returns
+    :return
+        :rtype str
+            'database' is  the path name of the database.
     """
 
+    # It retrieves the file by invoking the function file_finder from auxiliary_functions.py
     database = file_finder()
 
     return database
 
 
-def analyze_content(text_object):
+def analyze_content(text):
 
     """
-    function description
+    This function has the main function of returning the results of the sub-functions.
+    it is therefore more of a container of sorts.
 
+    :param
+        :type str
+            'text' is the the data from the get_text function.
 
-    input:
+    :return
+        :rtype
 
-
-
-    Returns
     """
 
     def read_contents():
 
         """
-        function description
+        This function only reads the text data. After the text data has been read,
+        the user will be forwarded to the main menu.
+
+        :param
+            There are no parameters.
+
+        :return
+            :rtype None
+        """
+
+        print(text)
+        input("\nPlease press enter to continue to the main menu.")
 
 
-        input:
+    def extract_xml_text():
+        """
+        This function automatically extracts textual information from
+        the .xml files that are located in the app resource directory.
+        It is theoretically possible for it to work with any file that has
+        a corresponding .xml format.
+
+        However, since the function has been written specifically with those files in mind,
+        the respective lines would have to be changed in order for it to accommodate other .xml files
+
+
+        :param:
+            There are no parameters as it has access the necessary data which
+            is within the scope of this function.
 
 
 
         Returns
         """
-
-        print(text_object)
-        input("\nPlease press enter to continue to the main menu")
-
-        return text_object
-
-    def extract_xml():
-        """
-        function description
-
-
-        input:
-
-
-
-        Returns
-        """
-        soup = text_object
-        msg = "The text has been parsed into sentences. Press enter to continue."
+        # renamed to  be consistent with beautiful soup terminology
+        soup = text
 
         while True:
-            corpus = "eBay", "SMS", "Wikiconflict"
-            for num, cor in enumerate(corpus, start=1):
-                print(num, cor)
 
-            corpus_search = input("\nFrom which corpus are you extracting the message?")
+            while True:
+                """
+                The respective directories are listed from which the user may select.
+                The user must input a valid option that is in the range
+                of the corpus length. Once done, the loop will be broken and the user can progress.
+                """
+                corpora = "eBay", "SMS", "Wikiconflict"
+                for num, corpus in enumerate(corpora, start=1):
+                    print(num, corpus)
 
+                corpus_choice = input("\nFrom which corpus are you extracting the information?")
+
+                if corpus_choice.isdigit():
+                    check_choice = int(corpus_choice)
+
+                    if check_choice in list(range(1,4)):
+                        corpus_choice = int(corpus_choice)
+                        break
+                    else:
+                        print(f"{corpus_choice} is not a valid option. Please select a valid option.")
+
+            # xml id tags are only relevant for the .xml corpora as  .txt do not have xml tags.
             xml_tag_id = list()
 
-            if corpus_search == "1":
-                # eBay listing
+            if corpus_choice == 1:   # eBay listing
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
 
-            elif corpus_search in ("2", "3"):
-                # SMS, Wikiconflict
+            elif corpus_choice == 2 or 3:   # SMS, Wikiconflict
                 for tag in soup.select("post"):
                     xml_tag_id.append(tag["xml:id"])
             else:
                 print("You did not enter a valid corpus number.\n")
 
             while True:
-                print(f"There are {len(xml_tag_id)} tags. Please enter a number from 0 - {len(xml_tag_id)}.")
-                corpus_tag_choice = input("Please enter a valid tag: ")
+                print(f"There are {len(xml_tag_id)} tags. Please enter a selection range from 0 - {len(xml_tag_id)}.")
+                print("A range should be specified as follows with a single space between both numbers: start stop.\n")
+                corpus_range_choice = input("Please enter a valid selection: ")
+                print("")
 
                 try:
-                    choice = corpus_tag_choice.split()
-                    start, stop = int(choice[0]), int(choice[1])
+                    """
+                    If the user has entered a valid selection, 
+                    then this range i.e. selection is extracted from the desired corpus. 
+                    The sentences are then parsed using the sentence_tokenizier located in the auxiliary_functions.
+                    It returns the parsed sentences and they are saved together with their respective id in a dictionary.
+                    """
+
+                    corpus_range_choice = corpus_range_choice.split()
+                    start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
                     collective_results = dict()
+                    sentence_count=0
 
-                    if corpus_search == "1":
+                    for i in range(start, stop):
 
-                        for i in range(start, stop):
-
+                        # Extracting the selection and tokenizing it.
+                        if corpus_choice == 1:
                             corpus_text = soup.find("div", id=xml_tag_id[i]).getText().strip().split()
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
-                        input(msg)
-                        return collective_results
 
-                    elif corpus_search in ("2", "3"):
-
-                        for i in range(start, stop):
-
+                        elif corpus_choice == 2 or 3:
                             corpus_text = soup.find("post", {"xml:id": xml_tag_id[i]}).getText().strip().split()
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
 
-                        input(msg)
-                        return collective_results
+                    #  Calculating the total amount of sentences
+                    for sentence in collective_results:
+                        sentence_count+=len(collective_results[sentence])
+
+                    while True:
+                        user = input(f"The text has been parsed into {sentence_count} sentences. Would you like to tag or save the sentences (tag/save): ")
+
+                        if user == "tag":
+                            input("The results will now be tagged. Please press enter to continue with the tagging process.")
+                            return collective_results
+                        elif user == "save":
+                            print("Please select the directory:")
+                            path=file_finder()
+                            save_sentences(collective_results, path)
+                            print(f"The results have been saved in {path}. Press enter to the main menu.")
+                            return False
+                        else:
+                            print(f"{user} that is not a valid option.")
 
                 except Exception as error:
                     logging.exception(error)
-                    print(f"{corpus_tag_choice} is not a valid choice. Please try again.\n")
+                    print(f"{corpus_range_choice} is not a valid selection. Please enter a valid choice.\n")
 
     def extract_text():
 
@@ -351,7 +420,7 @@ def analyze_content(text_object):
         Returns
         """
 
-        tokens = text_object.split()
+        tokens = text.split()
         path_id = input("Enter a unique identifier for this text: ")
 
         results = sentence_tokenizer(tokens)
@@ -366,7 +435,7 @@ def analyze_content(text_object):
         return  collective_results
 
     output_menu = {"read file": read_contents,
-                   "extract and tag": extract_xml,
+                   "extract and tag": extract_xml_text,
                    "extract text and tag": extract_text,
                    "return to menu": lambda: False
                    }
@@ -375,7 +444,7 @@ def analyze_content(text_object):
 
     menu_name = "option menu"
     menu_information = "How would you like to proceed with the file:"
-    mn = menu(output_menu, menu_name, menu_information)
+    mn = sub_menu(output_menu, menu_name, menu_information)
     return mn
 
 
@@ -563,7 +632,7 @@ def run_program(default_doc, default_train):
         "clear log file": clear_log,
         "author information": author_information,
         "program description": program_description,
-        "end program": program_end
+        "end program": end_program
     }
     doc = get_text(default_doc)
     train = default_train
