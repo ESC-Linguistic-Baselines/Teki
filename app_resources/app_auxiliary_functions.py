@@ -22,11 +22,27 @@ class DiscourseAnalysis:
 
     """
 
+    def __init__(self, collective_results_tagged):
+        self.collective_results_tagged = collective_results_tagged
+
+    def redacted_corpus(self):
+        original_corpus = self.collective_results_tagged
+        new_corpus = {key: list() for (key) in self.collective_results_tagged.keys()}
+        remove = "ENSEMBLE", "COTELAC", "bon"
+
+        for sent in original_corpus:
+            corpus_sentence = original_corpus[sent]
+
+            for number, sentence in enumerate(corpus_sentence):
+
+                if sentence[0] not in remove:
+                    new_corpus[sent].append(sentence)
+        return new_corpus
+
     class PosSyntacticalAnalysis:
         """
         This class contains various functions that rely on the syntactical and
         parts of speech tags to analyze the sentences and assign them a feature.
-
         """
 
         def __init__(self, sub_sentences):
@@ -42,6 +58,7 @@ class DiscourseAnalysis:
             word_count = len(self.sub_sentences)
 
             return word_count, sentence
+
 
         def part_of_speech(self):
             """
@@ -81,9 +98,7 @@ class DiscourseAnalysis:
             sentence_length = self.sentence_reconstruction()[0]
             pos = self.part_of_speech()
             gram_count = self.pos_grams()
-
             noun_count = gram_count.get("NOUN",0)+gram_count.get("PROPN",0)
-
             verb_count = gram_count.get("VERB", 0)
 
             instance_one = (
@@ -106,6 +121,9 @@ class DiscourseAnalysis:
         def reconstruct(self):
             sentence = " ".join([word[0] for word in self.sub_sentences])
             return sentence,  len(self.sub_sentences)
+
+        def feature_assignment(self):
+            pass
 
 #########################
 # auxiliary functions
@@ -206,9 +224,6 @@ def end_program():
 
 def evaluation():
 
-    def hello():
-        print("Hello")
-
     def evaluate_sentence_tokenizer():
         pass
 
@@ -221,17 +236,17 @@ def evaluation():
     def evaluation_spacy_tokenizer():
         pass
 
-    def cross_validation():
-        pass
-
     # This is the dynamic menu that the user has access during this function
-    output_menu = {"read file contents": hello,
+    output_menu = {"evaluate sentence sentence_tokenizer": evaluate_sentence_tokenizer,
+                   "evaluate naive bayes": evaluate_naive_bayes,
+                   "evaluation spacy tagger":evaluation_spacy_tagger,
+                   "evaluation spacy sentence_tokenizer": evaluation_spacy_tokenizer,
                    "return to menu": lambda: False
                    }
 
     # Submenu parameters
     menu_name = "Evaluation Menu"
-    menu_information = "How would you like to proceed with the file:"
+    menu_information = "Which files would you like to evaluate:"
     sub_menu(output_menu, menu_name, menu_information)
 
 
@@ -447,7 +462,7 @@ def write_to_database(feature, sentence, database):
             returns the value of the respective function
     """
 
-    with open(database, mode="a", encoding="utf-8", newline="") as analysis:
+    with open(database, mode="a+", encoding="utf-8", newline="") as analysis:
         fnames = "token_text", "token_pos", "token_dep", "token_id", "sen_no", "oral_literate"
         writer = csv.DictWriter(analysis, fieldnames=fnames)
 

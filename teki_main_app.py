@@ -127,15 +127,13 @@ def missing_files(file_list, path):
 #########################
 """
 The libraries are iteratively imported. 
-The libraries that are missing will be saved in a list 
-that will be referenced against later.
+The libraries that are missing will be saved in a list  that will be referenced against later.
 """
 
 missing_libraries = []
 pip_lib = "bs4", "spacy", "lxml"
 
 for lib in pip_lib:
-    # Iteratively loads the libraries using importlib
     try:
         globals()[lib] = importlib.import_module(lib)
     except ModuleNotFoundError as error:
@@ -144,7 +142,7 @@ for lib in pip_lib:
 
 """
 Libraries from the modules are imported. 
-If they cannot be imported, then the program will shut down. 
+If they cannot be imported, then the program will shut down automatically. 
 """
 
 try:
@@ -514,8 +512,8 @@ def spacy_tagger(corpus_content):
     print("The duration will depend on your system  resources and the number of sentences being tagged.")
     print("Please wait...\n")
 
-    collective_results_tagged = dict()
     nlp = spacy.load("fr_core_news_sm")
+    collective_results_tagged = dict()
 
     for sent in corpus_content:
 
@@ -541,9 +539,10 @@ def spacy_tagger(corpus_content):
     return collective_results_tagged
 
 
-def sentence_identification(collective_results_tagged, database):
+def sentence_identification(collective_results_tagged, database, system_evaluation):
     """
     This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence.
+    If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system results can be compared.
 
     :parameter
         :type dict
@@ -560,10 +559,31 @@ def sentence_identification(collective_results_tagged, database):
     # pickle_data=open("pickle_data.pickle","wb")
     # pickle.dump(collective_results_tagged, pickle_data)
 
-    for sentences in collective_results_tagged:
-        sub_sentences = collective_results_tagged[sentences]
-        check = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
-        write_to_database(check.feature_assignment(), sub_sentences, database)
+    current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
+    system_file = f"app_resources/app_dev/dev_results/naive_bayes/system_{current_time}.csv"
+    gold_file = f"app_resources/app_dev/dev_results/naive_bayes/gold_{current_time}.csv"
+
+    if system_evaluation:
+        redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
+
+        # System results
+        for corpus_sentence in redacted_corpus:
+            sub_sentences = redacted_corpus[corpus_sentence]
+            sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+            write_to_database(sentence.feature_assignment(), sub_sentences, system_file)
+
+        # Gold results
+        for corpus_sentence in collective_results_tagged:
+            sub_sentences = collective_results_tagged[corpus_sentence]
+            sentence = DiscourseAnalysis.TokenAnalysis(sub_sentences)
+            write_to_database(sentence.feature_assignment(), sub_sentences, gold_file)
+
+    else:
+        # System Results
+        for corpus_sentence in collective_results_tagged:
+            sub_sentences = collective_results_tagged[corpus_sentence]
+            sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+            write_to_database(sentence.feature_assignment(), sub_sentences, database)
 
 
 def get_freq(file):
@@ -755,7 +775,7 @@ def classify_sentence(text, probabilities):
 #########################
 
 
-def run_program(default_doc, default_train):
+def run_program(default_doc, default_train,system_evaluation):
     """
     This function contains all other functions listed within this script. The functions
     can be selected
@@ -793,6 +813,10 @@ def run_program(default_doc, default_train):
     # default data files
     doc = get_text(default_doc)
     database = default_train
+
+    if system_evaluation:
+        print("You are currently running the system in evaluation mode.")
+        print("To turn this function off, please set system_evaluation to 'False'.\n")
 
     print("You are currently using the default files:\n")
     print(f"Default Text: '{default_doc}'")
@@ -855,7 +879,7 @@ def run_program(default_doc, default_train):
                             if content:
                                 #  Other functions will be carried out if bool(content) is True
                                 collective_results_tagged = spacy_tagger(content)
-                                sentence_identification(collective_results_tagged, database)
+                                sentence_identification(collective_results_tagged, database, system_evaluation)
 
                         except Exception as error:
                             print(f"An unknown error occurred. {main_message}")
@@ -867,7 +891,7 @@ def run_program(default_doc, default_train):
                         text = "a seat at the bar which serves up surprisingly"
                         freq = get_freq(database)
                         probs = get_probs(freq)
-                        classifier = classify_sentence(text.split(), probs)
+                        classify_sentence(text.split(), probs)
 
                     elif function_name == "clear_log":
                         clear_log('app_resources/app_content_docs/teki_error.log')
@@ -896,15 +920,16 @@ if __name__ == "__main__":
     if all of the main libraries have been installed.  This can be overridden by the user, 
     but it is not advised as it can lead to the program becoming unstable.  
     """
+    system_evaluation = True
     try:
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
         default_train = r"app_resources/app_databases/dev_training.csv"
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
-            run_program(default_doc, default_train)
+            run_program(default_doc, default_train,system_evaluation)
         else:
             message = "An error has occurred because either files or directories are missing."
             continue_program(message)
-            run_program(default_doc, default_train)
+            run_program(default_doc, default_train,system_evaluation)
 
     except Exception as error:
         print("An unexpected error occurred. Please check the error log.")
