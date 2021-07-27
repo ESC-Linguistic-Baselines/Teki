@@ -1,15 +1,23 @@
-# Téki <font size="5">A Naïve Bayesian Chat Discourse Analyzer</font> 
- [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
- ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+# Téki  A Naïve Bayesian French Discourse Analyzer
+
+ ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
+ ![Project Size](https://img.shields.io/badge/Project_Size-25mb-yellow)
+![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 
 ___
 
-Teki is an naive baysian classifier that is used to tag french chat data according their orality and literacy. 
+Teki is a naive baysian classifier that is used to tag french chat data according their orality and literacy. 
  
 ## Academic Formalities
-* Titel: From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Literate and
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+Titel:  From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Literate and
 Oral Discourse in Nonstandard French Language Data
+
 * Kurs: Schriftliche Hausarbeit für die Bachelorprüfung der Fakultät für Philologie
 an der Ruhr-Universität Bochum (Gemeinsame Prüfungsordnung für das Bachelor/Master-Studium
 im Rahmen des 2-Fach-Modells an der RUB vom 03. November 2016)
@@ -41,10 +49,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 _____
-# Requierments 
+# Requirements 
 
 ## Python version
-This program was created and designed with **python 3.9.1** in mined. Therefore, that is the recommended version.
+This program was created and designed with **python 3.9.6** in mind. Therefore, that is the recommended version.
 It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed. 
 
 ## Pip modules
