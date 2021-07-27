@@ -3,7 +3,7 @@ import spacy
 def get_text(file):
     data=dict()
     nlp = spacy.load("en_core_web_sm")
-    with open(file, mode="r", encoding="utf-8") as text_file,open("../app_resources/app_databases/new_cl_2_updated.csv", mode="w", encoding="utf-8") as res:
+    with open(file, mode="r", encoding="utf-8") as text_file,open("../app_resources/app_databases/dev_training.csv", mode="w", encoding="utf-8") as res:
         for line in enumerate(text_file):
            sen=line[1].split()[:-1]
            doc=nlp(" ".join(sen))

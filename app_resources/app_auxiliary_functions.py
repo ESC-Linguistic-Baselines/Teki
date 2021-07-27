@@ -10,10 +10,108 @@ import json
 import logging
 import re
 from tkinter import filedialog, Tk
+import bs4
+
+#########################
+# Auxiliary Classes
+#########################
+
+
+class DiscourseAnalysis:
+    """
+
+    """
+
+    class PosSyntacticalAnalysis:
+        """
+        This class contains various functions that rely on the syntactical and
+        parts of speech tags to analyze the sentences and assign them a feature.
+
+        """
+
+        def __init__(self, sub_sentences):
+            self.sub_sentences = sub_sentences
+
+        def sentence_reconstruction(self):
+            """
+
+            :return:
+            """
+
+            sentence = " ".join([word[0] for word in self.sub_sentences])
+            word_count = len(self.sub_sentences)
+
+            return word_count, sentence
+
+        def part_of_speech(self):
+            """
+
+            :return:
+            """
+            pos = [word[1] for word in self.sub_sentences]
+            return pos
+
+        def pos_grams(self):
+            """
+
+            :return:
+            """
+
+            gram_count = dict()
+
+            pos = self.part_of_speech()
+            for i in range(len(pos) - 1):
+                gram=pos[i], pos[i+1]
+
+                gram_count[gram] = gram_count.get(gram,0)+1
+
+            for i in range(len(pos)):
+                gram = pos[i]
+                gram_count[gram] = gram_count.get(gram, 0) + 1
+
+            return gram_count
+
+        def feature_assignment(self):
+            """
+
+            :return:
+            """
+
+            sentence = self.sentence_reconstruction()[1]
+            sentence_length = self.sentence_reconstruction()[0]
+            pos = self.part_of_speech()
+            gram_count = self.pos_grams()
+
+            noun_count = gram_count.get("NOUN",0)+gram_count.get("PROPN",0)
+
+            verb_count = gram_count.get("VERB", 0)
+
+            instance_one = (
+                    sentence_length < 8,
+                    noun_count > verb_count,
+                    "a" == "b"
+                    )
+
+            if instance_one.count(True) > instance_one.count(False):
+                return "ORAL"
+
+            else:
+                return "UNKNOWN"
+
+    class TokenAnalysis:
+
+        def __init__(self, sub_sentences):
+            self.sub_sentences = sub_sentences
+
+        def reconstruct(self):
+            sentence = " ".join([word[0] for word in self.sub_sentences])
+            return sentence,  len(self.sub_sentences)
 
 #########################
 # auxiliary functions
 #########################
+
+
 error_log = 'app_resources/app_content_docs/teki_error.log'
 
 
@@ -105,6 +203,7 @@ def end_program():
             input("Press enter to continue...")
             break
 
+
 def evaluation():
 
     def hello():
@@ -133,7 +232,57 @@ def evaluation():
     # Submenu parameters
     menu_name = "Evaluation Menu"
     menu_information = "How would you like to proceed with the file:"
-    menu = sub_menu(output_menu, menu_name, menu_information)
+    sub_menu(output_menu, menu_name, menu_information)
+
+
+def feature_extraction():
+    """
+        This function is for extracting features based on their tags from the respective corpora.
+
+    :param
+        There are no parameters as it has access to the necessary data which
+
+     :return
+        :rtype None
+        The data is written to the respective files
+    """
+
+    document = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\dev_files\sms_0_29507.xml"
+    outfile = "emoticons.csv"
+    corpus = "SMS"
+    text = ""
+    # SMS files
+    with open(document, mode="r", encoding="utf-8") as in_file, open(outfile, mode="a+", encoding="utf-8", newline="") as out_file:
+        soup = bs4.BeautifulSoup(in_file, "lxml")
+        fieldnames = "token", "type", "token_tag"
+        csv_writer = csv.DictWriter(out_file, fieldnames=fieldnames)
+        tag_results = dict()
+
+        if corpus == "SMS":
+            for element in soup.find_all("distinct", type="emoticon"):
+                emoticon = element.getText()
+                tag_results[emoticon] = tag_results.get(emoticon, 0)+1
+
+            for emo in sorted(tag_results, key=tag_results.get, reverse=False):
+                csv_writer.writerow({
+                    "token": emo,
+                    "type": "emoticon",
+                    "token_tag": "sms_0_29507",
+                })
+
+        # Ebay Corpus
+        else:
+            tag = ("bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc", "imp", "att", "acc", "ann", "con", "info", "lex", "ort", "slo", "syn")
+
+            for t in sorted(tag):
+                types = {" ".join(element.getText().split()) for element in soup.find_all(t)}
+                for element in types:
+                    print(bool(types))
+                    csv_writer.writerow({
+                        "token": element,
+                        "type": t,
+                        "token_tag": text
+                    })
 
 
 def file_finder():
@@ -318,5 +467,7 @@ def write_to_database(feature, sentence, database):
                  "oral_literate": feature
                  }
             )
+
+
 if __name__ == "__main__":
-    dependency_generate()
+    pass

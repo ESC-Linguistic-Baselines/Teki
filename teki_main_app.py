@@ -8,6 +8,7 @@ import json
 import importlib
 import logging
 import os
+import pickle
 import sys
 import timeit
 from datetime import datetime
@@ -184,6 +185,7 @@ if os.path.exists("app_resources"):
         from app_resources.app_auxiliary_functions import (
             about_program,
             clear_log,
+            DiscourseAnalysis,
             end_program,
             evaluation,
             file_finder,
@@ -218,22 +220,31 @@ def get_text(document):
 
     :return
         :rtype <class 'bs4.BeautifulSoup>
-        'soup': if the user chooses an xml-file, then a beautiful object is returned
+        'soup': if the user chooses an xml-file, then a beautiful object is returned.
 
         :rtype str
-            'text': if the user chooses anything else other than .xml file
+            'csv_data': if the user chooses csv file
+
+        :rtype str
+            'text': if the user chooses anything else other than .xml file or .csv file
 
     Returns
     """
+    name, extension = os.path.splitext(document)
 
-    if ".xml" in document:
-        with open(document, mode="r", encoding="utf-8") as file:
+    with open(document, mode="r", encoding="utf-8") as file:
+
+        if extension == ".xml":
             soup = bs4.BeautifulSoup(file, "lxml")
             return soup
 
-    else:
-        with open(document, mode="r", encoding="utf-8") as file:
-            text = file.read()
+        elif extension == ".csv":
+            csv_reader = csv.reader(document, delimiter=",")
+            csv_data = [row for row in csv_reader]
+            return csv_data
+
+        else:
+            text = file.readlines()
             return text
 
 
@@ -322,7 +333,8 @@ def analyze_content(text):
             :rtype None
         """
 
-        print(text)
+        for row in text:
+            print(row)
         input("\nPlease press enter to continue to the main menu.")
 
     def xml_analysis():
@@ -531,7 +543,7 @@ def spacy_tagger(corpus_content):
 
 def sentence_identification(collective_results_tagged, database):
     """
-    This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence
+    This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence.
 
     :parameter
         :type dict
@@ -545,10 +557,13 @@ def sentence_identification(collective_results_tagged, database):
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
+    # pickle_data=open("pickle_data.pickle","wb")
+    # pickle.dump(collective_results_tagged, pickle_data)
 
     for sentences in collective_results_tagged:
         sub_sentences = collective_results_tagged[sentences]
-        write_to_database("ORAL", sub_sentences, database)
+        check = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+        write_to_database(check.feature_assignment(), sub_sentences, database)
 
 
 def get_freq(file):
@@ -730,9 +745,10 @@ def classify_sentence(text, probabilities):
     if feat_2_total_prob > feat_1_total_prob:
         print(f" '{text} 'is literal {feat_2_total_prob}")
     else:
-        print(f" '{text}' is oral {feat_1_total_prob}")
+        print(f" '{text}' is oral_doc.csv {feat_1_total_prob}")
 
     input("Please press enter to return to the main menu.")
+
 
 #########################
 # Main program
@@ -882,7 +898,7 @@ if __name__ == "__main__":
     """
     try:
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
-        default_train = r"app_resources/app_databases/new_cl_2_updated.csv"
+        default_train = r"app_resources/app_databases/dev_training.csv"
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train)
         else:

@@ -1,4 +1,4 @@
-# Téki  A Naïve Bayesian French Discourse Analyzer
+# Téki:  A Naïve Bayesian French Discourse Analyzer
 
  ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
  ![Project Size](https://img.shields.io/badge/Project_Size-25mb-yellow)
