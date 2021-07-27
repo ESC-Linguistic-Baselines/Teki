@@ -1,0 +1,11 @@
+
+ERROR_TIME: 2021-07-27 20:10:41,905
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 440
+ERROR_SCOPE xml_analysis error due to: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 416, in xml_analysis
+    start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
+IndexError: list index out of range

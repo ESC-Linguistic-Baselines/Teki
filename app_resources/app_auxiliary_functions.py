@@ -12,6 +12,7 @@ import re
 from tkinter import filedialog, Tk
 import bs4
 
+
 #########################
 # Auxiliary Classes
 #########################
@@ -27,17 +28,32 @@ class DiscourseAnalysis:
 
     def redacted_corpus(self):
         original_corpus = self.collective_results_tagged
+        oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
+        lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
+
+        remove = [element[0] for element in oral_infile]+[element[0] for element in lit_infile]
+
         new_corpus = {key: list() for (key) in self.collective_results_tagged.keys()}
-        remove = "ENSEMBLE", "COTELAC", "bon"
 
         for sent in original_corpus:
             corpus_sentence = original_corpus[sent]
 
             for number, sentence in enumerate(corpus_sentence):
-
                 if sentence[0] not in remove:
                     new_corpus[sent].append(sentence)
+
         return new_corpus
+
+    @staticmethod
+    def read_database(infile):
+        csv_data = list()
+
+        with open(infile, mode="r", encoding="utf-8") as file:
+            csv_reader = csv.reader(file, delimiter=",")
+            for row in csv_reader:
+                csv_data.append(row)
+
+        return csv_data
 
     class PosSyntacticalAnalysis:
         """
@@ -59,7 +75,6 @@ class DiscourseAnalysis:
 
             return word_count, sentence
 
-
         def part_of_speech(self):
             """
 
@@ -78,9 +93,9 @@ class DiscourseAnalysis:
 
             pos = self.part_of_speech()
             for i in range(len(pos) - 1):
-                gram=pos[i], pos[i+1]
+                gram = pos[i], pos[i + 1]
 
-                gram_count[gram] = gram_count.get(gram,0)+1
+                gram_count[gram] = gram_count.get(gram, 0) + 1
 
             for i in range(len(pos)):
                 gram = pos[i]
@@ -98,14 +113,14 @@ class DiscourseAnalysis:
             sentence_length = self.sentence_reconstruction()[0]
             pos = self.part_of_speech()
             gram_count = self.pos_grams()
-            noun_count = gram_count.get("NOUN",0)+gram_count.get("PROPN",0)
+            noun_count = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
             verb_count = gram_count.get("VERB", 0)
 
             instance_one = (
-                    sentence_length < 8,
-                    noun_count > verb_count,
-                    "a" == "b"
-                    )
+                sentence_length < 8,
+                noun_count > verb_count,
+                "a" == "b"
+            )
 
             if instance_one.count(True) > instance_one.count(False):
                 return "ORAL"
@@ -118,12 +133,32 @@ class DiscourseAnalysis:
         def __init__(self, sub_sentences):
             self.sub_sentences = sub_sentences
 
+
         def reconstruct(self):
             sentence = " ".join([word[0] for word in self.sub_sentences])
-            return sentence,  len(self.sub_sentences)
+            return sentence, len(self.sub_sentences)
 
         def feature_assignment(self):
-            pass
+            oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
+            lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
+
+            feat_1_count=0
+            feat_2_count = 0
+
+            for element in self.sub_sentences:
+                for item in oral_infile:
+                    if element[0]==item[0]:
+                        feat_1_count+=1
+
+            for element in self.sub_sentences:
+                for item in lit_infile:
+                    if element[0] == item[0]:
+                        feat_1_count += 1
+
+            if feat_1_count > feat_2_count:
+                return "ORAL"
+            else:
+                return "LIT"
 
 #########################
 # auxiliary functions
@@ -178,11 +213,11 @@ def dependency_generate():
         :rtype None
         There is no object, but a file is created that is placed in the main directory
     """
-    app_compressed_data = os.listdir(os.getcwd()+"\\app_compressed_data")
-    app_dev = os.listdir(os.getcwd()+"\\app_dev\\dev_files")
-    app_test = os.listdir(os.getcwd()+"\\app_test\\app_test")
-    app_train= os.listdir(os.getcwd()+"\\app_dev_train\\app_train")
-    compressed_data = os.listdir(os.getcwd()+"\\app_compressed_data")
+    app_compressed_data = os.listdir(os.getcwd() + "\\app_compressed_data")
+    app_dev = os.listdir(os.getcwd() + "\\app_dev\\dev_files")
+    app_test = os.listdir(os.getcwd() + "\\app_test\\app_test")
+    app_train = os.listdir(os.getcwd() + "\\app_dev_train\\app_train")
+    compressed_data = os.listdir(os.getcwd() + "\\app_compressed_data")
 
     files = {
         "app_compressed_data": app_compressed_data,
@@ -190,7 +225,7 @@ def dependency_generate():
         "app_test": app_test,
         "compressed_data": compressed_data,
         "app_train": app_train,
-        }
+    }
 
     out = "teki_resource_list.json"
     out_file = open(out, "w+")
@@ -223,7 +258,6 @@ def end_program():
 
 
 def evaluation():
-
     def evaluate_sentence_tokenizer():
         pass
 
@@ -239,7 +273,7 @@ def evaluation():
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate sentence sentence_tokenizer": evaluate_sentence_tokenizer,
                    "evaluate naive bayes": evaluate_naive_bayes,
-                   "evaluation spacy tagger":evaluation_spacy_tagger,
+                   "evaluation spacy tagger": evaluation_spacy_tagger,
                    "evaluation spacy sentence_tokenizer": evaluation_spacy_tokenizer,
                    "return to menu": lambda: False
                    }
@@ -267,7 +301,8 @@ def feature_extraction():
     corpus = "SMS"
     text = ""
     # SMS files
-    with open(document, mode="r", encoding="utf-8") as in_file, open(outfile, mode="a+", encoding="utf-8", newline="") as out_file:
+    with open(document, mode="r", encoding="utf-8") as in_file, open(outfile, mode="a+", encoding="utf-8",
+                                                                     newline="") as out_file:
         soup = bs4.BeautifulSoup(in_file, "lxml")
         fieldnames = "token", "type", "token_tag"
         csv_writer = csv.DictWriter(out_file, fieldnames=fieldnames)
@@ -276,7 +311,7 @@ def feature_extraction():
         if corpus == "SMS":
             for element in soup.find_all("distinct", type="emoticon"):
                 emoticon = element.getText()
-                tag_results[emoticon] = tag_results.get(emoticon, 0)+1
+                tag_results[emoticon] = tag_results.get(emoticon, 0) + 1
 
             for emo in sorted(tag_results, key=tag_results.get, reverse=False):
                 csv_writer.writerow({
