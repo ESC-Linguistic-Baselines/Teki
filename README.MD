@@ -1,8 +1,12 @@
-# Téki <font size="5">A Naïve Bayesian Chat Discourse Analyzer</font>
-
-Teki is an naive baysian classifier that is used to tag french chat data according their orality and literacy. 
+# Téki <font size="5">A Naïve Bayesian Chat Discourse Analyzer</font> 
+ [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+ ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
 ___
+
+Teki is an naive baysian classifier that is used to tag french chat data according their orality and literacy. 
+ 
 ## Academic Formalities
 * Titel: From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Literate and
 Oral Discourse in Nonstandard French Language Data
