@@ -19,6 +19,9 @@ import bs4
 
 
 class DiscourseAnalysis:
+    """
+
+    """
 
     def __init__(self, collective_results_tagged):
         self.collective_results_tagged = collective_results_tagged
@@ -28,7 +31,7 @@ class DiscourseAnalysis:
         oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
         lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
 
-        remove = [element[0] for element in oral_infile] + [element[0] for element in lit_infile]
+        remove = [element[0] for element in oral_infile]+[element[0] for element in lit_infile]
 
         new_corpus = {key: list() for (key) in self.collective_results_tagged.keys()}
 
@@ -66,12 +69,11 @@ class DiscourseAnalysis:
 
             :return:
             """
-            tag = self.sub_sentences[1][3]
-            print(tag)
+
             sentence = " ".join([word[0] for word in self.sub_sentences])
             word_count = len(self.sub_sentences)
 
-            return word_count, sentence, tag
+            return word_count, sentence
 
         def part_of_speech(self):
             """
@@ -106,8 +108,9 @@ class DiscourseAnalysis:
 
             :return:
             """
-            sentence_length = self.sentence_reconstruction()[0]
+
             sentence = self.sentence_reconstruction()[1]
+            sentence_length = self.sentence_reconstruction()[0]
             pos = self.part_of_speech()
             gram_count = self.pos_grams()
             noun_count = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
@@ -138,7 +141,8 @@ class DiscourseAnalysis:
             oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
             lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
 
-            feat_1_count, feat_2_count = 0, 0
+            feat_1_count = 0
+            feat_2_count = 0
 
             for element in self.sub_sentences:
                 for item in oral_infile:
@@ -154,7 +158,6 @@ class DiscourseAnalysis:
                 return "ORAL"
             else:
                 return "LIT"
-
 
 #########################
 # auxiliary functions
@@ -254,11 +257,66 @@ def end_program():
 
 
 def evaluation():
+
+    # Reference files
+    gold_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.txt"
+    system_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.txt"
+
+    gold = open(gold_file, mode="r", encoding="utf-8")
+    system= open(system_file, mode="r",encoding="utf-8")
+    csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","), csv.reader(system, delimiter=",")
+
+    gold_results = dict()
+    system_results = dict()
+
     def evaluate_sentence_tokenizer():
-        pass
+
+        true_positive = 0
+        false_positive = 0
+        false_negative = 0
+        true_negative = 0
+
+        for row in csv_gold_reader:
+            gold_results[row[1]] = gold_results.get(row[1], 0)+1
+
+        print(gold_results)
 
     def evaluate_naive_bayes():
-        pass
+
+        feat_1 = "ORAL"
+        feat_2 = "LIT"
+
+        true_positive = 0
+        false_positive = 0
+        false_negative = 0
+        true_negative = 0
+
+        for row in csv_gold_reader:
+            key = row[3] + row[4]
+            value = row[5]
+            gold_results[key] = value
+
+        for row in csv_system_reader:
+            key = row[3] + row[4]
+            system_results[key] = row[5]
+
+        for i in gold_results:
+            gold_res = gold_results[i]
+            sys_res = system_results[i]
+
+            if gold_res == feat_1 and sys_res == feat_1:
+                true_positive += 1
+
+            elif gold_res != feat_1 and sys_res != feat_1:
+                true_negative += 1
+
+            elif gold_res != feat_1 and sys_res == feat_2:
+                false_positive += 1
+
+            elif gold_res == feat_1 and sys_res != feat_2:
+                false_negative += 1
+
+        results = {"TP": true_positive, "FP": false_positive, "FN": false_negative, "TN": true_negative}
 
     def evaluation_spacy_tagger():
         pass
@@ -318,9 +376,7 @@ def feature_extraction():
 
         # Ebay Corpus
         else:
-            tag = (
-            "bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc", "imp", "att", "acc", "ann", "con", "info", "lex",
-            "ort", "slo", "syn")
+            tag = ("bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc", "imp", "att", "acc", "ann", "con", "info", "lex", "ort", "slo", "syn")
 
             for t in sorted(tag):
                 types = {" ".join(element.getText().split()) for element in soup.find_all(t)}
@@ -393,7 +449,7 @@ def sentence_tokenizer(simple_split_tokens):
     return sentence_results
 
 
-def save_sentences(collective_results, file, system_evaluation):
+def save_sentences(collective_results, file):
     """
     this saves the untagged sentences to a desired text file
     :param
@@ -407,26 +463,19 @@ def save_sentences(collective_results, file, system_evaluation):
         :rtype
             returns the value of the respective function
     """
+
     with open(file, mode="a+", encoding="utf-8", newline="") as results:
-        if not system_evaluation:
-            fieldnames = "sentence", "sentence_id"
-            writer = csv.DictWriter(results, fieldnames=fieldnames)
+        fieldnames = "sentence", "sentence_id","SEN:"
+        writer = csv.DictWriter(results, fieldnames=fieldnames)
 
-            for res in collective_results:
-                sentence = collective_results[res]
-                for sen in sentence:
-                    writer.writerow({"sentence": sen,
-                                     "sentence_id": res})
+        for res in collective_results:
+            sentence = collective_results[res]
 
-        else:
-            fieldnames = "sentence", "sentence_id", "sentence_feature"
-            writer = csv.DictWriter(results, fieldnames=fieldnames)
-            feat=collective_results.feature_assignment()[0]
-            sen=collective_results.sentence_reconstruction()[1]
-            tag=collective_results.sentence_reconstruction()[2]
-            writer.writerow({"sentence_feature": feat,
-                                 "sentence": sen,
-                                 "sentence_id": tag})
+            for number, sen in enumerate(sentence):
+                writer.writerow({"sentence": sen,
+                                 "sentence_id": res,
+                                 "SEN:": f"SEN:{number}",
+                                 })
 
 
 def sub_menu(output_menu, menu_name, menu_information):
