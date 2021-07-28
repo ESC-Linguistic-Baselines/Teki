@@ -132,13 +132,21 @@ class DiscourseAnalysis:
             sentence = self.sentence_reconstruction()[1]
 
             sentence_length = len([word for word in sentence] )
-            words , characters = len([word for word in sentence.split()]),len([word for word in sentence])
+            voc = [word for word in sentence.split()]
+            words , characters = len(voc), len([word for word in sentence])
+            word_count=dict()
             avg_word_length = round(words/characters*100)
+
+            for word in voc:
+                word_count[word] = word_count.get(word,0)+1
+
+
 
             # NOUN/PRONOUN/PROPN to VERB Ratio
             np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
             vb = gram_count.get("VERB")
 
+            # orality score
             if np > vb:
                 feat_1_score += 1
 
@@ -148,6 +156,24 @@ class DiscourseAnalysis:
             if avg_word_length > 15:
                 feat_1_score +=1
 
+            # literality score
+
+            if avg_word_length < 10:
+                feat_2_score += 1
+
+            if sentence_length < 15:
+                feat_1_score += 1
+
+            # Short sentences without verbs, high number of pronouns
+            if vb == 0 and sentence_length < 5:
+                feat_2_score +=1
+
+            # Reduplication
+            if (max(word_count.values())) > 1:
+                feat_2_score += 1
+
+
+            print(feat_1_score,feat_2_score)
             return feat_1_score, feat_2_score
 
         def feature_assignment(self):

@@ -555,8 +555,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
-    # pickle_data=open("pickle_data.pickle","wb")
-    # pickle.dump(collective_results_tagged, pickle_data)
+    pickle_data=open("sms_pickle_data.pickle","wb")
+    pickle.dump(collective_results_tagged, pickle_data)
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
     system_file = f"app_resources/app_dev/dev_results/naive_bayes/system_{current_time}.csv"

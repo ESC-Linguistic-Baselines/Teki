@@ -9,11 +9,14 @@ can be found in the documentation.
 ## Language Independent Criteria
 
 ### Lit
-*	High number of pronouns/nouns to  verbs 
-*	Sentences are grammatically correct.
-*	Orthography is correct
-*	The sentences are usually very long.
-*	Longer word length 
+As a shorthand, nouns will refer to all variations e.g. proper nouns, pronouns, etc. 
+
+*	High number of nouns to verbs.
+*	High level of sentence grammatically:
+     * Orthography
+     * Congruency with respect to verbs and nouns 
+*	Sentence length is relatively long .
+*	Relatively high word length. 
 *	Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
 *	Lower user of contractions
 
