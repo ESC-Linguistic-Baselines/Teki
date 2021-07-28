@@ -267,7 +267,7 @@ def get_database():
     return database
 
 
-def analyze_content(text):
+def analyze_content(text, system_evaluation):
     """
     This function has the main function of returning the results of the sub-functions.
     it is therefore more of a container of sorts.
@@ -282,7 +282,7 @@ def analyze_content(text):
 
     """
 
-    def tag_save(sentence_count, collective_results):
+    def tag_save(sentence_count, collective_results, system_evaluation):
         """
         This function gives the user the option of either tagging their results or
         saving them in a designated file.
@@ -312,7 +312,7 @@ def analyze_content(text):
             elif user == "save":
                 print("Please select the directory:")
                 path = file_finder()
-                save_sentences(collective_results, path)
+                save_sentences(collective_results, path, system_evaluation)
                 input(f"The results have been saved in {path}. Press enter to the main menu.")
                 return False
             else:
@@ -434,7 +434,7 @@ def analyze_content(text):
                     for sentence in collective_results:
                         sentence_count += len(collective_results[sentence])
 
-                    return tag_save(sentence_count, collective_results)
+                    return tag_save(sentence_count, collective_results, system_evaluation)
 
                 except Exception as error:
                     logging.exception(f"xml_analysis error due to: {error}")
@@ -474,7 +474,7 @@ def analyze_content(text):
             path_id = f"{user}_{num}"
             collective_results[path_id] = [sen]
 
-        return tag_save(len(results), collective_results)
+        return tag_save(len(results), collective_results, system_evaluation)
 
     # This is the dynamic menu that the user has access during this function
     output_menu = {"read file contents": read_contents,
@@ -560,8 +560,11 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
     # pickle.dump(collective_results_tagged, pickle_data)
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
-    system_file = f"app_resources/app_dev/dev_results/naive_bayes/system_{current_time}.csv"
-    gold_file = f"app_resources/app_dev/dev_results/naive_bayes/gold_{current_time}.csv"
+    system_training = f"app_resources/app_dev/dev_results/naive_bayes/system_{current_time}.csv"
+    gold_training = f"app_resources/app_dev/dev_results/naive_bayes/gold_{current_time}.csv"
+
+    system_sentences = f"app_resources/app_dev/dev_results/naive_bayes/system_sentences_{current_time}.csv"
+    gold_sentences = f"app_resources/app_dev/dev_results/naive_bayes/gold_sentences_{current_time}.csv"
 
     if system_evaluation:
         redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
@@ -570,13 +573,16 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         for corpus_sentence in redacted_corpus:
             sub_sentences = redacted_corpus[corpus_sentence]
             sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
-            write_to_database(sentence.feature_assignment(), sub_sentences, system_file)
+            feat = sentence.feature_assignment()
+            write_to_database(feat, sub_sentences, system_training)
+            save_sentences(sentence, system_sentences, system_evaluation)
 
         # Gold results
         for corpus_sentence in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence]
             sentence = DiscourseAnalysis.TokenAnalysis(sub_sentences)
-            write_to_database(sentence.feature_assignment(), sub_sentences, gold_file)
+
+            write_to_database(sentence.feature_assignment(), sub_sentences, gold_training)
 
     else:
         # System Results
@@ -775,7 +781,7 @@ def classify_sentence(text, probabilities):
 #########################
 
 
-def run_program(default_doc, default_train,system_evaluation):
+def run_program(default_doc, default_train, system_evaluation):
     """
     This function contains all other functions listed within this script. The functions
     can be selected
@@ -874,7 +880,7 @@ def run_program(default_doc, default_train,system_evaluation):
 
                     elif function_name == "analyze_content":
                         try:
-                            content = analyze_content(doc)
+                            content = analyze_content(doc, system_evaluation)
 
                             if content:
                                 #  Other functions will be carried out if bool(content) is True
@@ -925,11 +931,11 @@ if __name__ == "__main__":
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
         default_train = r"app_resources/app_databases/dev_training.csv"
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
-            run_program(default_doc, default_train,system_evaluation)
+            run_program(default_doc, default_train, system_evaluation)
         else:
             message = "An error has occurred because either files or directories are missing."
             continue_program(message)
-            run_program(default_doc, default_train,system_evaluation)
+            run_program(default_doc, default_train, system_evaluation)
 
     except Exception as error:
         print("An unexpected error occurred. Please check the error log.")
