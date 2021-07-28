@@ -118,7 +118,7 @@ class DiscourseAnalysis:
                 gram = pos[i]
                 gram_count[gram] = gram_count.get(gram, 0) + 1
 
-            return gram_count
+            return gram_count, pos
 
         def calculate_scores(self):
             """
@@ -128,10 +128,11 @@ class DiscourseAnalysis:
 
             feat_1_score, feat_2_score = 0, 0
 
-            gram_count = self.part_of_speech()
+            gram_count = self.part_of_speech()[0]
+            pos= self.part_of_speech()[1]
             sentence = self.sentence_reconstruction()[1]
 
-            sentence_length = len([word for word in sentence] )
+            sentence_length = len([word for word in sentence])
             voc = [word for word in sentence.split()]
             words , characters = len(voc), len([word for word in sentence])
             word_count=dict()
@@ -140,11 +141,12 @@ class DiscourseAnalysis:
             for word in voc:
                 word_count[word] = word_count.get(word,0)+1
 
-
+            #RES
+            score_res=dict()
 
             # NOUN/PRONOUN/PROPN to VERB Ratio
             np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
-            vb = gram_count.get("VERB")
+            vb = gram_count.get("VERB",0)
 
             # orality score
             if np > vb:
@@ -157,7 +159,6 @@ class DiscourseAnalysis:
                 feat_1_score +=1
 
             # literality score
-
             if avg_word_length < 10:
                 feat_2_score += 1
 
@@ -172,8 +173,33 @@ class DiscourseAnalysis:
             if (max(word_count.values())) > 1:
                 feat_2_score += 1
 
+            multi_char = re.compile(r"(.)+\1",re.IGNORECASE)
+            multi_word = re.compile(r"\b(\w+)\s+\1\b",re.IGNORECASE)
+            all_caps = re.compile(r"[A-Z\s]+")
 
-            print(feat_1_score,feat_2_score)
+            #Frequent use of !!!, ???, etc.
+            if gram_count.get("PUNCT",0) >5:
+                feat_2_score += 1
+
+            # Using the same character multiple times
+            if multi_char.findall(sentence):
+                feat_2_score +=1
+
+            # Same words back to back
+            if multi_word.findall(sentence):
+                feat_2_score +=1
+
+            #Emphasis
+            if all_caps.findall(sentence):
+                feat_2_score +=1
+
+            # Isolated verb stems  or imperatives with question marks/exclamation marks
+            if sentence_length < 4 and vb < 1:
+                feat_2_score += 1
+
+            if vb == 0:
+                feat_2_score += 1
+
             return feat_1_score, feat_2_score
 
         def feature_assignment(self):
@@ -184,13 +210,13 @@ class DiscourseAnalysis:
 
             # Returning the results
             if feat_1_score > feat_2_score:
-                return "LIT"
+                return "LIT", feat_1_score, feat_2_score
 
             elif feat_2_score > feat_1_score:
-                return "ORAL"
+                return "ORAL" ,feat_1_score, feat_2_score
 
             else:
-                return "UNK"
+                return "UNK", feat_1_score, feat_2_score
 
     class TokenAnalysis:
 
