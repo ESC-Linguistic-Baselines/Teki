@@ -7,6 +7,7 @@
 
 ___
 
+
 Teki is a naive baysian classifier that is used to tag french chat data according their orality and literacy. 
  
 ## Academic Formalities

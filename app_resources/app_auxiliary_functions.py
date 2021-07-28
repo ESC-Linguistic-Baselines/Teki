@@ -103,6 +103,7 @@ class DiscourseAnalysis:
 
             return gram_count
 
+
         def feature_assignment(self):
             """
 
@@ -125,8 +126,13 @@ class DiscourseAnalysis:
             if instance_one.count(True) > instance_one.count(False):
                 return "ORAL"
 
-            else:
+            elif 1 < 0:
+                return "LIT"
+
+            elif 0>1:
                 return "UNKNOWN"
+
+
 
     class TokenAnalysis:
 
@@ -259,8 +265,8 @@ def end_program():
 def evaluation():
 
     # Reference files
-    gold_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.txt"
-    system_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.txt"
+    gold_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
+    system_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
 
     gold = open(gold_file, mode="r", encoding="utf-8")
     system= open(system_file, mode="r",encoding="utf-8")
@@ -427,7 +433,7 @@ def sentence_tokenizer(simple_split_tokens):
     # regex expression for recognizing sentences
     regex = re.compile(rf'''(?P<sentence_basic>[a-zàâçéèêëîïôûùüÿñæœ]+[.!?])|# single punctutation marks
                             (?P<sentence_punctuatuion>)[*!?.]|
-                            (?P<sentencec_period>)[.·]
+                            (?P<sentence_period>)[.·]
                             ''', re.VERBOSE)
 
     new_tokens, sentence = list(), str()
@@ -465,7 +471,7 @@ def save_sentences(collective_results, file):
     """
 
     with open(file, mode="a+", encoding="utf-8", newline="") as results:
-        fieldnames = "sentence", "sentence_id","SEN:"
+        fieldnames = "sentence", "sentence_id", "SEN:"
         writer = csv.DictWriter(results, fieldnames=fieldnames)
 
         for res in collective_results:

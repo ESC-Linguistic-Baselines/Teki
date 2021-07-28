@@ -1,0 +1,240 @@
+Hey ca va?,cmr-88milsms-a1,SEN:0
+Alors cette rentree?,cmr-88milsms-a1,SEN:1
+Va falloir se trouver un p'tit creneau pour se voir!,cmr-88milsms-a1,SEN:2
+"Dis moi, est-ce que tu sais quand commence les cours de langue non specialiste?",cmr-88milsms-a1,SEN:3
+Bisoux ,cmr-88milsms-a1,SEN:4
+Ok super merci!,cmr-88milsms-a2,SEN:0
+Oui j'y comprends rien du tout moi a cette fac :p J'irai me renseigner aussi ( si j'trouve le batiment :) ) Merci encore!,cmr-88milsms-a2,SEN:1
+Bonne soiree bisoux!,cmr-88milsms-a2,SEN:2
+Coucou !,cmr-88milsms-a3,SEN:0
+C'est quand la feria de Nimes?,cmr-88milsms-a3,SEN:1
+J'suis pas bien sure de la faire mais pourquoi pas!,cmr-88milsms-a3,SEN:2
+"Sinon oui, j'profite de ma derniere semaine de vacance!",cmr-88milsms-a3,SEN:3
+Bon courage!,cmr-88milsms-a3,SEN:4
+Bisoux ,cmr-88milsms-a3,SEN:5
+Coucou :) Oui ca c'est bien passe!,cmr-88milsms-a4,SEN:0
+Alors je sais pas du tout pour jeudi soir...,cmr-88milsms-a4,SEN:1
+Non pas que je veuille pas mais je suis pas sure d'etre sur Montpel.,cmr-88milsms-a4,SEN:2
+J'y serai de sur qu'a partir de lundi prochain car je commence les cours...,cmr-88milsms-a4,SEN:3
+On peut se rejoindre quelque part?,cmr-88milsms-a5,SEN:0
+Tu as cours ou ?,cmr-88milsms-a5,SEN:1
+Encore moi...,cmr-88milsms-a6,SEN:0
+"J'te harcele, oui oui et j'assume :) Juste j'te tiens au courant.",cmr-88milsms-a6,SEN:1
+On sera 4.,cmr-88milsms-a6,SEN:2
+"Toi, [_forename_] , [_forename_] et moi a participer.",cmr-88milsms-a6,SEN:3
+On t'avance?,cmr-88milsms-a6,SEN:4
+"Dis, pour le premier midi on s'fait a manger de nous comme on avait fait y'a deux ans?",cmr-88milsms-a7,SEN:0
+Ou vous allez acheter des trucs pour le samedi midi?,cmr-88milsms-a7,SEN:1
+Biisoux ,cmr-88milsms-a7,SEN:2
+Hey hey !,cmr-88milsms-a8,SEN:0
+J'te souhaite un tres joyeux n'anniversaire!,cmr-88milsms-a8,SEN:1
+Profite bien de ta journee !,cmr-88milsms-a8,SEN:2
+Le [_nickname_] te souhaite aussi un tres joyeux anniv' !,cmr-88milsms-a8,SEN:3
+Bisoux ,cmr-88milsms-a8,SEN:4
+Je suis desolee...,cmr-88milsms-a9,SEN:0
+J'avais pas vu l'heure et pas de portable sur moi...,cmr-88milsms-a9,SEN:1
+Encore desolee...,cmr-88milsms-a9,SEN:2
+Bisoux ,cmr-88milsms-a9,SEN:3
+Ah d'accord.,cmr-88milsms-a10,SEN:0
+Ca me fait vraiment plaisir.,cmr-88milsms-a10,SEN:1
+Merci d'avoir pense a moi!,cmr-88milsms-a10,SEN:2
+Je vous fait des Bisous a vous tous!,cmr-88milsms-a10,SEN:3
+Histoire d'etre sure certaine !,cmr-88milsms-a11,SEN:0
+Demain je commence a 7h30 c'est ca?,cmr-88milsms-a11,SEN:1
+Bisoux ,cmr-88milsms-a11,SEN:2
+Ca y est le truc d'sms commence mdr mon [_nickname_] ,cmr-88milsms-a12,SEN:0
+Coucou!,cmr-88milsms-a13,SEN:0
+T'es pas la alors ce weekend?,cmr-88milsms-a13,SEN:1
+Et es-ce que tu sais si tes parents font quelque chose ce weekend?,cmr-88milsms-a13,SEN:2
+"Parce qu'il y a la journée du patrimoine et plein de monument gratuit, et comme je suis seule, je me serai bien greffée !",cmr-88milsms-a13,SEN:3
+Lol ,cmr-88milsms-a13,SEN:4
+Ca y est ca y est!,cmr-88milsms-a14,SEN:0
+J'ai rempli tout un truc ce matin pour pouvoir avoir le numero etc ,cmr-88milsms-a14,SEN:1
+Ha oui et au fait j'ai mis un bulletin a ton nom et num pour gagner une paire de chaussures lol jtexpliquerai !,cmr-88milsms-a15,SEN:0
+Haha merci beaucoup :).,cmr-88milsms-a16,SEN:0
+Tout se passe bien dans..ma,cmr-88milsms-a16,SEN:1
+chambre u!,cmr-88milsms-a16,SEN:2
+Lol.,cmr-88milsms-a16,SEN:3
+il fait une chaleur pas possible ici!,cmr-88milsms-a16,SEN:4
+J'espere que tout va bien toi <3 ,cmr-88milsms-a16,SEN:5
+Oh trop mignon mon bbé<3 jsuis au travaiiiil la ,cmr-88milsms-a17,SEN:0
+Penseea moi aujourdhhui!,cmr-88milsms-a18,SEN:0
+Lec mec qui saime pas trop ,cmr-88milsms-a18,SEN:1
+Bon alors jvais etre serieuse un ptit moment ..,cmr-88milsms-a19,SEN:0
+"On se connais pas depuis longtemps cest le moins quon puisse dire mais je taime déjà beaucoup et ca me touche enormement que tu me confit des choses comme ca , donc a lavenir jveux que tu sache que petetre que je ne suis pas la personne ideal pour ca , surment quil ya des gens beaucoup mieu placer que moi pour te comprendre et ben je peux essaye et pyis meme si je ny arriverai surment pas toujours ..",cmr-88milsms-a19,SEN:1
+"Bah quand on est triste et qu'on se sent seule , c'est bon de savoir quune personne est la pour toi , juste pour toi <3.",cmr-88milsms-a19,SEN:2
+Bonne nuit dors bien choux je taime ( oui parce que en plus detre tactile je suis super affective avec les gens *quelle,cmr-88milsms-a19,SEN:3
+plait cette [_forename_] ;)*,cmr-88milsms-a19,SEN:4
+) ,cmr-88milsms-a19,SEN:5
+Héhé on va gagner lipad ,cmr-88milsms-a20,SEN:0
+Mon cher et tendre filleul...,cmr-88milsms-a21,SEN:0
+Je m'engage a etre a tes coté tt au long de ta vie...,cmr-88milsms-a21,SEN:1
+"A te soutenir ds tes moments difficiles et a partager tes bons moments, je souhaite etre la pr toi qd tu en auras besoin...",cmr-88milsms-a21,SEN:2
+"Un soutien, un avis,une Amie...",cmr-88milsms-a21,SEN:3
+"Tu viens de rentrer ds ma famille et j'en suis fière, notre relation va s'epanouir quel bonheur!!!",cmr-88milsms-a21,SEN:4
+<3 <3 <3 [_forename_] ta marraine ...,cmr-88milsms-a21,SEN:5
+Se soir tu m'apelle hein chou?,cmr-88milsms-a22,SEN:0
+Ohhhhhh non !,cmr-88milsms-a23,SEN:0
+Héhé j'te texto en mode scred mon bbé<3 ,cmr-88milsms-a23,SEN:1
+Vasi lache moi :o Aller plus tard je taime gros zoubia toi !<3,cmr-88milsms-a24,SEN:0
+"Des bisous, des bisous partout!",cmr-88milsms-a25,SEN:0
+Le plus svt possible je raterais peut etre 2 ou 3cours lol ,cmr-88milsms-a26,SEN:0
+Ben sa va arrivé alors l'année derniere on avait un decalage aussi ,cmr-88milsms-a27,SEN:0
+La j'ai fini je regarde le film ,cmr-88milsms-a28,SEN:0
+Coucou!,cmr-88milsms-a29,SEN:0
+Mon permis c'est bien passé sauf a un rond point ou j'ai un peu foiré :s donc on verra bien.,cmr-88milsms-a29,SEN:1
+Voila!,cmr-88milsms-a29,SEN:2
+Bisous a toute ta petite famille ,cmr-88milsms-a29,SEN:3
+Je suis vraiment desolée ,cmr-88milsms-a30,SEN:0
+Pas de reponse ?,cmr-88milsms-a31,SEN:0
+J'ai cours dans pas longtemps.,cmr-88milsms-a31,SEN:1
+Je viendrais a 16h.,cmr-88milsms-a31,SEN:2
+Jespere que vous ne m'en voulez pas ..,cmr-88milsms-a31,SEN:3
+"Je n'arrive pas à joindre [_forename_] , je n'ai pas vu l'heure, et je me suis rendormie.",cmr-88milsms-a32,SEN:0
+J'aimerais ne venir qu'a 16h si possible ..,cmr-88milsms-a32,SEN:1
+Je suis vraiment fatiguée et j'enchaine les cours non stop jusqu'a [_location_] .ca,cmr-88milsms-a32,SEN:2
+vous derange ?,cmr-88milsms-a32,SEN:3
+Si oui j'arrive mais j'en ai pour au moins une demie heure ...,cmr-88milsms-a32,SEN:4
+Je suis vraiment desolee ...,cmr-88milsms-a32,SEN:5
+[_tel_] texto [_forename_] vite vite pour le casting getwild !!!,cmr-88milsms-a33,SEN:0
+Euh tu sais qd [_forename_] a prévu de revenir ?,cmr-88milsms-a34,SEN:0
+J'ai pas son numéro...,cmr-88milsms-a34,SEN:1
+Non ça s'est bien passé ;-) .,cmr-88milsms-a35,SEN:0
+Moi je serai là vendredi t'inquiétes.,cmr-88milsms-a35,SEN:1
+Bisous ,cmr-88milsms-a35,SEN:2
+Bonne nuit!,cmr-88milsms-a36,SEN:0
+Coucou!,cmr-88milsms-a37,SEN:0
+T'es tentée ce soir par une promenade?,cmr-88milsms-a37,SEN:1
+Bisous ,cmr-88milsms-a37,SEN:2
+"Normalement c'est ok pour le weekend prochaine chez [_forename_] , je peux etre la :) ",cmr-88milsms-a38,SEN:0
+Coucou!,cmr-88milsms-a39,SEN:0
+ça va?,cmr-88milsms-a39,SEN:1
+Balade vers 5h?,cmr-88milsms-a39,SEN:2
+Vers 6h30.,cmr-88milsms-a40,SEN:0
+Liste recopiee sur reseauetudiant...,cmr-88milsms-a40,SEN:1
+C'est sur la fac timone la liste a ete recopiee direct à Marseille ,cmr-88milsms-a41,SEN:0
+C foutu oui ,cmr-88milsms-a42,SEN:0
+En plus tt fait maison avec les legumes du jardin!,cmr-88milsms-a43,SEN:0
+Non chez mon arriere grand mere juste a coté de chez mes grands parents ;) ,cmr-88milsms-a44,SEN:0
+"Ok ca marche, il va avoir quel age ?",cmr-88milsms-a45,SEN:0
+:) ,cmr-88milsms-a45,SEN:1
+Ben voui!,cmr-88milsms-a46,SEN:0
+Mais tu viens quand meme hein?,cmr-88milsms-a46,SEN:1
+Je suis a la maison !,cmr-88milsms-a47,SEN:0
+"Je commence qu'a 13h donc je me repose , fin je dois partir a 12h30 il faut que je prenne une douche avant !",cmr-88milsms-a47,SEN:1
+Je ne rentrerais que ce soir je pense ensuite ,cmr-88milsms-a47,SEN:2
+Coucou mon coeur je vais appeler le banquier.,cmr-88milsms-a48,SEN:0
+[_forename_] m'a appelé et mis un cours là où je dois être a la fac...,cmr-88milsms-a48,SEN:1
+Génial ^^ j'ai appelé pour changer et elle me rappelle pas.,cmr-88milsms-a48,SEN:2
+Marre de [_forename_] ...,cmr-88milsms-a48,SEN:3
+Tes confs se passent bien?,cmr-88milsms-a48,SEN:4
+Gros bisous je t'aime fort :-)) ,cmr-88milsms-a48,SEN:5
+Ouf merci beaucoup vraiment car j'étais trop trop trop crevée !,cmr-88milsms-a49,SEN:0
+Dur dur le rythme la !,cmr-88milsms-a49,SEN:1
+"Sinon deux potes a moi sont motives , ils vont essayer de se liberer pour ce soir !",cmr-88milsms-a49,SEN:2
+C'est au moulin a 16h ?,cmr-88milsms-a50,SEN:0
+Je t'aiiiime...,cmr-88milsms-a51,SEN:0
+Demain jai deux heures de pause si tu veux on peut manger ensemble ?,cmr-88milsms-a52,SEN:0
+De 11h45 a 13h45 ?,cmr-88milsms-a52,SEN:1
+Bisous ma biche ;) ,cmr-88milsms-a52,SEN:2
+Allez debout !!!,cmr-88milsms-a53,SEN:0
+Yen a ki chaume pas ,cmr-88milsms-a53,SEN:1
+Fou :( oui comme tu dis on ne va jamais y arriver mais samedi !,cmr-88milsms-a55,SEN:0
+<3 ,cmr-88milsms-a55,SEN:1
+Mardi pause de 1h entre 12 et 13h et mercredi entre 13h15 et 14h15 ça te va?,cmr-88milsms-a56,SEN:0
+Ok pa de pblm ma belle !,cmr-88milsms-a57,SEN:0
+Petit resto bio mdr dans une rue trop tranquille au frais :) ,cmr-88milsms-a58,SEN:0
+A 19h on est au bar pour promouvoir la soirée aupres des comités d'entreprise !,cmr-88milsms-a59,SEN:0
+Donc pas trop dispo ce soir !,cmr-88milsms-a59,SEN:1
+Cependant si y'en a qui veulent aider au bar (max 2 persS et qui n'ont pas de soucis de bus c'est sans pb !,cmr-88milsms-a59,SEN:2
+Fais passer le mess ,cmr-88milsms-a59,SEN:3
+"Je pense pas pvoir je suis en cours puis direct a [_location_] 'jenchaine tt, d'ou mon sommeil prolonge ",cmr-88milsms-a60,SEN:0
+No pb !,cmr-88milsms-a61,SEN:0
+"Je peux vs mailer, en attendant ",cmr-88milsms-a61,SEN:1
+Et lundi ?,cmr-88milsms-a62,SEN:0
+Hello !,cmr-88milsms-a63,SEN:0
+La rentrée est bien passée j'ai que 3 cours lol...,cmr-88milsms-a63,SEN:1
+Donc je cherche un boulot/ [_brand_] pr passer le temps remplir les poches !,cmr-88milsms-a63,SEN:2
+"[_forename_] ça va mieux, il a été pris a l'Esma pr faire de l'animation 2D/3D ciné/animation (dessin anime etc.)",cmr-88milsms-a63,SEN:3
+"donc il fait un BTS en trois ans je crois bref c'est une bonne nouvelle Parce que la theSe ne mène a rien, et je pense que des tensions venaient de la aussi...",cmr-88milsms-a63,SEN:4
+Et puis ils devaient faire Manaa (je crois ça s'appelle comme ça) mais la directrice a vu ses travaux et le fait rentrer en première année directos.,cmr-88milsms-a63,SEN:5
+"Er toi, comment va??",cmr-88milsms-a63,SEN:6
+Tu as trouvé une entreprise qui te prend pas en stage mais en vrai alternance?,cmr-88milsms-a63,SEN:7
+Quelle genre d'entreprise?,cmr-88milsms-a63,SEN:8
+Et ac [_forename_] vs avez pu vous voir récemment?,cmr-88milsms-a63,SEN:9
+Punaise de distance...,cmr-88milsms-a63,SEN:10
+Bon j'espère qu'on se verra bientôt quand même :-) gros bisous !,cmr-88milsms-a63,SEN:11
+Tu m'appelles pas?,cmr-88milsms-a64,SEN:0
+T'as eu mon texto?,cmr-88milsms-a64,SEN:1
+Tu finis à quelle heure?,cmr-88milsms-a64,SEN:2
+Je reprends a 16h45 :-) bisous ,cmr-88milsms-a64,SEN:3
+C'est pas grave pour les schoumi-Gateau une autre fois ^^ a toute.,cmr-88milsms-a65,SEN:0
+J'ai pas envie d'y aller lol.,cmr-88milsms-a65,SEN:1
+Il fallait rien faire?,cmr-88milsms-a65,SEN:2
+Ok keep cool pr l'entreprise et tiens moi au jus quand tu l'as trouvée ^^ et bon séjour toulousain :P bisous ;-) ,cmr-88milsms-a66,SEN:0
+Punaise.,cmr-88milsms-a67,SEN:0
+Me souviens plus :-( ,cmr-88milsms-a67,SEN:1
+Nn j'ai cours ka 15h15 ,cmr-88milsms-a68,SEN:0
+De rien ^^ c'est vrai que c'était tard hier jetais crevé aussi.,cmr-88milsms-a69,SEN:0
+Bisous ;-) ,cmr-88milsms-a69,SEN:1
+Ca marche !,cmr-88milsms-a70,SEN:0
+Pour les inscriptions on passe au Secretariat ou on attend...?,cmr-88milsms-a71,SEN:0
+Tkt tu ne me deranges pas !,cmr-88milsms-a72,SEN:0
+"Je sais pas du tout, je suis en robe mais bon j'met jamais de pantalon :/ jean tshirt assez joli ca le fait je pense !",cmr-88milsms-a72,SEN:1
+C:est pas un pyjama hahaha ,cmr-88milsms-a72,SEN:2
+Alala..,cmr-88milsms-a73,SEN:0
+Cc ma chérie ça va ?,cmr-88milsms-a74,SEN:0
+Dis moi kes ki c passe avc le taf ?,cmr-88milsms-a74,SEN:1
+Un pblm ?,cmr-88milsms-a74,SEN:2
+Gros bisous <3 ,cmr-88milsms-a74,SEN:3
+Ya ma trousse de maquillage chez toi ?,cmr-88milsms-a75,SEN:0
+[_forename_] est pas la !,cmr-88milsms-a76,SEN:0
+[_forename_] non plus !,cmr-88milsms-a76,SEN:1
+Tanpis !,cmr-88milsms-a76,SEN:2
+Lol J'irai aux journée du patrimoine !,cmr-88milsms-a76,SEN:3
+[_forename_] m'a dit que tu venais cette semaine peut etre !,cmr-88milsms-a76,SEN:4
+Bisous !,cmr-88milsms-a76,SEN:5
+!,cmr-88milsms-a76,SEN:6
+<3 savvva alors<3 ,cmr-88milsms-a77,SEN:0
+17h 3o je viens de te chercher?,cmr-88milsms-a78,SEN:0
+ok cool =) ,cmr-88milsms-a79,SEN:0
+Coucou mon [_nickname_] !,cmr-88milsms-a80,SEN:0
+J'espere que tu vas bien et que j'te derange pas.,cmr-88milsms-a80,SEN:1
+"C'etait juste pour te prevenir que ma maman etait v'nu posee mon cachet dans ta voiture, comme ils avaient des trucs a faire et que je savais pas si tu irais ou pas.",cmr-88milsms-a80,SEN:2
+Voilà!,cmr-88milsms-a80,SEN:3
+Tu m'tiens au courant de quand vous venez!,cmr-88milsms-a80,SEN:4
+Biiisoux <3 ,cmr-88milsms-a80,SEN:5
+Non je viens de voir l'heure qu'il etait et j'y serai pas moi je suis pas prêt encore j'aurai pas le temps.,cmr-88milsms-a81,SEN:0
+Si jamais tu peux y aller?,cmr-88milsms-a81,SEN:1
+Sinon jai envoyé un mail mais ac tous les mails qu'elle doit avoir en rentrée...,cmr-88milsms-a81,SEN:2
+Ça me fait peur j'espère que c'est pas que sur cette semaine...,cmr-88milsms-a81,SEN:3
+Ils Me gonflent :-( bisous ,cmr-88milsms-a81,SEN:4
+"Chaud, chaud..cacao",cmr-88milsms-a82,SEN:0
+:D ,cmr-88milsms-a82,SEN:1
+vois ac eux ms oui j pense ,cmr-88milsms-a84,SEN:0
+avec PLAISIR.!!,cmr-88milsms-a85,SEN:0
+genre et [_forename_] alors y compte pas pour toi.?,cmr-88milsms-a86,SEN:0
+=D ,cmr-88milsms-a86,SEN:1
+Alors pour demain vous faites quoi??,cmr-88milsms-a87,SEN:0
+Ha !,cmr-88milsms-a88,SEN:0
+Dis moi demain si les horaires te conviennent ,cmr-88milsms-a89,SEN:0
+Tkt tu sera juste moins bien accompagné !,cmr-88milsms-a90,SEN:0
+Tu viens au truc de litterature generale ?,cmr-88milsms-a91,SEN:0
+Ya [_forename_] qui vient chez nous vers 14h15.,cmr-88milsms-a92,SEN:0
+"Rentre, on ira a odyseum en voiture ",cmr-88milsms-a92,SEN:1
+Toi aussi?,cmr-88milsms-a93,SEN:0
+Par hasard la grande carte monoprix serait pas avec toi ?,cmr-88milsms-a94,SEN:0
+Trouve pu !,cmr-88milsms-a94,SEN:1
+Lol ,cmr-88milsms-a94,SEN:2
+Appel moi stp ,cmr-88milsms-a95,SEN:0
+Moi aussi !,cmr-88milsms-a96,SEN:0
+Roo c'est chiant lol Tanpis merci quand meme ,cmr-88milsms-a96,SEN:1
+Bonne chance =/ ,cmr-88milsms-a97,SEN:0
+Fatiguée :) ,cmr-88milsms-a98,SEN:0
+Working woman tu connais ?,cmr-88milsms-a99,SEN:0
+"Double cursus, benevolat au festival, boulot de tutrice, preparation du court metrage.",cmr-88milsms-a99,SEN:1
+"Traduction de 10 p en russe + poeme de pouchkine, stage arts, ...",cmr-88milsms-a99,SEN:2
+J'ai rien dit car j'ai cru qu'elle était là vu que c'était le weekend ...,cmr-88milsms-a100,SEN:0
+désolé bsx ,cmr-88milsms-a100,SEN:1
+"Je pars juste de la fac, a tte ",cmr-88milsms-a101,SEN:0
+:*,cmr-88milsms-a102,SEN:0
