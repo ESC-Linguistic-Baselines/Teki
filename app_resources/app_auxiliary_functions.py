@@ -9,6 +9,7 @@ import csv
 import json
 import logging
 import re
+import statistics
 from tkinter import filedialog, Tk
 import bs4
 
@@ -21,39 +22,69 @@ import bs4
 class DiscourseAnalysis:
     """
 
+
     """
 
     def __init__(self, collective_results_tagged):
+        """
+        :param collective_results_tagged:
+            :type dict
+                The sentences results from the tagging function.
+        """
+
         self.collective_results_tagged = collective_results_tagged
 
+    @staticmethod
+    def read_database(infile):
+        """
+        This function loads the .csv file into the database. It is accessible by all classes and functions
+        within its scope.
+
+        :param infile:
+            :type str
+                The .csv file to be read in.
+
+        :return csv_data:
+            :type list
+                a list with a nest listed of the respective .csv entries
+        """
+
+        with open(infile, mode="r", encoding="utf-8") as file:
+            csv_reader = csv.reader(file, delimiter=",")
+            csv_data = [row for row in csv_reader]
+
+        return csv_data
+
     def redacted_corpus(self):
+        """
+        This function returns a redacted version of the corpus.
+        It is redacted as certain words are removed from the corpus.
+        The words that are removed depend on the corpus saved in the app resource .
+        Its main implementation is when the system is being evaluated.
+
+        :return:
+            :rtype dict
+                'redacted_corpus': a redacted version of the corpus.
+        """
+
         original_corpus = self.collective_results_tagged
+        original_corpus_keys = self.collective_results_tagged.keys()
+
+        # Creating the new corpus
         oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
         lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
-
-        remove = [element[0] for element in oral_infile]+[element[0] for element in lit_infile]
-
-        new_corpus = {key: list() for (key) in self.collective_results_tagged.keys()}
+        elements_to_be_removed = [element[0] for element in oral_infile] + [element[0] for element in lit_infile]
+        redacted_corpus = {key: list() for (key) in original_corpus_keys}
 
         for sent in original_corpus:
             corpus_sentence = original_corpus[sent]
 
             for number, sentence in enumerate(corpus_sentence):
-                if sentence[0] not in remove:
-                    new_corpus[sent].append(sentence)
+                word = sentence[0]
+                if word not in elements_to_be_removed:
+                    redacted_corpus[sent].append(sentence)
 
-        return new_corpus
-
-    @staticmethod
-    def read_database(infile):
-        csv_data = list()
-
-        with open(infile, mode="r", encoding="utf-8") as file:
-            csv_reader = csv.reader(file, delimiter=",")
-            for row in csv_reader:
-                csv_data.append(row)
-
-        return csv_data
+        return redacted_corpus
 
     class PosSyntacticalAnalysis:
         """
@@ -62,14 +93,15 @@ class DiscourseAnalysis:
         """
 
         def __init__(self, sub_sentences):
+            """
+            """
             self.sub_sentences = sub_sentences
 
         def sentence_reconstruction(self):
             """
 
-            :return:
-            """
 
+            """
             sentence = " ".join([word[0] for word in self.sub_sentences])
             word_count = len(self.sub_sentences)
 
@@ -78,24 +110,9 @@ class DiscourseAnalysis:
         def part_of_speech(self):
             """
 
-            :return:
             """
             pos = [word[1] for word in self.sub_sentences]
-            return pos
-
-        def pos_grams(self):
-            """
-
-            :return:
-            """
-
             gram_count = dict()
-
-            pos = self.part_of_speech()
-            for i in range(len(pos) - 1):
-                gram = pos[i], pos[i + 1]
-
-                gram_count[gram] = gram_count.get(gram, 0) + 1
 
             for i in range(len(pos)):
                 gram = pos[i]
@@ -103,36 +120,51 @@ class DiscourseAnalysis:
 
             return gram_count
 
-
-        def feature_assignment(self):
+        def calculate_scores(self):
             """
 
             :return:
             """
 
+            feat_1_score, feat_2_score = 0, 0
+
+            gram_count = self.part_of_speech()
             sentence = self.sentence_reconstruction()[1]
-            sentence_length = self.sentence_reconstruction()[0]
-            pos = self.part_of_speech()
-            gram_count = self.pos_grams()
-            noun_count = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
-            verb_count = gram_count.get("VERB", 0)
 
-            instance_one = (
-                sentence_length < 8,
-                noun_count > verb_count,
-                "a" == "b"
-            )
+            sentence_length = len([word for word in sentence] )
+            words , characters = len([word for word in sentence.split()]),len([word for word in sentence])
+            avg_word_length = round(words/characters*100)
 
-            if instance_one.count(True) > instance_one.count(False):
-                return "ORAL"
+            # NOUN/PRONOUN/PROPN to VERB Ratio
+            np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
+            vb = gram_count.get("VERB")
 
-            elif 1 < 0:
+            if np > vb:
+                feat_1_score += 1
+
+            if sentence_length > 25:
+                feat_1_score += 1
+
+            if avg_word_length > 15:
+                feat_1_score +=1
+
+            return feat_1_score, feat_2_score
+
+        def feature_assignment(self):
+
+            feat_1_score = self.calculate_scores()[0]
+            feat_2_score = self.calculate_scores()[1]
+
+
+            # Returning the results
+            if feat_1_score > feat_2_score:
                 return "LIT"
 
-            elif 0>1:
-                return "UNKNOWN"
+            elif feat_2_score > feat_1_score:
+                return "ORAL"
 
-
+            else:
+                return "UNK"
 
     class TokenAnalysis:
 
@@ -164,6 +196,7 @@ class DiscourseAnalysis:
                 return "ORAL"
             else:
                 return "LIT"
+
 
 #########################
 # auxiliary functions
@@ -263,13 +296,12 @@ def end_program():
 
 
 def evaluation():
-
     # Reference files
     gold_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
     system_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
 
     gold = open(gold_file, mode="r", encoding="utf-8")
-    system= open(system_file, mode="r",encoding="utf-8")
+    system = open(system_file, mode="r", encoding="utf-8")
     csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","), csv.reader(system, delimiter=",")
 
     gold_results = dict()
@@ -283,7 +315,7 @@ def evaluation():
         true_negative = 0
 
         for row in csv_gold_reader:
-            gold_results[row[1]] = gold_results.get(row[1], 0)+1
+            gold_results[row[1]] = gold_results.get(row[1], 0) + 1
 
         print(gold_results)
 
@@ -382,7 +414,9 @@ def feature_extraction():
 
         # Ebay Corpus
         else:
-            tag = ("bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc", "imp", "att", "acc", "ann", "con", "info", "lex", "ort", "slo", "syn")
+            tag = (
+            "bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc", "imp", "att", "acc", "ann", "con", "info", "lex",
+            "ort", "slo", "syn")
 
             for t in sorted(tag):
                 types = {" ".join(element.getText().split()) for element in soup.find_all(t)}

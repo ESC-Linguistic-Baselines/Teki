@@ -43,9 +43,9 @@ def continue_program(*args):
     This function acts as a prompt for the user.
     They can choose to either continue with the program or exit.
 
-    :param
+    :param '*args'
         :type str
-            '*args': It can take as many string arguments as necessary.
+            It can take as many string arguments as necessary. These are displayed as the message prompts
 
     :return
        :rtype None
@@ -73,14 +73,13 @@ def continue_program(*args):
                 """
                 break
             else:
-                # The entire program will be shut down
                 sys.exit("The program will now be terminated.")
 
         # No answer
         elif user == "n":
             sys.exit("The program will not be terminated.")
 
-        # Incorrect answer
+        # Incorrect or invalid answer
         else:
             print(f"'{user}' is not a valid response. Please enter a valid response.\n")
 
@@ -923,7 +922,7 @@ if __name__ == "__main__":
     system_evaluation = True
     try:
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
-        default_train = r"app_resources/app_databases/dev_training.csv"
+        default_train = r"app_resources/app_databases/new_cl_2_set"
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train,system_evaluation)
         else:

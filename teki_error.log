@@ -1,0 +1,15 @@
+
+ERROR_TIME: 2021-07-28 15:32:42,292
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 936
+ERROR_SCOPE  'if __name__ == __main__': is due to 'unsupported operand type(s) for +: 'NoneType' and 'int')'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 928, in <module>
+    run_program(default_doc, default_train,system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 892, in run_program
+    freq = get_freq(database)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 615, in get_freq
+    prior_prob[entry] = prior_prob.get(entry) + 1
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'

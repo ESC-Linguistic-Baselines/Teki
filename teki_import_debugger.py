@@ -1,22 +1,9 @@
-from app_resources.app_auxiliary_functions import sentence_tokenizer
+import pickle
+from app_resources.app_auxiliary_functions import DiscourseAnalysis
 
+data = pickle.load(open("pickle_data.pickle","rb"))
 
-a="Non!!!!!!!!! Pitie!!!!!!!! il refai le cours de la semaine derniere"
+sentence = data["e05p-003-sen_no-1"]
+system = DiscourseAnalysis.PosSyntacticalAnalysis(sentence).feature_assignment()
 
-res=sentence_tokenizer(a.split())
-
-print(res[0])
-
-import spacy
-import contextualSpellCheck
-
-nlp = spacy.load("fr_core_news_sm")
-sentence = "Ok keep cool pr l'entreprise et tiens moiiiiiiiiiiii au jus quand tu l'as trouvée ^^ et bon séjour toulousain :P bisous ;-)"
-
-doc = nlp(res[0])
-
-print(doc.text)
-for token in doc:
-    print(token.text, token.pos_, token.dep_)
-
-
+print(system)
