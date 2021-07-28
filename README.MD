@@ -91,3 +91,7 @@ If the modules  have been succesfully loaded, then you will be greeted with a me
 8: end program
 
 ```
+
+# Criteria 
+
+to learn more about the criteria [please click  here ](app_resources/app_common_docs/README.MD)
