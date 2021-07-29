@@ -2,7 +2,7 @@ import spacy
 from spacy.lang.fr.examples import sentences
 
 
-sentence="je ne sais pas"
+sentence="Cet homme, je l'ai vu très souvent"
 nlp = spacy.load("fr_core_news_sm")
 doc = nlp(sentence )
 

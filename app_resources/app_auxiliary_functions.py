@@ -149,7 +149,7 @@ class DiscourseAnalysis:
             for word in voc:
                 word_count[word] = word_count.get(word, 0)+1
 
-            # Do common elements occur ?
+            # Emoticon elements
             common = set(oral_infile) & set(voc)
 
             # Regex Expressions for typical features
@@ -186,6 +186,11 @@ class DiscourseAnalysis:
             if avg_word_length > 15:
                 total_score["LIT"]["AVG_LENGTH"] = 1
 
+
+            function_words=""
+            coor_conj=""
+            high_adj=""
+
             #########################
             # Orality
             #########################
@@ -197,6 +202,7 @@ class DiscourseAnalysis:
             # Short sentence length
             if sentence_length < 15:
                 total_score["ORAL"]["SHORT_SEN_LENGTH"] = 1
+                # Short sentences with interrogative pronouns
 
             # Short sentences without verbs, high number of pronouns
             if vb == 0 and sentence_length < 5:
@@ -226,28 +232,29 @@ class DiscourseAnalysis:
             if sentence_length < 4 and vb < 1:
                 total_score["ORAL"]["ISOLATED_VERBS"] = 1
 
+            # Low number of verbs
             if vb == 0:
                 total_score["ORAL"]["NO_VERBS"] = 1
 
             if common:
                 total_score["ORAL"]["EMOTICONS"] = len(common)
 
+            # High number of abbreviations
             if abbrv:
                 total_score["ORAL"]["ABBR"] = 1
 
-            """
-                Short sentences with interrogative pronouns
-                •	Topicalisation  (Les enfants, ily en)
-                •	Paratax (….)
-                o	Haupt- + (que) Nebensatz-Konstruktion
-                •	Proportion of sentences beginning with a coordinating conjunction.
-                •	Lack of function words 
-    •	           Lack of congruence 
-            •		Higher user of abbreviations  
-            •	High use of function words 
+            # Low number of function words
+            if function_words:
+                total_score["ORAL"]["FUNCTION_WORDS"] = 1
 
-            •	High use of using adjectives and constructions at the beginning of the sentence
-            """
+            # Proportion of sentences beginning with a coordinating conjunction.
+            if coor_conj:
+                total_score["ORAL"]["coor_conj"] = 1
+
+            # High use of using adjectives and constructions at the beginning of the sentenc
+            if high_adj:
+                total_score["ORAL"]["coor_conj"] = 1
+
 
             return total_score
 
@@ -279,7 +286,6 @@ class DiscourseAnalysis:
 
             """
 
-
             a.	French
 
             LIT
@@ -289,6 +295,8 @@ class DiscourseAnalysis:
             •	Inversion
             •	Old verb forms that are no longer used in spoken French
             o	Future simple
+
+
 
             ORAL
             •	 High usage of présentatifs (c’est, ce sont, ça, il y a, voici)
@@ -307,8 +315,17 @@ class DiscourseAnalysis:
 
 
 
+            #
+
             :return:
             """
+
+
+
+
+
+
+
 
         def feature_assignment(self):
             oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
