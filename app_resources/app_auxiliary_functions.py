@@ -166,6 +166,17 @@ class DiscourseAnalysis:
             # LIT
             #########################
 
+            # Third person occurs frequently
+
+            # First person does not occur frequently
+
+
+            # The present tense of verbs occurs frequently
+
+            # High number of abbreviations
+            if abbrv:
+                total_score["LIT"]["ABBR"] = 1
+
             # Noun to Verb Ratio
             if np > vb:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
@@ -240,10 +251,6 @@ class DiscourseAnalysis:
             if common:
                 total_score["ORAL"]["EMOTICONS"] = len(common)
 
-            # High number of abbreviations
-            if abbrv:
-                total_score["ORAL"]["ABBR"] = 1
-
             # Low number of function words
             if function_words:
                 total_score["ORAL"]["FUNCTION_WORDS"] = 1
@@ -297,6 +304,10 @@ class DiscourseAnalysis:
             •	Old verb forms that are no longer used in spoken French
             o	Future simple
              high number of abb
+              high use of impersonal constructions like "il est certain, il est probable"
+              high use of "être"
+
+
 
 
 
@@ -314,7 +325,8 @@ class DiscourseAnalysis:
             •	Emoticons
             •	Higher user of contractions
             •	Negation particle without pronoun
-
+            high use of punctuation
+            high verb use
 
 
             #
