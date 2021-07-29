@@ -166,6 +166,7 @@ class DiscourseAnalysis:
             # LIT
             #########################
 
+            # Noun to Verb Ratio
             if np > vb:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
 
@@ -184,7 +185,7 @@ class DiscourseAnalysis:
 
             # High average word length
             if avg_word_length > 15:
-                total_score["LIT"]["AVG_LENGTH"] = 1
+                total_score["LIT"]["AVG_WORD_LENGTH"] = 1
 
 
             function_words=""
@@ -295,6 +296,7 @@ class DiscourseAnalysis:
             •	Inversion
             •	Old verb forms that are no longer used in spoken French
             o	Future simple
+             high number of abb
 
 
 
