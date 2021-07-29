@@ -1,7 +1,6 @@
 import pickle,re
 from app_resources.app_auxiliary_functions import DiscourseAnalysis
 
-
 data = pickle.load(open("sms_pickle_data.pickle","rb"))
 # key=list(data.keys())
 # i="cmr-88milsms-a8-sen_no-0"
@@ -14,9 +13,13 @@ data = pickle.load(open("sms_pickle_data.pickle","rb"))
 # print(r)
 
 # print(reconstruct)
+count=dict()
+
 for i in data:
     sentence=data[i]
     system = DiscourseAnalysis.PosSyntacticalAnalysis(sentence)
     feat=system.feature_assignment()
-    print(i,feat,system.sentence_reconstruction())
+    print(i,system.sentence_reconstruction(),feat)
+    count[feat[0]]=count.get(feat[0],0)+1
 
+print(count)

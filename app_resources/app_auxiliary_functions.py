@@ -9,7 +9,6 @@ import csv
 import json
 import logging
 import re
-import statistics
 from tkinter import filedialog, Tk
 import bs4
 
@@ -125,95 +124,144 @@ class DiscourseAnalysis:
 
             :return:
             """
+            oral_infile = [emoticon[0] for emoticon in DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")]
+            abbrv = []
 
-            feat_1_score, feat_2_score = 0, 0
+            # Score and their respective points
+            total_score = {
+                "LIT": {},
+                "ORAL": {}
+                    }
 
+            # Lexical and POS information
+            pos = self.part_of_speech()[1]
             gram_count = self.part_of_speech()[0]
-            pos= self.part_of_speech()[1]
             sentence = self.sentence_reconstruction()[1]
-
             sentence_length = len([word for word in sentence])
+
+            # Vocabulary
             voc = [word for word in sentence.split()]
-            words , characters = len(voc), len([word for word in sentence])
-            word_count=dict()
-            avg_word_length = round(words/characters*100)
+            words, characters = len(voc), len([word for word in sentence])
+            avg_word_length = round(words / characters * 100)
+            word_count = dict()
 
+            # Word count
             for word in voc:
-                word_count[word] = word_count.get(word,0)+1
+                word_count[word] = word_count.get(word, 0)+1
 
-            #RES
-            score_res=dict()
+            # Do common elements occur ?
+            common = set(oral_infile) & set(voc)
+
+            # Regex Expressions for typical features
+            multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
+            multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
+            all_caps = re.compile(r"[A-Z\s]+")
+            numbers = re.compile(r"^\d+(.\d+)*$")
 
             # NOUN/PRONOUN/PROPN to VERB Ratio
             np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
-            vb = gram_count.get("VERB",0)
+            vb = gram_count.get("VERB", 0)
 
-            # orality score
+            #########################
+            # LIT
+            #########################
+
             if np > vb:
-                feat_1_score += 1
+                total_score["LIT"]["NP_VB_RATIO"] = 1
 
+            """
+            •	Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
+            """
+
+            # Long sentence length
             if sentence_length > 25:
-                feat_1_score += 1
+                total_score["LIT"]["LONG_SEN_LENGTH"] = 1
 
+            # High word length
+            if sentence_length < 25 and len(word_count) < 5:
+                if numbers.findall(sentence):
+                    total_score["LIT"]["LONG_WORD_LENGTH"] = 1
+
+            # High average word length
             if avg_word_length > 15:
-                feat_1_score +=1
+                total_score["LIT"]["AVG_LENGTH"] = 1
 
-            # literality score
+            #########################
+            # Orality
+            #########################
+
+            # Short word length
             if avg_word_length < 10:
-                feat_2_score += 1
+                total_score["ORAL"]["SHORT_WORD_LENGTH"] = 1
 
+            # Short sentence length
             if sentence_length < 15:
-                feat_1_score += 1
+                total_score["ORAL"]["SHORT_SEN_LENGTH"] = 1
 
             # Short sentences without verbs, high number of pronouns
             if vb == 0 and sentence_length < 5:
-                feat_2_score +=1
+                total_score["ORAL"]["HIGH_PRONOUN_COUNT"] = 1
 
             # Reduplication
             if (max(word_count.values())) > 1:
-                feat_2_score += 1
+                total_score["ORAL"]["WORD_REDUPLICATION"] = 1
 
-            multi_char = re.compile(r"(.)+\1",re.IGNORECASE)
-            multi_word = re.compile(r"\b(\w+)\s+\1\b",re.IGNORECASE)
-            all_caps = re.compile(r"[A-Z\s]+")
-
-            #Frequent use of !!!, ???, etc.
-            if gram_count.get("PUNCT",0) >5:
-                feat_2_score += 1
+            # Frequent use of !!!, ???, etc.
+            if gram_count.get("PUNCT", 0) > 5:
+                total_score["ORAL"]["SYMBOL_REDUPLICATION"] = 1
 
             # Using the same character multiple times
             if multi_char.findall(sentence):
-                feat_2_score +=1
+                total_score["ORAL"]["MULTI_CHAR_REDUPLICATION"] = 1
 
             # Same words back to back
             if multi_word.findall(sentence):
-                feat_2_score +=1
+                total_score["ORAL"]["WORD_WORD_REDUPLICATION"] = 1
 
-            #Emphasis
+            # Emphasis
             if all_caps.findall(sentence):
-                feat_2_score +=1
+                total_score["ORAL"]["ALL_CAPS"] = 1
 
             # Isolated verb stems  or imperatives with question marks/exclamation marks
             if sentence_length < 4 and vb < 1:
-                feat_2_score += 1
+                total_score["ORAL"]["ISOLATED_VERBS"] = 1
 
             if vb == 0:
-                feat_2_score += 1
+                total_score["ORAL"]["NO_VERBS"] = 1
 
-            return feat_1_score, feat_2_score
+            if common:
+                total_score["ORAL"]["EMOTICONS"] = len(common)
+
+            if abbrv:
+                total_score["ORAL"]["ABBR"] = 1
+
+            """
+                Short sentences with interrogative pronouns
+                •	Topicalisation  (Les enfants, ily en)
+                •	Paratax (….)
+                o	Haupt- + (que) Nebensatz-Konstruktion
+                •	Proportion of sentences beginning with a coordinating conjunction.
+                •	Lack of function words 
+    •	           Lack of congruence 
+            •		Higher user of abbreviations  
+            •	High use of function words 
+
+            •	High use of using adjectives and constructions at the beginning of the sentence
+            """
+
+            return total_score
 
         def feature_assignment(self):
 
-            feat_1_score = self.calculate_scores()[0]
-            feat_2_score = self.calculate_scores()[1]
-
+            feat_1_score = sum(self.calculate_scores()["LIT"].values())
+            feat_2_score = sum(self.calculate_scores()["ORAL"].values())
 
             # Returning the results
             if feat_1_score > feat_2_score:
                 return "LIT", feat_1_score, feat_2_score
 
             elif feat_2_score > feat_1_score:
-                return "ORAL" ,feat_1_score, feat_2_score
+                return "ORAL", feat_1_score, feat_2_score
 
             else:
                 return "UNK", feat_1_score, feat_2_score
@@ -226,6 +274,41 @@ class DiscourseAnalysis:
         def reconstruct(self):
             sentence = " ".join([word[0] for word in self.sub_sentences])
             return sentence, len(self.sub_sentences)
+
+        def calculate_scores(self):
+
+            """
+
+
+            a.	French
+
+            LIT
+            •	Use of professional terminology
+            •	Use of français cultivé
+            •	 Qu’est-ce que
+            •	Inversion
+            •	Old verb forms that are no longer used in spoken French
+            o	Future simple
+
+            ORAL
+            •	 High usage of présentatifs (c’est, ce sont, ça, il y a, voici)
+            •	Swear words
+            •	Higher use of intensifier
+            •	Self-corrections
+            •	Only use of ? to ask a question
+            •	Use of argot
+            •	Français vulgaire
+            •	Français familier
+            •	Future compose
+            •	Simplification of verb forms
+            •	Emoticons
+            •	Higher user of contractions
+            •	Negation particle without pronoun
+
+
+
+            :return:
+            """
 
         def feature_assignment(self):
             oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
