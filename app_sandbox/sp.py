@@ -1,11 +1,8 @@
 import spacy
-from spacy.lang.fr.examples import sentences
+from spacy.lang.fr.examples import sentences 
 
-
-sentence="Cet homme, je l'ai vu très souvent"
 nlp = spacy.load("fr_core_news_sm")
-doc = nlp(sentence )
-
+doc = nlp("Il est probable")
 print(doc.text)
 for token in doc:
-    print(token.text, token.pos_, token.dep_)
+    print(token.text, token.pos_, token.dep_, token.morph)

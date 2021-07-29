@@ -19,7 +19,7 @@ for i in data:
     sentence = data[i]
     system = DiscourseAnalysis.PosSyntacticalAnalysis(sentence)
     feat = system.feature_assignment()
-    print(i,system.sentence_reconstruction(),feat)
+
     count[feat[0]] = count.get(feat[0],0)+1
 
 print(count)

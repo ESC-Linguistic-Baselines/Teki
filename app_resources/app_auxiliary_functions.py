@@ -17,7 +17,6 @@ import bs4
 # Auxiliary Classes
 #########################
 
-
 class DiscourseAnalysis:
     """
 
@@ -49,10 +48,9 @@ class DiscourseAnalysis:
         """
 
         with open(infile, mode="r", encoding="utf-8") as file:
-            csv_reader = csv.reader(file, delimiter=",")
-            csv_data = [row for row in csv_reader]
+            json_data=json.load(file)
 
-        return csv_data
+        return json_data
 
     def redacted_corpus(self):
         """
@@ -110,22 +108,25 @@ class DiscourseAnalysis:
             """
 
             """
+
+            dep=[word[2] for word in self.sub_sentences]
             pos = [word[1] for word in self.sub_sentences]
             gram_count = dict()
-
+            print(dep)
             for i in range(len(pos)):
                 gram = pos[i]
                 gram_count[gram] = gram_count.get(gram, 0) + 1
 
-            return gram_count, pos
+            return gram_count, pos,dep
 
         def calculate_scores(self):
             """
 
             :return:
             """
-            oral_infile = [emoticon[0] for emoticon in DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")]
-            abbrv = []
+
+            feat_1="app_resources/app_common_docs/oral_doc/oral_french.json"
+            oral_file = DiscourseAnalysis.read_database(feat_1)
 
             # Score and their respective points
             total_score = {
@@ -135,6 +136,8 @@ class DiscourseAnalysis:
 
             # Lexical and POS information
             pos = self.part_of_speech()[1]
+            dep= self.part_of_speech()[2]
+
             gram_count = self.part_of_speech()[0]
             sentence = self.sentence_reconstruction()[1]
             sentence_length = len([word for word in sentence])
@@ -150,13 +153,14 @@ class DiscourseAnalysis:
                 word_count[word] = word_count.get(word, 0)+1
 
             # Emoticon elements
-            common = set(oral_infile) & set(voc)
+            common = set(oral_file["EMO"]) & set(voc)
 
             # Regex Expressions for typical features
             multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
             multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
             all_caps = re.compile(r"[A-Z\s]+")
             numbers = re.compile(r"^\d+(.\d+)*$")
+            abb = re.compile("\b(?:[A-Z][a-z]*){2,}")
 
             # NOUN/PRONOUN/PROPN to VERB Ratio
             np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
@@ -170,20 +174,17 @@ class DiscourseAnalysis:
 
             # First person does not occur frequently
 
-
             # The present tense of verbs occurs frequently
 
             # High number of abbreviations
-            if abbrv:
+            if abb.findall(sentence):
                 total_score["LIT"]["ABBR"] = 1
 
             # Noun to Verb Ratio
             if np > vb:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
 
-            """
-            •	Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
-            """
+            # Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
 
             # Long sentence length
             if sentence_length > 25:
@@ -248,8 +249,7 @@ class DiscourseAnalysis:
             if vb == 0:
                 total_score["ORAL"]["NO_VERBS"] = 1
 
-            if common:
-                total_score["ORAL"]["EMOTICONS"] = len(common)
+            #if common:total_score["ORAL"]["EMOTICONS"] = len(common)
 
             # Low number of function words
             if function_words:
