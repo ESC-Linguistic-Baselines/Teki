@@ -50,35 +50,41 @@ _____
 This program was created and designed with **python 3.9.6** in mind. Therefore, that is the recommended version.
 It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed. 
 
-## Pip modules
-
+## Pip Modules
 
 The following pip packages must be installed for the program to run properly:
 ```
 * bs4>=0.0.1
 * beautifulsoup4>=4.9.3
-* matplotlib>=3.4.1
 * lxml>=4.6.1
 * spacy>=2.3.5
 ```
 
 There are three ways to install the *requirements.txt* file:
 
-* 1 install all modules individually via pip
-
-* 2 install with pip using the requirements.txt without specifying the version number:
+* 1) Install all modules individually via pip.
+<br><br>
+* 2) install all modules with pip using the requirements.txt without specifying the version number:
 ```
 pip install -r requirements.txt
 ```
+<br>
 
-* 3 install with pip using the requirements.txt with specifying the version number:
+* 3) install with pip using the requirements.txt with specifying the version number:
 ```
 pip3.9 install -r requirements.txt
 ```
 
+<br>
+Additionally, the following for spacy should also be installed:
+
+```
+python -m spacy download fr_core_news_sm
+```
+
 # Program
 
-If the modules  have been succesfully loaded, then you will be greeted with a menu system:
+If the modules have been successfully loaded, then you will be greeted with the following a menu system:
 
 ```
 1: import file
@@ -89,8 +95,12 @@ If the modules  have been succesfully loaded, then you will be greeted with a me
 6: author information
 7: program description
 8: end program
-
 ```
+
+
+
+
+
 
 # Criteria 
 

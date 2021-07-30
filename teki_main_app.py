@@ -459,7 +459,7 @@ def analyze_content(text):
 
         """
         Creates simplified tokens for the sake of creating sentence-level tokens
-        The real tokens will be down with spacy. 
+        The real tokens will be done with spacy. 
         """
 
         tokens = text.split()
@@ -576,7 +576,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             write_to_database(sentence.feature_assignment(), sub_sentences, gold_file)
 
     else:
-        # System Results
+        # This option is activted when the system is not being evaluated.
         for corpus_sentence in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence]
             sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
