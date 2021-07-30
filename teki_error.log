@@ -1,148 +1,15 @@
 
-ERROR_TIME: 2021-07-30 11:32:10,391
+ERROR_TIME: 2021-07-30 19:10:11,069
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 885
-ERROR_SCOPE Main Menu: self.c cannot be converted to a Python object for pickling
+LINE_NO: 933
+ERROR_SCOPE  'if __name__ == __main__': is due to 'unsupported operand type(s) for +: 'NoneType' and 'int')'
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 881, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 559, in sentence_identification
-    pickle.dump(collective_results_tagged, pickle_data)
-  File "stringsource", line 2, in spacy.tokens.morphanalysis.MorphAnalysis.__reduce_cython__
-TypeError: self.c cannot be converted to a Python object for pickling
-
-ERROR_TIME: 2021-07-30 11:37:17,387
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 884
-ERROR_SCOPE Main Menu: self.c cannot be converted to a Python object for pickling
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 879, in run_program
-    collective_results_tagged = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 538, in spacy_tagger
-    pickle.dump(collective_results_tagged, pickle_data)
-  File "stringsource", line 2, in spacy.tokens.morphanalysis.MorphAnalysis.__reduce_cython__
-TypeError: self.c cannot be converted to a Python object for pickling
-
-ERROR_TIME: 2021-07-30 11:38:28,506
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 884
-ERROR_SCOPE Main Menu: Expecting value: line 1 column 1 (char 0)
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 880, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 565, in sentence_identification
-    redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 71, in redacted_corpus
-    oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 51, in read_database
-    json_data=json.load(file)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
-    return loads(fp.read(),
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-ERROR_TIME: 2021-07-30 12:28:52,450
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 439
-ERROR_SCOPE xml_analysis error due to: [Errno 2] No such file or directory: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 436, in xml_analysis
-    return tag_save(sentence_count, collective_results)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 314, in tag_save
-    save_sentences(collective_results, path)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 683, in save_sentences
-    with open(file, mode="a+", encoding="utf-8", newline="") as results:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-07-30 12:29:02,849
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 884
-ERROR_SCOPE Main Menu: Expecting value: line 1 column 1 (char 0)
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 880, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 565, in sentence_identification
-    redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 71, in redacted_corpus
-    oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 51, in read_database
-    json_data=json.load(file)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
-    return loads(fp.read(),
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-ERROR_TIME: 2021-07-30 16:45:57,071
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 439
-ERROR_SCOPE xml_analysis error due to: list index out of range
-Traceback (most recent call last):
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/teki_main_app.py", line 415, in xml_analysis
-    start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
-IndexError: list index out of range
-
-ERROR_TIME: 2021-07-30 16:46:23,926
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 884
-ERROR_SCOPE Main Menu: Expecting value: line 1 column 1 (char 0)
-Traceback (most recent call last):
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/teki_main_app.py", line 880, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/teki_main_app.py", line 565, in sentence_identification
-    redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/app_resources/app_auxiliary_functions.py", line 71, in redacted_corpus
-    oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/app_resources/app_auxiliary_functions.py", line 51, in read_database
-    json_data=json.load(file)
-  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 293, in load
-    return loads(fp.read(),
-  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-ERROR_TIME: 2021-07-30 16:49:36,502
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 884
-ERROR_SCOPE Main Menu: [Errno 2] No such file or directory: 'app_resources/app_common_docs/oral_doc/oral_french.json'
-Traceback (most recent call last):
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/teki_main_app.py", line 880, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/teki_main_app.py", line 584, in sentence_identification
-    write_to_database(sentence.feature_assignment(), sub_sentences, database)
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/app_resources/app_auxiliary_functions.py", line 279, in feature_assignment
-    feat_1_score = sum(self.calculate_scores()["LIT"].values())
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/app_resources/app_auxiliary_functions.py", line 130, in calculate_scores
-    oral_file = DiscourseAnalysis.read_database(feat_1)
-  File "/Users/christopherchandler/PycharmProjects/bachleorarbeit/app_resources/app_auxiliary_functions.py", line 50, in read_database
-    with open(infile, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: 'app_resources/app_common_docs/oral_doc/oral_french.json'
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 925, in <module>
+    run_program(default_doc, default_train,system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 889, in run_program
+    freq = get_freq(database)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 612, in get_freq
+    prior_prob[entry] = prior_prob.get(entry) + 1
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'

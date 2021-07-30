@@ -29,7 +29,6 @@ class DiscourseAnalysis:
             :type dict
                 The sentences results from the tagging function.
         """
-
         self.collective_results_tagged = collective_results_tagged
 
     @staticmethod
@@ -48,7 +47,7 @@ class DiscourseAnalysis:
         """
 
         with open(infile, mode="r", encoding="utf-8") as file:
-            json_data=json.load(file)
+            json_data = json.load(file)
 
         return json_data
 
@@ -64,18 +63,27 @@ class DiscourseAnalysis:
                 'redacted_corpus': a redacted version of the corpus.
         """
 
+        # Creating the new corpus
         original_corpus = self.collective_results_tagged
         original_corpus_keys = self.collective_results_tagged.keys()
+        elements_to_be_removed = list()
 
-        # Creating the new corpus
-        oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
-        lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
-        elements_to_be_removed = [element[0] for element in oral_infile] + [element[0] for element in lit_infile]
+        # oral and literal elements
+        oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_french.json")
+        lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_french.json")
+
+        for language_register in lit_infile:
+            for word in lit_infile[language_register]:
+                elements_to_be_removed.append(word)
+
+        for language_register in oral_infile:
+            for word in oral_infile[language_register]:
+                elements_to_be_removed.append(word)
+
         redacted_corpus = {key: list() for (key) in original_corpus_keys}
 
         for sent in original_corpus:
             corpus_sentence = original_corpus[sent]
-
             for number, sentence in enumerate(corpus_sentence):
                 word = sentence[0]
                 if word not in elements_to_be_removed:
@@ -118,7 +126,7 @@ class DiscourseAnalysis:
                 gram = pos[i]
                 gram_count[gram] = gram_count.get(gram, 0) + 1
 
-            return gram_count, pos,dep,morph
+            return gram_count, pos, dep, morph
 
         def calculate_scores(self):
             """
@@ -126,7 +134,7 @@ class DiscourseAnalysis:
             :return:
             """
 
-            feat_1 = "app_resources/app_common_docs/oral_doc/oral_french.json"
+            feat_1 = "app_resources/app_common_docs/oral_french.json"
             oral_file = DiscourseAnalysis.read_database(feat_1)
 
             # Score and their respective points
@@ -281,13 +289,13 @@ class DiscourseAnalysis:
 
             # Returning the results
             if feat_1_score > feat_2_score:
-                return "LIT", feat_1_score, feat_2_score
+                return "LIT"
 
             elif feat_2_score > feat_1_score:
-                return "ORAL", feat_1_score, feat_2_score
+                return "ORAL"
 
             else:
-                return "UNK", feat_1_score, feat_2_score
+                return "UNK"
 
     class TokenAnalysis:
 
@@ -334,7 +342,7 @@ class DiscourseAnalysis:
                 total_score["LIT"]["FC"] = 1
 
             fcl_abs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
-            if fcl:
+            if fcl_abs:
                 total_score["LIT"]["FC_ABS"] = 1
 
             fl = [word for word in sentence.split() if word in lit_file["FC_abs"]]
@@ -405,7 +413,7 @@ class DiscourseAnalysis:
                 total_score["ORAL"]["ebay_ann"] = 1
 
             ebay_bon = oral_file["ebay_bon"]
-            ebay_bon_res = [word for word in sentence.split() if word in ebay_att]
+            ebay_bon_res = [word for word in sentence.split() if word in ebay_bon]
             if ebay_bon_res:
                 total_score["ORAL"]["ebay_bon"] = 1
 
@@ -418,14 +426,13 @@ class DiscourseAnalysis:
 
             # Returning the results
             if feat_1_score > feat_2_score:
-                return "LIT", feat_1_score, feat_2_score
+                return "LIT"
 
             elif feat_2_score > feat_1_score:
-                return "ORAL", feat_1_score, feat_2_score
+                return "ORAL"
 
             else:
-                return "UNK", feat_1_score, feat_2_score
-
+                return "UNK"
 
 #########################
 # auxiliary functions

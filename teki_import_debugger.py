@@ -1,7 +1,8 @@
 import pickle,re
 from app_resources.app_auxiliary_functions import DiscourseAnalysis
 
-data = pickle.load(open("sms_pickle_data.pickle","rb"))
+data = pickle.load(open("sms_pickle_data.pickle", "rb"))
+
 # key=list(data.keys())
 # i="cmr-88milsms-a8-sen_no-0"
 # sentence=data[i]
@@ -13,13 +14,19 @@ data = pickle.load(open("sms_pickle_data.pickle","rb"))
 # print(r)
 
 # print(reconstruct)
-count=dict()
 
-for i in data:
-    sentence = data[i]
-    system = DiscourseAnalysis.TokenAnalysis(sentence)
-    feat = system.feature_assignment()
+# for i in data:
+#     sentence = data[i]
+#     system = DiscourseAnalysis.TokenAnalysis(sentence)
+#     feat = system.feature_assignment()
+#
+#     count[feat[0]] = count.get(feat[0],0)+1
+#
+# print(count)
 
-    count[feat[0]] = count.get(feat[0],0)+1
 
-print(count)
+redacted=DiscourseAnalysis(data).redacted_corpus()
+
+print(redacted)
+
+

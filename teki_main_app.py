@@ -304,7 +304,6 @@ def analyze_content(text):
         while True:
             user = input(
                 f"The text has been parsed into {sentence_count} sentences. Would you like to tag or save the sentences (tag/save): ")
-
             if user == "tag":
                 input("The results will now be tagged. Please press enter to continue with the tagging process.")
                 return collective_results
@@ -921,7 +920,7 @@ if __name__ == "__main__":
     system_evaluation = False
     try:
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
-        default_train = r"app_resources/app_databases/new_cl_2_set"
+        default_train = r"app_resources/app_databases/dev_training.csv"
         if bool(core_file_missing) is False and bool(missing_libraries) is False:
             run_program(default_doc, default_train,system_evaluation)
         else:
