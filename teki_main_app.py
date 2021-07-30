@@ -918,7 +918,7 @@ if __name__ == "__main__":
     if all of the main libraries have been installed.  This can be overridden by the user, 
     but it is not advised as it can lead to the program becoming unstable.  
     """
-    system_evaluation = True
+    system_evaluation = False
     try:
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
         default_train = r"app_resources/app_databases/new_cl_2_set"

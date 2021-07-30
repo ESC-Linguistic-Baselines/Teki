@@ -315,9 +315,10 @@ class DiscourseAnalysis:
               high use of impersonal constructions like "il est certain, il est probable"
               high use of "être"
             """
-
             feat_1 = "app_resources/app_common_docs/oral_french.json"
             oral_file = DiscourseAnalysis.read_database(feat_1)
+            feat_2 = "app_resources/app_common_docs/lit_french.json"
+            lit_file = DiscourseAnalysis.read_database(feat_2)
             sentence = self.sentence_reconstruction()[0]
 
             # Score and their respective points
@@ -325,19 +326,41 @@ class DiscourseAnalysis:
                 "LIT": {},
                 "ORAL": {}
             }
+            #########################
+            # LIT
+            #########################
+            fcl = [word for word in sentence.split() if word in lit_file["FC"]]
+            if fcl:
+                total_score["LIT"]["FC"] = 1
 
+            fcl_abs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
+            if fcl:
+                total_score["LIT"]["FC_ABS"] = 1
+
+            fl = [word for word in sentence.split() if word in lit_file["FC_abs"]]
+            if fl:
+                total_score["LIT"]["FRT"] = 1
+
+            frt_pre =[word for word in sentence.split() if word in lit_file["FRT_PRE"]]
+            if frt_pre:
+                total_score["LIT"]["FRT"] = 1
+
+            frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
+            if frt_suf:
+                total_score["LIT"]["FRT_SUF"] = 1
+
+            #########################
+            # Oral
+            #########################
 
 
             """
             ORAL
             •	 High usage of présentatifs (c’est, ce sont, ça, il y a, voici)
             •	Swear words
-            •	Higher use of intensifier
             •	Self-corrections
             •	Only use of ? to ask a question
-            •	Use of argot
             •	Français vulgaire
-            •	Français familier
             •	Future compose
             •	Simplification of verb forms
             •	Higher user of contractions
@@ -347,24 +370,44 @@ class DiscourseAnalysis:
             """
 
             # Francais Argot
-            arg_res = set(sentence) & set(oral_file["FA"])
+            arg_res = [word for word in sentence.split() if word in oral_file["FA"]]
             if arg_res:
                 total_score["ORAL"]["FA"] = 1
 
             # Francais Parle
-            fpa_res = set(sentence) & set(oral_file["FPA"])
+            fpa_res = [word for word in sentence.split() if word in oral_file["FPA"]]
             if fpa_res:
                 total_score["ORAL"]["FPA"] = 1
 
             # Francais Familier
-            ff_res = set(sentence) & set(oral_file["FF"])
-            if ff_res:
-                total_score["ORAL"]["FF"] = 1
+            ff_res=[word for word in sentence.split() if word in oral_file["FF"]]
+            if ff_res:total_score["ORAL"]["FF"] = 1
 
-            ff__intens_res = set(sentence) & set(oral_file["FF_intens"])
+            ff__intens_res = [word for word in sentence.split()if word in oral_file["FF_intens"]]
             if ff__intens_res:
                 total_score["ORAL"]["ff__intens_res"] = 1
 
+            # Francais Vulgaire
+            fv=oral_file["FV"]
+            fv_res=[word for word in sentence if word in fv]
+            if fv_res:
+                total_score["ORAL"]["FV"] = 1
+
+            ebay_att=oral_file["ebay_att"]
+            ebay_att_res=[word for word in sentence.split() if word in ebay_att]
+
+            if ebay_att_res:
+                total_score["ORAL"]["ebay_att"] = 1
+
+            ebay_ann = oral_file["ebay_ann"]
+            ebay_ann_res = [word for word in sentence.split() if word in ebay_ann]
+            if ebay_ann_res:
+                total_score["ORAL"]["ebay_ann"] = 1
+
+            ebay_bon = oral_file["ebay_bon"]
+            ebay_bon_res = [word for word in sentence.split() if word in ebay_att]
+            if ebay_bon_res:
+                total_score["ORAL"]["ebay_bon"] = 1
 
             return total_score
 
@@ -613,7 +656,6 @@ def feature_extraction():
                         "type": t,
                         "token_tag": text
                     })
-
 
 def file_finder():
     """
