@@ -112,7 +112,7 @@ class DiscourseAnalysis:
             dep=[word[2] for word in self.sub_sentences]
             pos = [word[1] for word in self.sub_sentences]
             gram_count = dict()
-            print(dep)
+
             for i in range(len(pos)):
                 gram = pos[i]
                 gram_count[gram] = gram_count.get(gram, 0) + 1
@@ -171,8 +171,12 @@ class DiscourseAnalysis:
             #########################
 
             # Third person occurs frequently
+            if dep.count("expl:subj") > 1:
+                total_score["LIT"]["THIRD_PERSON_EXPL"] = 1
 
             # First person does not occur frequently
+            if dep.count("nsubj") < 1:
+                total_score["LIT"]["nsubj"] = 1
 
             # The present tense of verbs occurs frequently
 
@@ -185,6 +189,7 @@ class DiscourseAnalysis:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
 
             # Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
+            print(pos)
 
             # Long sentence length
             if sentence_length > 25:
@@ -262,7 +267,6 @@ class DiscourseAnalysis:
             # High use of using adjectives and constructions at the beginning of the sentenc
             if high_adj:
                 total_score["ORAL"]["coor_conj"] = 1
-
 
             return total_score
 
