@@ -109,15 +109,16 @@ class DiscourseAnalysis:
 
             """
 
-            dep=[word[2] for word in self.sub_sentences]
+            dep = [word[2] for word in self.sub_sentences]
             pos = [word[1] for word in self.sub_sentences]
+            morph = [word[5] for word in self.sub_sentences]
             gram_count = dict()
 
             for i in range(len(pos)):
                 gram = pos[i]
                 gram_count[gram] = gram_count.get(gram, 0) + 1
 
-            return gram_count, pos,dep
+            return gram_count, pos,dep,morph
 
         def calculate_scores(self):
             """
@@ -125,7 +126,7 @@ class DiscourseAnalysis:
             :return:
             """
 
-            feat_1="app_resources/app_common_docs/oral_doc/oral_french.json"
+            feat_1 = "app_resources/app_common_docs/oral_doc/oral_french.json"
             oral_file = DiscourseAnalysis.read_database(feat_1)
 
             # Score and their respective points
@@ -136,7 +137,8 @@ class DiscourseAnalysis:
 
             # Lexical and POS information
             pos = self.part_of_speech()[1]
-            dep= self.part_of_speech()[2]
+            dep = self.part_of_speech()[2]
+            morph = str(self.part_of_speech()[3])
 
             gram_count = self.part_of_speech()[0]
             sentence = self.sentence_reconstruction()[1]
@@ -153,7 +155,7 @@ class DiscourseAnalysis:
                 word_count[word] = word_count.get(word, 0)+1
 
             # Emoticon elements
-            common = set(oral_file["EMO"]) & set(voc)
+            emoticons = set(oral_file["EMO"]) & set(voc)
 
             # Regex Expressions for typical features
             multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
@@ -179,6 +181,8 @@ class DiscourseAnalysis:
                 total_score["LIT"]["nsubj"] = 1
 
             # The present tense of verbs occurs frequently
+            if morph.count("Pres") > 2:
+                total_score["LIT"]["PRES"] = 1
 
             # High number of abbreviations
             if abb.findall(sentence):
@@ -189,7 +193,8 @@ class DiscourseAnalysis:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
 
             # Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
-            print(pos)
+            if pos.count("CCONJ")>pos.count("VERB"):
+                total_score["LIT"]["CCONJ_VB_RATIO"] = 1
 
             # Long sentence length
             if sentence_length > 25:
@@ -203,11 +208,6 @@ class DiscourseAnalysis:
             # High average word length
             if avg_word_length > 15:
                 total_score["LIT"]["AVG_WORD_LENGTH"] = 1
-
-
-            function_words=""
-            coor_conj=""
-            high_adj=""
 
             #########################
             # Orality
@@ -256,17 +256,21 @@ class DiscourseAnalysis:
 
             #if common:total_score["ORAL"]["EMOTICONS"] = len(common)
 
-            # Low number of function words
-            if function_words:
-                total_score["ORAL"]["FUNCTION_WORDS"] = 1
+            # # Low number of function words
+            # if function_words:
+            #     total_score["ORAL"]["FUNCTION_WORDS"] = 1
 
             # Proportion of sentences beginning with a coordinating conjunction.
-            if coor_conj:
-                total_score["ORAL"]["coor_conj"] = 1
+            # if coor_conj:
+            #     total_score["ORAL"]["coor_conj"] = 1
 
-            # High use of using adjectives and constructions at the beginning of the sentenc
-            if high_adj:
-                total_score["ORAL"]["coor_conj"] = 1
+            # High use of using adjectives and constructions at the beginning of the sentence
+            if pos.count("ADJ") > 3:
+                total_score["ORAL"]["CCONJ"] = 1
+
+            # Emoticons
+            if emoticons:
+                total_score["ORAL"]["EMO"] = 1
 
             return total_score
 
@@ -290,7 +294,7 @@ class DiscourseAnalysis:
         def __init__(self, sub_sentences):
             self.sub_sentences = sub_sentences
 
-        def reconstruct(self):
+        def sentence_reconstruction(self):
             sentence = " ".join([word[0] for word in self.sub_sentences])
             return sentence, len(self.sub_sentences)
 
@@ -310,11 +314,21 @@ class DiscourseAnalysis:
              high number of abb
               high use of impersonal constructions like "il est certain, il est probable"
               high use of "être"
+            """
+
+            feat_1 = "app_resources/app_common_docs/oral_french.json"
+            oral_file = DiscourseAnalysis.read_database(feat_1)
+            sentence = self.sentence_reconstruction()[0]
+
+            # Score and their respective points
+            total_score = {
+                "LIT": {},
+                "ORAL": {}
+            }
 
 
 
-
-
+            """
             ORAL
             •	 High usage of présentatifs (c’est, ce sont, ça, il y a, voici)
             •	Swear words
@@ -326,46 +340,48 @@ class DiscourseAnalysis:
             •	Français familier
             •	Future compose
             •	Simplification of verb forms
-            •	Emoticons
             •	Higher user of contractions
             •	Negation particle without pronoun
             high use of punctuation
             high verb use
-
-
-            #
-
-            :return:
             """
 
+            # Francais Argot
+            arg_res = set(sentence) & set(oral_file["FA"])
+            if arg_res:
+                total_score["ORAL"]["FA"] = 1
+
+            # Francais Parle
+            fpa_res = set(sentence) & set(oral_file["FPA"])
+            if fpa_res:
+                total_score["ORAL"]["FPA"] = 1
+
+            # Francais Familier
+            ff_res = set(sentence) & set(oral_file["FF"])
+            if ff_res:
+                total_score["ORAL"]["FF"] = 1
+
+            ff__intens_res = set(sentence) & set(oral_file["FF_intens"])
+            if ff__intens_res:
+                total_score["ORAL"]["ff__intens_res"] = 1
 
 
-
-
-
-
+            return total_score
 
         def feature_assignment(self):
-            oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
-            lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_doc/lit.csv")
 
-            feat_1_count = 0
-            feat_2_count = 0
+            feat_1_score = sum(self.calculate_scores()["LIT"].values())
+            feat_2_score = sum(self.calculate_scores()["ORAL"].values())
 
-            for element in self.sub_sentences:
-                for item in oral_infile:
-                    if element[0] == item[0]:
-                        feat_1_count += 1
+            # Returning the results
+            if feat_1_score > feat_2_score:
+                return "LIT", feat_1_score, feat_2_score
 
-            for element in self.sub_sentences:
-                for item in lit_infile:
-                    if element[0] == item[0]:
-                        feat_1_count += 1
+            elif feat_2_score > feat_1_score:
+                return "ORAL", feat_1_score, feat_2_score
 
-            if feat_1_count > feat_2_count:
-                return "ORAL"
             else:
-                return "LIT"
+                return "UNK", feat_1_score, feat_2_score
 
 
 #########################

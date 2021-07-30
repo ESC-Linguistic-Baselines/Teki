@@ -22,7 +22,7 @@ francais_familier=open("FF.txt", mode="r", encoding="utf-8")
 francais_familier_inst=open("FF_inst.txt", mode="r", encoding="utf-8")
 
 
-with open ("oral_french.json",mode="w",encoding="utf-8") as oral_file:
+with open ("../oral_french.json", mode="w", encoding="utf-8") as oral_file:
 
     data={
         "ebay_att":[i.split(",")[0] for i in ebay_att],

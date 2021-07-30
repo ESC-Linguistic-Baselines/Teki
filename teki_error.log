@@ -1,0 +1,93 @@
+
+ERROR_TIME: 2021-07-30 11:32:10,391
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 885
+ERROR_SCOPE Main Menu: self.c cannot be converted to a Python object for pickling
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 881, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 559, in sentence_identification
+    pickle.dump(collective_results_tagged, pickle_data)
+  File "stringsource", line 2, in spacy.tokens.morphanalysis.MorphAnalysis.__reduce_cython__
+TypeError: self.c cannot be converted to a Python object for pickling
+
+ERROR_TIME: 2021-07-30 11:37:17,387
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 884
+ERROR_SCOPE Main Menu: self.c cannot be converted to a Python object for pickling
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 879, in run_program
+    collective_results_tagged = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 538, in spacy_tagger
+    pickle.dump(collective_results_tagged, pickle_data)
+  File "stringsource", line 2, in spacy.tokens.morphanalysis.MorphAnalysis.__reduce_cython__
+TypeError: self.c cannot be converted to a Python object for pickling
+
+ERROR_TIME: 2021-07-30 11:38:28,506
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 884
+ERROR_SCOPE Main Menu: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 880, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 565, in sentence_identification
+    redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 71, in redacted_corpus
+    oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 51, in read_database
+    json_data=json.load(file)
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+ERROR_TIME: 2021-07-30 12:28:52,450
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 439
+ERROR_SCOPE xml_analysis error due to: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 436, in xml_analysis
+    return tag_save(sentence_count, collective_results)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 314, in tag_save
+    save_sentences(collective_results, path)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 683, in save_sentences
+    with open(file, mode="a+", encoding="utf-8", newline="") as results:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-07-30 12:29:02,849
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 884
+ERROR_SCOPE Main Menu: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 880, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 565, in sentence_identification
+    redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 71, in redacted_corpus
+    oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_doc/emoticons.csv")
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 51, in read_database
+    json_data=json.load(file)
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
