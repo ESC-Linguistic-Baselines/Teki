@@ -1,7 +1,7 @@
 import pickle,re
 from app_resources.app_auxiliary_functions import DiscourseAnalysis
 
-data = pickle.load(open("sms_pickle_data.pickle", "rb"))
+data = pickle.load(open("pickle_data.pickle", "rb"))
 
 # key=list(data.keys())
 # i="cmr-88milsms-a8-sen_no-0"

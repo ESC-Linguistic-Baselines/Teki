@@ -441,7 +441,7 @@ class DiscourseAnalysis:
 #########################
 
 
-error_log = 'app_resources/app_content_docs/teki_error.log'
+error_log = 'teki_error.log'
 
 
 def about_program():
@@ -476,39 +476,6 @@ def clear_log(error_log):
 
     logging.FileHandler(error_log, "w")
     input("The log file will be cleared after restarting the program.\n")
-
-
-def dependency_generate():
-    """
-        This function generates the dependencies that that the main script needs to run properly
-
-    :param str
-        'error_log': The name of the log file to be cleared.
-
-     :return
-        :rtype None
-        There is no object, but a file is created that is placed in the main directory
-    """
-    app_compressed_data = os.listdir(os.getcwd() + "\\app_compressed_data")
-    app_dev = os.listdir(os.getcwd() + "\\app_dev\\dev_files")
-    app_test = os.listdir(os.getcwd() + "\\app_test\\app_test")
-    app_train = os.listdir(os.getcwd() + "\\app_dev_train\\app_train")
-    compressed_data = os.listdir(os.getcwd() + "\\app_compressed_data")
-
-    files = {
-        "app_compressed_data": app_compressed_data,
-        "app_dev": app_dev,
-        "app_test": app_test,
-        "compressed_data": compressed_data,
-        "app_train": app_train,
-    }
-
-    out = "teki_resource_list.json"
-    out_file = open(out, "w+")
-    json.dump(files, out_file, indent=2)
-
-    print("The app resource directory file has been updated.")
-
 
 def end_program():
     """
@@ -851,7 +818,6 @@ def write_to_database(feature, sentence, database):
                  "oral_literate": feature
                  }
             )
-
 
 if __name__ == "__main__":
     pass

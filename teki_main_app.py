@@ -4,7 +4,6 @@
 # Importing standard python libraries
 #########################
 import csv
-import json
 import importlib
 import logging
 import os
@@ -83,75 +82,23 @@ def continue_program(*args):
         else:
             print(f"'{user}' is not a valid response. Please enter a valid response.\n")
 
-
-def missing_files(file_list, path):
-    """
-    This checks to see if all of the necessary files
-    are available so that the program can start and be stable.
-
-    :param
-        :type str
-            'file_list': list of the files which should be available
-
-        :type str
-            'path': name of the folder from which the file names are retrieved.
-
-    :return
-        :rtype list
-            'missing':  a list of the missing files
-
-        :rtype False
-            This means that no files are missing.
-
-    """
-    # the missing files are stored here
-    missing = list()
-
-    # This checks the respective directly for the desired files.
-    for root in os.listdir(path):
-        if root not in file_list:
-            missing.append(root)
-
-    # If not all files are available, then a list of said files are returned.
-    if missing:
-        return missing
-
-    # False is the desired result. This means that all files are available i.e. not missing.
-    else:
-        return False
-
-
 #########################
 # Importing pip libraries
 #########################
-"""
-The libraries are iteratively imported. 
-The libraries that are missing will be saved in a list that will be referenced against later.
-"""
 
-missing_libraries = []
-pip_lib = "bs4", "spacy", "lxml"
-
-for lib in pip_lib:
-    try:
-        globals()[lib] = importlib.import_module(lib)
-    except ModuleNotFoundError as error:
-        logging.exception(f" pip module import': is due to '{error})'")
-        missing_libraries.append(lib)
-
-"""
-Libraries from the modules are imported. 
-If they cannot be imported, then the program will shut down automatically. 
-"""
-
+library_error=list()
 try:
-    from spacy.lang.fr import French
-    from spacy.tokenizer import Tokenizer
-    from bs4 import BeautifulSoup
-except Exception as error:
-    print("It seems that some pip modules could not be imported. Please check the log file.")
-    logging.exception(f" pip library import': is due to '{error})'")
-    sys.exit()
+   import bs4
+   import spacy
+   import lxml
+
+   from spacy.lang.fr import French
+   from spacy.tokenizer import Tokenizer
+   from bs4 import BeautifulSoup
+
+except ImportError as error:
+    library_error.append(error)
+    logging.exception(f" Module import': is due to '{error})'")
 
 #########################
 # Importing custom files and modules
@@ -162,20 +109,13 @@ The program can still be started if any of the necessary files are missing,
 but the program stability will be greatly compromised. 
 """
 
-# Necessary file names stored in json format in the main app directory
-data = open("teki_resource_list.json", mode="r", encoding="utf-8")
-necessary_files = json.load(data)
-
+core_file_missing = list()
 if os.path.exists("app_resources"):
-
-    # This checks for the existence of the app resource directory and the contents therein.
-    dev_files = missing_files(necessary_files["app_dev"], "app_resources/app_dev/dev_files")
-    test_files = missing_files(necessary_files["app_test"], "app_resources/app_test/app_test")
-    compressed_repository = missing_files(necessary_files["compressed_data"], "app_resources/app_compressed_data")
-
-    #  This lets the program know if files are missing.
-    core_files = dev_files, test_files, compressed_repository
-    core_file_missing = sum([bool(i) for i in core_files])
+    # Necessary file names stored as requirement_resources.txt
+    with open ("requirement_resources.txt", mode="r", encoding="utf-8") as resource:
+        for line in resource:
+             if os.path.exists(line.strip()) == False:
+                 core_file_missing.append(line)
 
     try:
         # importing custom modules from the auxiliary functions file
@@ -192,13 +132,12 @@ if os.path.exists("app_resources"):
             write_to_database)
 
     except Exception as error:
-        print("It seems that not all custom modules could be imported. Please check the log file")
+        print("It seems that not all custom modules could be imported. Please check the log file.")
         logging.exception(f" custom module import': is due to '{error})'")
 
 else:
     message = "The app resource directory is either missing or has been renamed."
     continue_program(message)
-
 
 #########################
 # Main Program Functions
@@ -314,7 +253,7 @@ def analyze_content(text):
                 return collective_results
 
             elif user == "2":
-                print("Please select the directory:")
+                print("Please select the directory.py:")
                 path = file_finder()
                 save_sentences(collective_results, path)
                 input(f"The results have been saved in {path}. Press enter to return to the main menu.")
@@ -347,7 +286,7 @@ def analyze_content(text):
     def xml_analysis():
         """
         This function automatically extracts textual information from
-        the .xml files that are located in the app resource directory.
+        the .xml files that are located in the app resource directory.py.
         It is theoretically possible for it to work with any file that has
         a corresponding .xml format.
 
@@ -545,7 +484,7 @@ def spacy_tagger(corpus_content):
             new_sentence = list()
 
     input("The sentences have been successfully tagged. Please press enter to continue...")
-    pickle_data=open("sms_pickle_data.pickle", "wb")
+    pickle_data=open("pickle_data.pickle", "wb")
     pickle.dump(collective_results_tagged, pickle_data)
     return collective_results_tagged
 
@@ -558,10 +497,10 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
     :parameter
         :type dict
             'collective_results_tagged': The results that have been tagged. The should be saved somewhere in the
-            the programs directory
+            the programs directory.py
 
         :type str
-        ' database': the path file to the respective directory
+        ' database': the path file to the respective directory.py
 
     :return
         :rtype None
@@ -923,7 +862,7 @@ def run_program(default_doc, default_train,system_evaluation):
                         classify_sentence(text.split(), probs)
 
                     elif function_name == "clear_log":
-                        clear_log('app_resources/app_content_docs/teki_error.log')
+                        clear_log('teki_error.log')
                 else:
                     # executes functions that do not need argument
                     function_values[function_number]()
@@ -953,10 +892,19 @@ if __name__ == "__main__":
     try:
         default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
         default_train = r"app_resources/app_databases/dev_training.csv"
-        if bool(core_file_missing) is False and bool(missing_libraries) is False:
+        if bool(core_file_missing) is False and bool(library_error) is False:
             run_program(default_doc, default_train,system_evaluation)
         else:
-            message = "An error has occurred because either files or directories are missing."
+            message = "An error has occurred because either files, libraries or directories are missing."
+            if core_file_missing:
+                for i in core_file_missing:
+                    print(i)
+                print("")
+
+            if library_error:
+                for i in library_error:
+                    print(i)
+            print("Please also consult the error log if this does not solve your provide you with a solution.\n")
             continue_program(message)
             run_program(default_doc, default_train,system_evaluation)
 
