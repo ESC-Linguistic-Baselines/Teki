@@ -13,3 +13,29 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 612, in get_freq
     prior_prob[entry] = prior_prob.get(entry) + 1
 TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+ERROR_TIME: 2021-07-30 20:02:03,638
+FILE_NAME: app_auxiliary_functions.py
+MODULE: app_auxiliary_functions
+                        
+LINE_NO: 810
+ERROR_SCOPE Sub menu error: 'list' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 807, in sub_menu
+    return options_func_dict()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 476, in txt_analysis
+    tokens = text.split()
+AttributeError: 'list' object has no attribute 'split'
+
+ERROR_TIME: 2021-07-30 20:02:04,881
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 909
+ERROR_SCOPE Main Menu: 'function' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 904, in run_program
+    collective_results_tagged = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 527, in spacy_tagger
+    for sent in corpus_content:
+TypeError: 'function' object is not iterable

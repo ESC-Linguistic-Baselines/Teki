@@ -14,7 +14,7 @@ import timeit
 from datetime import datetime
 
 if __name__ == "__main__":
-    # Starting the program will take a bit of time  due to the amount of libraries being imported.
+    # Starting the program will take a bit of time due to the amount of libraries being imported.
     # This is to measure the loading time of the program. It should take around 3 - 8 seconds to load everything.
 
     now = datetime.now()
@@ -100,7 +100,7 @@ def missing_files(file_list, path):
         :rtype list
             'missing':  a list of the missing files
 
-        :rtype  False
+        :rtype False
             This means that no files are missing.
 
     """
@@ -126,7 +126,7 @@ def missing_files(file_list, path):
 #########################
 """
 The libraries are iteratively imported. 
-The libraries that are missing will be saved in a list  that will be referenced against later.
+The libraries that are missing will be saved in a list that will be referenced against later.
 """
 
 missing_libraries = []
@@ -162,7 +162,7 @@ The program can still be started if any of the necessary files are missing,
 but the program stability will be greatly compromised. 
 """
 
-# Necessary file names stored in json format in the main  app directory
+# Necessary file names stored in json format in the main app directory
 data = open("teki_resource_list.json", mode="r", encoding="utf-8")
 necessary_files = json.load(data)
 
@@ -257,7 +257,7 @@ def get_database():
 
     :return
         :rtype str
-            'database' is  the path name of the database.
+            'database' is the path name of the database.
     """
 
     # It retrieves the file by invoking the function file_finder from app_auxiliary_functions.py
@@ -302,19 +302,30 @@ def analyze_content(text):
                 returns the collective results back so that they can be tagged.
         """
         while True:
-            user = input(
-                f"The text has been parsed into {sentence_count} sentences. Would you like to tag or save the sentences (tag/save): ")
-            if user == "tag":
+            options= "tag","save","return"
+
+            for number,choice in enumerate(options,start=1):
+                print(number,choice)
+            print("")
+
+            user = input(f"The text has been parsed into {sentence_count} sentences. How would you like to proceed?")
+            if user == "1":
                 input("The results will now be tagged. Please press enter to continue with the tagging process.")
                 return collective_results
-            elif user == "save":
+
+            elif user == "2":
                 print("Please select the directory:")
                 path = file_finder()
                 save_sentences(collective_results, path)
-                input(f"The results have been saved in {path}. Press enter to the main menu.")
+                input(f"The results have been saved in {path}. Press enter to return to the main menu.")
                 return False
+
+            elif user == "3":
+                input("The sentences will neither be saved nor tagged. Please press enter to return to the main menu.")
+                break
+
             else:
-                print(f"{user} that is not a valid option.")
+                print(f"{user} is not a valid option.")
 
     def read_contents():
 
@@ -357,7 +368,8 @@ def analyze_content(text):
                 None
                 the user is brought back to the main menu
         """
-        # renamed to  be consistent with beautiful soup terminology
+
+        # Renamed as soup so as to be consistent with beautiful soup terminology
         soup = text
 
         while True:
@@ -507,7 +519,7 @@ def spacy_tagger(corpus_content):
         'collective_results_tagged': the tagged and tokenized results of the corpus content.
     """
     print("The individual sentences are now being tagged.")
-    print("The duration will depend on your system  resources and the number of sentences being tagged.")
+    print("The duration will depend on your system resources and the number of sentences being tagged.")
     print("Please wait...\n")
 
     nlp = spacy.load("fr_core_news_sm")
@@ -576,12 +588,32 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             write_to_database(sentence.feature_assignment(), sub_sentences, gold_file)
 
     else:
-        # This option is activted when the system is not being evaluated.
-        for corpus_sentence in collective_results_tagged:
-            sub_sentences = collective_results_tagged[corpus_sentence]
-            sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
-            write_to_database(sentence.feature_assignment(), sub_sentences, database)
+        # This option is activated when the system is not being evaluated.
+        while True:
+            options = "automatically", "manually"
+            for number, choice in enumerate (options):
+                print(number, choice)
+            print("")
 
+            user = input ("Would you like to have the features assigned automatically or manually ?")
+
+            if user == "0":
+                for corpus_sentence in collective_results_tagged:
+                    sub_sentences = collective_results_tagged[corpus_sentence]
+                    sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+                    write_to_database(sentence.feature_assignment(), sub_sentences, database)
+                print(f"All of the sentences have been automatically assigned the most appropriate feature.")
+                input("Please press enter to continue to the main.")
+
+            elif user == "1":
+                feat = input("Please enter the desired feature (ORAL/LIT):")
+                for corpus_sentence in collective_results_tagged:
+                    sub_sentences = collective_results_tagged[corpus_sentence]
+                    write_to_database(feat, sub_sentences, database)
+                print(f"All of the sentences have been assigned the feature {feat}.")
+                input("Please press enter to continue to the main.")
+            else:
+                print(f"{user} is not a valid option.")
 
 def get_freq(file):
     """
@@ -593,7 +625,7 @@ def get_freq(file):
 
     :return
         :rtype dict
-            'prior_prob': the frequency of  said features.
+            'prior_prob': the frequency of said features.
 
         :rtype list
             'training_data': the data from the csv file saved in a list.

@@ -19,7 +19,9 @@ import bs4
 
 class DiscourseAnalysis:
     """
-
+     This class has the primary goal of providing functions and methods
+     to automatically assign ORAL and LIT tags to the appropriate sentences.
+     This is done in one of two ways: Language-dependent and Language-independent criteria.
 
     """
 
