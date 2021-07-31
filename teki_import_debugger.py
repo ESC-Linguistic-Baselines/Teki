@@ -7,7 +7,5 @@ for i in data:
     sub= data[i]
     system = DiscourseAnalysis(data).TokenAnalysis(sub)
     point = system.feature_assignment()
-    print(point)
-
 
 

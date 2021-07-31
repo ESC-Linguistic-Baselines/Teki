@@ -18,10 +18,6 @@ app_resources\app_common_docs\fra_lit_docs\Fl_pre.txt
 app_resources\app_common_docs\fra_lit_docs\FL_suf.txt
 app_resources\app_common_docs\fra_lit_docs\FRE.txt
 app_resources\app_common_docs\fra_lit_docs\lit_writer.py
-app_resources\app_common_docs\fra_oral_doc\ebay_acc.txt
-app_resources\app_common_docs\fra_oral_doc\ebay_ann.csv
-app_resources\app_common_docs\fra_oral_doc\ebay_att.csv
-app_resources\app_common_docs\fra_oral_doc\ebay_bon.csv
 app_resources\app_common_docs\fra_oral_doc\emoticons.csv
 app_resources\app_common_docs\fra_oral_doc\FA.txt
 app_resources\app_common_docs\fra_oral_doc\FA_suf.txt
@@ -30,6 +26,7 @@ app_resources\app_common_docs\fra_oral_doc\FF_inst.txt
 app_resources\app_common_docs\fra_oral_doc\FPA.txt
 app_resources\app_common_docs\fra_oral_doc\FV.txt
 app_resources\app_common_docs\fra_oral_doc\oral_writer.py
+app_resources\app_common_docs\fra_oral_doc\presentatifs.txt
 app_resources\app_compressed_data\cmr-88milsms-tei-v1.zip
 app_resources\app_compressed_data\README.MD
 app_resources\app_databases\dev_training.csv
@@ -40,7 +37,6 @@ app_resources\app_dev\dev_documentation\Literal Oral Criteria.docx
 app_resources\app_dev\dev_documentation\Müller Criteria.docx
 app_resources\app_dev\dev_documentation\report.txt
 app_resources\app_dev\dev_documentation\wordcount.py
-app_resources\app_dev\dev_documentation\articles\Bader - Schriftlichkeit und Mündlichkeit.pdf
 app_resources\app_dev\dev_documentation\articles\chandler_bachleor_expose.docx
 app_resources\app_dev\dev_documentation\articles\Chanier  The CoMeRe corpus for French structuring.pdf
 app_resources\app_dev\dev_documentation\articles\cmr-wikiconflits-tei-v4.1-manuel.pdf
@@ -50,7 +46,6 @@ app_resources\app_dev\dev_documentation\articles\Ng -Exemplar Based Word Sense D
 app_resources\app_dev\dev_documentation\articles\Ortmann - Automatic Orality Identification in Historical Texts.pdf
 app_resources\app_dev\dev_documentation\articles\Ortmann - Variation between Different Discourse Types Literate vs. Oral.pdf
 app_resources\app_dev\dev_documentation\articles\Panckhurst - A digital corpus resource.pdf
-app_resources\app_dev\dev_documentation\articles\Rehm - Schriftliche Mündlichkeit.pdf
 app_resources\app_dev\dev_documentation\articles\traduire-162.pdf
 app_resources\app_dev\dev_files\ebayfr-e05p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17p_0_100.xml

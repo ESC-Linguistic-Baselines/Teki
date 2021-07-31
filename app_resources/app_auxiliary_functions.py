@@ -79,6 +79,17 @@ class DiscourseAnalysis:
         redacted_corpus = {key: list() for (key) in original_corpus_keys}
         elements_to_be_removed = list()
 
+        # regex
+        adverbs = re.compile(r"(?<!^)ment")
+        ftr_smpl = re.compile(r"(?<!^)rai")
+        hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
+        multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
+        multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
+        all_caps = re.compile(r"[A-Z\s]+")
+        numbers = re.compile(r"^\d+(.\d+)*$")
+        abbrev_no_vowels = re.compile("[^aeiou]{1,5}$")
+        abbrev_vowels = re.compile("[a-zA-Z]{1,5}\.")
+
         # Oral and literal elements that will  be removed from old corpus
         oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_french.json")
         lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_french.json")
@@ -277,6 +288,9 @@ class DiscourseAnalysis:
             if emoticons:
                 total_score["ORAL"]["EMO"] = 1
 
+            if abbrev_vowels.findall(sentence):
+                total_score["LIT"]["ABBR"] = 1
+
             return total_score
 
         def feature_assignment(self):
@@ -355,6 +369,9 @@ class DiscourseAnalysis:
             adverbs = re.compile(r"(?<!^)ment")
             ftr_smpl = re.compile(r"(?<!^)rai")
             hypenated_words=re.compile(r"\b\w*\s*[-]\s*\w*\b")
+            negation = re.compile(r"n'|ne")
+            negation_words =re.compile(r"pas|jamais|aucun|rien")
+
 
             # Score and their respective points
             total_score = {
@@ -412,6 +429,8 @@ class DiscourseAnalysis:
                 total_score["LIT"]["HYPHENATED"] = 1
 
             # Negation
+            if negation.findall(sentence) and negation_words.findall(sentence):
+                total_score["LIT"]["PROPER_NEGATION"] = 1
 
             #########################
             # Oral
@@ -421,9 +440,7 @@ class DiscourseAnalysis:
             ORAL
             •	Swear words
             •	Future compose
-            •	Simplification of verb forms
             •	Higher user of contractions
-            •	Negation particle without pronoun
             """
 
             # Presentatifs
@@ -457,23 +474,9 @@ class DiscourseAnalysis:
             if fv_res:
                 total_score["ORAL"]["FV"] = 1
 
-            # evaluative attributes (not at the beginning of the listing)
-            ebay_att=oral_file["ebay_att"]
-            ebay_att_res=[word for word in sentence.split() if word in ebay_att]
-            if ebay_att_res:
-                total_score["ORAL"]["ebay_att"] = 1
-
-            # abbreviations or ‘for sale’ equivalents (tbe, je vends, vds)
-            ebay_ann = oral_file["ebay_ann"]
-            ebay_ann_res = [word for word in sentence.split() if word in ebay_ann]
-            if ebay_ann_res:
-                total_score["ORAL"]["ebay_ann"] = 1
-
-            #  use of an evaluative attribute at the very beginning of the listing
-            ebay_bon = oral_file["ebay_bon"]
-            ebay_bon_res = [word for word in sentence.split() if word in ebay_bon]
-            if ebay_bon_res:
-                total_score["ORAL"]["ebay_bon"] = 1
+            # Improper Negation
+            if negation.findall(sentence)== False and negation_words.findall(sentence)==True:
+                total_score["ORAL"]["IMPROPRER_NEGATION"] = 1
 
 
             return total_score
