@@ -893,7 +893,7 @@ if __name__ == "__main__":
     """
     system_evaluation = False
     try:
-        default_doc = r"app_resources/app_dev/dev_files/french_documents.txt"
+        default_doc = r"app_resources/app_dev/dev_files/argot_1.txt"
         default_train = r"app_resources/app_databases/dev_training.csv"
         if bool(core_file_missing) is False and bool(library_error) is False:
             run_program(default_doc, default_train,system_evaluation)

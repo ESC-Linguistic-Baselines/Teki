@@ -572,18 +572,6 @@ def evaluation():
     gold_results = dict()
     system_results = dict()
 
-    def evaluate_sentence_tokenizer():
-
-        true_positive = 0
-        false_positive = 0
-        false_negative = 0
-        true_negative = 0
-
-        for row in csv_gold_reader:
-            gold_results[row[1]] = gold_results.get(row[1], 0) + 1
-
-        print(gold_results)
-
     def evaluate_naive_bayes():
 
         feat_1 = "ORAL"
@@ -621,17 +609,8 @@ def evaluation():
 
         results = {"TP": true_positive, "FP": false_positive, "FN": false_negative, "TN": true_negative}
 
-    def evaluation_spacy_tagger():
-        pass
-
-    def evaluation_spacy_tokenizer():
-        pass
-
     # This is the dynamic menu that the user has access during this function
-    output_menu = {"evaluate sentence sentence_tokenizer": evaluate_sentence_tokenizer,
-                   "evaluate naive bayes": evaluate_naive_bayes,
-                   "evaluation spacy tagger": evaluation_spacy_tagger,
-                   "evaluation spacy sentence_tokenizer": evaluation_spacy_tokenizer,
+    output_menu = { "evaluate naive bayes": evaluate_naive_bayes,
                    "return to menu": lambda: False
                    }
 

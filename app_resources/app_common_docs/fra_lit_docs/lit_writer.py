@@ -1,6 +1,5 @@
 import json
 
-# Mueller Texts
 francais_cultive = open("FCL.txt", mode="r", encoding="utf-8").read().split()
 francais_cultive_abs = open("FCL_abs.txt", mode="r", encoding="utf-8").read().split()
 francais_ecrit = open("FRE.txt", mode="r", encoding="utf-8").read().split()
@@ -20,5 +19,4 @@ with open ("../lit_french.json", mode="w", encoding="utf-8") as oral_file:
         "FRT_PRE":[word for word in francais_technique_pre]
     }
     json.dump(data,oral_file,indent=2)
-
 
