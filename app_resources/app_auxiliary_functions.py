@@ -4,14 +4,20 @@
 # Importing standard python libraries
 #########################
 
-import os
 import csv
 import json
 import logging
 import re
 from tkinter import filedialog, Tk
-import bs4
 
+#########################
+# Importing pip libraries
+#########################
+
+try:
+    import bs4
+except ImportError as  error:
+    print(error)
 
 #########################
 # Auxiliary Classes
@@ -41,7 +47,7 @@ class DiscourseAnalysis:
 
         :param infile:
             :type str
-                The .csv file to be read in.
+                The .json file to be read into the system
 
         :return csv_data:
             :type list
@@ -65,15 +71,19 @@ class DiscourseAnalysis:
                 'redacted_corpus': a redacted version of the corpus.
         """
 
-        # Creating the new corpus
+        # Keys from old corpus to be moved to the new corpus
         original_corpus = self.collective_results_tagged
         original_corpus_keys = self.collective_results_tagged.keys()
+
+        # New corpus
+        redacted_corpus = {key: list() for (key) in original_corpus_keys}
         elements_to_be_removed = list()
 
-        # oral and literal elements
+        # Oral and literal elements that will  be removed from old corpus
         oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_french.json")
         lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_french.json")
 
+        # Moving elements from one dictionary to another, minus the redacted elements
         for language_register in lit_infile:
             for word in lit_infile[language_register]:
                 elements_to_be_removed.append(word)
@@ -82,8 +92,7 @@ class DiscourseAnalysis:
             for word in oral_infile[language_register]:
                 elements_to_be_removed.append(word)
 
-        redacted_corpus = {key: list() for (key) in original_corpus_keys}
-
+        # Creating the new redacted corpus
         for sent in original_corpus:
             corpus_sentence = original_corpus[sent]
             for number, sentence in enumerate(corpus_sentence):
@@ -101,13 +110,14 @@ class DiscourseAnalysis:
 
         def __init__(self, sub_sentences):
             """
+
             """
             self.sub_sentences = sub_sentences
 
         def sentence_reconstruction(self):
             """
 
-
+            :return:
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
             word_count = len(self.sub_sentences)
@@ -119,11 +129,11 @@ class DiscourseAnalysis:
 
             """
 
-            dep = [word[2] for word in self.sub_sentences]
             pos = [word[1] for word in self.sub_sentences]
+            dep = [word[2] for word in self.sub_sentences]
             morph = [word[5] for word in self.sub_sentences]
-            gram_count = dict()
 
+            gram_count = dict()
             for i in range(len(pos)):
                 gram = pos[i]
                 gram_count[gram] = gram_count.get(gram, 0) + 1
@@ -140,47 +150,41 @@ class DiscourseAnalysis:
             oral_file = DiscourseAnalysis.read_database(feat_1)
 
             # Score and their respective points
-            total_score = {
-                "LIT": {},
-                "ORAL": {}
-                    }
+            total_score = { "LIT": {}, "ORAL": {} }
 
             # Lexical and POS information
+            sentence = self.sentence_reconstruction()[1]
+            sentence_length = len([word for word in sentence])
             pos = self.part_of_speech()[1]
             dep = self.part_of_speech()[2]
             morph = str(self.part_of_speech()[3])
-
             gram_count = self.part_of_speech()[0]
-            sentence = self.sentence_reconstruction()[1]
-            sentence_length = len([word for word in sentence])
 
             # Vocabulary
-            voc = [word for word in sentence.split()]
-            words, characters = len(voc), len([word for word in sentence])
+            vocab = [word for word in sentence.split()]
+            words, characters = len(vocab), len([word for word in sentence])
             avg_word_length = round(words / characters * 100)
-            word_count = dict()
 
             # Word count
-            for word in voc:
+            word_count = dict()
+            for word in vocab:
                 word_count[word] = word_count.get(word, 0)+1
-
-            # Emoticon elements
-            emoticons = set(oral_file["EMO"]) & set(voc)
 
             # Regex Expressions for typical features
             multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
             multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
             all_caps = re.compile(r"[A-Z\s]+")
             numbers = re.compile(r"^\d+(.\d+)*$")
-            abb = re.compile("\b(?:[A-Z][a-z]*){2,}")
-
-            # NOUN/PRONOUN/PROPN to VERB Ratio
-            np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
-            vb = gram_count.get("VERB", 0)
+            abbrev_no_vowels = re.compile("[^aeiou]{1,5}$")
+            abbrev_vowels = re.compile("[a-zA-Z]{1,5}\.")
 
             #########################
             # LIT
             #########################
+
+            # NOUN/PRONOUN/PROPN to VERB Ratio
+            np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
+            vb = gram_count.get("VERB", 0)
 
             # Third person occurs frequently
             if dep.count("expl:subj") > 1:
@@ -188,35 +192,39 @@ class DiscourseAnalysis:
 
             # First person does not occur frequently
             if dep.count("nsubj") < 1:
-                total_score["LIT"]["nsubj"] = 1
+                total_score["LIT"]["NOM_SUBJ"] = 1
 
             # The present tense of verbs occurs frequently
             if morph.count("Pres") > 2:
-                total_score["LIT"]["PRES"] = 1
+                total_score["LIT"]["PRES_TENSE"] = 1
 
-            # High number of abbreviations
-            if abb.findall(sentence):
+            # Abbreviations
+            if abbrev_no_vowels.findall(sentence):
                 total_score["LIT"]["ABBR"] = 1
 
-            # Noun to Verb Ratio
+            # High number of nouns compared to nouns
             if np > vb:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
 
-            # Ratio of subordinating conjunctions (tagged as KOUS or KOUI) to full verbs.
-            if pos.count("CCONJ")>pos.count("VERB"):
+            # Low number of verbs, with high number of adjectives.
+            if vb < 1 and pos.count("ADJ") > 3:
+                total_score["ORAL"]["NO_VERBS"] = 1
+
+            # More coordinating conjunctions than verbs
+            if pos.count("CCONJ") > pos.count("VERB"):
                 total_score["LIT"]["CCONJ_VB_RATIO"] = 1
 
             # Long sentence length
-            if sentence_length > 25:
+            if sentence_length > 10:
                 total_score["LIT"]["LONG_SEN_LENGTH"] = 1
 
-            # High word length
+            # High word length with low word length and  high number of sentences
             if sentence_length < 25 and len(word_count) < 5:
                 if numbers.findall(sentence):
                     total_score["LIT"]["LONG_WORD_LENGTH"] = 1
 
             # High average word length
-            if avg_word_length > 15:
+            if avg_word_length > 10:
                 total_score["LIT"]["AVG_WORD_LENGTH"] = 1
 
             #########################
@@ -236,15 +244,15 @@ class DiscourseAnalysis:
             if vb == 0 and sentence_length < 5:
                 total_score["ORAL"]["HIGH_PRONOUN_COUNT"] = 1
 
-            # Reduplication
+            #  Word Reduplication
             if (max(word_count.values())) > 1:
                 total_score["ORAL"]["WORD_REDUPLICATION"] = 1
 
-            # Frequent use of !!!, ???, etc.
+            # High use of punctuation for effect
             if gram_count.get("PUNCT", 0) > 5:
                 total_score["ORAL"]["SYMBOL_REDUPLICATION"] = 1
 
-            # Using the same character multiple times
+            # High use of same character multiple times
             if multi_char.findall(sentence):
                 total_score["ORAL"]["MULTI_CHAR_REDUPLICATION"] = 1
 
@@ -252,33 +260,20 @@ class DiscourseAnalysis:
             if multi_word.findall(sentence):
                 total_score["ORAL"]["WORD_WORD_REDUPLICATION"] = 1
 
-            # Emphasis
+            # Emphasis via all Caps
             if all_caps.findall(sentence):
                 total_score["ORAL"]["ALL_CAPS"] = 1
 
-            # Isolated verb stems  or imperatives with question marks/exclamation marks
+            # Isolated verb stems or imperatives
             if sentence_length < 4 and vb < 1:
                 total_score["ORAL"]["ISOLATED_VERBS"] = 1
 
-            # Low number of verbs
-            if vb == 0:
-                total_score["ORAL"]["NO_VERBS"] = 1
-
-            #if common:total_score["ORAL"]["EMOTICONS"] = len(common)
-
-            # # Low number of function words
-            # if function_words:
-            #     total_score["ORAL"]["FUNCTION_WORDS"] = 1
-
-            # Proportion of sentences beginning with a coordinating conjunction.
-            # if coor_conj:
-            #     total_score["ORAL"]["coor_conj"] = 1
-
             # High use of using adjectives and constructions at the beginning of the sentence
             if pos.count("ADJ") > 3:
-                total_score["ORAL"]["CCONJ"] = 1
+                total_score["ORAL"]["ADJ"] = 1
 
             # Emoticons
+            emoticons = [emo for emo in oral_file["EMO"] if emo in sentence]
             if emoticons:
                 total_score["ORAL"]["EMO"] = 1
 
@@ -619,9 +614,8 @@ def feature_extraction():
 
         # Ebay Corpus
         else:
-            tag = (
-            "bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc", "imp", "att", "acc", "ann", "con", "info", "lex",
-            "ort", "slo", "syn")
+            tag = ( "bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc",
+                    "imp", "att", "acc", "ann", "con", "info", "lex", "ort", "slo", "syn")
 
             for t in sorted(tag):
                 types = {" ".join(element.getText().split()) for element in soup.find_all(t)}
@@ -669,7 +663,7 @@ def sentence_tokenizer(simple_split_tokens):
     """
 
     # regex expression for recognizing sentences
-    regex = re.compile(rf'''(?P<sentence_basic>[a-zàâçéèêëîïôûùüÿñæœ]+[.!?])|# single punctutation marks
+    regex = re.compile(rf'''(?P<sentence_basic>[a-zàâçéèêëîïôûùüÿñæœ]+[.!?-])|# single punctutation marks
                             (?P<sentence_punctuatuion>)[*!?.]|
                             (?P<sentence_period>)[.·]
                             ''', re.VERBOSE)
