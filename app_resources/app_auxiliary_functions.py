@@ -280,7 +280,10 @@ class DiscourseAnalysis:
             return total_score
 
         def feature_assignment(self):
+            """
 
+
+            """
             feat_1_score = sum(self.calculate_scores()["LIT"].values())
             feat_2_score = sum(self.calculate_scores()["ORAL"].values())
 
@@ -295,84 +298,138 @@ class DiscourseAnalysis:
                 return "UNK"
 
     class TokenAnalysis:
+        """
+
+        """
 
         def __init__(self, sub_sentences):
+            """
+
+            :param sub_sentences:
+            """
             self.sub_sentences = sub_sentences
 
         def sentence_reconstruction(self):
+            """
+
+            :return:
+            """
             sentence = " ".join([word[0] for word in self.sub_sentences])
-            return sentence, len(self.sub_sentences)
+            word_count = len(self.sub_sentences)
+
+            return word_count, sentence
+
+        def part_of_speech(self):
+            """
+
+            """
+
+            pos = [word[1] for word in self.sub_sentences]
+            dep = [word[2] for word in self.sub_sentences]
+            morph = [word[5] for word in self.sub_sentences]
+
+            gram_count = dict()
+            for i in range(len(pos)):
+                gram = pos[i]
+                gram_count[gram] = gram_count.get(gram, 0) + 1
+
+            return gram_count, pos, dep, morph
+
 
         def calculate_scores(self):
 
             """
 
-            a.	French
-
-            LIT
-            •	Use of professional terminology
-            •	Use of français cultivé
-            •	 Qu’est-ce que
-            •	Inversion
-            •	Old verb forms that are no longer used in spoken French
-            o	Future simple
-             high number of abb
-              high use of impersonal constructions like "il est certain, il est probable"
-              high use of "être"
             """
+
+            # Files for typical words of oral and lit French
             feat_1 = "app_resources/app_common_docs/oral_french.json"
-            oral_file = DiscourseAnalysis.read_database(feat_1)
             feat_2 = "app_resources/app_common_docs/lit_french.json"
+            oral_file = DiscourseAnalysis.read_database(feat_1)
             lit_file = DiscourseAnalysis.read_database(feat_2)
-            sentence = self.sentence_reconstruction()[0]
+
+            # Sentence
+            sentence = self.sentence_reconstruction()[1]
+
+            # Regex
+            adverbs = re.compile(r"(?<!^)ment")
+            ftr_smpl = re.compile(r"(?<!^)rai")
+            hypenated_words=re.compile(r"\b\w*\s*[-]\s*\w*\b")
 
             # Score and their respective points
             total_score = {
                 "LIT": {},
                 "ORAL": {}
             }
+
             #########################
             # LIT
             #########################
+
+            # Francais Cultive
             fcl = [word for word in sentence.split() if word in lit_file["FC"]]
             if fcl:
                 total_score["LIT"]["FC"] = 1
 
+            # Francais Cultive Abbreviations
             fcl_abs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
             if fcl_abs:
                 total_score["LIT"]["FC_ABS"] = 1
 
+            # Francais Technique, Francais Scientifique
             fl = [word for word in sentence.split() if word in lit_file["FC_abs"]]
             if fl:
                 total_score["LIT"]["FRT"] = 1
 
+            # Francais Technique Prefix
             frt_pre =[word for word in sentence.split() if word in lit_file["FRT_PRE"]]
             if frt_pre:
                 total_score["LIT"]["FRT"] = 1
 
+            # Francais Technique Suffix
             frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
             if frt_suf:
                 total_score["LIT"]["FRT_SUF"] = 1
+
+            # Often used in formal French, even though not exclusively
+            if len(adverbs.findall(sentence)) > 2:
+                total_score["LIT"]["ADVB"] = 1
+
+            # High use of Future Simple
+            if len(ftr_smpl.findall(sentence)) > 2:
+                total_score["LIT"]["FUTURE_SIMPLE"] = 1
+
+            # High use of être and impersonal constructs
+            if sentence.count("être") > 3:
+                total_score["LIT"]["Être"] = 1
+
+            # Impersonal constructs
+            if sentence.count("il") > 2:
+                total_score["LIT"]["IL"] = 1
+
+            # High use of hyphenated words
+            if hypenated_words.findall(sentence):
+                total_score["LIT"]["HYPHENATED"] = 1
+
+            # Negation
 
             #########################
             # Oral
             #########################
 
-
             """
             ORAL
-            •	 High usage of présentatifs (c’est, ce sont, ça, il y a, voici)
             •	Swear words
-            •	Self-corrections
-            •	Only use of ? to ask a question
-            •	Français vulgaire
             •	Future compose
             •	Simplification of verb forms
             •	Higher user of contractions
             •	Negation particle without pronoun
-            high use of punctuation
-            high verb use
             """
+
+            # Presentatifs
+            pres = [word for word in sentence.split() if word in oral_file["pres"]]
+            if pres:
+                total_score["ORAL"]["pres"] = 1
 
             # Francais Argot
             arg_res = [word for word in sentence.split() if word in oral_file["FA"]]
@@ -386,8 +443,10 @@ class DiscourseAnalysis:
 
             # Francais Familier
             ff_res=[word for word in sentence.split() if word in oral_file["FF"]]
-            if ff_res:total_score["ORAL"]["FF"] = 1
+            if ff_res:
+                total_score["ORAL"]["FF"] = 1
 
+            # Francais Familier Intesifiers
             ff__intens_res = [word for word in sentence.split()if word in oral_file["FF_intens"]]
             if ff__intens_res:
                 total_score["ORAL"]["ff__intens_res"] = 1
@@ -398,25 +457,32 @@ class DiscourseAnalysis:
             if fv_res:
                 total_score["ORAL"]["FV"] = 1
 
+            # evaluative attributes (not at the beginning of the listing)
             ebay_att=oral_file["ebay_att"]
             ebay_att_res=[word for word in sentence.split() if word in ebay_att]
-
             if ebay_att_res:
                 total_score["ORAL"]["ebay_att"] = 1
 
+            # abbreviations or ‘for sale’ equivalents (tbe, je vends, vds)
             ebay_ann = oral_file["ebay_ann"]
             ebay_ann_res = [word for word in sentence.split() if word in ebay_ann]
             if ebay_ann_res:
                 total_score["ORAL"]["ebay_ann"] = 1
 
+            #  use of an evaluative attribute at the very beginning of the listing
             ebay_bon = oral_file["ebay_bon"]
             ebay_bon_res = [word for word in sentence.split() if word in ebay_bon]
             if ebay_bon_res:
                 total_score["ORAL"]["ebay_bon"] = 1
 
+
             return total_score
 
         def feature_assignment(self):
+            """
+
+            :return:
+            """
 
             feat_1_score = sum(self.calculate_scores()["LIT"].values())
             feat_2_score = sum(self.calculate_scores()["ORAL"].values())
@@ -435,10 +501,6 @@ class DiscourseAnalysis:
 # auxiliary functions
 #########################
 
-
-error_log = 'teki_error.log'
-
-
 def about_program():
     """
     This reads in the readme file and displays it to the user
@@ -456,7 +518,7 @@ def about_program():
             print(line.strip())
         input("\nPlease press enter to continue...")
 
-
+error_log = 'teki_error.log'
 def clear_log(error_log):
     """
         This function deletes the error log file by overwriting it with a error log

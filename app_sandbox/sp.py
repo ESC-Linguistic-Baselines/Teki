@@ -1,8 +1,5 @@
-
-
-
-a="who are you"
-b=("you")
-
-c= [word for word in a.split() if word in b ]
-print(c)
+import spacy
+doc = nlp("This is a sentence.")
+lemmatizer = nlp.add_pipe("lemmatizer")
+# This usually happens under the hood
+processed = lemmatizer(doc)

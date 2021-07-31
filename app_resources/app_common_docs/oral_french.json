@@ -197,8 +197,7 @@
     "boss",
     "d\u00e9goiser",
     "bonir",
-    "boniment",
-    "ENSEMBLE"
+    "boniment"
   ],
   "FA_suf": [
     "abre",
@@ -380,5 +379,18 @@
     "formidablement",
     "sacr\u00e9ment",
     "vachement"
+  ],
+  "pres": [
+    "c'",
+    "est",
+    "c'",
+    "\u00e9tait",
+    "ce",
+    "sont",
+    "il",
+    "y",
+    "a",
+    "voici",
+    "voil\u00e0"
   ]
 }

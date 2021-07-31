@@ -6,25 +6,3 @@ RF
 GPL
 PCF
 PVC
-simca
-igma
-smic
-adac
-isa
-cédex
-base
-cockpit
-manoeuvre
-pilote
-à bord
-vaisseau
-navigation
-biscuit
-coussin
-saucisson
-pot
-pub
-bouffer
-bourrer
-savonner
-sucrer

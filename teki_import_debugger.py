@@ -5,8 +5,9 @@ data = pickle.load(open("pickle_data.pickle", "rb"))
 
 for i in data:
     sub= data[i]
-    system = DiscourseAnalysis(data).PosSyntacticalAnalysis(sub)
-    reconstruct = system.feature_assignment ( )
-    print(reconstruct)
+    system = DiscourseAnalysis(data).TokenAnalysis(sub)
+    point = system.feature_assignment()
+    print(point)
+
 
 

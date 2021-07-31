@@ -41,17 +41,17 @@ app_resources\app_dev\dev_documentation\Müller Criteria.docx
 app_resources\app_dev\dev_documentation\report.txt
 app_resources\app_dev\dev_documentation\wordcount.py
 app_resources\app_dev\dev_documentation\articles\Bader - Schriftlichkeit und Mündlichkeit.pdf
-app_resources\app_dev\dev_documentation\articles\Bader - Schriftlichkeit und Mündlichkeit.pdf
 app_resources\app_dev\dev_documentation\articles\chandler_bachleor_expose.docx
 app_resources\app_dev\dev_documentation\articles\Chanier  The CoMeRe corpus for French structuring.pdf
 app_resources\app_dev\dev_documentation\articles\cmr-wikiconflits-tei-v4.1-manuel.pdf
 app_resources\app_dev\dev_documentation\articles\Koch Oesterreicher - Schriftlichkeit und kommunikative Distanz.pdf
+app_resources\app_dev\dev_documentation\articles\LING_381_0005.pdf
 app_resources\app_dev\dev_documentation\articles\Ng -Exemplar Based Word Sense Disambiguation Some Recent Improvements.pdf
 app_resources\app_dev\dev_documentation\articles\Ortmann - Automatic Orality Identification in Historical Texts.pdf
 app_resources\app_dev\dev_documentation\articles\Ortmann - Variation between Different Discourse Types Literate vs. Oral.pdf
 app_resources\app_dev\dev_documentation\articles\Panckhurst - A digital corpus resource.pdf
-app_resources\app_dev\dev_documentation\articles\Rehm - Schriftliche Mündlichkeit.pdf
 app_resources\app_dev\dev_documentation\articles\Rehm - Schriftliche Mündlichkeit.pdf
+app_resources\app_dev\dev_documentation\articles\traduire-162.pdf
 app_resources\app_dev\dev_files\ebayfr-e05p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17x_0_100.xml

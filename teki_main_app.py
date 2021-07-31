@@ -543,6 +543,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     write_to_database(sentence.feature_assignment(), sub_sentences, database)
                 print(f"All of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main.")
+                break
 
             elif user == "1":
                 feat = input("Please enter the desired feature (ORAL/LIT):")
@@ -551,6 +552,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     write_to_database(feat, sub_sentences, database)
                 print(f"All of the sentences have been assigned the feature {feat}.")
                 input("Please press enter to continue to the main.")
+                break
+
             else:
                 print(f"{user} is not a valid option.")
 
