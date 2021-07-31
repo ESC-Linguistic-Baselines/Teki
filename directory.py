@@ -20,4 +20,5 @@ def dependency_generate():
 
     print("The app resource directory.py file has been updated.")
 
+
 dependency_generate()

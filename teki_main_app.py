@@ -180,9 +180,13 @@ def get_text(document):
             return csv_data
 
         else:
-            text = file.readlines()
-            return text
+            text=""
+            for line in file:
+                word = line.rstrip().split()
+                for w in word:
+                    text+=f"{w} "
 
+            return text
 
 def get_database():
     """
@@ -382,7 +386,6 @@ def analyze_content(text):
                     #  Calculating the total amount of sentences
                     for sentence in collective_results:
                         sentence_count += len(collective_results[sentence])
-
                     return tag_save(sentence_count, collective_results)
 
                 except Exception as error:
@@ -414,7 +417,6 @@ def analyze_content(text):
         """
 
         tokens = text.split()
-
         user = input("Please enter a unique identifier using number of characters from (a-z, A-Z, 0-9) for this text: ")
         results = sentence_tokenizer(tokens)
         collective_results = dict()
@@ -484,8 +486,6 @@ def spacy_tagger(corpus_content):
             new_sentence = list()
 
     input("The sentences have been successfully tagged. Please press enter to continue...")
-    pickle_data=open("pickle_data.pickle", "wb")
-    pickle.dump(collective_results_tagged, pickle_data)
     return collective_results_tagged
 
 
@@ -578,12 +578,16 @@ def get_freq(file):
         training_data = [row for row in csv_reader]
 
         # Features to be found in the text
-        prior_prob = {"ORAL": 0, "LIT": 0}
+        prior_prob = {"ORAL": 0, "LIT": 0,"UNK":0}
         sentence_lex = {(row[3], row[4], row[5]) for row in training_data}
 
         for sentence in sentence_lex:
             entry = sentence[2]
-            prior_prob[entry] = prior_prob.get(entry) + 1
+            prior_prob[entry] = prior_prob.get(entry,0) + 1
+
+        print("The structure of the database is as follows:")
+        print("ORAL:",prior_prob.get("ORAL",0))
+        print("LIT:",prior_prob.get("LIT",0))
 
         return prior_prob, training_data
 
@@ -668,7 +672,7 @@ def get_probs(freq_training_data):
     return prior_prob, prob_results
 
 
-def classify_sentence(text, probabilities):
+def classify_sentence(probabilities):
     """
     This function calculates the probability of the sentence.
     Using comparative product values, the biggest product with respect to feature 1 and feature 2 is chosen.
@@ -712,6 +716,9 @@ def classify_sentence(text, probabilities):
 
     prior_prob, prob_results = probabilities[1], probabilities[0]
 
+    text = input("Please enter a string: ")
+    text=text.split()
+
     feat_1_prob, feat_2_prob = prob_results["LIT"], prob_results["ORAL"]
 
     feat_1_total_prob = feat_1_prob / (feat_1_prob + feat_2_prob)
@@ -733,10 +740,10 @@ def classify_sentence(text, probabilities):
         feat_1_total_prob *= word_feat_prob[word][0]
         feat_2_total_prob *= word_feat_prob[word][1]
 
-    if feat_2_total_prob > feat_1_total_prob:
-        print(f" '{text} 'is literal {feat_2_total_prob}")
-    else:
-        print(f" '{text}' is oral_doc.csv {feat_1_total_prob}")
+    if feat_1_total_prob > feat_2_total_prob:
+        print(f" '{text} 'is literal.")
+    elif feat_2_total_prob > feat_1_total_prob:
+        print(f" '{text}' is oral.")
 
     input("Please press enter to return to the main menu.")
 
@@ -846,7 +853,6 @@ def run_program(default_doc, default_train,system_evaluation):
                     elif function_name == "analyze_content":
                         try:
                             content = analyze_content(doc)
-
                             if content:
                                 #  Other functions will be carried out if bool(content) is True
                                 collective_results_tagged = spacy_tagger(content)
@@ -857,12 +863,9 @@ def run_program(default_doc, default_train,system_evaluation):
                             logging.exception(f"Main Menu: {error}")
 
                     elif function_name == "classify_sentence":
-
-                        # text = input("Enter the sentence that you would like to classify: ")
-                        text = "a seat at the bar which serves up surprisingly"
                         freq = get_freq(database)
                         probs = get_probs(freq)
-                        classify_sentence(text.split(), probs)
+                        classify_sentence(probs)
 
                     elif function_name == "clear_log":
                         clear_log('teki_error.log')
@@ -893,8 +896,8 @@ if __name__ == "__main__":
     """
     system_evaluation = False
     try:
-        default_doc = r"app_resources/app_dev/dev_files/argot_1.txt"
-        default_train = r"app_resources/app_databases/dev_training.csv"
+        default_doc = r"app_resources/default/argot_1.txt"
+        default_train = r"app_resources/default/dev_training.csv"
         if bool(core_file_missing) is False and bool(library_error) is False:
             run_program(default_doc, default_train,system_evaluation)
         else:

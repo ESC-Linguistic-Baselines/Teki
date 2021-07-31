@@ -1,5 +1,4 @@
 app_resources\app_auxiliary_functions.py
-app_resources\app_common_docs\ebay_tag_results.csv
 app_resources\app_common_docs\lit_french.json
 app_resources\app_common_docs\oral_french.json
 app_resources\app_common_docs\README.MD
@@ -18,6 +17,7 @@ app_resources\app_common_docs\fra_lit_docs\Fl_pre.txt
 app_resources\app_common_docs\fra_lit_docs\FL_suf.txt
 app_resources\app_common_docs\fra_lit_docs\FRE.txt
 app_resources\app_common_docs\fra_lit_docs\lit_writer.py
+app_resources\app_common_docs\fra_oral_doc\ebay_tag_results.csv
 app_resources\app_common_docs\fra_oral_doc\emoticons.csv
 app_resources\app_common_docs\fra_oral_doc\FA.txt
 app_resources\app_common_docs\fra_oral_doc\FA_suf.txt
@@ -28,10 +28,8 @@ app_resources\app_common_docs\fra_oral_doc\FV.txt
 app_resources\app_common_docs\fra_oral_doc\oral_writer.py
 app_resources\app_common_docs\fra_oral_doc\presentatifs.txt
 app_resources\app_compressed_data\cmr-88milsms-tei-v1.zip
-app_resources\app_compressed_data\README.MD
-app_resources\app_databases\dev_training.csv
 app_resources\app_databases\new_cl_2_set.csv
-app_resources\app_databases\old_cl_2_set.csv
+app_resources\app_databases\training_database.txt
 app_resources\app_dev\dev_documentation\Chandler_Linguistik_B_A_Theisis_SoSe2021.docx
 app_resources\app_dev\dev_documentation\Literal Oral Criteria.docx
 app_resources\app_dev\dev_documentation\Müller Criteria.docx
@@ -51,13 +49,8 @@ app_resources\app_dev\dev_files\ebayfr-e05p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17x_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e18v_0_100.xml
-app_resources\app_dev\dev_files\french_documents.txt
 app_resources\app_dev\dev_files\sms_0_29507.xml
 app_resources\app_dev\dev_files\wikiconflits_0_53.xml
-app_resources\app_dev\dev_results\sentence_tokenizer\gold.txt
-app_resources\app_dev\dev_results\sentence_tokenizer\results.csv
-app_resources\app_dev\dev_results\sentence_tokenizer\sms.csv.txt
-app_resources\app_dev\dev_results\sentence_tokenizer\wiki.csv
 app_resources\app_dev_train\app_train\ebayfr-e05p_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e17p_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e17x_101_200.xml
@@ -70,4 +63,6 @@ app_resources\app_test\app_test\ebayfr-e17x_201_300.xml
 app_resources\app_test\app_test\ebayfr-e18v_201_300.xml
 app_resources\app_test\app_test\sms_59015_88522.xml
 app_resources\app_test\app_test\wikiconflits_79_159.xml
+app_resources\default\argot_1.txt
+app_resources\default\dev_training.csv
 app_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc

@@ -83,12 +83,6 @@ class DiscourseAnalysis:
         adverbs = re.compile(r"(?<!^)ment")
         ftr_smpl = re.compile(r"(?<!^)rai")
         hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
-        multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
-        multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
-        all_caps = re.compile(r"[A-Z\s]+")
-        numbers = re.compile(r"^\d+(.\d+)*$")
-        abbrev_no_vowels = re.compile("[^aeiou]{1,5}$")
-        abbrev_vowels = re.compile("[a-zA-Z]{1,5}\.")
 
         # Oral and literal elements that will  be removed from old corpus
         oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_french.json")
@@ -559,7 +553,6 @@ def end_program():
             input("Press enter to continue...")
             break
 
-
 def evaluation():
     # Reference files
     gold_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
@@ -571,6 +564,7 @@ def evaluation():
 
     gold_results = dict()
     system_results = dict()
+
 
     def evaluate_naive_bayes():
 
@@ -609,8 +603,12 @@ def evaluation():
 
         results = {"TP": true_positive, "FP": false_positive, "FN": false_negative, "TN": true_negative}
 
+    def cross_validation():
+        pass
+
     # This is the dynamic menu that the user has access during this function
-    output_menu = { "evaluate naive bayes": evaluate_naive_bayes,
+    output_menu = {"evaluate naive bayes": evaluate_naive_bayes,
+                    "cross validation":cross_validation,
                    "return to menu": lambda: False
                    }
 
