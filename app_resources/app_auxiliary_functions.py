@@ -125,9 +125,11 @@ class DiscourseAnalysis:
             :return:
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
+            sen_id = self.sub_sentences[0][3]
+            sen_num = self.sub_sentences[0][4]
             word_count = len(self.sub_sentences)
 
-            return word_count, sentence
+            return word_count, sentence, sen_id, sen_num
 
         def part_of_speech(self):
             """
@@ -729,7 +731,7 @@ def sentence_tokenizer(simple_split_tokens):
     return sentence_results
 
 
-def save_sentences(collective_results, file):
+def write_sentences(collective_results, file, sen_num=False, sen_id=False, feat=False, feat_save=False):
     """
     this saves the untagged sentences to a desired text file
     :param
@@ -743,20 +745,29 @@ def save_sentences(collective_results, file):
         :rtype
             returns the value of the respective function
     """
-
+    feat_save == False
     with open(file, mode="a+", encoding="utf-8", newline="") as results:
-        fieldnames = "sentence", "sentence_id", "SEN:"
-        writer = csv.DictWriter(results, fieldnames=fieldnames)
+        if feat_save != True:
+            fieldnames = "sentence", "sentence_id", "SEN:"
+            writer = csv.DictWriter(results, fieldnames=fieldnames)
 
-        for res in collective_results:
-            sentence = collective_results[res]
+            for res in collective_results:
+                sentence = collective_results[res]
 
-            for number, sen in enumerate(sentence):
-                writer.writerow({"sentence": sen,
-                                 "sentence_id": res,
-                                 "SEN:": f"SEN:{number}",
-                                 })
+                for number, sen in enumerate(sentence):
+                    writer.writerow({"sentence": sen,
+                                     "sentence_id": res,
+                                     "SEN:": f"SEN:{number}",
+                                     })
 
+        else:
+            fieldnames = "sen", "sen_num", "sen_id","sen_feat"
+            writer = csv.DictWriter(results, fieldnames=fieldnames)
+            sen=collective_results
+            writer.writerow({"sen": sen,
+                             "sen_num":sen_num,
+                             "sen_id":sen_id,
+                             "sen_feat":feat})
 
 def sub_menu(output_menu, menu_name, menu_information):
     """

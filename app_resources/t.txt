@@ -1,0 +1,8 @@
+Cet individu est un vantard.,lok#_0,SEN:0
+"Si vous croyez ce qu'il raconte, il vous dira qu'il a d'excellents moyens de se procurer de l'argent, et cependant il est dans le plus entier dénuement!",lok#_1,SEN:0
+"Il y a quelque temps, en sortant du bureau du directeur: Le patron, nous dit-il,",lok#_2,SEN:0
+estun homme dur et impitoyable.,lok#_3,SEN:0
+"s'il ne rétracte pas rapidement les paroles qu'il vient de prononcer, je réclame ce qui m'est dûn et je m'en vais!",lok#_4,SEN:0
+Que vous a-t-il,lok#_5,SEN:0
+donc raconté?,lok#_6,SEN:0
+Il m'a dit: «Je vous mets à la porte.,lok#_7,SEN:0

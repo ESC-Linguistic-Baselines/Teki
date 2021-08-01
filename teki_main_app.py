@@ -4,10 +4,8 @@
 # Importing standard python libraries
 #########################
 import csv
-import importlib
 import logging
 import os
-import pickle
 import sys
 import timeit
 from datetime import datetime
@@ -127,7 +125,7 @@ if os.path.exists("app_resources"):
             evaluation,
             file_finder,
             sub_menu,
-            save_sentences,
+            write_sentences,
             sentence_tokenizer,
             write_to_database)
 
@@ -245,39 +243,39 @@ def analyze_content(text):
                 returns the collective results back so that they can be tagged.
         """
         while True:
-            options= "tag","save","return"
+            options= "tag sentences","save sentences","return"
 
             for number,choice in enumerate(options,start=1):
                 print(number,choice)
             print("")
 
-            user = input(f"The text has been parsed into {sentence_count} sentences. How would you like to proceed?")
+            user = input(f"The text has been parsed into {sentence_count} sentences. How would you like to proceed? ")
             if user == "1":
-                input("The results will now be tagged. Please press enter to continue with the tagging process.")
+                input("The results will now be tagged. Please press enter to continue with the tagging process...")
                 return collective_results
 
             elif user == "2":
-                print("Please select the directory.py:")
+                print("Please select the directory:")
                 path = file_finder()
-                save_sentences(collective_results, path)
+                write_sentences(collective_results, path)
                 input(f"The results have been saved in {path}. Press enter to return to the main menu.")
                 return False
 
             elif user == "3":
-                input("The sentences will neither be saved nor tagged. Please press enter to return to the main menu.")
+                input("The sentences will neither be saved nor tagged. Please press enter to return to the main menu...")
                 break
 
             else:
-                print(f"{user} is not a valid option.")
+                print(f"{user} is not a valid option. Please enter a valid option.")
 
     def read_contents():
 
         """
-        This function only reads the text data. After the text data has been read,
+        This function only reads in the text data. After the text data has been read,
         the user will be forwarded to the main menu.
 
         :param
-           There are no parameters as it has access to the necessary data which
+           There are no parameters as it has access to the necessary data which are within its scope
 
         :return
             :rtype None
@@ -412,12 +410,12 @@ def analyze_content(text):
         """
 
         """
-        Creates simplified tokens for the sake of creating sentence-level tokens
+        Creates simplified tokens for the sake of creating sentence-level tokens.
         The real tokens will be done with spacy. 
         """
 
         tokens = text.split()
-        user = input("Please enter a unique identifier using number of characters from (a-z, A-Z, 0-9) for this text: ")
+        user = input("Please enter a unique identifier ONLY using number of characters from (a-z, A-Z, 0-9) for this text: ")
         results = sentence_tokenizer(tokens)
         collective_results = dict()
 
@@ -429,9 +427,9 @@ def analyze_content(text):
 
     # This is the dynamic menu that the user has access during this function
     output_menu = {"read file contents": read_contents,
-                   "analyze XML data": xml_analysis,
+                   "analyze .XML data": xml_analysis,
                    "analyze .TXT data": txt_analysis,
-                   "return to menu": lambda: False
+                   "return to  main menu": lambda: False
                    }
 
     # Submenu parameters
@@ -506,25 +504,27 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
+    # import pickle
+    # pickle.dump(collective_results_tagged,open("coll_.pickle","wb"))
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
-    system_file = f"app_resources/app_dev/dev_results/naive_bayes/system_{current_time}.csv"
-    gold_file = f"app_resources/app_dev/dev_results/naive_bayes/gold_{current_time}.csv"
+    system_file = f"app_resources/app_dev/system_{current_time}.csv"
+    gold_file = f"app_resources/app_dev/gold_{current_time}.csv"
 
     if system_evaluation:
         redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
 
         # System results
-        for corpus_sentence in redacted_corpus:
-            sub_sentences = redacted_corpus[corpus_sentence]
-            sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
-            write_to_database(sentence.feature_assignment(), sub_sentences, system_file)
+        for corpus_sentence_id in redacted_corpus:
+            sub_sentences = redacted_corpus[corpus_sentence_id]
+            sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+            write_to_database(sentence_info.feature_assignment(), sub_sentences, system_file)
 
         # Gold results
-        for corpus_sentence in collective_results_tagged:
-            sub_sentences = collective_results_tagged[corpus_sentence]
-            sentence = DiscourseAnalysis.TokenAnalysis(sub_sentences)
-            write_to_database(sentence.feature_assignment(), sub_sentences, gold_file)
+        for corpus_sentence_id in collective_results_tagged:
+            sub_sentences = collective_results_tagged[corpus_sentence_id]
+            sentence_info = DiscourseAnalysis.TokenAnalysis(sub_sentences)
+            write_to_database(sentence_info.feature_assignment(), sub_sentences, gold_file)
 
     else:
         # This option is activated when the system is not being evaluated.
@@ -534,24 +534,49 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                 print(number, choice)
             print("")
 
-            user = input ("Would you like to have the features assigned automatically or manually ?")
+            user = input ("Would you like to have the features assigned automatically or manually? ")
 
             if user == "0":
-                for corpus_sentence in collective_results_tagged:
-                    sub_sentences = collective_results_tagged[corpus_sentence]
-                    sentence = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
-                    write_to_database(sentence.feature_assignment(), sub_sentences, database)
-                print(f"All of the sentences have been automatically assigned the most appropriate feature.")
-                input("Please press enter to continue to the main.")
+                # Automatic Assignment
+                for corpus_sentence_id in collective_results_tagged:
+                    sub_sentences = collective_results_tagged[corpus_sentence_id]
+                    sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+                    feat = sentence_info.feature_assignment()
+                    sentence = sentence_info.sentence_reconstruction()[1]
+                    sen_id = sentence_info.sentence_reconstruction()[2]
+                    sen_num =  sentence_info.sentence_reconstruction()[3]
+                    write_to_database(feat, sub_sentences, database)
+                    write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
+                input("Please press enter to continue to the main... ")
                 break
 
             elif user == "1":
-                feat = input("Please enter the desired feature (ORAL/LIT):")
-                for corpus_sentence in collective_results_tagged:
-                    sub_sentences = collective_results_tagged[corpus_sentence]
+                # Manually assignment of features
+                options = "LIT", "ORAL"
+                for number, choice in enumerate(options):
+                    print(number, choice)
+                print("")
+
+                user = input("Please enter the number of the desired feature")
+
+                if user == "0":
+                    feat="LIT"
+                elif user == "1":
+                    feat = "ORAL"
+
+                for corpus_sentence_id in collective_results_tagged:
+                    sub_sentences = collective_results_tagged[corpus_sentence_id]
+                    sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
                     write_to_database(feat, sub_sentences, database)
-                print(f"All of the sentences have been assigned the feature {feat}.")
-                input("Please press enter to continue to the main.")
+                    sentence = sentence_info.sentence_reconstruction()[1]
+                    sen_id = sentence_info.sentence_reconstruction()[2]
+                    sen_num =  sentence_info.sentence_reconstruction()[3]
+
+                    write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+
+                print(f"\nAll of the sentences have been assigned the feature {feat}.")
+                input("Please press enter to continue to the main... ")
                 break
 
             else:

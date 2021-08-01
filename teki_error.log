@@ -1,0 +1,79 @@
+
+ERROR_TIME: 2021-08-01 07:53:37,082
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 880
+ERROR_SCOPE Main Menu: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 876, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 567, in sentence_identification
+    write_to_database(feat, sub_sentences, database)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 839, in write_to_database
+    with open(database, mode="a+", encoding="utf-8", newline="") as analysis:
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-08-01 08:13:50,511
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 880
+ERROR_SCOPE Main Menu: 'int' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 876, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 568, in sentence_identification
+    save_sentences(1,"app_resources/default/default_result_sentence.csv", feat, True)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 766, in save_sentences
+    for number, sen in enumerate(collective_results):
+TypeError: 'int' object is not iterable
+
+ERROR_TIME: 2021-08-01 08:15:14,407
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 880
+ERROR_SCOPE Main Menu: 'int' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 876, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 568, in sentence_identification
+    save_sentences(sentence,"app_resources/default/default_result_sentence.csv", feat, True)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 766, in save_sentences
+    for number, sen in enumerate(collective_results):
+TypeError: 'int' object is not iterable
+
+ERROR_TIME: 2021-08-01 08:17:55,968
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 880
+ERROR_SCOPE Main Menu: 'int' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 876, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 568, in sentence_identification
+    save_sentences(sentence,"app_resources/default/default_result_sentence.csv", feat, True)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 766, in save_sentences
+    for number, sen in enumerate(collective_results):
+TypeError: 'int' object is not iterable
+
+ERROR_TIME: 2021-08-01 08:42:26,426
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 886
+ERROR_SCOPE Main Menu: dict contains fields not in fieldnames: 'sen_id'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 882, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 573, in sentence_identification
+    write_sentences(sentence, "app_resources/default/default_result_sentence.csv", sen_num, sen_id, feat, True)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 766, in write_sentences
+    writer.writerow({"sen": sen,
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\csv.py", line 154, in writerow
+    return self.writer.writerow(self._dict_to_list(rowdict))
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\csv.py", line 149, in _dict_to_list
+    raise ValueError("dict contains fields not in fieldnames: "
+ValueError: dict contains fields not in fieldnames: 'sen_id'
