@@ -16,6 +16,8 @@ from tkinter import filedialog, Tk
 
 try:
     import bs4
+    import pandas as pd
+
 except ImportError as  error:
     print(error)
 
