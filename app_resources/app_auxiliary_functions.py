@@ -179,6 +179,10 @@ class DiscourseAnalysis:
             for word in vocab:
                 word_count[word] = word_count.get(word, 0)+1
 
+            # NOUN/PRONOUN/PROPN to VERB Ratio
+            np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
+            vb = gram_count.get("VERB", 0)
+
             # Regex Expressions for typical features
             multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
             multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
@@ -190,10 +194,6 @@ class DiscourseAnalysis:
             #########################
             # LIT
             #########################
-
-            # NOUN/PRONOUN/PROPN to VERB Ratio
-            np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
-            vb = gram_count.get("VERB", 0)
 
             # Third person occurs frequently
             if dep.count("expl:subj") > 1:
@@ -211,7 +211,7 @@ class DiscourseAnalysis:
             if abbrev_no_vowels.findall(sentence):
                 total_score["LIT"]["ABBR"] = 1
 
-            # High number of nouns compared to nouns
+            # High number of verbs compared to nouns
             if np > vb:
                 total_score["LIT"]["NP_VB_RATIO"] = 1
 
@@ -227,7 +227,7 @@ class DiscourseAnalysis:
             if sentence_length > 10:
                 total_score["LIT"]["LONG_SEN_LENGTH"] = 1
 
-            # High word length with low word length and  high number of sentences
+            # Short sentence with with high amout of words
             if sentence_length < 25 and len(word_count) < 5:
                 if numbers.findall(sentence):
                     total_score["LIT"]["LONG_WORD_LENGTH"] = 1
@@ -240,14 +240,14 @@ class DiscourseAnalysis:
             # Orality
             #########################
 
-            # Short word length
-            if avg_word_length < 10:
-                total_score["ORAL"]["SHORT_WORD_LENGTH"] = 1
-
             # Short sentence length
             if sentence_length < 15:
                 total_score["ORAL"]["SHORT_SEN_LENGTH"] = 1
                 # Short sentences with interrogative pronouns
+
+            # Short word length
+            if avg_word_length < 10:
+                total_score["ORAL"]["SHORT_WORD_LENGTH"] = 1
 
             # Short sentences without verbs, high number of pronouns
             if vb == 0 and sentence_length < 5:
@@ -286,6 +286,7 @@ class DiscourseAnalysis:
             if emoticons:
                 total_score["ORAL"]["EMO"] = 1
 
+            # Abbreviations and Acronyms
             if abbrev_vowels.findall(sentence):
                 total_score["LIT"]["ABBR"] = 1
 
@@ -392,7 +393,7 @@ class DiscourseAnalysis:
                 total_score["LIT"]["FC_ABS"] = 1
 
             # Francais Technique, Francais Scientifique
-            fl = [word for word in sentence.split() if word in lit_file["FC_abs"]]
+            fl = [word for word in sentence.split() if word in lit_file["FRT"]]
             if fl:
                 total_score["LIT"]["FRT"] = 1
 
@@ -436,15 +437,13 @@ class DiscourseAnalysis:
 
             """
             ORAL
-            •	Swear words
             •	Future compose
             •	Higher user of contractions
             """
 
             # Presentatifs
             pres = [word for word in sentence.split() if word in oral_file["pres"]]
-            if pres:
-                total_score["ORAL"]["pres"] = 1
+            if pres: total_score["ORAL"]["pres"] = 1
 
             # Francais Argot
             arg_res = [word for word in sentence.split() if word in oral_file["FA"]]
