@@ -379,11 +379,11 @@ class DiscourseAnalysis:
 
             # Returning the results
             if feat_1_score > feat_2_score:
-                return "LIT",  feat_1_score,feat_2_score,self.calculate_scores()
+                return "LIT"
             elif feat_2_score > feat_1_score:
-                return "ORAL",  feat_1_score,feat_2_score,self.calculate_scores()
+                return "ORAL"
             else:
-                return "UNK",  feat_1_score,feat_2_score,self.calculate_scores()
+                return "UNK"
 
     class FrenchBasedAnalysis:
         """
@@ -403,9 +403,11 @@ class DiscourseAnalysis:
             :return:
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
+            sen_id = self.sub_sentences[0][3]
+            sen_num = self.sub_sentences[0][4]
             word_count = len(self.sub_sentences)
 
-            return word_count, sentence
+            return word_count, sentence, sen_id, sen_num
 
         def part_of_speech(self):
             """
@@ -457,39 +459,38 @@ class DiscourseAnalysis:
             # Language Registers
 
             # Lit
-            fcl = [word for word in sentence.split() if word in lit_file["FC"]]
-            fcl_abs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
+            francais_cultive = [word for word in sentence.split() if word in lit_file["FC"]]
+            francais_cultive_abbs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
             fl = [word for word in sentence.split() if word in lit_file["FRT"]]
             frt_pre =[word for word in sentence.split() if word in lit_file["FRT_PRE"]]
             frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
 
             # Oral
-            pres = len ([word for word in sentence.split() if word in oral_file["pres"]])
-            arg_res = [word for word in sentence.split() if word in oral_file["FA"]]
-            fpa_res = [word for word in sentence.split() if word in oral_file["FPA"]]
-            ff_res=[word for word in sentence.split() if word in oral_file["FF"]]
-            ff_intens_res = [word for word in sentence.split()if word in oral_file["FF_intens"]]
-            fv=oral_file["FV"]
-            fv_res=[word for word in sentence if word in fv]
+            presentatif = len ([word for word in sentence.split() if word in oral_file["pres"]])
+            francais_argot = len([word for word in sentence.split() if word in oral_file["FA"]])
+            francais_parle = len ([word for word in sentence.split() if word in oral_file["FPA"]])
+            francais_familier=len ([word for word in sentence.split() if word in oral_file["FF"]])
+            francais_familier_intes = len([word for word in sentence.split()if word in oral_file["FF_intens"]])
+            francais_vulgaire = len ([word for word in sentence if word in oral_file["FV"]])
 
             #Lexical information
             hypenated_words_count = hypenated_words.findall(sentence)
 
             # French Syntactical information
             proper_negation = ne_negation.findall(sentence) and particle_negation.findall(sentence)
-            improper_negation = ne_negation.findall(sentence) == False and particle_negation.findall(sentence) == True
+            ne = len(ne_negation.findall(sentence))
+            particle = len(particle_negation.findall(sentence))
 
             #########################
             # LIT CLASSIFICATION II
             #########################
 
             # Francais Cultive
-            if fcl:
+            if francais_cultive:
                 total_score["LIT"]["FC"] = 1
 
             # Francais Cultive Abbreviations
-            if fcl_abs:
-
+            if francais_cultive_abbs:
                 total_score["LIT"]["FC_ABS"] = 1
 
             # Francais Technique, Francais Scientifique
@@ -532,42 +533,45 @@ class DiscourseAnalysis:
             # ORAL CLASSIFICATION II
             #########################
 
-            """
-            ORAL
-            •	Future compose
-            •	Higher user of contractions
-            """
-
-            if pres:
-                total_score["ORAL"]["pres"] = pres
-            elif pres == 0:
-                total_score["ORAL"]["pres"] = 0
+            # Présentatif
+            if presentatif:
+                total_score["ORAL"]["PRESENTATIF"] = presentatif
+            elif presentatif == 0:
+                total_score["ORAL"]["PRESENTATIF"] = 0
 
             # Francais Argot
-            if arg_res:
-                total_score["ORAL"]["FA"] = 1
-
-
+            if francais_argot:
+                total_score["ORAL"]["FRANCAIS_ARGOT"] = francais_argot
+            elif francais_argot == 0:
+                total_score["ORAL"]["FRANCAIS_ARGOT"] = 0
 
             # Francais Parle
-            if fpa_res:
-                total_score["ORAL"]["FPA"] = 1
+            if francais_parle:
+                total_score["ORAL"]["FRANCAIS_PARLE"] = francais_parle
+            elif francais_parle == 0:
+                total_score["ORAL"]["FRANCAIS_PARLE"] = 0
 
             # Francais Familier
-            if ff_res:
-                total_score["ORAL"]["FF"] = 1
+            if francais_familier:
+                total_score["ORAL"]["FRANCAIS_FAMILIER"] = francais_familier
+            elif francais_familier == 0:
+                total_score["ORAL"]["FRANCAIS_FAMILIER"] = francais_familier
 
             # Francais Familier Intensifiers
-            if ff_intens_res:
-                total_score["ORAL"]["ff_intens_res"] = 1
+            if francais_familier_intes:
+                total_score["ORAL"]["FRANCAIS_FAMILIER_INTENSIFIERS"] = francais_familier_intes
+            elif francais_familier == 0:
+                total_score["ORAL"]["FRANCAIS_FAMILIER_INTENSIFIERS"] = 0
 
             # Francais Vulgaire
-            if fv_res:
-                total_score["ORAL"]["FV"] = 1
+            if francais_vulgaire:
+                total_score["ORAL"]["FRANCAIS_VULGAIRE"] = francais_vulgaire
+            elif francais_vulgaire == 0:
+                total_score["ORAL"]["FRANCAIS_VULGAIRE"] = 0
 
             # Improper Negation
-            if improper_negation:
-                total_score["ORAL"]["IMPROPER_NEGATION"] = 1
+            if ne==False and particle==True:
+                total_score["ORAL"]["IMPROPER_NEGATION"] = ne
 
 
             return total_score
@@ -583,11 +587,11 @@ class DiscourseAnalysis:
 
             # Returning the results
             if feat_1_score > feat_2_score:
-                return "LIT",  feat_1_score,feat_2_score,self.calculate_scores()
+                return "LIT"
             elif feat_2_score > feat_1_score:
-                return "ORAL",  feat_1_score,feat_2_score,self.calculate_scores()
+                return "ORAL"
             else:
-                return "UNK",  feat_1_score,feat_2_score,self.calculate_scores()
+                return "UNK"
 
 
 #########################
@@ -611,7 +615,6 @@ def about_program():
             print(line.strip())
         input("\nPlease press enter to continue...")
 
-error_log = 'teki_error.log'
 def clear_log(error_log):
     """
         This function deletes the error log file by overwriting it with a error log
@@ -650,22 +653,28 @@ def end_program():
             break
 
 def evaluation():
-    # Reference files
-    gold_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
-    system_file = "app_resources/app_dev/dev_results/sentence_tokenizer/results.csv"
+    """
 
-    gold = open(gold_file, mode="r", encoding="utf-8")
-    system = open(system_file, mode="r", encoding="utf-8")
-    csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","), csv.reader(system, delimiter=",")
-
-    gold_results = dict()
-    system_results = dict()
-
+    :return:
+    """
 
     def evaluate_naive_bayes():
+        """
 
-        feat_1 = "ORAL"
-        feat_2 = "LIT"
+        :return:
+        """
+
+        # Reference files
+        system_file = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\test_sys.csv"
+        gold_file = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\test_gold.csv"
+
+        system = open(system_file, mode="r", encoding="utf-8")
+        gold = open(gold_file, mode="r", encoding="utf-8")
+        csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","), csv.reader(system, delimiter=",")
+
+        sentence_features = dict()
+
+        feat_1, feat_2 = "LIT", "ORAL"
 
         true_positive = 0
         false_positive = 0
@@ -673,33 +682,58 @@ def evaluation():
         true_negative = 0
 
         for row in csv_gold_reader:
-            key = row[3] + row[4]
-            value = row[5]
-            gold_results[key] = value
+            sen,feat = row[0], row[3]
+            sentence_features[sen] = {"SYS":"","GOLD":""}
+            sentence_features[sen]["GOLD"] = feat
 
         for row in csv_system_reader:
-            key = row[3] + row[4]
-            system_results[key] = row[5]
+            sen,feat = row[0], row[3]
+            sentence_features[sen]["SYS"] = feat
 
-        for i in gold_results:
-            gold_res = gold_results[i]
-            sys_res = system_results[i]
+        for entry in sentence_features:
+            results = sentence_features[entry]
+            feats = list ( results.values())
+            gold_feat  = feats[1]
+            sys_feat = feats [0]
 
-            if gold_res == feat_1 and sys_res == feat_1:
-                true_positive += 1
+            if sys_feat == feat_1 and gold_feat == feat_1:
+                true_positive +=1
 
-            elif gold_res != feat_1 and sys_res != feat_1:
+            elif sys_feat == feat_2 and gold_feat == feat_2:
                 true_negative += 1
 
-            elif gold_res != feat_1 and sys_res == feat_2:
+            elif sys_feat == feat_1 and gold_feat == feat_2:
                 false_positive += 1
 
-            elif gold_res == feat_1 and sys_res != feat_2:
+            elif sys_feat == feat_2 and gold_feat==feat_1:
                 false_negative += 1
 
-        results = {"TP": true_positive, "FP": false_positive, "FN": false_negative, "TN": true_negative}
+        accuracy = (true_positive + true_negative) / (true_positive+true_negative+false_positive+false_negative)
+        error_rate = true_negative / ( true_positive+true_negative+false_positive+false_negative)
+        precision =  true_positive / (true_positive+false_positive)
+        recall  = true_positive / (true_positive+true_negative)
+        f_score = ( 2 * precision * recall) / (precision + recall)
+
+        print(true_negative,true_positive,false_positive,false_negative)
+
+        system_metrics = {
+            "Accuracy":round(accuracy,4),
+            "Error rate": round(error_rate, 4),
+            "Precision": round(precision, 4),
+            "recall": round(recall, 4),
+            "F-score": round(f_score, 4),
+        }
+
+        for metric in system_metrics:
+            print(metric, system_metrics[metric])
+
+
 
     def cross_validation():
+        """
+
+        :return:
+        """
         pass
 
     # This is the dynamic menu that the user has access during this function
@@ -960,5 +994,8 @@ def write_to_database(feature, sentence, database):
                  }
             )
 
+error_log = 'teki_error.log'
+
 if __name__ == "__main__":
-    pass
+    error_log = 'teki_error.log'
+

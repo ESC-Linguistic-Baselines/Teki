@@ -103,3 +103,16 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 546, in sentence_identification
     sen_id = sentence_info.sentence_reconstruction()[2]
 IndexError: tuple index out of range
+
+ERROR_TIME: 2021-08-03 16:28:38,760
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 897
+ERROR_SCOPE Main Menu: tuple index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 893, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 533, in sentence_identification
+    sen_id = sentence_info.sentence_reconstruction()[2]
+IndexError: tuple index out of range

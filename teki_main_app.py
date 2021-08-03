@@ -6,6 +6,7 @@
 import csv
 import logging
 import os
+import pickle
 import sys
 import timeit
 from datetime import datetime
@@ -473,8 +474,8 @@ def spacy_tagger(corpus_content):
             # Creates a doc object with all lexical information using spacy
             doc = nlp(sentence)
             for token in doc:
-                # the results of the analysis
-                new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),str(token.lemma_)))
+                # the results of the Spacy analysis
+                new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),token.lemma_))
 
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
@@ -483,6 +484,7 @@ def spacy_tagger(corpus_content):
             # overwriting the old with a new list so that the new results can be saved.
             new_sentence = list()
 
+    pickle.dump(collective_results_tagged, open("oral.pickle", "wb"))
     input("The sentences have been successfully tagged. Please press enter to continue...")
     return collective_results_tagged
 
@@ -504,8 +506,6 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
-    import pickle
-    pickle.dump(collective_results_tagged, open("oral.pickle", "wb"))
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
     system_file = f"app_resources/app_dev/system_{current_time}.csv"
@@ -513,18 +513,28 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
 
     if system_evaluation:
         redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
-
+        input("The system is being evaluated. Please press enter to start the evaluation...")
         # System results
         for corpus_sentence_id in redacted_corpus:
-            sub_sentences = redacted_corpus[corpus_sentence_id]
+            sub_sentences = collective_results_tagged[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
-            #write_to_database(sentence_info.feature_assignment(), sub_sentences, system_file)
+            feat = sentence_info.feature_assignment()
+            sentence = sentence_info.sentence_reconstruction()[1]
+            sen_id = sentence_info.sentence_reconstruction()[2]
+            sen_num = sentence_info.sentence_reconstruction()[3]
+            write_sentences(sentence, system_file, sen_num, sen_id, feat, True)
 
         # Gold results
         for corpus_sentence_id in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
-            #write_to_database(sentence_info.feature_assignment(), sub_sentences, gold_file)
+
+            feat = sentence_info.feature_assignment()
+            sentence = sentence_info.sentence_reconstruction()[1]
+            sen_id = sentence_info.sentence_reconstruction()[2]
+            sen_num = sentence_info.sentence_reconstruction()[3]
+            write_sentences(sentence, gold_file, sen_num,sen_id, feat, True)
+        input("The evaluation was completed without any errors. Please press enter to continue the main menu...")
 
     else:
         # This option is activated when the system is not being evaluated.
@@ -545,8 +555,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
-                    #write_to_database(feat, sub_sentences, database)
-                    #write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_to_database(feat, sub_sentences, database)
+                    write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break
@@ -572,7 +582,6 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
-
                     write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
 
                 print(f"\nAll of the sentences have been assigned the feature {feat}.")
@@ -697,7 +706,7 @@ def get_probs(freq_training_data):
     return prior_prob, prob_results
 
 
-def classify_sentence(probabilities):
+def sentence_classification(probabilities):
     """
     This function calculates the probability of the sentence.
     Using comparative product values, the biggest product with respect to feature 1 and feature 2 is chosen.
@@ -742,6 +751,7 @@ def classify_sentence(probabilities):
     prior_prob, prob_results = probabilities[1], probabilities[0]
 
     text = input("Please enter a string: ")
+
     text=text.split()
 
     feat_1_prob, feat_2_prob = prob_results["LIT"], prob_results["ORAL"]
@@ -806,7 +816,7 @@ def run_program(default_doc, default_train,system_evaluation):
         "load .xml or .txt file": get_text,
         "load training file": get_database,
         "analyze contents": analyze_content,
-        "classify sentence": classify_sentence,
+        "classify sentence": sentence_classification,
         "clear error log file": clear_log,
         "evaluation": evaluation,
         "about program": about_program,
@@ -887,10 +897,10 @@ def run_program(default_doc, default_train,system_evaluation):
                             print(f"An unknown error occurred. {main_message}")
                             logging.exception(f"Main Menu: {error}")
 
-                    elif function_name == "classify_sentence":
+                    elif function_name == "sentence_classification":
                         freq = get_freq(database)
                         probs = get_probs(freq)
-                        classify_sentence(probs)
+                        sentence_classification(probs)
 
                     elif function_name == "clear_log":
                         clear_log('teki_error.log')
@@ -919,7 +929,7 @@ if __name__ == "__main__":
     if all of the main libraries have been installed.  This can be overridden by the user, 
     but it is not advised as it can lead to the program becoming unstable.  
     """
-    system_evaluation = False
+    system_evaluation = True
     try:
         default_doc = r"app_resources/default/argot_1.txt"
         default_train = r"app_resources/default/dev_training.csv"

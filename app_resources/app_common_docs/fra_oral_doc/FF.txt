@@ -107,3 +107,5 @@ veinard
 viet
 visibles
 éléphant
+ca
+va
