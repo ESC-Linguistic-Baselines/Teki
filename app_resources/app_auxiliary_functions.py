@@ -159,136 +159,200 @@ class DiscourseAnalysis:
             oral_file = DiscourseAnalysis.read_database(feat_1)
 
             # Score and their respective points
-            total_score = { "LIT": {}, "ORAL": {} }
+            total_score = { "LIT": {},
+                            "ORAL": {} }
 
-            # Lexical and POS information
-            sentence = self.sentence_reconstruction()[1]
-            sentence_length = len([word for word in sentence])
-            pos = self.part_of_speech()[1]
-            dep = self.part_of_speech()[2]
-            morph = str(self.part_of_speech()[3])
-            gram_count = self.part_of_speech()[0]
+            ######################################
+            # LIT/ORAL CLASSIFICATION VARIABLES
+            ######################################
 
-            # Vocabulary
-            vocab = [word for word in sentence.split()]
-            words, characters = len(vocab), len([word for word in sentence])
-            avg_word_length = round(words / characters * 100)
-
-            # Word count
-            word_count = dict()
-            for word in vocab:
-                word_count[word] = word_count.get(word, 0)+1
-
-            # NOUN/PRONOUN/PROPN to VERB Ratio
-            np = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
-            vb = gram_count.get("VERB", 0)
-
-            # Regex Expressions for typical features
+            # Regex Expressions for typical recognizing features
             multi_char = re.compile(r"(.)+\1", re.IGNORECASE)
             multi_word = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
             all_caps = re.compile(r"[A-Z\s]+")
             numbers = re.compile(r"^\d+(.\d+)*$")
-            abbrev_no_vowels = re.compile("[^aeiou]{1,5}$")
             abbrev_vowels = re.compile("[a-zA-Z]{1,5}\.")
+            abbrev_no_vowels = re.compile("[^aeiou]{1,5}$")
+
+
+            # Sentence Information
+            sentence_info = self.sentence_reconstruction()[1]
+            sentence_length = len([word for word in sentence_info])
+            sentence_vocab = [word for word in sentence_info.split()]
+            avg_word_length = sum(len(word) for word in sentence_vocab) / len(sentence_vocab)
+            word_count = dict()
+            for word in sentence_vocab:word_count[word] = word_count.get(word, 0)+1
+            numbers_info = numbers.findall(sentence_info)
+            word_word_redup = multi_word.findall(sentence_info)
+            multi_char_count  =multi_char.findall(sentence_info)
+            word_redup = (max(word_count.values()))
+            all_caps_count  = all_caps.findall(sentence_info)
+
+            # POS Information
+            pos_info = self.part_of_speech()[1]
+            dep_info = self.part_of_speech()[2]
+            morph_info = str(self.part_of_speech()[3])
+
+            # POS/SYN counts
+            gram_count = self.part_of_speech()[0]
+            noun = gram_count.get("NOUN", 0) + gram_count.get("PROPN", 0)
+            verb = gram_count.get("VERB", 0)
+            dummy_subject = dep_info.count("expl:subj")
+            nominal_subject = dep_info.count("nsubj")
+            present_tense = morph_info.count("Pres")
+            abbrev_no_vowels_count = abbrev_no_vowels.findall(sentence_info)
+            punct_count = gram_count.get("PUNCT", 0)
+            adj_count = pos_info.count("ADJ")
+            emoticons = [emo for emo in oral_file["EMO"] if emo in sentence_info]
+            abrev_count  = abbrev_vowels.findall(sentence_info)
+
+            # Ratios
+            noun_verb_ratio = noun > verb
+            low_verb_high_adj_ratio = verb < 1 and pos_info.count("ADJ") > 3
+            conj_verb_ratio = pos_info.count("CCONJ") > pos_info.count("VERB")
+            len_sen_and_len_word_amount_num = sentence_length < 25 and len(word_count) < 5 and numbers_info
+            no_verb_short_sen_pro = verb == 0 and sentence_length < 10
+            verb_sen_len_ratio = verb == 0 and sentence_length < 5 and noun < 0
+            isolated_verb_stems  = sentence_length < 4 and verb < 1
+
 
             #########################
-            # LIT
+            # LIT CLASSIFICATION I
             #########################
-
-            # Third person occurs frequently
-            if dep.count("expl:subj") > 1:
-                total_score["LIT"]["THIRD_PERSON_EXPL"] = 1
-
-            # First person does not occur frequently
-            if dep.count("nsubj") < 1:
-                total_score["LIT"]["NOM_SUBJ"] = 1
-
-            # The present tense of verbs occurs frequently
-            if morph.count("Pres") > 2:
-                total_score["LIT"]["PRES_TENSE"] = 1
-
-            # Abbreviations
-            if abbrev_no_vowels.findall(sentence):
-                total_score["LIT"]["ABBR"] = 1
-
-            # High number of verbs compared to nouns
-            if np > vb:
-                total_score["LIT"]["NP_VB_RATIO"] = 1
-
-            # Low number of verbs, with high number of adjectives.
-            if vb < 1 and pos.count("ADJ") > 3:
-                total_score["ORAL"]["NO_VERBS"] = 1
-
-            # More coordinating conjunctions than verbs
-            if pos.count("CCONJ") > pos.count("VERB"):
-                total_score["LIT"]["CCONJ_VB_RATIO"] = 1
-
-            # Long sentence length
-            if sentence_length > 10:
-                total_score["LIT"]["LONG_SEN_LENGTH"] = 1
-
-            # Short sentence with with high amout of words
-            if sentence_length < 25 and len(word_count) < 5:
-                if numbers.findall(sentence):
-                    total_score["LIT"]["LONG_WORD_LENGTH"] = 1
+            if sentence_length > 45:
+                total_score["LIT"]["SEN_LEN"] = sentence_length
+            elif sentence_length < 45:
+                total_score["LIT"]["SEN_LEN"] = 0
 
             # High average word length
-            if avg_word_length > 10:
-                total_score["LIT"]["AVG_WORD_LENGTH"] = 1
+            if avg_word_length > 5:
+                total_score["LIT"]["AVG_WORD_LEN"] = 1
+            elif avg_word_length < 5:
+                total_score["LIT"]["AVG_WORD_LEN"] = 0
+
+            # Frequency of third person pronouns as dummy subjects
+            if dummy_subject >= 1:
+                total_score["LIT"]["THIRD_PERSON_EXPL"] = 1
+            elif dep_info.count("expl:subj") < 1 :
+                total_score["ORAL"]["THIRD_PERSON_EXPL"] = 0
+
+            # Frequency of nominal subjects e.g. je, moi, me, toi, etc.
+            if nominal_subject >= 1:
+                total_score["LIT"]["NOM_SUBJ"] = 1
+            elif nominal_subject < 1:
+                total_score["LIT"]["NOM_SUBJ"] = 0
+
+            # Frequency of present tense verbs
+            if present_tense >= 2:
+                total_score["LIT"]["PRES_TENSE"] = 1
+            elif present_tense < 2:
+                total_score["LIT"]["PRES_TENSE"] = 0
+
+            # Presence of abbreviations without vowels
+            if abbrev_no_vowels_count:
+                total_score["LIT"]["ABBR_NO_VOWEL"] = 1
+            elif abbrev_no_vowels_count == False:
+                total_score["LIT"]["ABBR_NO_VOWEL"] = 0
+
+            # High number of verbs compared to nouns
+            if noun_verb_ratio:
+                total_score["LIT"]["NP_VB_RATIO"] = 1
+            elif noun_verb_ratio == False:
+                total_score["LIT"]["NP_VB_RATIO"] = 0
+
+            # Verb to Adjective ratio
+            if low_verb_high_adj_ratio:
+                total_score["ORAL"]["NO_VERBS"] = 1
+            elif low_verb_high_adj_ratio == False:
+                total_score["ORAL"]["NO_VERBS"] = 0
+
+            # More coordinating conjunctions than verbs
+            if conj_verb_ratio:
+                total_score["LIT"]["CCONJ_VB_RATIO"] = 1
+            elif conj_verb_ratio:
+                total_score["LIT"]["CCONJ_VB_RATIO"] = 0
+
+            # Short sentence, presence of numbers
+            if len_sen_and_len_word_amount_num:
+                total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 1
+            elif len_sen_and_len_word_amount_num ==False:
+                total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 0
 
             #########################
-            # Orality
+            # ORAL CLASSIFICATION I
             #########################
-
-            # Short sentence length
-            if sentence_length < 15:
-                total_score["ORAL"]["SHORT_SEN_LENGTH"] = 1
-                # Short sentences with interrogative pronouns
+            # Sentence Length (defined by the number of characters, not words, that appear in the sentence)
+            if sentence_length < 30:
+                total_score["ORAL"]["SEN_LEN"] = sentence_length
+            elif sentence_length > 30:
+                total_score["ORAL"]["SEN_LEN"] = 0
 
             # Short word length
-            if avg_word_length < 10:
-                total_score["ORAL"]["SHORT_WORD_LENGTH"] = 1
+            if avg_word_length < 5:
+                total_score["ORAL"]["AVG_WORD_LENGTH"] = avg_word_length
+            elif avg_word_length > 5:
+                total_score["ORAL"]["AVG_WORD_LENGTH"] = 0
 
             # Short sentences without verbs, high number of pronouns
-            if vb == 0 and sentence_length < 5:
+            if verb_sen_len_ratio:
                 total_score["ORAL"]["HIGH_PRONOUN_COUNT"] = 1
+            elif verb_sen_len_ratio == False:
+                total_score["ORAL"]["HIGH_PRONOUN_COUNT"] = 0
 
             #  Word Reduplication
-            if (max(word_count.values())) > 1:
+            if word_redup > 1:
                 total_score["ORAL"]["WORD_REDUPLICATION"] = 1
+            elif word_redup < 1:
+                total_score["ORAL"]["WORD_REDUPLICATION"] = 0
 
             # High use of punctuation for effect
-            if gram_count.get("PUNCT", 0) > 5:
-                total_score["ORAL"]["SYMBOL_REDUPLICATION"] = 1
+            if punct_count > 5:
+                total_score["ORAL"]["HIGH_PUNCTION"] = 1
+            elif punct_count < 5:
+                total_score["ORAL"]["HIGH_PUNCTION"] = 0
 
             # High use of same character multiple times
-            if multi_char.findall(sentence):
+            if multi_char_count > 0 :
                 total_score["ORAL"]["MULTI_CHAR_REDUPLICATION"] = 1
+            elif multi_char_count < 1:
+                total_score["ORAL"]["MULTI_CHAR_REDUPLICATION"] = 0
 
             # Same words back to back
-            if multi_word.findall(sentence):
+            if word_word_redup:
+                total_score["ORAL"]["WORD_WORD_REDUPLICATION"] = 1
+            elif word_word_redup != False:
                 total_score["ORAL"]["WORD_WORD_REDUPLICATION"] = 1
 
             # Emphasis via all Caps
-            if all_caps.findall(sentence):
+            if all_caps_count:
                 total_score["ORAL"]["ALL_CAPS"] = 1
+            elif all_caps_count < 1:
+                total_score["ORAL"]["ALL_CAPS"] = 0
 
             # Isolated verb stems or imperatives
-            if sentence_length < 4 and vb < 1:
+            if isolated_verb_stems:
                 total_score["ORAL"]["ISOLATED_VERBS"] = 1
+            elif isolated_verb_stems != False:
+                total_score["ORAL"]["ISOLATED_VERBS"] = 0
 
             # High use of using adjectives and constructions at the beginning of the sentence
-            if pos.count("ADJ") > 3:
+            if adj_count> 3:
                 total_score["ORAL"]["ADJ"] = 1
+            elif adj_count < 3:
+                total_score["ORAL"]["ADJ"] = 0
 
             # Emoticons
-            emoticons = [emo for emo in oral_file["EMO"] if emo in sentence]
             if emoticons:
-                total_score["ORAL"]["EMO"] = 1
+                total_score["ORAL"]["EMOTICONS"] = len(emoticons)
+            elif emoticons ==  False:
+                total_score["ORAL"]["EMOTICONS"] = 0
 
             # Abbreviations and Acronyms
-            if abbrev_vowels.findall(sentence):
+            if abrev_count:
                 total_score["LIT"]["ABBR"] = 1
+            elif abrev_count== False:
+                total_score["LIT"]["ABBR"] = 0
+
 
             return total_score
 
@@ -302,13 +366,11 @@ class DiscourseAnalysis:
 
             # Returning the results
             if feat_1_score > feat_2_score:
-                return "LIT"
-
+                return "LIT",  feat_1_score,feat_2_score
             elif feat_2_score > feat_1_score:
-                return "ORAL"
-
+                return "ORAL",  feat_1_score,feat_2_score
             else:
-                return "UNK"
+                return "UNK",  feat_1_score,feat_2_score,self.calculate_scores()
 
     class TokenAnalysis:
         """

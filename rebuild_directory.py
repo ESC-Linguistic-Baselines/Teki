@@ -16,8 +16,6 @@ def dependency_generate():
         for path, subdirs, files in os.walk("app_resources"):
             for name in files:
                 resources.write(os.path.join(path, name)+"\n")
-                print(os.path.join(path, name)+"\n")
-
     print("The app resource directory.py file has been updated.")
 
 

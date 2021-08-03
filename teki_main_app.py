@@ -504,8 +504,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
-    # import pickle
-    # pickle.dump(collective_results_tagged,open("coll_.pickle","wb"))
+    import pickle
+    pickle.dump(collective_results_tagged, open("oral.pickle", "wb"))
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
     system_file = f"app_resources/app_dev/system_{current_time}.csv"
@@ -518,13 +518,13 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         for corpus_sentence_id in redacted_corpus:
             sub_sentences = redacted_corpus[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
-            write_to_database(sentence_info.feature_assignment(), sub_sentences, system_file)
+            #write_to_database(sentence_info.feature_assignment(), sub_sentences, system_file)
 
         # Gold results
         for corpus_sentence_id in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.TokenAnalysis(sub_sentences)
-            write_to_database(sentence_info.feature_assignment(), sub_sentences, gold_file)
+            #write_to_database(sentence_info.feature_assignment(), sub_sentences, gold_file)
 
     else:
         # This option is activated when the system is not being evaluated.
@@ -545,8 +545,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
-                    write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    #write_to_database(feat, sub_sentences, database)
+                    #write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break

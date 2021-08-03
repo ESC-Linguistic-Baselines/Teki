@@ -77,3 +77,29 @@ Traceback (most recent call last):
   File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\csv.py", line 149, in _dict_to_list
     raise ValueError("dict contains fields not in fieldnames: "
 ValueError: dict contains fields not in fieldnames: 'sen_id'
+
+ERROR_TIME: 2021-08-03 08:24:25,356
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 888
+ERROR_SCOPE Main Menu: type object 'DiscourseAnalysis' has no attribute 'TokenAnalysisy'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 884, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 543, in sentence_identification
+    sentence_info = DiscourseAnalysis.TokenAnalysisy(sub_sentences)
+AttributeError: type object 'DiscourseAnalysis' has no attribute 'TokenAnalysisy'
+
+ERROR_TIME: 2021-08-03 08:25:57,858
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 888
+ERROR_SCOPE Main Menu: tuple index out of range
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 884, in run_program
+    sentence_identification(collective_results_tagged, database, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 546, in sentence_identification
+    sen_id = sentence_info.sentence_reconstruction()[2]
+IndexError: tuple index out of range

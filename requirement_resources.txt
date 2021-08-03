@@ -9,6 +9,8 @@ app_resources\app_common_docs\bodo_muller_french_texts\francais_cultive_2.txt
 app_resources\app_common_docs\bodo_muller_french_texts\francais_parle_1
 app_resources\app_common_docs\bodo_muller_french_texts\langue_techniques_1.txt
 app_resources\app_common_docs\bodo_muller_french_texts\langue_technique_2.txt
+app_resources\app_common_docs\bodo_muller_french_texts\mueller_lit.txt
+app_resources\app_common_docs\bodo_muller_french_texts\mueller_oral.txt
 app_resources\app_common_docs\fra_lit_docs\abs.txt
 app_resources\app_common_docs\fra_lit_docs\FCL.txt
 app_resources\app_common_docs\fra_lit_docs\FCL_abs.txt
@@ -30,12 +32,13 @@ app_resources\app_common_docs\fra_oral_doc\presentatifs.txt
 app_resources\app_compressed_data\cmr-88milsms-tei-v1.zip
 app_resources\app_databases\new_cl_2_set.csv
 app_resources\app_databases\training_database.txt
+app_resources\app_dev\dev_documentation\chandler_bachleor_expose.docx
 app_resources\app_dev\dev_documentation\Chandler_Linguistik_B_A_Theisis_SoSe2021.docx
 app_resources\app_dev\dev_documentation\Literal Oral Criteria.docx
 app_resources\app_dev\dev_documentation\Müller Criteria.docx
 app_resources\app_dev\dev_documentation\report.txt
 app_resources\app_dev\dev_documentation\wordcount.py
-app_resources\app_dev\dev_documentation\articles\chandler_bachleor_expose.docx
+app_resources\app_dev\dev_documentation\~$andler_Linguistik_B_A_Theisis_SoSe2021.docx
 app_resources\app_dev\dev_documentation\articles\Chanier  The CoMeRe corpus for French structuring.pdf
 app_resources\app_dev\dev_documentation\articles\cmr-wikiconflits-tei-v4.1-manuel.pdf
 app_resources\app_dev\dev_documentation\articles\Koch Oesterreicher - Schriftlichkeit und kommunikative Distanz.pdf
@@ -57,6 +60,16 @@ app_resources\app_dev_train\app_train\ebayfr-e17x_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e18v_101_200.xml
 app_resources\app_dev_train\app_train\sms_29508_59014.xml
 app_resources\app_dev_train\app_train\wikiconflits_53_106.xml
+app_resources\app_sandbox\classify.csv
+app_resources\app_sandbox\coll_.pickle
+app_resources\app_sandbox\cross.py
+app_resources\app_sandbox\file_convertor.py
+app_resources\app_sandbox\naive_bayes.py
+app_resources\app_sandbox\t.txt
+app_resources\app_sandbox\test.csv
+app_resources\app_sandbox\test_set_1
+app_resources\app_sandbox\test_set_2
+app_resources\app_sandbox\test_set_3.txt
 app_resources\app_test\app_test\ebayfr-e05p_201_300.xml
 app_resources\app_test\app_test\ebayfr-e17p_201_300.xml
 app_resources\app_test\app_test\ebayfr-e17x_201_300.xml
@@ -64,5 +77,11 @@ app_resources\app_test\app_test\ebayfr-e18v_201_300.xml
 app_resources\app_test\app_test\sms_59015_88522.xml
 app_resources\app_test\app_test\wikiconflits_79_159.xml
 app_resources\default\argot_1.txt
+app_resources\default\default_result_sentence.csv
+app_resources\default\default_result_sentence_03_08_2021_10_09_.csv
+app_resources\default\default_result_sentence_03_08_2021_14_00_.csv
+app_resources\default\default_result_sentence_03_08_2021_16_49_.csv
+app_resources\default\default_result_sentence_03_08_2021_28_08_.csv
 app_resources\default\dev_training.csv
+app_resources\default\muller_texts.csv
 app_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc
