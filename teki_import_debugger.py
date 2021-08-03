@@ -11,7 +11,7 @@ def check (file):
     unk = 0
     for corpus_sentence_id in data:
         sub_sentences = data[corpus_sentence_id]
-        sentence_info = DiscourseAnalysis.TokenAnalysis(sub_sentences)
+        sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
         feat = sentence_info.feature_assignment()[0]
         if feat == "UNK": unk+=1
         if feat == "LIT": lit+=1

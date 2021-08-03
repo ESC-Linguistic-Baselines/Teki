@@ -109,7 +109,7 @@ class DiscourseAnalysis:
 
         return redacted_corpus
 
-    class PosSyntacticalAnalysis:
+    class LanguageIndependentAnalysis:
         """
         This class contains various functions that rely on the syntactical and
         parts of speech tags to analyze the sentences and assign them a feature.
@@ -154,19 +154,20 @@ class DiscourseAnalysis:
 
             :return:
             """
-
-            feat_1 = "app_resources/app_common_docs/oral_french.json"
-            oral_file = DiscourseAnalysis.read_database(feat_1)
-
             # Score and their respective points
             total_score = { "LIT": {},
                             "ORAL": {} }
+
+            #Files
+            feat_1 = "app_resources/app_common_docs/oral_french.json"
+            oral_file = DiscourseAnalysis.read_database(feat_1)
+
 
             ######################################
             # LIT/ORAL CLASSIFICATION VARIABLES
             ######################################
 
-            # Regex Expressions for typical recognizing features
+            # Regex Expressions
             all_caps = re.compile(r"[A-Z\s]+")
             abbrev_vowels = re.compile("[a-zA-Z]{1,5}\.")
             abbrev_no_vowels = re.compile("[^aeiou]{1,5}$")
@@ -384,7 +385,7 @@ class DiscourseAnalysis:
             else:
                 return "UNK",  feat_1_score,feat_2_score,self.calculate_scores()
 
-    class TokenAnalysis:
+    class FrenchBasedAnalysis:
         """
 
         """
@@ -424,27 +425,8 @@ class DiscourseAnalysis:
 
 
         def calculate_scores(self):
-
             """
-
             """
-
-            # Files for typical words of oral and lit French
-            feat_1 = "app_resources/app_common_docs/oral_french.json"
-            feat_2 = "app_resources/app_common_docs/lit_french.json"
-            oral_file = DiscourseAnalysis.read_database(feat_1)
-            lit_file = DiscourseAnalysis.read_database(feat_2)
-
-            # Sentence
-            sentence = self.sentence_reconstruction()[1]
-
-            # Regex
-            adverbs = re.compile(r"(?<!^)ment")
-            ftr_smpl = re.compile(r"(?<!^)rai")
-            hypenated_words=re.compile(r"\b\w*\s*[-]\s*\w*\b")
-            negation = re.compile(r"n'|ne")
-            negation_words =re.compile(r"pas|jamais|aucun|rien")
-
 
             # Score and their respective points
             total_score = {
@@ -452,32 +434,73 @@ class DiscourseAnalysis:
                 "ORAL": {}
             }
 
+            # Files
+            feat_1 = "app_resources/app_common_docs/oral_french.json"
+            feat_2 = "app_resources/app_common_docs/lit_french.json"
+            oral_file = DiscourseAnalysis.read_database(feat_1)
+            lit_file = DiscourseAnalysis.read_database(feat_2)
+
+            ######################################
+            # LIT/ORAL CLASSIFICATION VARIABLES
+            ######################################
+
+            # Regex Expressions
+            adverbs = re.compile(r"(?<!^)ment")
+            future_simple = re.compile(r"(?<!^)rai")
+            hypenated_words=re.compile(r"\b\w*\s*[-]\s*\w*\b")
+            ne_negation = re.compile(r"n'|ne")
+            particle_negation =re.compile(r"pas|jamais|aucun|rien")
+
+            # Sentence Information
+            sentence = self.sentence_reconstruction()[1]
+
+            # Language Registers
+
+            # Lit
+            fcl = [word for word in sentence.split() if word in lit_file["FC"]]
+            fcl_abs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
+            fl = [word for word in sentence.split() if word in lit_file["FRT"]]
+            frt_pre =[word for word in sentence.split() if word in lit_file["FRT_PRE"]]
+            frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
+
+            # Oral
+            pres = len ([word for word in sentence.split() if word in oral_file["pres"]])
+            arg_res = [word for word in sentence.split() if word in oral_file["FA"]]
+            fpa_res = [word for word in sentence.split() if word in oral_file["FPA"]]
+            ff_res=[word for word in sentence.split() if word in oral_file["FF"]]
+            ff_intens_res = [word for word in sentence.split()if word in oral_file["FF_intens"]]
+            fv=oral_file["FV"]
+            fv_res=[word for word in sentence if word in fv]
+
+            #Lexical information
+            hypenated_words_count = hypenated_words.findall(sentence)
+
+            # French Syntactical information
+            proper_negation = ne_negation.findall(sentence) and particle_negation.findall(sentence)
+            improper_negation = ne_negation.findall(sentence) == False and particle_negation.findall(sentence) == True
+
             #########################
-            # LIT
+            # LIT CLASSIFICATION II
             #########################
 
             # Francais Cultive
-            fcl = [word for word in sentence.split() if word in lit_file["FC"]]
             if fcl:
                 total_score["LIT"]["FC"] = 1
 
             # Francais Cultive Abbreviations
-            fcl_abs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
             if fcl_abs:
+
                 total_score["LIT"]["FC_ABS"] = 1
 
             # Francais Technique, Francais Scientifique
-            fl = [word for word in sentence.split() if word in lit_file["FRT"]]
             if fl:
                 total_score["LIT"]["FRT"] = 1
 
             # Francais Technique Prefix
-            frt_pre =[word for word in sentence.split() if word in lit_file["FRT_PRE"]]
             if frt_pre:
                 total_score["LIT"]["FRT"] = 1
 
             # Francais Technique Suffix
-            frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
             if frt_suf:
                 total_score["LIT"]["FRT_SUF"] = 1
 
@@ -486,7 +509,7 @@ class DiscourseAnalysis:
                 total_score["LIT"]["ADVB"] = 1
 
             # High use of Future Simple
-            if len(ftr_smpl.findall(sentence)) > 2:
+            if len(future_simple.findall(sentence)) > 2:
                 total_score["LIT"]["FUTURE_SIMPLE"] = 1
 
             # High use of être and impersonal constructs
@@ -498,15 +521,15 @@ class DiscourseAnalysis:
                 total_score["LIT"]["IL"] = 1
 
             # High use of hyphenated words
-            if hypenated_words.findall(sentence):
+            if hypenated_words_count:
                 total_score["LIT"]["HYPHENATED"] = 1
 
-            # Negation
-            if negation.findall(sentence) and negation_words.findall(sentence):
+            # Negation with ne .... (pas,jamais..etc)
+            if proper_negation:
                 total_score["LIT"]["PROPER_NEGATION"] = 1
 
             #########################
-            # Oral
+            # ORAL CLASSIFICATION II
             #########################
 
             """
@@ -515,39 +538,36 @@ class DiscourseAnalysis:
             •	Higher user of contractions
             """
 
-            # Presentatifs
-            pres = [word for word in sentence.split() if word in oral_file["pres"]]
-            if pres: total_score["ORAL"]["pres"] = 1
+            if pres:
+                total_score["ORAL"]["pres"] = pres
+            elif pres == 0:
+                total_score["ORAL"]["pres"] = 0
 
             # Francais Argot
-            arg_res = [word for word in sentence.split() if word in oral_file["FA"]]
             if arg_res:
                 total_score["ORAL"]["FA"] = 1
 
+
+
             # Francais Parle
-            fpa_res = [word for word in sentence.split() if word in oral_file["FPA"]]
             if fpa_res:
                 total_score["ORAL"]["FPA"] = 1
 
             # Francais Familier
-            ff_res=[word for word in sentence.split() if word in oral_file["FF"]]
             if ff_res:
                 total_score["ORAL"]["FF"] = 1
 
-            # Francais Familier Intesifiers
-            ff__intens_res = [word for word in sentence.split()if word in oral_file["FF_intens"]]
-            if ff__intens_res:
-                total_score["ORAL"]["ff__intens_res"] = 1
+            # Francais Familier Intensifiers
+            if ff_intens_res:
+                total_score["ORAL"]["ff_intens_res"] = 1
 
             # Francais Vulgaire
-            fv=oral_file["FV"]
-            fv_res=[word for word in sentence if word in fv]
             if fv_res:
                 total_score["ORAL"]["FV"] = 1
 
             # Improper Negation
-            if negation.findall(sentence)== False and negation_words.findall(sentence)==True:
-                total_score["ORAL"]["IMPROPRER_NEGATION"] = 1
+            if improper_negation:
+                total_score["ORAL"]["IMPROPER_NEGATION"] = 1
 
 
             return total_score

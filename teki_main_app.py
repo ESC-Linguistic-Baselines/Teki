@@ -474,7 +474,7 @@ def spacy_tagger(corpus_content):
             doc = nlp(sentence)
             for token in doc:
                 # the results of the analysis
-                new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph)))
+                new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),str(token.lemma_)))
 
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
@@ -517,13 +517,13 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         # System results
         for corpus_sentence_id in redacted_corpus:
             sub_sentences = redacted_corpus[corpus_sentence_id]
-            sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+            sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
             #write_to_database(sentence_info.feature_assignment(), sub_sentences, system_file)
 
         # Gold results
         for corpus_sentence_id in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence_id]
-            sentence_info = DiscourseAnalysis.TokenAnalysis(sub_sentences)
+            sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
             #write_to_database(sentence_info.feature_assignment(), sub_sentences, gold_file)
 
     else:
@@ -540,7 +540,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                 # Automatic Assignment
                 for corpus_sentence_id in collective_results_tagged:
                     sub_sentences = collective_results_tagged[corpus_sentence_id]
-                    sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+                    sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                     feat = sentence_info.feature_assignment()
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
@@ -567,7 +567,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
 
                 for corpus_sentence_id in collective_results_tagged:
                     sub_sentences = collective_results_tagged[corpus_sentence_id]
-                    sentence_info = DiscourseAnalysis.PosSyntacticalAnalysis(sub_sentences)
+                    sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                     write_to_database(feat, sub_sentences, database)
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
