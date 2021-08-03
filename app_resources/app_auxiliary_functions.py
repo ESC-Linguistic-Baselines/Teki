@@ -17,7 +17,9 @@ from tkinter import filedialog, Tk
 try:
     import bs4
     import pandas as pd
-
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.model_selection import cross_val_score
 except ImportError as  error:
     print(error)
 
@@ -652,7 +654,7 @@ def end_program():
             input("Press enter to continue...")
             break
 
-def evaluation():
+def system_evaluation():
     """
 
     :return:
@@ -666,7 +668,7 @@ def evaluation():
 
         # Reference files
         system_file = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\test_sys.csv"
-        gold_file = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\test_gold.csv"
+        gold_file = r"/app_resources/app_dev/dev_results/test_gold.csv"
 
         system = open(system_file, mode="r", encoding="utf-8")
         gold = open(gold_file, mode="r", encoding="utf-8")
@@ -714,8 +716,6 @@ def evaluation():
         recall  = true_positive / (true_positive+true_negative)
         f_score = ( 2 * precision * recall) / (precision + recall)
 
-        print(true_negative,true_positive,false_positive,false_negative)
-
         system_metrics = {
             "Accuracy":round(accuracy,4),
             "Error rate": round(error_rate, 4),
@@ -728,13 +728,24 @@ def evaluation():
             print(metric, system_metrics[metric])
 
 
-
     def cross_validation():
         """
 
         :return:
         """
-        pass
+        data = pd.read_csv("app_resources/app_dev/validation_data.csv")
+        vectorizer = CountVectorizer()
+        text = data["text"].values
+        counts = vectorizer.fit_transform(text)
+
+        classifier = MultinomialNB()
+        classes = data["feat"].values
+        classifier.fit(counts, classes)
+
+        scores = cross_val_score(classifier, counts, classes, cv=5)
+
+        for score in scores:
+            print(score)
 
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate naive bayes": evaluate_naive_bayes,

@@ -123,7 +123,7 @@ if os.path.exists("app_resources"):
             clear_log,
             DiscourseAnalysis,
             end_program,
-            evaluation,
+            system_evaluation,
             file_finder,
             sub_menu,
             write_sentences,
@@ -145,7 +145,7 @@ else:
 
 def get_text(document):
     """
-    This functions reads in a text file. This file is either the default file
+    This functions reads in a text file. This file is either the app_common_default_docs file
     or it is the file that has been dynamically specified by the user.
     The check is done by looking for the .xml ending in the program file.
 
@@ -484,7 +484,7 @@ def spacy_tagger(corpus_content):
             # overwriting the old with a new list so that the new results can be saved.
             new_sentence = list()
 
-    pickle.dump(collective_results_tagged, open("oral.pickle", "wb"))
+    pickle.dump(collective_results_tagged, open("app_sandbox/oral.pickle", "wb"))
     input("The sentences have been successfully tagged. Please press enter to continue...")
     return collective_results_tagged
 
@@ -556,7 +556,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
                     write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_sentences(sentence,
+                                    f"app_resources/app_common_default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break
@@ -582,7 +583,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
-                    write_sentences(sentence, f"app_resources/default/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_sentences(sentence,
+                                    f"app_resources/app_common_default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
 
                 print(f"\nAll of the sentences have been assigned the feature {feat}.")
                 input("Please press enter to continue to the main... ")
@@ -797,10 +799,10 @@ def run_program(default_doc, default_train,system_evaluation):
 
     :parameter
         :type str
-        'default_doc' the path file name for the default document
+        'default_doc' the path file name for the app_common_default_docs document
 
         :type str,
-        default_doc' the path file name for the default training file
+        default_doc' the path file name for the app_common_default_docs training file
     :return
         :type None
             This function has no return value
@@ -818,12 +820,12 @@ def run_program(default_doc, default_train,system_evaluation):
         "analyze contents": analyze_content,
         "classify sentence": sentence_classification,
         "clear error log file": clear_log,
-        "evaluation": evaluation,
+        "evaluation": system_evaluation,
         "about program": about_program,
         "end program": end_program
         }
 
-    # default data files
+    # app_common_default_docs data files
     doc = get_text(default_doc)
     database = default_train
 
@@ -831,7 +833,7 @@ def run_program(default_doc, default_train,system_evaluation):
         print("You are currently running the system in evaluation mode.")
         print("To turn this function off, please set system_evaluation to 'False'.\n")
 
-    print("You are currently using the default files:\n")
+    print("You are currently using the app_common_default_docs files:\n")
     print(f"Default Text: '{default_doc}'")
     print(f"Default Training: '{default_train}'")
     print(" \nIf you wish to proceed with other files, please load them from respective directories.")
@@ -931,8 +933,8 @@ if __name__ == "__main__":
     """
     system_evaluation = True
     try:
-        default_doc = r"app_resources/default/argot_1.txt"
-        default_train = r"app_resources/default/dev_training.csv"
+        default_doc = r"app_resources/app_common_default_docs/mueller_oral.txt"
+        default_train = r"app_resources/app_common_default_docs/default_training.csv"
         if bool(core_file_missing) is False and bool(library_error) is False:
             run_program(default_doc, default_train,system_evaluation)
         else:

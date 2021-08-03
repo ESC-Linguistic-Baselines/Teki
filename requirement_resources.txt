@@ -1,4 +1,11 @@
 app_resources\app_auxiliary_functions.py
+app_resources\app_common_databases\new_cl_2_set.csv
+app_resources\app_common_databases\training_database.txt
+app_resources\app_common_default_docs\classify.csv
+app_resources\app_common_default_docs\default_result_sentence.csv
+app_resources\app_common_default_docs\default_training.csv
+app_resources\app_common_default_docs\mueller_oral.txt
+app_resources\app_common_default_docs\word_freq.py
 app_resources\app_common_docs\lit_french.json
 app_resources\app_common_docs\oral_french.json
 app_resources\app_common_docs\README.MD
@@ -30,8 +37,10 @@ app_resources\app_common_docs\fra_oral_doc\FV.txt
 app_resources\app_common_docs\fra_oral_doc\oral_writer.py
 app_resources\app_common_docs\fra_oral_doc\presentatifs.txt
 app_resources\app_compressed_data\cmr-88milsms-tei-v1.zip
-app_resources\app_databases\new_cl_2_set.csv
-app_resources\app_databases\training_database.txt
+app_resources\app_dev\gold_03_08_2021_47_13_.csv
+app_resources\app_dev\system_03_08_2021_48_10_.csv
+app_resources\app_dev\test_gold.csv
+app_resources\app_dev\test_sys.csv
 app_resources\app_dev\dev_documentation\chandler_bachleor_expose.docx
 app_resources\app_dev\dev_documentation\Chandler_Linguistik_B_A_Theisis_SoSe2021.docx
 app_resources\app_dev\dev_documentation\Literal Oral Criteria.docx
@@ -66,9 +75,4 @@ app_resources\app_test\app_test\ebayfr-e17x_201_300.xml
 app_resources\app_test\app_test\ebayfr-e18v_201_300.xml
 app_resources\app_test\app_test\sms_59015_88522.xml
 app_resources\app_test\app_test\wikiconflits_79_159.xml
-app_resources\default\argot_1.txt
-app_resources\default\default_result_sentence.csv
-app_resources\default\dev_training.csv
-app_resources\default\muller_texts.csv
-app_resources\default\word_freq.py
 app_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc
