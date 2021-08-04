@@ -141,7 +141,24 @@ else:
 #########################
 # Main Program Functions
 #########################
+def _rebuild_requierement_resources():
+    """
+        This function generates the dependencies that that the main script needs to run properly.
 
+    :param str
+        'error_log': The name of the log file to be cleared.
+
+     :return
+        :rtype None
+        There is no object, but a file is created that is placed in the main directory.py
+    """
+
+    with open("requirement_resources.txt", mode="w+", encoding="utf-8") as resources:
+
+        for path, subdirs, files in os.walk("app_resources"):
+            for name in files:
+                resources.write(os.path.join(path, name)+"\n")
+    print("The app resource directory.py file has been updated.")
 
 def get_text(document):
     """
@@ -708,7 +725,7 @@ def get_probs(freq_training_data):
     return prior_prob, prob_results
 
 
-def sentence_classification(probabilities):
+def document_classificaiton(probabilities):
     """
     This function calculates the probability of the sentence.
     Using comparative product values, the biggest product with respect to feature 1 and feature 2 is chosen.
@@ -751,6 +768,11 @@ def sentence_classification(probabilities):
     """
 
     def calculate (text):
+        """
+
+        :param text:
+        :return:
+        """
 
         prior_prob, prob_results = probabilities[1], probabilities[0]
         feat_1_prob, feat_2_prob = prob_results["LIT"], prob_results["ORAL"]
@@ -775,50 +797,50 @@ def sentence_classification(probabilities):
 
         if feat_1_total_prob > feat_2_total_prob:
             print(f" The text '{text[:7]}...'is literal.")
-            return feat_1_total_prob
+            return "LIT"
         elif feat_2_total_prob > feat_1_total_prob:
             print(f" The text '{text[:7]}...' is oral.")
-            return feat_2_total_prob
+            return "ORAL"
         else:
-            return "The document is too long and cannot be properly analyzed."
+            return "UNK"
 
     while True:
-        options = "sentence", "collection of sentences", "document "
-
+        options = "sentence", "collection of sentences", "document"
         for number, choice in enumerate(options):
             print(number, choice)
-
+        print("")
         user = input("Would you like to analyze a sentence, collection of sentences or a document?:")
+        print("")
 
         if user == "0":
+            # Sentence Analysis
             sentence = input ("Please enter the sentence: ").split()
             calculate(sentence)
             input("Please press enter to return to the main menu...")
 
         elif user == "1":
-            text = list()
+            # Collection of Sentences from a document
             file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
+            res = r"app_resources/app_common_default_docs/default_result_sentence.csv"
             for sentence in file:
-
-                calculate(sentence[0].split())
+                feat=calculate(sentence[0].split())
+                sen=sentence[0]
+                sen_id=sentence[2]
+                sen_num=sentence[1]
+                write_sentences(collective_results=sen, file=res, sen_num=sen_num,sen_id = sen_id, feat=feat,feat_save=True)
 
         elif user == "2":
+            # Document as a whole
             text = list()
             file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
             for sentence in file:
                 for word in sentence[0].split():
                     text.append(word)
             calculate(text)
-
             input("Please press enter to return to the main menu...")
             break
-
         else:
             print(f"{user} is not a valid option. Please enter a valid option.")
-
-
-
-
 
 #########################
 # Main program
@@ -853,7 +875,7 @@ def run_program(default_doc, default_train,system_evaluation):
         "load .xml or .txt file": get_text,
         "load training file": get_database,
         "analyze contents": analyze_content,
-        "classify sentence": sentence_classification,
+        "classify sentence": document_classificaiton,
         "clear error log file": clear_log,
         "evaluation": evaluation,
         "about program": about_program,
@@ -904,6 +926,7 @@ def run_program(default_doc, default_train,system_evaluation):
                 function_number = choice_num - 1
                 function_name = str(function_values[function_number]).split()[1]
 
+
                 # Functions that required parameters are executed here.
                 if function_number in list(range(5)):
 
@@ -934,10 +957,10 @@ def run_program(default_doc, default_train,system_evaluation):
                             print(f"An unknown error occurred. {main_message}")
                             logging.exception(f"Main Menu: {error}")
 
-                    elif function_name == "sentence_classification":
+                    elif function_name == "document_classificaiton":
                         freq = get_freq(database)
                         probs = get_probs(freq)
-                        sentence_classification(probs)
+                        document_classificaiton(probs)
 
                     elif function_name == "clear_log":
                         clear_log('teki_error.log')
@@ -957,6 +980,7 @@ if __name__ == "__main__":
                         format="""\n%(levelname)s_TIME: %(asctime)s\nFILE_NAME: %(filename)s\nMODULE: %(module)s
                         \nLINE_NO: %(lineno)d\nERROR_SCOPE %(message)s\n"""
                         )
+
 
     #########################
     # Program Execution

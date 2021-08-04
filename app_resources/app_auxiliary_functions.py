@@ -898,7 +898,7 @@ def sentence_tokenizer(simple_split_tokens):
     return sentence_results
 
 
-def write_sentences(collective_results, file, sen_num=False, sen_id=False, feat=False, feat_save=False):
+def write_sentences(collective_results=False, file=False, sen_num=False, sen_id=False, feat=False, feat_save=False):
     """
     this saves the untagged sentences to a desired text file
     :param
@@ -926,8 +926,7 @@ def write_sentences(collective_results, file, sen_num=False, sen_id=False, feat=
                                      "sentence_id": res,
                                      "SEN:": f"SEN:{number}",
                                      })
-
-        else:
+        elif feat_save == True:
             fieldnames = "sen", "sen_num", "sen_id","sen_feat"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
             sen=collective_results
