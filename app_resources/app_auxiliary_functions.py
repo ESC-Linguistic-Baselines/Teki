@@ -272,15 +272,15 @@ class DiscourseAnalysis:
 
             # High number of verbs compared to nouns
             if noun_verb_ratio:
-                total_score["LIT"]["NP_VB_RATIO"] = noun_count
+                total_score["LIT"]["NP_VB_RATIO"] = noun_count+verb_count
             elif noun_verb_ratio == False:
                 total_score["LIT"]["NP_VB_RATIO"] = 0
 
             # Verb to Adjective ratio
             if low_verb_high_adj_ratio:
-                total_score["ORAL"]["NO_VERBS"] = low_verb_high_adj_ratio
+                total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = verb_count+adj_count
             elif low_verb_high_adj_ratio == False:
-                total_score["ORAL"]["NO_VERBS"] = 0
+                total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = 0
 
             # More coordinating conjunctions than verbs
             if conj_verb_ratio:
@@ -291,7 +291,7 @@ class DiscourseAnalysis:
             # Short sentence, presence of numbers
             if len_sen_and_len_word_amount_num:
                 total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 1
-            elif len_sen_and_len_word_amount_num ==False:
+            elif len_sen_and_len_word_amount_num == False:
                 total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 0
 
             #########################
@@ -321,7 +321,7 @@ class DiscourseAnalysis:
             elif word_repeated < 1:
                 total_score["ORAL"]["WORD_REDUPLICATION"] = 0
 
-            # High use of punctuation for effect
+            # High use of punctuation for expressive effect
             if punct_count > 5:
                 total_score["ORAL"]["HIGH_PUNCTION"] = punct_count
             elif punct_count < 5:
@@ -350,12 +350,6 @@ class DiscourseAnalysis:
                 total_score["ORAL"]["ISOLATED_VERBS"] = sentence_length + verb_count
             elif isolated_verb_stems != False:
                 total_score["ORAL"]["ISOLATED_VERBS"] = 0
-
-            # High use of using adjectives and constructions at the beginning of the sentence
-            if adj_count > 3:
-                total_score["ORAL"]["ADJ"] = adj_count
-            elif adj_count < 3:
-                total_score["ORAL"]["ADJ"] = 0
 
             # Emoticons
             if emoticons:

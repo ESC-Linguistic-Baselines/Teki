@@ -6,6 +6,7 @@ app_resources\app_bachleor_documentation\Müller Criteria.docx
 app_resources\app_bachleor_documentation\report.txt
 app_resources\app_bachleor_documentation\wordcount.py
 app_resources\app_bachleor_documentation\~$andler_Linguistik_B_A_Theisis_SoSe2021.docx
+app_resources\app_bachleor_documentation\~WRL2652.tmp
 app_resources\app_bachleor_documentation\articles\Chanier  The CoMeRe corpus for French structuring.pdf
 app_resources\app_bachleor_documentation\articles\cmr-wikiconflits-tei-v4.1-manuel.pdf
 app_resources\app_bachleor_documentation\articles\Koch Oesterreicher - Schriftlichkeit und kommunikative Distanz.pdf
@@ -43,16 +44,30 @@ app_resources\app_common_docs\fra_oral_doc\FF_inst.txt
 app_resources\app_common_docs\fra_oral_doc\FPA.txt
 app_resources\app_common_docs\fra_oral_doc\FV.txt
 app_resources\app_common_docs\fra_oral_doc\presentatifs.txt
+app_resources\app_common_docs\muller_texts\francais_argot_1.txt
+app_resources\app_common_docs\muller_texts\francais_argot_2.txt
+app_resources\app_common_docs\muller_texts\francais_cultive_1
+app_resources\app_common_docs\muller_texts\francais_cultive_2.txt
+app_resources\app_common_docs\muller_texts\francais_parle_1
+app_resources\app_common_docs\muller_texts\langue_techniques_1.txt
+app_resources\app_common_docs\muller_texts\langue_technique_2.txt
+app_resources\app_common_docs\muller_texts\mueller_lit.txt
+app_resources\app_common_docs\muller_texts\mueller_oral.txt
 app_resources\app_dev\dev_files\ebayfr-e05p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17x_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e18v_0_100.xml
 app_resources\app_dev\dev_files\sms_0_29507.xml
 app_resources\app_dev\dev_files\wikiconflits_0_53.xml
-app_resources\app_dev\dev_results\gold_03_08_2021_47_13_.csv
-app_resources\app_dev\dev_results\system_03_08_2021_48_10_.csv
-app_resources\app_dev\dev_results\test_gold.csv
-app_resources\app_dev\dev_results\test_sys.csv
+app_resources\app_dev\dev_results\sentence_results.csv
+app_resources\app_dev\dev_results\sentences_train\ebay_0_10.csv
+app_resources\app_dev\dev_results\sentences_train\sms_0_10.csv
+app_resources\app_dev\dev_results\sentence_tokenizer\sentence_ebay_system.txt
+app_resources\app_dev\dev_results\sentence_tokenizer\sentence_sms_gold.txt
+app_resources\app_dev\dev_results\sentence_tokenizer\sentence_sms_system.txt
+app_resources\app_dev\dev_results\sentence_tokenizer\sentence_wiki_gold.txt
+app_resources\app_dev\dev_results\sentence_tokenizer\sentence_wiki_system.txt
+app_resources\app_dev\dev_results\sentence_tokenizer\system_ebay_gold.txt
 app_resources\app_dev_train\app_train\ebayfr-e05p_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e17p_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e17x_101_200.xml
@@ -65,13 +80,4 @@ app_resources\app_test\app_test\ebayfr-e17x_201_300.xml
 app_resources\app_test\app_test\ebayfr-e18v_201_300.xml
 app_resources\app_test\app_test\sms_59015_88522.xml
 app_resources\app_test\app_test\wikiconflits_79_159.xml
-app_resources\app_test\app_test\muller_texts\francais_argot_1.txt
-app_resources\app_test\app_test\muller_texts\francais_argot_2.txt
-app_resources\app_test\app_test\muller_texts\francais_cultive_1
-app_resources\app_test\app_test\muller_texts\francais_cultive_2.txt
-app_resources\app_test\app_test\muller_texts\francais_parle_1
-app_resources\app_test\app_test\muller_texts\langue_techniques_1.txt
-app_resources\app_test\app_test\muller_texts\langue_technique_2.txt
-app_resources\app_test\app_test\muller_texts\mueller_lit.txt
-app_resources\app_test\app_test\muller_texts\mueller_oral.txt
 app_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc

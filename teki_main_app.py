@@ -141,24 +141,7 @@ else:
 #########################
 # Main Program Functions
 #########################
-def _rebuild_requierement_resources():
-    """
-        This function generates the dependencies that that the main script needs to run properly.
 
-    :param str
-        'error_log': The name of the log file to be cleared.
-
-     :return
-        :rtype None
-        There is no object, but a file is created that is placed in the main directory.py
-    """
-
-    with open("requirement_resources.txt", mode="w+", encoding="utf-8") as resources:
-
-        for path, subdirs, files in os.walk("app_resources"):
-            for name in files:
-                resources.write(os.path.join(path, name)+"\n")
-    print("The app resource directory.py file has been updated.")
 
 def get_text(document):
     """
@@ -485,7 +468,7 @@ def spacy_tagger(corpus_content):
 
         corpus_sentence = corpus_content[sent]
         new_sentence = list()
-        res = open("res.txt", mode="a+", encoding="utf-8")
+        res = open("app_sandbox/res.txt", mode="a+", encoding="utf-8")
 
         for number, sentence in enumerate(corpus_sentence):
             # Creates a doc object with all lexical information using spacy
@@ -493,15 +476,12 @@ def spacy_tagger(corpus_content):
             for token in doc:
                 # the results of the Spacy analysis
                 new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),token.lemma_))
-                res.write(f"{token.text}, {token.pos_}, {token.dep_}, {sent}, SEN:{number}, {str(token.morph)}, {token.lemma_}\n")
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
             collective_results_tagged[new_key] = new_sentence
 
             # overwriting the old with a new list so that the new results can be saved.
             new_sentence = list()
-
-    pickle.dump(collective_results_tagged, open("oral.pickle", "wb"))
     input("The sentences have been successfully tagged. Please press enter to continue...")
     return collective_results_tagged
 
@@ -821,7 +801,7 @@ def document_classificaiton(probabilities):
 
         elif user == "1":
             # Collection of Sentences from a document
-            file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
+            file = get_text(file_finder())
             res = r"app_resources/app_common_default_docs/default_result_sentence.csv"
             for sentence in file:
                 feat=calculate(sentence[0].split())
@@ -833,7 +813,7 @@ def document_classificaiton(probabilities):
         elif user == "2":
             # Document as a whole
             text = list()
-            file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
+            file = get_text(file_finder())
             for sentence in file:
                 for word in sentence[0].split():
                     text.append(word)
