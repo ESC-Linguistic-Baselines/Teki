@@ -12,6 +12,7 @@ import timeit
 from datetime import datetime
 
 if __name__ == "__main__":
+
     # Starting the program will take a bit of time due to the amount of libraries being imported.
     # This is to measure the loading time of the program. It should take around 3 - 8 seconds to load everything.
 
@@ -502,8 +503,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
     """
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
-    system_file = f"app_resources/app_common_results/system_{current_time}.csv"
-    gold_file = f"app_resources/app_common_results/gold_{current_time}.csv"
+    system_file = f"app_resources/results/system_{current_time}.csv"
+    gold_file = f"app_resources/results/gold_{current_time}.csv"
 
     if system_evaluation:
         redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
@@ -550,8 +551,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num = sentence_info.sentence_reconstruction()[3]
                     write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence,
-                                    f"app_resources/default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_sentences(sentence, f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break
@@ -578,7 +578,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
                     write_sentences(sentence,
-                                    f"app_resources/default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                                    f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
 
                 print(f"\nAll of the sentences have been assigned the feature {feat}.")
                 input("Please press enter to continue to the main... ")
@@ -973,8 +973,8 @@ if __name__ == "__main__":
     """
     system_evaluation = False
     try:
-        default_doc = r"app_resources/app_common_default_docs/mueller_oral.txt"
-        default_train = r"app_resources/app_common_default_docs/default_training.csv"
+        default_doc = r"app_resources/default_docs/mueller_oral.txt"
+        default_train = r"app_resources/default_docs/default_training.csv"
         if bool(core_file_missing) is False and bool(library_error) is False:
             run_program(default_doc, default_train,system_evaluation)
         else:
