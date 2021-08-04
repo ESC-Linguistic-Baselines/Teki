@@ -661,8 +661,8 @@ def evaluation():
         """
 
         # Reference files
-        system_file = r"C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_dev\test_sys.csv"
-        gold_file = r"/app_resources/app_dev/dev_results/test_gold.csv"
+        system_file = file_finder()
+        gold_file = file_finder()
 
         system = open(system_file, mode="r", encoding="utf-8")
         gold = open(gold_file, mode="r", encoding="utf-8")
@@ -727,7 +727,7 @@ def evaluation():
 
         :return:
         """
-        data = pd.read_csv("app_resources/app_dev/validation_data.csv")
+        data = pd.read_csv("app_resources/app_common_default_docs/validation_data.csv")
         vectorizer = CountVectorizer()
         text = data["text"].values
         counts = vectorizer.fit_transform(text)
@@ -736,7 +736,7 @@ def evaluation():
         classes = data["feat"].values
         classifier.fit(counts, classes)
 
-        scores = cross_val_score(classifier, counts, classes, cv=5)
+        scores = cross_val_score(classifier, counts, classes, cv=10)
 
         for score in scores:
             print(score)

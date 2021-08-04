@@ -472,7 +472,7 @@ def spacy_tagger(corpus_content):
             # Creates a doc object with all lexical information using spacy
             doc = nlp(sentence)
             for token in doc:
-                # the results of the Spacy analysis
+            # the results of the Spacy analysis
                 new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),token.lemma_))
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
@@ -502,8 +502,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
     """
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
-    system_file = f"app_resources/app_dev/system_{current_time}.csv"
-    gold_file = f"app_resources/app_dev/gold_{current_time}.csv"
+    system_file = f"app_resources/app_common_results/system_{current_time}.csv"
+    gold_file = f"app_resources/app_common_results/gold_{current_time}.csv"
 
     if system_evaluation:
         redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
@@ -548,10 +548,9 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     feat = sentence_info.feature_assignment()
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
-                    sen_num =  sentence_info.sentence_reconstruction()[3]
+                    sen_num = sentence_info.sentence_reconstruction()[3]
                     write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence,
-                                    f"app_resources/app_common_default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_sentences(sentence, f"app_resources/app_common_default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break
@@ -587,7 +586,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             else:
                 print(f"{user} is not a valid option.")
 
-def get_freq(file):
+
+def get_feat_count(file):
     """
     This function retrieves the count of the features in the database.
 
@@ -608,19 +608,20 @@ def get_freq(file):
         training_data = [row for row in csv_reader]
 
         # Features to be found in the text
-        prior_prob = {"ORAL": 0, "LIT": 0,"UNK":0}
-        sentence_lex = {(row[3], row[4], row[5]) for row in training_data}
+        feat_count = {"LIT": 0, "ORAL": 0}
+        sentence_lex = {(row[3], row[4], row[5])
+                        for row in training_data}
 
         for sentence in sentence_lex:
-            entry = sentence[2]
-            prior_prob[entry] = prior_prob.get(entry,0) + 1
+            feat = sentence[2]
+            feat_count[feat] = feat_count.get(feat,0) + 1
 
         print("The structure of the database is as follows:")
-        print("ORAL:",prior_prob.get("ORAL",0))
-        print("LIT:",prior_prob.get("LIT",0))
+        print("LIT:",feat_count.get("LIT",0))
+        print("ORAL:",feat_count.get("ORAL",0))
         print("")
 
-        return prior_prob, training_data
+        return feat_count, training_data
 
 
 def get_probs(freq_training_data):
@@ -637,7 +638,7 @@ def get_probs(freq_training_data):
         P(s) = C(s,w)/C(w)
 
     individual feature probabilities:
-        count how often each classification feature occurs with the different possible features
+        count how often each classification (oral) feature occurs with the different possible features
         p(Cj|S) = C(Cj,s)/C(s)
 
     for OOV (out of vocabulary) words, the following smoothing formula is used.
@@ -702,7 +703,6 @@ def get_probs(freq_training_data):
 
     return prior_prob, prob_results
 
-
 def document_classificaiton(probabilities):
     """
     This function calculates the probability of the sentence.
@@ -715,7 +715,7 @@ def document_classificaiton(probabilities):
         * a priori = P(s)
 
     The value is calculated using a variation of bayes called 'naive bayes'
-       A naive bayes assumes that all individual features cj of context c used in classification are independent of each other.
+       A naive bayes assumes that all individual features cj of context c used in classification (oral) are independent of each other.
        This contextual independence is therefore the nativity.
 
         s′ = argmaxs∈S  ( P(c|s) · P(s)/ P(c) ) = argmaxs∈S P(c|s) · P(s)
@@ -773,6 +773,7 @@ def document_classificaiton(probabilities):
             feat_1_total_prob *= word_feat_prob[word][0]
             feat_2_total_prob *= word_feat_prob[word][1]
 
+        print(feat_2_total_prob, feat_1_total_prob)
         if feat_1_total_prob > feat_2_total_prob:
             print(f" The text '{text[:7]}...'is LIT.")
             return "LIT"
@@ -937,7 +938,7 @@ def run_program(default_doc, default_train,system_evaluation):
                             logging.exception(f"Main Menu: {error}")
 
                     elif function_name == "document_classificaiton":
-                        freq = get_freq(database)
+                        freq = get_feat_count(database)
                         probs = get_probs(freq)
                         document_classificaiton(probs)
 
