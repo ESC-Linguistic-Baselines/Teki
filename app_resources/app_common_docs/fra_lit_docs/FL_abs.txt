@@ -1,8 +1,0 @@
-kg
-cm
-kWh
-F
-RF
-GPL
-PCF
-PVC

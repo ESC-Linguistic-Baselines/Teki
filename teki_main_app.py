@@ -550,7 +550,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num = sentence_info.sentence_reconstruction()[3]
                     write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence, f"app_resources/app_common_default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_sentences(sentence,
+                                    f"app_resources/default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break
@@ -577,7 +578,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
                     write_sentences(sentence,
-                                    f"app_resources/app_common_default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                                    f"app_resources/default_docs/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
 
                 print(f"\nAll of the sentences have been assigned the feature {feat}.")
                 input("Please press enter to continue to the main... ")

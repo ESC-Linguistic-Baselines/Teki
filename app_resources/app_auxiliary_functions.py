@@ -23,6 +23,7 @@ try:
 except ImportError as  error:
     print(error)
 
+
 #########################
 # Auxiliary Classes
 #########################
@@ -157,13 +158,12 @@ class DiscourseAnalysis:
             :return:
             """
             # Score and their respective points
-            total_score = { "LIT": {},
-                            "ORAL": {} }
+            total_score = {"LIT": {},
+                           "ORAL": {}}
 
-            #Files
+            # Files
             feat_1 = "app_resources/app_common_databases/oral_french.json"
             oral_file = DiscourseAnalysis.read_database(feat_1)
-
 
             ######################################
             # LIT/ORAL CLASSIFICATION VARIABLES
@@ -195,7 +195,7 @@ class DiscourseAnalysis:
             # Lexical counts
             word_count = dict()
             for word in sentence_vocab:
-                word_count[word] = word_count.get(word, 0)+1
+                word_count[word] = word_count.get(word, 0) + 1
             word_repeated = (max(word_count.values()))
 
             pos_count = dict()
@@ -212,7 +212,7 @@ class DiscourseAnalysis:
             word_word_redup = len(multi_word.findall(sentence))
 
             # POS/SYN counts
-            adj_count = pos_count.get("ADJ",0)
+            adj_count = pos_count.get("ADJ", 0)
             dummy_subject_count = dep_info.count("expl:subj")
             emoticons = [emo for emo in oral_file["EMO"] if emo in sentence]
             nominal_subject_count = dep_info.count("nsubj")
@@ -221,11 +221,11 @@ class DiscourseAnalysis:
             punct_count = pos_count.get("PUNCT", 0)
             verb_count = pos_count.get("VERB", 0)
             adj_count = pos_count.get("ADJ", 0)
-            conj_count = pos_count.get("CCONJ",0)
+            conj_count = pos_count.get("CCONJ", 0)
 
             # Ratios
             conj_verb_ratio = conj_count > verb_count
-            isolated_verb_stems  = sentence_length < 4 and verb_count < 1
+            isolated_verb_stems = sentence_length < 4 and verb_count < 1
             low_verb_high_adj_ratio = verb_count < 1 and adj_count > 3
             len_sen_and_len_word_amount_num = sentence_length < 25 and len(word_count) < 5 and numbers_info
             no_verb_short_sen_pro = verb_count == 0 and sentence_length < 10
@@ -249,7 +249,7 @@ class DiscourseAnalysis:
             # Frequency of third person pronouns as dummy subjects
             if dummy_subject_count >= 1:
                 total_score["LIT"]["THIRD_PERSON_EXPL"] = dummy_subject_count
-            elif dep_info.count("expl:subj") < 1 :
+            elif dep_info.count("expl:subj") < 1:
                 total_score["ORAL"]["THIRD_PERSON_EXPL"] = 0
 
             # Frequency of nominal subjects e.g. je, moi, me, toi, etc.
@@ -272,13 +272,13 @@ class DiscourseAnalysis:
 
             # High number of verbs compared to nouns
             if noun_verb_ratio:
-                total_score["LIT"]["NP_VB_RATIO"] = noun_count+verb_count
+                total_score["LIT"]["NP_VB_RATIO"] = noun_count + verb_count
             elif noun_verb_ratio == False:
                 total_score["LIT"]["NP_VB_RATIO"] = 0
 
             # Verb to Adjective ratio
             if low_verb_high_adj_ratio:
-                total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = verb_count+adj_count
+                total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = verb_count + adj_count
             elif low_verb_high_adj_ratio == False:
                 total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = 0
 
@@ -328,7 +328,7 @@ class DiscourseAnalysis:
                 total_score["ORAL"]["HIGH_PUNCTION"] = 0
 
             # High use of same character multiple times
-            if multi_char_count > 0 :
+            if multi_char_count > 0:
                 total_score["ORAL"]["MULTI_CHAR_REDUPLICATION"] = multi_char_count
             elif multi_char_count < 1:
                 total_score["ORAL"]["MULTI_CHAR_REDUPLICATION"] = 0
@@ -354,13 +354,13 @@ class DiscourseAnalysis:
             # Emoticons
             if emoticons:
                 total_score["ORAL"]["EMOTICONS"] = len(emoticons)
-            elif emoticons ==  False:
+            elif emoticons == False:
                 total_score["ORAL"]["EMOTICONS"] = 0
 
             # Abbreviations and Acronyms
             if abrev_count:
                 total_score["LIT"]["ABBR"] = abrev_count
-            elif abrev_count== False:
+            elif abrev_count == False:
                 total_score["LIT"]["ABBR"] = 0
 
             return total_score
@@ -421,7 +421,6 @@ class DiscourseAnalysis:
 
             return gram_count, pos, dep, morph
 
-
         def calculate_scores(self):
             """
             """
@@ -445,9 +444,9 @@ class DiscourseAnalysis:
             # Regex Expressions
             adverbs = re.compile(r"(?<!^)ment")
             future_simple = re.compile(r"(?<!^)rai")
-            hypenated_words=re.compile(r"\b\w*\s*[-]\s*\w*\b")
+            hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
             ne_negation = re.compile(r"n'|ne")
-            particle_negation =re.compile(r"pas|jamais|aucun|rien")
+            particle_negation = re.compile(r"pas|jamais|aucun|rien")
 
             # Sentence Information
             sentence = self.sentence_reconstruction()[1]
@@ -458,18 +457,18 @@ class DiscourseAnalysis:
             francais_cultive = [word for word in sentence.split() if word in lit_file["FC"]]
             francais_cultive_abbs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
             fl = [word for word in sentence.split() if word in lit_file["FRT"]]
-            frt_pre =[word for word in sentence.split() if word in lit_file["FRT_PRE"]]
+            frt_pre = [word for word in sentence.split() if word in lit_file["FRT_PRE"]]
             frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
 
             # Oral
-            presentatif = len ([word for word in sentence.split() if word in oral_file["pres"]])
+            presentatif = len([word for word in sentence.split() if word in oral_file["pres"]])
             francais_argot = len([word for word in sentence.split() if word in oral_file["FA"]])
-            francais_parle = len ([word for word in sentence.split() if word in oral_file["FPA"]])
-            francais_familier=len ([word for word in sentence.split() if word in oral_file["FF"]])
-            francais_familier_intes = len([word for word in sentence.split()if word in oral_file["FF_intens"]])
-            francais_vulgaire = len ([word for word in sentence if word in oral_file["FV"]])
+            francais_parle = len([word for word in sentence.split() if word in oral_file["FPA"]])
+            francais_familier = len([word for word in sentence.split() if word in oral_file["FF"]])
+            francais_familier_intes = len([word for word in sentence.split() if word in oral_file["FF_intens"]])
+            francais_vulgaire = len([word for word in sentence if word in oral_file["FV"]])
 
-            #Lexical information
+            # Lexical information
             hypenated_words_count = hypenated_words.findall(sentence)
 
             # French Syntactical information
@@ -566,9 +565,8 @@ class DiscourseAnalysis:
                 total_score["ORAL"]["FRANCAIS_VULGAIRE"] = 0
 
             # Improper Negation
-            if ne==False and particle==True:
+            if ne == False and particle == True:
                 total_score["ORAL"]["IMPROPER_NEGATION"] = ne
-
 
             return total_score
 
@@ -611,6 +609,7 @@ def about_program():
             print(line.strip())
         input("\nPlease press enter to continue...")
 
+
 def clear_log(error_log):
     """
         This function deletes the error log file by overwriting it with a error log
@@ -625,6 +624,7 @@ def clear_log(error_log):
 
     logging.FileHandler(error_log, "w")
     input("The log file will be cleared after restarting the program.\n")
+
 
 def end_program():
     """
@@ -647,6 +647,7 @@ def end_program():
             print("The program will not be terminated and you will be brought back to the main menu.")
             input("Press enter to continue...")
             break
+
 
 def evaluation():
     """
@@ -678,22 +679,22 @@ def evaluation():
         true_negative = 0
 
         for row in csv_gold_reader:
-            sen,feat = row[0], row[3]
-            sentence_features[sen] = {"SYS":"","GOLD":""}
+            sen, feat = row[0], row[3]
+            sentence_features[sen] = {"SYS": "", "GOLD": ""}
             sentence_features[sen]["GOLD"] = feat
 
         for row in csv_system_reader:
-            sen,feat = row[0], row[3]
+            sen, feat = row[0], row[3]
             sentence_features[sen]["SYS"] = feat
 
         for entry in sentence_features:
             results = sentence_features[entry]
-            feats = list ( results.values())
-            gold_feat  = feats[1]
-            sys_feat = feats [0]
+            feats = list(results.values())
+            gold_feat = feats[1]
+            sys_feat = feats[0]
 
             if sys_feat == feat_1 and gold_feat == feat_1:
-                true_positive +=1
+                true_positive += 1
 
             elif sys_feat == feat_2 and gold_feat == feat_2:
                 true_negative += 1
@@ -701,17 +702,17 @@ def evaluation():
             elif sys_feat == feat_1 and gold_feat == feat_2:
                 false_positive += 1
 
-            elif sys_feat == feat_2 and gold_feat==feat_1:
+            elif sys_feat == feat_2 and gold_feat == feat_1:
                 false_negative += 1
 
-        accuracy = (true_positive + true_negative) / (true_positive+true_negative+false_positive+false_negative)
-        error_rate = true_negative / ( true_positive+true_negative+false_positive+false_negative)
-        precision =  true_positive / (true_positive+false_positive)
-        recall  = true_positive / (true_positive+true_negative)
-        f_score = ( 2 * precision * recall) / (precision + recall)
+        accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_positive + false_negative)
+        error_rate = true_negative / (true_positive + true_negative + false_positive + false_negative)
+        precision = true_positive / (true_positive + false_positive)
+        recall = true_positive / (true_positive + true_negative)
+        f_score = (2 * precision * recall) / (precision + recall)
 
         system_metrics = {
-            "Accuracy":round(accuracy,4),
+            "Accuracy": round(accuracy, 4),
             "Error rate": round(error_rate, 4),
             "Precision": round(precision, 4),
             "recall": round(recall, 4),
@@ -720,7 +721,6 @@ def evaluation():
 
         for metric in system_metrics:
             print(metric, system_metrics[metric])
-
 
     def cross_validation():
         """
@@ -740,7 +740,6 @@ def evaluation():
 
         for score in scores:
             print(score)
-
 
     def token_sentence_count():
         """
@@ -768,12 +767,11 @@ def evaluation():
         for res in results:
             print(res, results[res])
 
-
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate naive bayes": evaluate_naive_bayes,
-                    "cross validation":cross_validation,
-                    "token & sentence count":token_sentence_count,
-                   "return to menu": lambda: False }
+                   "cross validation": cross_validation,
+                   "token & sentence count": token_sentence_count,
+                   "return to menu": lambda: False}
 
     # Submenu parameters
     menu_name = "Evaluation Menu"
@@ -819,8 +817,8 @@ def feature_extraction():
 
         # Ebay Corpus
         else:
-            tag = ( "bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc",
-                    "imp", "att", "acc", "ann", "con", "info", "lex", "ort", "slo", "syn")
+            tag = ("bon", "ego", "sty", "stn", "pre", "vst", "emo", "enc",
+                   "imp", "att", "acc", "ann", "con", "info", "lex", "ort", "slo", "syn")
 
             for t in sorted(tag):
                 types = {" ".join(element.getText().split()) for element in soup.find_all(t)}
@@ -831,6 +829,7 @@ def feature_extraction():
                         "type": t,
                         "token_tag": text
                     })
+
 
 def file_finder():
     """
@@ -921,13 +920,14 @@ def write_sentences(collective_results=False, file=False, sen_num=False, sen_id=
                                      "SEN:": f"SEN:{number}",
                                      })
         elif feat_save == True:
-            fieldnames = "sen", "sen_num", "sen_id","sen_feat"
+            fieldnames = "sen", "sen_num", "sen_id", "sen_feat"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
-            sen=collective_results
+            sen = collective_results
             writer.writerow({"sen": sen,
-                             "sen_num":sen_num,
-                             "sen_id":sen_id,
-                             "sen_feat":feat})
+                             "sen_num": sen_num,
+                             "sen_id": sen_id,
+                             "sen_feat": feat})
+
 
 def sub_menu(output_menu, menu_name, menu_information):
     """
@@ -1026,8 +1026,8 @@ def write_to_database(feature, sentence, database):
                  }
             )
 
+
 error_log = 'teki_error.log'
 
 if __name__ == "__main__":
     error_log = 'teki_error.log'
-
