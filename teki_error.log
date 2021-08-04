@@ -1,100 +1,30 @@
 
-
-ERROR_TIME: 2021-08-04 14:14:39,032
+ERROR_TIME: 2021-08-04 16:44:12,603
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 923
-ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
+LINE_NO: 1000
+ERROR_SCOPE  'if __name__ == __main__': is due to '0)'
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 920, in run_program
-    doc = get_text(path_name)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 170, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 983, in <module>
+    run_program(default_doc, default_train,system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 948, in run_program
+    document_classificaiton(probs)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 819, in document_classificaiton
+    for word in sentence[0].split():
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\bs4\element.py", line 1406, in __getitem__
+    return self.attrs[key]
+KeyError: 0
 
-ERROR_TIME: 2021-08-04 14:18:50,306
+ERROR_TIME: 2021-08-04 17:02:01,417
 FILE_NAME: app_auxiliary_functions.py
 MODULE: app_auxiliary_functions
                         
 LINE_NO: 984
-ERROR_SCOPE Sub menu error: [Errno 2] No such file or directory: ''
+ERROR_SCOPE Sub menu error: [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_dev\\test_sys.csv'
 Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 981, in sub_menu
     return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 754, in token_sentence_count
-    with open(file_finder()) as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-08-04 14:38:07,121
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 984
-ERROR_SCOPE Sub menu error: 'str' object has no attribute 'select'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 981, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 347, in xml_analysis
-    for tag in soup.select("post"):
-AttributeError: 'str' object has no attribute 'select'
-
-ERROR_TIME: 2021-08-04 14:38:08,351
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 942
-ERROR_SCOPE Main Menu: 'function' object is not iterable
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 937, in run_program
-    collective_results_tagged = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 467, in spacy_tagger
-    for sent in corpus_content:
-TypeError: 'function' object is not iterable
-
-ERROR_TIME: 2021-08-04 14:38:57,374
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 999
-ERROR_SCOPE  'if __name__ == __main__': is due to '[Errno 2] No such file or directory: 'app_resources/app_dev/dev_results/test_gold.csv')'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 982, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 947, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 807, in document_classificaiton
-    file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 170, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: 'app_resources/app_dev/dev_results/test_gold.csv'
-
-ERROR_TIME: 2021-08-04 14:40:15,761
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 999
-ERROR_SCOPE  'if __name__ == __main__': is due to 'string index out of range)'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 982, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 947, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 812, in document_classificaiton
-    sen_id=sentence[2]
-IndexError: string index out of range
-
-ERROR_TIME: 2021-08-04 14:43:30,354
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 996
-ERROR_SCOPE  'if __name__ == __main__': is due to 'string index out of range)'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 979, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 944, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 809, in document_classificaiton
-    sen_id=sentence[2]
-IndexError: string index out of range
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 667, in evaluate_naive_bayes
+    system = open(system_file, mode="r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\chris\\Desktop\\Bachleorarbeit\\app_resources\\app_dev\\test_sys.csv'

@@ -465,10 +465,8 @@ def spacy_tagger(corpus_content):
     collective_results_tagged = dict()
 
     for sent in corpus_content:
-
         corpus_sentence = corpus_content[sent]
         new_sentence = list()
-        res = open("app_sandbox/res.txt", mode="a+", encoding="utf-8")
 
         for number, sentence in enumerate(corpus_sentence):
             # Creates a doc object with all lexical information using spacy
@@ -479,7 +477,6 @@ def spacy_tagger(corpus_content):
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
             collective_results_tagged[new_key] = new_sentence
-
             # overwriting the old with a new list so that the new results can be saved.
             new_sentence = list()
     input("The sentences have been successfully tagged. Please press enter to continue...")
@@ -777,16 +774,16 @@ def document_classificaiton(probabilities):
             feat_2_total_prob *= word_feat_prob[word][1]
 
         if feat_1_total_prob > feat_2_total_prob:
-            print(f" The text '{text[:7]}...'is literal.")
+            print(f" The text '{text[:7]}...'is LIT.")
             return "LIT"
         elif feat_2_total_prob > feat_1_total_prob:
-            print(f" The text '{text[:7]}...' is oral.")
+            print(f" The text '{text[:7]}...' is ORAL.")
             return "ORAL"
         else:
             return "UNK"
 
     while True:
-        options = "sentence", "collection of sentences", "document"
+        options = "enter a sentence", "enter a document",  "return to main menu"
         for number, choice in enumerate(options):
             print(number, choice)
         print("")
@@ -800,25 +797,26 @@ def document_classificaiton(probabilities):
             input("Please press enter to return to the main menu...")
 
         elif user == "1":
+            collective_res = dict()
             # Collection of Sentences from a document
-            file = get_text(file_finder())
-            res = r"app_resources/app_common_default_docs/default_result_sentence.csv"
-            for sentence in file:
-                feat=calculate(sentence[0].split())
-                sen=sentence[0]
-                sen_id=sentence[2]
-                sen_num=sentence[1]
-                write_sentences(collective_results=sen, file=res, sen_num=sen_num,sen_id = sen_id, feat=feat,feat_save=True)
+            text= get_text(file_finder())
+            content=analyze_content(text)
+            tagger_results = spacy_tagger(content)
 
-        elif user == "2":
-            # Document as a whole
-            text = list()
-            file = get_text(file_finder())
-            for sentence in file:
-                for word in sentence[0].split():
-                    text.append(word)
-            calculate(text)
-            input("Please press enter to return to the main menu...")
+            for corpus_sentence_id in tagger_results:
+                sub_sentences = tagger_results[corpus_sentence_id]
+                sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
+                sentence = sentence_info.sentence_reconstruction()[1]
+                tokens = sentence.split()
+                bayes=calculate(tokens)
+                collective_res[bayes] = collective_res.get(bayes,0)+1
+            print("The results of the analysis are as follows:")
+
+            per = sum(collective_res.values())
+            for i in collective_res:
+                print(i,collective_res[i],collective_res[i]/per)
+
+        elif user == "3":
             break
         else:
             print(f"{user} is not a valid option. Please enter a valid option.")

@@ -26,7 +26,6 @@ app_resources\app_common_default_docs\default_result_sentence.csv
 app_resources\app_common_default_docs\default_training.csv
 app_resources\app_common_default_docs\mueller_oral.txt
 app_resources\app_common_default_docs\validation_data.csv
-app_resources\app_common_default_docs\word_freq.py
 app_resources\app_common_docs\doc_writer.py
 app_resources\app_common_docs\fra_lit_docs\FCL.txt
 app_resources\app_common_docs\fra_lit_docs\FCL_abs.txt
@@ -60,8 +59,9 @@ app_resources\app_dev\dev_files\ebayfr-e18v_0_100.xml
 app_resources\app_dev\dev_files\sms_0_29507.xml
 app_resources\app_dev\dev_files\wikiconflits_0_53.xml
 app_resources\app_dev\dev_results\sentence_results.csv
-app_resources\app_dev\dev_results\sentences_train\ebay_0_10.csv
-app_resources\app_dev\dev_results\sentences_train\sms_0_10.csv
+app_resources\app_dev\dev_results\sentences_train\default_result_sentence_04_08_2021_13_33_.csv
+app_resources\app_dev\dev_results\sentences_train\default_result_sentence_04_08_2021_22_06_.csv
+app_resources\app_dev\dev_results\sentences_train\default_result_sentence_04_08_2021_24_04_.csv
 app_resources\app_dev\dev_results\sentence_tokenizer\sentence_ebay_system.txt
 app_resources\app_dev\dev_results\sentence_tokenizer\sentence_sms_gold.txt
 app_resources\app_dev\dev_results\sentence_tokenizer\sentence_sms_system.txt
