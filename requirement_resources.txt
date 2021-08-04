@@ -1,31 +1,39 @@
 app_resources\app_auxiliary_functions.py
-app_resources\app_common_databases\new_cl_2_set.csv
+app_resources\app_bachleor_documentation\chandler_bachleor_expose.docx
+app_resources\app_bachleor_documentation\Chandler_Linguistik_B_A_Theisis_SoSe2021.docx
+app_resources\app_bachleor_documentation\Literal Oral Criteria.docx
+app_resources\app_bachleor_documentation\Müller Criteria.docx
+app_resources\app_bachleor_documentation\report.txt
+app_resources\app_bachleor_documentation\wordcount.py
+app_resources\app_bachleor_documentation\~$andler_Linguistik_B_A_Theisis_SoSe2021.docx
+app_resources\app_bachleor_documentation\articles\Chanier  The CoMeRe corpus for French structuring.pdf
+app_resources\app_bachleor_documentation\articles\cmr-wikiconflits-tei-v4.1-manuel.pdf
+app_resources\app_bachleor_documentation\articles\Koch Oesterreicher - Schriftlichkeit und kommunikative Distanz.pdf
+app_resources\app_bachleor_documentation\articles\LING_381_0005.pdf
+app_resources\app_bachleor_documentation\articles\Ng -Exemplar Based Word Sense Disambiguation Some Recent Improvements.pdf
+app_resources\app_bachleor_documentation\articles\Ortmann - Automatic Orality Identification in Historical Texts.pdf
+app_resources\app_bachleor_documentation\articles\Ortmann - Variation between Different Discourse Types Literate vs. Oral.pdf
+app_resources\app_bachleor_documentation\articles\Panckhurst - A digital corpus resource.pdf
+app_resources\app_bachleor_documentation\articles\traduire-162.pdf
+app_resources\app_common_compressed\compressed_corpora.7z
+app_resources\app_common_compressed\README.MD
+app_resources\app_common_databases\cl_2.csv
+app_resources\app_common_databases\lit_french.json
+app_resources\app_common_databases\oral_french.json
 app_resources\app_common_databases\training_database.txt
-app_resources\app_common_default_docs\classify.csv
 app_resources\app_common_default_docs\default_result_sentence.csv
 app_resources\app_common_default_docs\default_training.csv
 app_resources\app_common_default_docs\mueller_oral.txt
+app_resources\app_common_default_docs\validation_data.csv
 app_resources\app_common_default_docs\word_freq.py
-app_resources\app_common_docs\lit_french.json
-app_resources\app_common_docs\oral_french.json
-app_resources\app_common_docs\README.MD
-app_resources\app_common_docs\bodo_muller_french_texts\argot_1.txt
-app_resources\app_common_docs\bodo_muller_french_texts\argot_2.txt
-app_resources\app_common_docs\bodo_muller_french_texts\francais_cultive_1
-app_resources\app_common_docs\bodo_muller_french_texts\francais_cultive_2.txt
-app_resources\app_common_docs\bodo_muller_french_texts\francais_parle_1
-app_resources\app_common_docs\bodo_muller_french_texts\langue_techniques_1.txt
-app_resources\app_common_docs\bodo_muller_french_texts\langue_technique_2.txt
-app_resources\app_common_docs\bodo_muller_french_texts\mueller_lit.txt
-app_resources\app_common_docs\bodo_muller_french_texts\mueller_oral.txt
-app_resources\app_common_docs\fra_lit_docs\abs.txt
+app_resources\app_common_docs\doc_writer.py
 app_resources\app_common_docs\fra_lit_docs\FCL.txt
 app_resources\app_common_docs\fra_lit_docs\FCL_abs.txt
 app_resources\app_common_docs\fra_lit_docs\FL.txt
+app_resources\app_common_docs\fra_lit_docs\FL_abs.txt
 app_resources\app_common_docs\fra_lit_docs\Fl_pre.txt
 app_resources\app_common_docs\fra_lit_docs\FL_suf.txt
 app_resources\app_common_docs\fra_lit_docs\FRE.txt
-app_resources\app_common_docs\fra_lit_docs\lit_writer.py
 app_resources\app_common_docs\fra_oral_doc\ebay_tag_results.csv
 app_resources\app_common_docs\fra_oral_doc\emoticons.csv
 app_resources\app_common_docs\fra_oral_doc\FA.txt
@@ -34,35 +42,17 @@ app_resources\app_common_docs\fra_oral_doc\FF.txt
 app_resources\app_common_docs\fra_oral_doc\FF_inst.txt
 app_resources\app_common_docs\fra_oral_doc\FPA.txt
 app_resources\app_common_docs\fra_oral_doc\FV.txt
-app_resources\app_common_docs\fra_oral_doc\oral_writer.py
 app_resources\app_common_docs\fra_oral_doc\presentatifs.txt
-app_resources\app_compressed_data\cmr-88milsms-tei-v1.zip
-app_resources\app_dev\gold_03_08_2021_47_13_.csv
-app_resources\app_dev\system_03_08_2021_48_10_.csv
-app_resources\app_dev\test_gold.csv
-app_resources\app_dev\test_sys.csv
-app_resources\app_dev\dev_documentation\chandler_bachleor_expose.docx
-app_resources\app_dev\dev_documentation\Chandler_Linguistik_B_A_Theisis_SoSe2021.docx
-app_resources\app_dev\dev_documentation\Literal Oral Criteria.docx
-app_resources\app_dev\dev_documentation\Müller Criteria.docx
-app_resources\app_dev\dev_documentation\report.txt
-app_resources\app_dev\dev_documentation\wordcount.py
-app_resources\app_dev\dev_documentation\~$andler_Linguistik_B_A_Theisis_SoSe2021.docx
-app_resources\app_dev\dev_documentation\articles\Chanier  The CoMeRe corpus for French structuring.pdf
-app_resources\app_dev\dev_documentation\articles\cmr-wikiconflits-tei-v4.1-manuel.pdf
-app_resources\app_dev\dev_documentation\articles\Koch Oesterreicher - Schriftlichkeit und kommunikative Distanz.pdf
-app_resources\app_dev\dev_documentation\articles\LING_381_0005.pdf
-app_resources\app_dev\dev_documentation\articles\Ng -Exemplar Based Word Sense Disambiguation Some Recent Improvements.pdf
-app_resources\app_dev\dev_documentation\articles\Ortmann - Automatic Orality Identification in Historical Texts.pdf
-app_resources\app_dev\dev_documentation\articles\Ortmann - Variation between Different Discourse Types Literate vs. Oral.pdf
-app_resources\app_dev\dev_documentation\articles\Panckhurst - A digital corpus resource.pdf
-app_resources\app_dev\dev_documentation\articles\traduire-162.pdf
 app_resources\app_dev\dev_files\ebayfr-e05p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17p_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e17x_0_100.xml
 app_resources\app_dev\dev_files\ebayfr-e18v_0_100.xml
 app_resources\app_dev\dev_files\sms_0_29507.xml
 app_resources\app_dev\dev_files\wikiconflits_0_53.xml
+app_resources\app_dev\dev_results\gold_03_08_2021_47_13_.csv
+app_resources\app_dev\dev_results\system_03_08_2021_48_10_.csv
+app_resources\app_dev\dev_results\test_gold.csv
+app_resources\app_dev\dev_results\test_sys.csv
 app_resources\app_dev_train\app_train\ebayfr-e05p_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e17p_101_200.xml
 app_resources\app_dev_train\app_train\ebayfr-e17x_101_200.xml
@@ -75,4 +65,13 @@ app_resources\app_test\app_test\ebayfr-e17x_201_300.xml
 app_resources\app_test\app_test\ebayfr-e18v_201_300.xml
 app_resources\app_test\app_test\sms_59015_88522.xml
 app_resources\app_test\app_test\wikiconflits_79_159.xml
+app_resources\app_test\app_test\muller_texts\francais_argot_1.txt
+app_resources\app_test\app_test\muller_texts\francais_argot_2.txt
+app_resources\app_test\app_test\muller_texts\francais_cultive_1
+app_resources\app_test\app_test\muller_texts\francais_cultive_2.txt
+app_resources\app_test\app_test\muller_texts\francais_parle_1
+app_resources\app_test\app_test\muller_texts\langue_techniques_1.txt
+app_resources\app_test\app_test\muller_texts\langue_technique_2.txt
+app_resources\app_test\app_test\muller_texts\mueller_lit.txt
+app_resources\app_test\app_test\muller_texts\mueller_oral.txt
 app_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc

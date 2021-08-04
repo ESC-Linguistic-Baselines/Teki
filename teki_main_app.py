@@ -123,7 +123,7 @@ if os.path.exists("app_resources"):
             clear_log,
             DiscourseAnalysis,
             end_program,
-            system_evaluation,
+            evaluation,
             file_finder,
             sub_menu,
             write_sentences,
@@ -174,7 +174,7 @@ def get_text(document):
             return soup
 
         elif extension == ".csv":
-            csv_reader = csv.reader(document, delimiter=",")
+            csv_reader = csv.reader(file, delimiter=",")
             csv_data = [row for row in csv_reader]
             return csv_data
 
@@ -184,7 +184,6 @@ def get_text(document):
                 word = line.rstrip().split()
                 for w in word:
                     text+=f"{w} "
-
             return text
 
 def get_database():
@@ -624,6 +623,7 @@ def get_freq(file):
         print("The structure of the database is as follows:")
         print("ORAL:",prior_prob.get("ORAL",0))
         print("LIT:",prior_prob.get("LIT",0))
+        print("")
 
         return prior_prob, training_data
 
@@ -750,39 +750,74 @@ def sentence_classification(probabilities):
             'prob_results': the probability of the each word having a certain feature.
     """
 
-    prior_prob, prob_results = probabilities[1], probabilities[0]
+    def calculate (text):
 
-    text = input("Please enter a string: ")
+        prior_prob, prob_results = probabilities[1], probabilities[0]
+        feat_1_prob, feat_2_prob = prob_results["LIT"], prob_results["ORAL"]
+        feat_1_total_prob = feat_1_prob / (feat_1_prob + feat_2_prob)
+        feat_2_total_prob = feat_2_prob / (feat_1_prob + feat_2_prob)
 
-    text=text.split()
+        n_training_data = sum(prob_results.values()) ** 2
+        feature_1_smooth = feat_1_prob / n_training_data
+        feature_2_smooth = feat_2_prob / n_training_data
 
-    feat_1_prob, feat_2_prob = prob_results["LIT"], prob_results["ORAL"]
+        word_feat_prob = dict()
 
-    feat_1_total_prob = feat_1_prob / (feat_1_prob + feat_2_prob)
-    feat_2_total_prob = feat_2_prob / (feat_1_prob + feat_2_prob)
+        for word in text:
+            if bool(prior_prob.get(word)):
+                word_feat_prob[word] = prior_prob.get(word)
+            else:
+                word_feat_prob[word] = feature_1_smooth, feature_2_smooth
 
-    n_training_data = sum(prob_results.values()) ** 2
-    feature_1_smooth = feat_1_prob / n_training_data
-    feature_2_smooth = feat_2_prob / n_training_data
+        for word in word_feat_prob:
+            feat_1_total_prob *= word_feat_prob[word][0]
+            feat_2_total_prob *= word_feat_prob[word][1]
 
-    word_feat_prob = dict()
-
-    for word in text:
-        if bool(prior_prob.get(word)):
-            word_feat_prob[word] = prior_prob.get(word)
+        if feat_1_total_prob > feat_2_total_prob:
+            print(f" The text '{text[:7]}...'is literal.")
+            return feat_1_total_prob
+        elif feat_2_total_prob > feat_1_total_prob:
+            print(f" The text '{text[:7]}...' is oral.")
+            return feat_2_total_prob
         else:
-            word_feat_prob[word] = feature_1_smooth, feature_2_smooth
+            return "The document is too long and cannot be properly analyzed."
 
-    for word in word_feat_prob:
-        feat_1_total_prob *= word_feat_prob[word][0]
-        feat_2_total_prob *= word_feat_prob[word][1]
+    while True:
+        options = "sentence", "collection of sentences", "document "
 
-    if feat_1_total_prob > feat_2_total_prob:
-        print(f" '{text} 'is literal.")
-    elif feat_2_total_prob > feat_1_total_prob:
-        print(f" '{text}' is oral.")
+        for number, choice in enumerate(options):
+            print(number, choice)
 
-    input("Please press enter to return to the main menu.")
+        user = input("Would you like to analyze a sentence, collection of sentences or a document?:")
+
+        if user == "0":
+            sentence = input ("Please enter the sentence: ").split()
+            calculate(sentence)
+            input("Please press enter to return to the main menu...")
+
+        elif user == "1":
+            text = list()
+            file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
+            for sentence in file:
+
+                calculate(sentence[0].split())
+
+        elif user == "2":
+            text = list()
+            file = get_text(r"app_resources/app_dev/dev_results/test_gold.csv")
+            for sentence in file:
+                for word in sentence[0].split():
+                    text.append(word)
+            calculate(text)
+
+            input("Please press enter to return to the main menu...")
+            break
+
+        else:
+            print(f"{user} is not a valid option. Please enter a valid option.")
+
+
+
 
 
 #########################
@@ -820,7 +855,7 @@ def run_program(default_doc, default_train,system_evaluation):
         "analyze contents": analyze_content,
         "classify sentence": sentence_classification,
         "clear error log file": clear_log,
-        "evaluation": system_evaluation,
+        "evaluation": evaluation,
         "about program": about_program,
         "end program": end_program
         }

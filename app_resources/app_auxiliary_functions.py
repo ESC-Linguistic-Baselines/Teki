@@ -654,7 +654,7 @@ def end_program():
             input("Press enter to continue...")
             break
 
-def system_evaluation():
+def evaluation():
     """
 
     :return:
@@ -747,11 +747,39 @@ def system_evaluation():
         for score in scores:
             print(score)
 
+
+    def token_sentence_count():
+        """
+
+        :return:
+        """
+
+        sentence = list()
+        tokens = list()
+
+        with open(file_finder()) as file:
+            csv_reader = csv.reader(file, delimiter=",")
+
+            for row in csv_reader:
+                sen = row[0]
+                sentence.append(sen)
+
+            for sen in sentence:
+                for word in sen.split():
+                    tokens.append(word)
+
+        results = {"Sentence": len(sentence),
+                   "tokens": len(tokens)}
+
+        for res in results:
+            print(res, results[res])
+
+
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate naive bayes": evaluate_naive_bayes,
                     "cross validation":cross_validation,
-                   "return to menu": lambda: False
-                   }
+                    "token & sentence count":token_sentence_count,
+                   "return to menu": lambda: False }
 
     # Submenu parameters
     menu_name = "Evaluation Menu"
