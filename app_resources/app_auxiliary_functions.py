@@ -89,8 +89,8 @@ class DiscourseAnalysis:
         hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
 
         # Oral and literal elements that will  be removed from old corpus
-        oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/lit_french.json")
-        lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_docs/oral_french.json")
+        oral_infile = DiscourseAnalysis.read_database("app_resources/app_common_databases/lit_french.json")
+        lit_infile = DiscourseAnalysis.read_database("app_resources/app_common_databases/oral_french.json")
 
         # Moving elements from one dictionary to another, minus the redacted elements
         for language_register in lit_infile:
@@ -161,7 +161,7 @@ class DiscourseAnalysis:
                             "ORAL": {} }
 
             #Files
-            feat_1 = "app_resources/app_common_docs/oral_french.json"
+            feat_1 = "app_resources/app_common_databases/oral_french.json"
             oral_file = DiscourseAnalysis.read_database(feat_1)
 
 
@@ -439,8 +439,8 @@ class DiscourseAnalysis:
             }
 
             # Files
-            feat_1 = "app_resources/app_common_docs/oral_french.json"
-            feat_2 = "app_resources/app_common_docs/lit_french.json"
+            feat_1 = "app_resources/app_common_databases/oral_french.json"
+            feat_2 = "app_resources/app_common_databases/lit_french.json"
             oral_file = DiscourseAnalysis.read_database(feat_1)
             lit_file = DiscourseAnalysis.read_database(feat_2)
 

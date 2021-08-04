@@ -485,6 +485,7 @@ def spacy_tagger(corpus_content):
 
         corpus_sentence = corpus_content[sent]
         new_sentence = list()
+        res = open("res.txt", mode="a+", encoding="utf-8")
 
         for number, sentence in enumerate(corpus_sentence):
             # Creates a doc object with all lexical information using spacy
@@ -492,7 +493,7 @@ def spacy_tagger(corpus_content):
             for token in doc:
                 # the results of the Spacy analysis
                 new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),token.lemma_))
-
+                res.write(f"{token.text}, {token.pos_}, {token.dep_}, {sent}, SEN:{number}, {str(token.morph)}, {token.lemma_}\n")
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
             collective_results_tagged[new_key] = new_sentence
@@ -500,7 +501,7 @@ def spacy_tagger(corpus_content):
             # overwriting the old with a new list so that the new results can be saved.
             new_sentence = list()
 
-    pickle.dump(collective_results_tagged, open("app_sandbox/oral.pickle", "wb"))
+    pickle.dump(collective_results_tagged, open("oral.pickle", "wb"))
     input("The sentences have been successfully tagged. Please press enter to continue...")
     return collective_results_tagged
 
@@ -544,12 +545,12 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         for corpus_sentence_id in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
-
             feat = sentence_info.feature_assignment()
             sentence = sentence_info.sentence_reconstruction()[1]
             sen_id = sentence_info.sentence_reconstruction()[2]
             sen_num = sentence_info.sentence_reconstruction()[3]
             write_sentences(sentence, gold_file, sen_num,sen_id, feat, True)
+
         input("The evaluation was completed without any errors. Please press enter to continue the main menu...")
 
     else:
@@ -990,7 +991,7 @@ if __name__ == "__main__":
     if all of the main libraries have been installed.  This can be overridden by the user, 
     but it is not advised as it can lead to the program becoming unstable.  
     """
-    system_evaluation = True
+    system_evaluation = False
     try:
         default_doc = r"app_resources/app_common_default_docs/mueller_oral.txt"
         default_train = r"app_resources/app_common_default_docs/default_training.csv"
