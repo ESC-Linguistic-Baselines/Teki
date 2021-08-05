@@ -369,14 +369,19 @@ class DiscourseAnalysis:
 
 
             """
-            feat_1_score = sum(self.calculate_scores()["LIT"].values())
-            feat_2_score = sum(self.calculate_scores()["ORAL"].values())
+            lit = self.calculate_scores()["LIT"]
+            lit_score = sum(lit.values())
+            lit_classifiction = {key:lit[key] for key in sorted(lit,key=lit.get,reverse=False) if lit[key] > 0}
+
+            oral = self.calculate_scores()["ORAL"]
+            oral_score = sum(oral.values())
+            oral_classifiction = {key:oral[key] for key in sorted(oral,key=oral.get,reverse=False) if oral[key] > 0}
 
             # Returning the results
-            if feat_1_score > feat_2_score:
-                return "LIT"
-            elif feat_2_score > feat_1_score:
-                return "ORAL"
+            if lit_score > oral_score:
+                return "LIT",lit_classifiction
+            elif oral_score > lit_score:
+                return "ORAL", oral_classifiction
             else:
                 return "UNK"
 
@@ -905,7 +910,7 @@ def write_sentences(collective_results=False, file=False, sen_num=False, sen_id=
             returns the value of the respective function
     """
     feat_save == False
-    with open(file, mode="w", encoding="utf-8", newline="") as results:
+    with open(file, mode="a+", encoding="utf-8", newline="") as results:
         if feat_save != True:
             fieldnames = "sentence", "sentence_id", "SEN:"
             writer = csv.DictWriter(results, fieldnames=fieldnames)

@@ -532,6 +532,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         input("The evaluation was completed without any errors. Please press enter to continue the main menu...")
 
     else:
+        #p = open("p.picke","wb")
         # This option is activated when the system is not being evaluated.
         while True:
             options = "automatically", "manually"
@@ -540,10 +541,12 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             print("")
 
             user = input ("Would you like to have the features assigned automatically or manually? ")
-
             if user == "0":
                 file =  f"app_resources/results/default_result_sentence_{current_time}.csv"
                 # Automatic Assignment
+                lit_count, oral_count, sentence_count, token_count =  0, 0, 0, 0
+                lit_score,oral_score = {}, {}
+
                 for corpus_sentence_id in collective_results_tagged:
                     sub_sentences = collective_results_tagged[corpus_sentence_id]
                     sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
@@ -551,10 +554,49 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num = sentence_info.sentence_reconstruction()[3]
-                    write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence,  file, sen_num, sen_id, feat, True)
-                print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
-                input("Please press enter to continue to the main... ")
+
+                    sentence_count += 1
+                    token_count += len(sentence.split())
+
+                    if feat[0] == "LIT":
+                        lit_count += 1
+                        classification = feat[1]
+                        for element in classification:
+                          lit_score[element] = lit_score.get(element,0)+classification[element]
+
+                    if feat[0] == "ORAL":
+                        oral_count += 1
+                        classification = feat[1]
+                        for element in classification:
+                          oral_score[element] = oral_score.get(element,0)+classification[element]
+
+                    #write_to_database(feat, sub_sentences, database)
+                    #write_sentences(sentence,  file, sen_num, sen_id, feat, True)
+
+                #pickle.dump(collective_results_tagged,p)
+                count_results = { "Sentences":sentence_count,
+                        "Tokens":token_count,
+                        "LIT":lit_count,
+                        "ORAL": oral_count,
+                        }
+
+                score_points = {
+                    "LIT": [(key, value) for (key, value) in lit_score.items()],
+                    "ORAL": [(key, value) for (key, value) in oral_score.items()],
+                }
+
+                print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.\n")
+                print("The results are as follows:")
+                for entry in count_results:
+                    print(entry,count_results[entry])
+
+                print("\nCombined total points of each class per Feature\n")
+                for score in score_points:
+                    for entry in score_points[score]:
+                        print(score, entry)
+                    print("")
+
+                input("\nPlease press enter to continue to the main... ")
                 break
 
             elif user == "1":
