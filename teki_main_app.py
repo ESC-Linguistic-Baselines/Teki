@@ -542,6 +542,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             user = input ("Would you like to have the features assigned automatically or manually? ")
 
             if user == "0":
+                file =  f"app_resources/results/default_result_sentence_{current_time}.csv"
                 # Automatic Assignment
                 for corpus_sentence_id in collective_results_tagged:
                     sub_sentences = collective_results_tagged[corpus_sentence_id]
@@ -551,7 +552,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num = sentence_info.sentence_reconstruction()[3]
                     write_to_database(feat, sub_sentences, database)
-                    write_sentences(sentence, f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                    write_sentences(sentence,  file, sen_num, sen_id, feat, True)
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.")
                 input("Please press enter to continue to the main... ")
                 break

@@ -905,7 +905,7 @@ def write_sentences(collective_results=False, file=False, sen_num=False, sen_id=
             returns the value of the respective function
     """
     feat_save == False
-    with open(file, mode="a+", encoding="utf-8", newline="") as results:
+    with open(file, mode="w", encoding="utf-8", newline="") as results:
         if feat_save != True:
             fieldnames = "sentence", "sentence_id", "SEN:"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
