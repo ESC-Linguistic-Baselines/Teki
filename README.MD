@@ -99,4 +99,4 @@ If the modules have been successfully loaded, then you will be greeted with the 
 
 # Criteria 
 
-to learn more about the criteria [please click  here ](app_resources/docs/README.MD)
+to learn more about the criteria [please click  here ](app_core_resources/docs/README.MD)

@@ -100,6 +100,22 @@ if __name__ == "__main__":
     print("Please wait while libraries, modules and corpora are being imported...")
     print("This should only take between 3 - 10 seconds depending on your system resources...\n")
 
+#########################
+# Pip libraries
+#########################
+
+library_error = list()
+try:
+    import bs4
+    import spacy
+    import lxml
+    from spacy.lang.fr import French
+    from spacy.tokenizer import Tokenizer
+    from bs4 import BeautifulSoup
+except ImportError as error:
+    library_error.append(error.name)
+    logging.exception(f" Module import': is due to '{error.name})'")
+    sys.exit(1)
 
 ###############################
 # Program continuation function
@@ -145,25 +161,6 @@ def continue_program(*args):
         else:  # Incorrect or invalid answer
             print(f"'{user}' is not a valid response. Please enter a valid response.\n")
 
-
-#########################
-# Pip libraries
-#########################
-
-
-library_error = list()
-try:
-    import bs4
-    import spacy
-    import lxml
-    from spacy.lang.fr import French
-    from spacy.tokenizer import Tokenizer
-    from bs4 import BeautifulSoup
-except ImportError as error:
-    library_error.append(error.name)
-    logging.exception(f" Module import': is due to '{error.name})'")
-    sys.exit(1)
-
 ###########################################
 # Importing custom files and modules
 ###########################################
@@ -175,13 +172,13 @@ Necessary file names stored as requirement_resources.txt
 """
 
 core_file_missing = list()
-if os.path.exists("app_resources"):
+if os.path.exists("app_core_resources"):
     with open("requirement_resources.txt", mode="r", encoding="utf-8") as resource:
         for line in resource:
             if not os.path.exists(line.strip()):
                 core_file_missing.append(line)
     try:
-        from app_resources.app_auxiliary_functions import (
+        from app_core_resources.app_auxiliary_functions import (
             about_program,
             clear_log,
             DiscourseAnalysis,
@@ -210,7 +207,7 @@ else:
 
 def get_text(document):
     """
-    This functions reads in a .txt, .xml or .csv. This file is either the app_resources
+    This functions reads in a .txt, .xml or .csv. This file is either the app_core_resources
     or it is a file that has been dynamically specified by the user.
 
     :param 'document':
@@ -569,7 +566,6 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
         input("The evaluation was completed without any errors. Please press enter to continue the main menu...")
 
     else:
-        # p = open("p.picke","wb")
         # This option is activated when the system is not being evaluated.
         while True:
             options = "automatically", "manually"
@@ -879,7 +875,7 @@ def document_classificaiton(probabilities):
 
         elif user == "1":
             collective_res = dict()
-            file = open("app_sandbox/0_system.csv", mode="w", encoding="utf-8")
+            file = open("sandbox/0_system.csv", mode="w", encoding="utf-8")
             # Collection of Sentences from a document
             text = get_text(file_finder())
             content = content_analysis(text)
@@ -894,8 +890,7 @@ def document_classificaiton(probabilities):
                 file.write(f"{sentence},{bayes}\n")
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
 
-
-        elif user == "3":
+        elif user == "2":
             break
         else:
             print(f"{user} is not a valid option. Please enter a valid option.")
@@ -1040,8 +1035,8 @@ if __name__ == "__main__":
 
     system_evaluation = False
     try:
-        default_doc = r"app_resources/default_docs/mueller_oral.txt"
-        default_train = r"app_resources/default_docs/default_training.csv"
+        default_doc = r"app_user_resources/default_docs/mueller_oral.txt"
+        default_train = r"app_user_resources/default_docs/default_training.csv"
         if bool(core_file_missing) and bool(library_error) is False:
             run_program(default_doc, default_train, system_evaluation)
         else:

@@ -414,3 +414,18 @@ Traceback (most recent call last):
   File "pandas\_libs\parsers.pyx", line 2042, in pandas._libs.parsers.raise_parser_error
 pandas.errors.ParserError: Error tokenizing data. C error: Expected 2 fields in line 4, saw 3
 
+
+ERROR_TIME: 2021-08-05 17:25:21,283
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1059
+ERROR_SCOPE  'if __name__ == __main__': is due to '[Errno 2] No such file or directory: 'app_core_resources/default_docs/mueller_oral.txt')'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1042, in <module>
+    run_program(default_doc, default_train, system_evaluation)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 940, in run_program
+    doc = get_text(default_doc)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 231, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'app_core_resources/default_docs/mueller_oral.txt'

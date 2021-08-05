@@ -1,13 +1,5 @@
 import json
 
-"""
-FA	français argotique
-FF	Français familier
-FPA	français parlé
-FP	Français populaire
-FV	Français vulgaire
-présentatifs
-"""
 
 def oral ():
 
@@ -20,7 +12,7 @@ def oral ():
     fpa=open("fra_oral_doc/FPA.txt", mode="r", encoding="utf-8")
     francais_familier=open("fra_oral_doc/FF.txt", mode="r", encoding="utf-8")
     francais_familier_inst=open("fra_oral_doc/FF_inst.txt", mode="r", encoding="utf-8")
-    presentatifs=open("fra_oral_doc/presentatifs.txt", mode="r", encoding="utf-8").read().split()
+    presentatifs=open("fra_oral_doc/FA_pres.txt", mode="r", encoding="utf-8").read().split()
 
 
     with open ("../databases/oral_french.json", mode="w", encoding="utf-8") as oral_file:
