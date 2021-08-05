@@ -1,36 +1,101 @@
 #  -*- coding: utf-8 -*-
 
-#########################
-# Importing standard python libraries
-#########################
+###########################
+# Standard python libraries
+###########################
 import csv
 import logging
 import os
-import pickle
 import sys
 import timeit
 from datetime import datetime
 
 if __name__ == "__main__":
+    """
+    Starting the program will take a bit of time due to the amount of libraries and modules being imported.
+    In my testing, it should take around 3 (Mac Os 11) - 9 (Windows 10) seconds to load all of the necessary information.
+    However, the speed will depend entirely on your local resources. 
+    """
 
-    # Starting the program will take a bit of time due to the amount of libraries being imported.
-    # This is to measure the loading time of the program. It should take around 3 - 8 seconds to load everything.
-
+    # These variables are to measure the loading time of the program.
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     start = timeit.default_timer()
     print(f"The current time is {current_time}.")
-    print("Please wait while libraries and files are being imported...")
-    print("This could take a while depending on your system resources.\n")
+    print("Please wait while libraries, moules and files are being imported...")
+    print("This could take a while depending on your system resources...\n")
 
-#########################
-#  Program description
-#########################
-"""
-This program's function is to access the literacy and orality 
-of French chat data by using markers that can identify said features.
-"""
+####################################
+#  Program description and  Intent
+###################################
 
+"""
+The name 'Taiki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase  t'es qui' - 'Who are you'.
+It is reminiscent of Stromae's song - Papoutai - Papa ou t'es - lit. Father, you are where?
+It there contrasts with the more formal phrase "Qui es-tu". The spelling of the program is meant to represent this. 
+This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
+
+The name was chose to reflect the process of researching the conceptual and medial representation of the French language. 
+Message and intent are often communicated either through text or speech. However, these two only represent the medium of the language. 
+The difference between the conceptual and medial representation of language is often overlooked when assessing language. 
+The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
+the words actually reflect a stream of consciousness if you will. 
+
+This distinction is best explain by the following tables:
+Konzeption - concept 
+Gesprochen - spoken 
+Geschrieben - written 
+Graphischer Kode - graphic code 
+Phonischer Kode  -  phonetic code 
+
++--------+------------------+------------------+------------------------+
+|        |                  | Konzeption       | Konzeption             |
++--------+------------------+------------------+------------------------+
+|        |                  | Gesprochen       | Geschrieben            |
++--------+------------------+------------------+------------------------+
+| Medium | Graphischer Kode | Faut pas le dire | Il ne faut pas le dire |
++--------+------------------+------------------+------------------------+
+| Medium | Phonischer Kode  | fopaldiʀ         | ilnəfplalədiʀ          |
++--------+------------------+------------------+------------------------+
+Fig. 1 (Koch & Oesterreicher, 1985, p. 17)
+
++--------+------------+---------------------------------------+----------------------------------------------+
+|        |            | Konzeption                            | Konzeption                                   |
++--------+------------+---------------------------------------+----------------------------------------------+
+|        |            | gesprochen                            | geschrieben                                  |
++--------+------------+---------------------------------------+----------------------------------------------+
+| Medium |  Graphisch | dt. Das ist ne wichtige Angelegenheit | dt. Das ist eine wichtige Angelgenheit       |
+|        |            | fr. Faut pas le dire                  | fr. Il ne faut pas le dire                   |
+|        |            | e. I've got a car                     | e. I have car                                |
++--------+------------+---------------------------------------+----------------------------------------------+
+| Medium | Phonisch   | dt. [ˈdasnəˈviçtjəʔaŋgəˌleŋhaɪt]      | dt. [ˈdas ʔist ʔainəˈviçtjə ʔaŋgəˌle:gŋhaɪt] |
+|        |            | fr. [fopal'di:R]                      | fr.  [ilnefopalə'di:R]                       |
+|        |            | e. [aivˌgɑtə'ka:]                     | e. [aiˌhævə'ka:]                             |
++--------+------------+---------------------------------------+----------------------------------------------+
+ Fig. 1 (Koch & Oesterreicher, 2005, p. 348)
+ 
+By introducing parameters that are language-independent such as  sentence length, abbreviations, average word length, contractions, etc. 
+It is possible to identify said features even in a written medium. This program was designed with the goal of accessing the nature
+of non-standard French chat data gather from various internet resources. The premise behind this research was that the internet  
+is a place where norms are often overlooked and therefore most of the data would be conceptually spoken, but medially written.
+ 
+However, the internet, like the physical world, has sectors where medium and concept overlap and diverge. 
+To examine this further, three corpora were chosen: eBay, SMS and Wikiconflicts. 
+The working thesis was that SMS would be of a oral nature, whereas Wikiconflicts would be of a literal nature. 
+The intersection of this would be eBay: being both literal and spoken. The thinking behind this is that 
+sellers would have to use a blend of both to attract buyers. This is done by appealing to a more expressive side using oral language,
+but also using literal language in order to appeal to customers.
+
+The program works with the tags LIT and ORAL: LIT refers to the conceptually written language i.e. Literacy and  oral refers to the conceputally spoken language i.e. Orality. 
+Both of these refer to the conceptual intent of the speaker of a given message.  It turns out that the initial thinking was only partially correct. 
+Upon manual inspection and automatic assessment, SMS and Wikiconflicts do represent the aforementioned features. However, eBay does not represent an intersection.
+The reason behind this is that sellers are more interested in using short descriptors, that often lack any verbs or pronouns. This is something would not be expressed orality, 
+but rather literaly i.e. it  represents literal language more than anything else.  Even with these parameters however, 
+it is exceedingly difficult to know exactly to ascertain the thoughts of speakers to a high degree of certainty. 
+To remedy this problem, more precise parameters would have to be chosen to better accommodate the French language or the object language of choice. 
+
+Despite all of this, the program has a high accuracy in identifying literality and orality using the aforementioned naive parameters 
+"""
 
 #########################
 # Program continuation function
@@ -210,7 +275,7 @@ def get_database():
 
 def analyze_content(text):
     """
-    This function has the main function of returning the results of the sub-functions.
+    This function has the main function of returning the sentence_results of the sub-functions.
     it is therefore more of a container of sorts.
 
     :param
@@ -219,13 +284,13 @@ def analyze_content(text):
 
     :return
         :rtype dict
-        the collective results of the user
+        the collective sentence_results of the user
 
     """
 
     def tag_save(sentence_count, collective_results):
         """
-        This function gives the user the option of either tagging their results or
+        This function gives the user the option of either tagging their sentence_results or
         saving them in a designated file.
 
         :param
@@ -241,7 +306,7 @@ def analyze_content(text):
             :rtype None
             else
             :rtype
-                returns the collective results back so that they can be tagged.
+                returns the collective sentence_results back so that they can be tagged.
         """
         while True:
             options= "tag sentences","save sentences","return"
@@ -252,14 +317,14 @@ def analyze_content(text):
 
             user = input(f"The text has been parsed into {sentence_count} sentences. How would you like to proceed? ")
             if user == "1":
-                input("The results will now be tagged. Please press enter to continue with the tagging process...")
+                input("The sentence_results will now be tagged. Please press enter to continue with the tagging process...")
                 return collective_results
 
             elif user == "2":
                 print("Please select the directory:")
                 path = file_finder()
                 write_sentences(collective_results, path)
-                input(f"The results have been saved in {path}. Press enter to return to the main menu.")
+                input(f"The sentence_results have been saved in {path}. Press enter to return to the main menu.")
                 return False
 
             elif user == "3":
@@ -303,7 +368,7 @@ def analyze_content(text):
 
         :return:
             if user tags
-            :rtype collective results
+            :rtype collective sentence_results
 
             else
             :rtype
@@ -402,7 +467,7 @@ def analyze_content(text):
 
         :return:
             if user tags
-            :rtype collective results
+            :rtype collective sentence_results
 
             else
             :rtype
@@ -452,11 +517,11 @@ def spacy_tagger(corpus_content):
 
     :parameter:
        :type dict
-        'corpus_content': the results from the extract functions are processed here
+        'corpus_content': the sentence_results from the extract functions are processed here
 
     :return
         :type dict
-        'collective_results_tagged': the tagged and tokenized results of the corpus content.
+        'collective_results_tagged': the tagged and tokenized sentence_results of the corpus content.
     """
     print("The individual sentences are now being tagged.")
     print("The duration will depend on your system resources and the number of sentences being tagged.")
@@ -473,12 +538,12 @@ def spacy_tagger(corpus_content):
             # Creates a doc object with all lexical information using spacy
             doc = nlp(sentence)
             for token in doc:
-            # the results of the Spacy analysis
+            # the sentence_results of the Spacy analysis
                 new_sentence.append((token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph),token.lemma_))
             #  generates a unique identifier for the sentences
             new_key = f"{sent}-sen_no-{number}"
             collective_results_tagged[new_key] = new_sentence
-            # overwriting the old with a new list so that the new results can be saved.
+            # overwriting the old with a new list so that the new sentence_results can be saved.
             new_sentence = list()
     input("The sentences have been successfully tagged. Please press enter to continue...")
     return collective_results_tagged
@@ -487,11 +552,11 @@ def spacy_tagger(corpus_content):
 def sentence_identification(collective_results_tagged, database, system_evaluation):
     """
     This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence.
-    If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system results can be compared.
+    If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system sentence_results can be compared.
 
     :parameter
         :type dict
-            'collective_results_tagged': The results that have been tagged. The should be saved somewhere in the
+            'collective_results_tagged': The sentence_results that have been tagged. The should be saved somewhere in the
             the programs directory.py
 
         :type str
@@ -503,13 +568,13 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
     """
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
-    system_file = f"app_resources/results/system_{current_time}.csv"
-    gold_file = f"app_resources/results/gold_{current_time}.csv"
+    system_file = f"app_results/sentence_results/system_{current_time}.csv"
+    gold_file = f"app_results/sentence_results/gold_{current_time}.csv"
 
     if system_evaluation:
         redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
         input("The system is being evaluated. Please press enter to start the evaluation...")
-        # System results
+        # System sentence_results
         for corpus_sentence_id in redacted_corpus:
             sub_sentences = collective_results_tagged[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
@@ -519,7 +584,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             sen_num = sentence_info.sentence_reconstruction()[3]
             write_sentences(sentence, system_file, sen_num, sen_id, feat, True)
 
-        # Gold results
+        # Gold sentence_results
         for corpus_sentence_id in collective_results_tagged:
             sub_sentences = collective_results_tagged[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
@@ -542,7 +607,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
 
             user = input ("Would you like to have the features assigned automatically or manually? ")
             if user == "0":
-                file =  f"app_resources/results/default_result_sentence_{current_time}.csv"
+                file = f"app_results/sentence_results/default_result_sentence_{current_time}.csv"
                 # Automatic Assignment
                 lit_count, oral_count, sentence_count, token_count =  0, 0, 0, 0
                 lit_score,oral_score = {}, {}
@@ -584,7 +649,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                 }
 
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.\n")
-                print("The results are as follows:")
+                print("The sentence_results are as follows:")
                 for entry in count_results:
                     print(entry,count_results[entry])
 
@@ -619,7 +684,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num =  sentence_info.sentence_reconstruction()[3]
                     write_sentences(sentence,
-                                    f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
+                                    f"app_results/sentence_results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
 
                 print(f"\nAll of the sentences have been assigned the feature {feat}.")
                 input("Please press enter to continue to the main... ")
@@ -777,7 +842,7 @@ def document_classificaiton(probabilities):
             the sentence to identified.
 
         :type tuple
-            'probabilities': is a tuple which contains the frequency of the feature and the probability results
+            'probabilities': is a tuple which contains the frequency of the feature and the probability sentence_results
 
     :return
         :rtype dict

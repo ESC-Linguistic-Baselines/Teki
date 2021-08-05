@@ -39,7 +39,7 @@ class DiscourseAnalysis:
         """
         :param collective_results_tagged:
             :type dict
-                The sentences results from the tagging function.
+                The sentences sentence_results from the tagging function.
         """
         self.collective_results_tagged = collective_results_tagged
 
@@ -377,7 +377,7 @@ class DiscourseAnalysis:
             oral_score = sum(oral.values())
             oral_classifiction = {key:oral[key] for key in sorted(oral,key=oral.get,reverse=False) if oral[key] > 0}
 
-            # Returning the results
+            # Returning the sentence_results
             if lit_score > oral_score:
                 return "LIT",lit_classifiction
             elif oral_score > lit_score:
@@ -583,7 +583,7 @@ class DiscourseAnalysis:
             feat_1_score = sum(self.calculate_scores()["LIT"].values())
             feat_2_score = sum(self.calculate_scores()["ORAL"].values())
 
-            # Returning the results
+            # Returning the sentence_results
             if feat_1_score > feat_2_score:
                 return "LIT"
             elif feat_2_score > feat_1_score:
@@ -900,7 +900,7 @@ def write_sentences(collective_results=False, file=False, sen_num=False, sen_id=
     this saves the untagged sentences to a desired text file
     :param
         :type dict
-            'collective_results': The results from the sentence tokenization.
+            'collective_results': The sentence_results from the sentence tokenization.
 
         :type str
             'file': the path name of the text where the sentences should be saved.
@@ -991,7 +991,7 @@ def sub_menu(output_menu, menu_name, menu_information):
 
 def write_to_database(feature, sentence, database):
     """
-    This writes the tagging results to the desired database
+    This writes the tagging sentence_results to the desired database
 
     :param
         :type str
