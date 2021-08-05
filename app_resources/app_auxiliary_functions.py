@@ -683,12 +683,12 @@ def evaluation():
         true_negative = 0
 
         for row in csv_gold_reader:
-            sen, feat = row[0], row[3]
+            sen, feat = row[0], row[1]
             sentence_features[sen] = {"SYS": "", "GOLD": ""}
             sentence_features[sen]["GOLD"] = feat
 
         for row in csv_system_reader:
-            sen, feat = row[0], row[3]
+            sen, feat = row[0], row[1]
             sentence_features[sen]["SYS"] = feat
 
         for entry in sentence_features:
@@ -731,7 +731,7 @@ def evaluation():
 
         :return:
         """
-        data = pd.read_csv("app_resources/app_common_default_docs/validation_data.csv")
+        data = pd.read_csv(file_finder())
         vectorizer = CountVectorizer()
         text = data["text"].values
         counts = vectorizer.fit_transform(text)

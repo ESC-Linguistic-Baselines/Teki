@@ -554,7 +554,6 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sen_id = sentence_info.sentence_reconstruction()[2]
                     sen_num = sentence_info.sentence_reconstruction()[3]
-
                     sentence_count += 1
                     token_count += len(sentence.split())
 
@@ -562,7 +561,7 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                         lit_count += 1
                         classification = feat[1]
                         for element in classification:
-                          lit_score[element] = lit_score.get(element,0)+classification[element]
+                          lit_score[element] = lit_score.get(element,0) + classification[element]
 
                     if feat[0] == "ORAL":
                         oral_count += 1
@@ -570,10 +569,9 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                         for element in classification:
                           oral_score[element] = oral_score.get(element,0)+classification[element]
 
-                    #write_to_database(feat, sub_sentences, database)
-                    #write_sentences(sentence,  file, sen_num, sen_id, feat, True)
+                    write_to_database(feat[0], sub_sentences, database)
+                    write_sentences(sentence,  file, sen_num, sen_id, feat[0], True)
 
-                #pickle.dump(collective_results_tagged,p)
                 count_results = { "Sentences":sentence_count,
                         "Tokens":token_count,
                         "LIT":lit_count,
@@ -817,7 +815,6 @@ def document_classificaiton(probabilities):
             feat_1_total_prob *= word_feat_prob[word][0]
             feat_2_total_prob *= word_feat_prob[word][1]
 
-        print(feat_2_total_prob, feat_1_total_prob)
         if feat_1_total_prob > feat_2_total_prob:
             print(f" The text '{text[:7]}...'is LIT.")
             return "LIT"
@@ -843,6 +840,7 @@ def document_classificaiton(probabilities):
 
         elif user == "1":
             collective_res = dict()
+            file = open("app_sandbox/0_system.csv", mode="w", encoding="utf-8")
             # Collection of Sentences from a document
             text= get_text(file_finder())
             content=analyze_content(text)
@@ -854,12 +852,9 @@ def document_classificaiton(probabilities):
                 sentence = sentence_info.sentence_reconstruction()[1]
                 tokens = sentence.split()
                 bayes=calculate(tokens)
+                file.write(f"{sentence},{bayes}\n")
                 collective_res[bayes] = collective_res.get(bayes,0)+1
-            print("The results of the analysis are as follows:")
 
-            per = sum(collective_res.values())
-            for i in collective_res:
-                print(i,collective_res[i],collective_res[i]/per)
 
         elif user == "3":
             break
