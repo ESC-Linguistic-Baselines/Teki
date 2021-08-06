@@ -5,7 +5,7 @@
 ###################################
 
 """
-The name 'Taiki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase  t'es qui' - 'Who are you'.
+The name 'Teki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase  t'es qui' - 'Who are you'.
 It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father, you are where?
 It there contrasts with the more formal phrase "Qui es-tu". The spelling of the program is meant to represent this. 
 This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
@@ -176,7 +176,7 @@ def _rebuild_requirement_resources():
     """
 
     with open("requirement_resources.txt", mode="w+", encoding="utf-8") as resources:
-        for path, subdirs, files in os.walk("app_core_resources"):
+        for path, subdirs, files in os.walk("app_program_resources"):
             for name in files:
                 resources.write(os.path.join(path, name)+"\n")
     print("The requirement_resources.txt file has been updated.")
@@ -203,7 +203,7 @@ if os.path.exists("app_core_resources"):
             if not os.path.exists(line.strip()):
                 core_file_missing.append(line)
     try:
-        from app_core_resources.app_auxiliary_functions import (
+        from app_program_resources.app_auxiliary_functions import (
             about_program,
             restore_default_database,
             clear_log,
@@ -1084,8 +1084,8 @@ if __name__ == "__main__":
     default_doc = r"app_core_resources/default_files/mueller_oral.txt"
     default_train = r"app_core_resources/default_files/default_training.csv"
     defaults = os.path.exists(default_doc), os.path.exists(default_train)
-    default_files = {"Default doc exists: ":os.path.exists(default_doc),
-                     "Default train exist: ":os.path.exists(default_train)}
+    default_files = {"Default doc exists: ": os.path.exists(default_doc),
+                     "Default train exist: ": os.path.exists(default_train)}
 
     try:
         if missing_files_libares == False and defaults[0] == defaults[1] == True:

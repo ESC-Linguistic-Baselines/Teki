@@ -6,9 +6,23 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 
 ___
+The name 'Teki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase  t'es qui' - 'Who are you'.
+It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father, you are where?
+It there contrasts with the more formal phrase "Qui es-tu". The spelling of the name is meant to represent this. 
+This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
 
+The name was chose to reflect the process of researching the conceptual and medial representation of the French language. 
+Message and intent are often communicated either through text or speech. However, these two only represent the medium of the language. 
+The difference between the conceptual and medial representation of language is often overlooked when assessing language. 
+The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
+the words actually reflect a stream of consciousness if you will. 
 
-Teki is a naive Bayesian classifier that is used to tag french chat data according their orality and literacy. 
+Teki is a naive Bayesian classifier that is used to tag French chat data according to their literacy and orality. 
+Since there was no training data available for the naive bayes, a scoring system was developped that tagged sentences according to 
+their literacy and orality. Then, using this newly acquiered training data, the naive bayes was trained so that it could decide 
+if a sentence was literal or oral. 
+
+For more information on this topic, please consult the documentation  
  
 ## Academic Formalities
 Information  | Description
@@ -44,20 +58,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 _____
+
+# Inspiration
+The layout of this program is partly inspired by a project that I did with a partner in the summer semester of 2021. 
+The inspiration is limited to the dynamic menu system that is sued within this program.  
+
+
 # Requirements 
 
-## Python version
-This program was created and designed with **python 3.9.6** in mind. Therefore, that is the recommended version.
+## Python Version
+This program was created and designed with **python 3.9.6** in mind. Therefore, that is the recommended version for teki. 
 It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed. 
+You can download the latest python version [ here](https://www.python.org/downloads/).  
 
 ## Pip Modules
 
-The following pip packages must be installed for the program to run properly:
+The following pip packages must be installed in order for the program to run properly:
+
 ```
-* bs4>=0.0.1
-* beautifulsoup4>=4.9.3
-* lxml>=4.6.1
-* spacy>=2.3.5
+bs4>=0.0.1
+beautifulsoup4>=4.9.3
+nltk>=3.5
+lxml>=4.6.1
+pandas~=1.1.5
+sklearn~=0.0
+scikit-learn~=0.24.2
+spacy>=2.3.5
 ```
 
 There are three ways to install the *requirements.txt* file:
@@ -76,7 +102,7 @@ pip3.9 install -r requirements.txt
 ```
 
 <br>
-Additionally, the following for spacy should also be installed:
+Additionally, the following for spacy must also be installed separately:
 
 ```
 python -m spacy download fr_core_news_sm
@@ -84,7 +110,10 @@ python -m spacy download fr_core_news_sm
 
 # Program
 
-If the modules have been successfully loaded, then you will be greeted with the following a menu system:
+When starting the program, a check is performed to ensure that the directory **app_program_resources** and its files are all present. These files should not be changed in anyway. If you decide to add databases or corpora to this program, they should be placed in **app_user_resources**.
+
+
+Once the modules, files and libraries, have been successfully loaded, then you will be greeted with the following a menu system:
 
 ```
 1: load .XML or .TXT file
@@ -98,6 +127,9 @@ If the modules have been successfully loaded, then you will be greeted with the 
 9: end program
 ```
 
-# Criteria 
+This is a dynmaic menu to which you can return. Should an error arise in the program, you will automatically be returned to this menu. 
 
-to learn more about the criteria [please click  here ](app_core_resources/docs/README.MD)
+
+#  load .XML or .TXT file
+
+

@@ -13,7 +13,7 @@ def _rebuild_requierement_resources():
     """
 
     with open("requirement_resources.txt", mode="w+", encoding="utf-8") as resources:
-        for path, subdirs, files in os.walk("app_core_resources"):
+        for path, subdirs, files in os.walk("app_program_resources"):
             for name in files:
                 resources.write(os.path.join(path, name)+"\n")
     print("The requirement_resources.txt file has been updated.")

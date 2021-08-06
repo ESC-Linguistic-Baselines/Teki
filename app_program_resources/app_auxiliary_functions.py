@@ -1062,8 +1062,6 @@ def write_to_database(feature, corpus_sentence_id, sentence, database):
             sen_word_pos = element[1]
             sen_word_dep = element[2]
             sen_word_id = element[3]
-            sen_word_tag = element[4]
-
 
             writer.writerow(
                 {"token_text": sen_word,

@@ -2,7 +2,7 @@
 *.idea
 .idea/misc.xml
 .idea/workspace.xml
-app_core_resources/__pycache__/auxilary_functions.cpython-39.pyc
+app_program_resources/__pycache__/auxilary_functions.cpython-39.pyc
 *.pyc
 /venv/
 *__pycache__
