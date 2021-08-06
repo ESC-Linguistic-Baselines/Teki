@@ -100,8 +100,6 @@ if __name__ == "__main__":
     print("Please wait while libraries, modules and corpora are being imported...")
     print("This should only take between 3 - 10 seconds depending on your system resources...\n")
 
-app_user_resources = f"{os.getcwd()}/app_user_resources"
-
 #########################
 # Pip libraries
 #########################
@@ -549,9 +547,10 @@ def save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, sentenc
     This saves the results from the analysis to the appropriate file and database.
     """
     sentence = sentence_info.sentence_reconstruction()[1]
-    sen_num = sentence_info.sentence_reconstruction()[3]
-    sen_id = sentence_info.sentence_reconstruction()[2]
-    write_sentences(sentence, sentence_file, sen_num, sen_id, feat, True)
+    sen_num = sentence_info.sentence_reconstruction()[2]
+
+    write_sentences(sentence, results_file=sentence_file, sen_num=sen_num,
+                    sen_id=corpus_sentence_id, feat=feat, feat_save=True)
 
     if database_file:
         write_to_database(feat, corpus_sentence_id, sub_sentences, database_file)
@@ -598,12 +597,10 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
 
     # Result files
-    system_eval_file = f"{save_dir}/system_{file_time_id}.csv"
-    gold_eval_file = f"{save_dir}/gold_{file_time_id}.csv"
-    manual_file = f"app_user_resources/sentence_result/manual_feat_selection_{file_time_id}.csv"
-    automatic_file = f"{app_user_resources}sentence_results/automatic_feat_selection_{file_time_id}.csv"
-
     if system_evaluation:
+        system_eval_file = f"{save_dir}/system_{file_time_id}.csv"
+        gold_eval_file = f"{save_dir}/gold_{file_time_id}.csv"
+
         print("Note: This is an experimental function that might not deliver the best results.")
         print("In order for this to be more reliable, please refer to the documentation.")
         input("The system is being evaluated. Please press enter to start the evaluation...")
@@ -613,17 +610,24 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         for corpus_sentence_id in redacted_corpus:
             sub_sentences = collective_spacy_results[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
-            save_results(sentence_info,system_eval_file)
+            feat = sentence_info.feature_assignment()
+            feat = feat[0]
+
+            save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, system_eval_file)
 
         # Gold results
         for corpus_sentence_id in collective_spacy_results:
             sub_sentences = collective_spacy_results[corpus_sentence_id]
-            sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
-            save_results(sentence_info,gold_eval_file)
+            sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
+            feat = sentence_info.feature_assignment()
+            feat = feat[0]
+
+            save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, gold_eval_file)
 
         input("The system evaluation was completed without any errors. Please press enter to return to the main menu...")
 
     else:
+        automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
         while True:
             options = "automatically", "manually"
             for number, choice in enumerate(options,start=1):
@@ -640,7 +644,7 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                     feat = sentence_info.feature_assignment()
                     feat = feat[0]
 
-                    save_results(feat, sentence_info, corpus_sentence_id,sub_sentences, automatic_file, database_file)
+                    save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, automatic_file, database_file)
 
                     ##############################
                     # Determining sentence properties
@@ -696,13 +700,15 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                 user = input("Please enter the number of the desired feature: ")
                 if user == "1": feat = "LIT"
                 elif user == "2": feat = "ORAL"
+                input("Press enter to select the save location of the manual files....")
+                manual_file = file_finder()
 
                 for corpus_sentence_id in collective_spacy_results:
                     sub_sentences = collective_spacy_results[corpus_sentence_id]
                     sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                     save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, manual_file, database_file)
 
-                print(f"\nAll of the sentences have been succesfully assigned the feature {feat}.")
+                print(f"\nAll of the sentences have been successfully assigned the feature {feat}.")
                 input("Please press enter to continue to the main... ")
                 break
 

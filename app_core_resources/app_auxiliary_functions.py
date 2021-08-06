@@ -31,7 +31,6 @@ except ImportError as error:
 lit_french_file = "app_core_resources/default_files/lit_french.json"
 oral_french_file = "app_core_resources/default_files/oral_french.json"
 error_log = 'teki_error.log'
-app_user_resources = os.getcwd().replace("app_core_resources","app_user_resources")
 
 #########################
 # Auxiliary Classes
@@ -955,15 +954,13 @@ def write_sentences(collective_results=False, results_file=False, sen_num=False,
         this is to determine if the feature should be saved.
     """
 
-
-    with open(results_file, mode="w", encoding="utf-8", newline="") as results:
+    with open(results_file, mode="a", encoding="utf-8", newline="") as results:
         if not feat_save:
             fieldnames = "sentence", "sentence_id", "SEN:"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
 
             for res in collective_results:
                 sentence = collective_results[res]
-
                 for number, sen in enumerate(sentence):
                     writer.writerow({
                                     "sentence": sen,
