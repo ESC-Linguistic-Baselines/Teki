@@ -270,8 +270,7 @@ def get_database():
 
 def content_analysis(text):
     """
-    This function returns the sentence_results of the functions
-    contained within this function
+    This function returns the sentence_results of the functions  contained within this function.
 
     :param text
         :type str
@@ -374,8 +373,7 @@ def content_analysis(text):
         """
 
         # Relevant for BeautifulSoup
-        soup = text
-        xml_tag_id = list()
+        soup, xml_tag_id= text, list()
 
         while True:
             while True:
@@ -476,64 +474,77 @@ def content_analysis(text):
 
 def spacy_tagger(corpus_content):
     """
-    This function works with the spacy tagger. It has the goal of parsing the sentences into their respective tokens.
+    This function takes in the information as determined by content analysis, which
+    contains the parsed sentences. The relevant elements are then extracted by Spacy which are:
+        Token
+        Part-of-speech
+        Dependencies
+        Morphology
+    Additionally, a unique sentence id is added to each token and sentence so that it can identified in the
+    database.
 
-    The relevant elements from spacy are:
-    Word
-    Part-of-speech
-    Dependencies
-
-    :parameter:
+    :param: corpus_content
        :type dict
-        'corpus_content': the sentence_results from the extract functions are processed here
+        The sentence_results from the content analysis function
 
-    :return
+    :return collective_spacy_results
         :type dict
-        'collective_results_tagged': the tagged and tokenized sentence_results of the corpus content.
+            The tagged and tokenized sentence_results of the corpus content from the content analysis.
     """
-    print("The individual sentences are now being tagged.")
+    print("The individual sentences are now being processed.")
     print("The duration will depend on your system resources and the number of sentences being tagged.")
     print("Please wait...\n")
 
     nlp = spacy.load("fr_core_news_sm")
-    collective_results_tagged = dict()
+    collective_spacy_results = dict()
 
-    for sent in corpus_content:
-        corpus_sentence = corpus_content[sent]
-        new_sentence = list()
+    for sentence in corpus_content:
+        corpus_sentence = corpus_content[sentence]
+        processed_sentence = list()
 
         for number, sentence in enumerate(corpus_sentence):
-            # Creates a doc object with all lexical information using spacy
-            doc = nlp(sentence)
+            doc = nlp(sentence)  # Spacy doc object
             for token in doc:
-                # the sentence_results of the Spacy analysis
-                new_sentence.append(
-                    (token.text, token.pos_, token.dep_, sent, f"SEN:{number}", str(token.morph), token.lemma_))
-            #  generates a unique identifier for the sentences
-            new_key = f"{sent}-sen_no-{number}"
-            collective_results_tagged[new_key] = new_sentence
+                processed_sentence.append(
+                                    (token.text, # token
+                                     token.pos_, # part-of-speech
+                                     token.dep_, # dependencies
+                                     sentence, f"SEN:{number}", # sentence id
+                                     str(token.morph)) # morphology
+                                    )
+            #  Unique sentence identifier
+            processed_sentence_key = f"{sentence}-sen_no-{number}"
+            collective_spacy_results[processed_sentence_key] = processed_sentence
+
             # overwriting the old with a new list so that the new sentence_results can be saved.
-            new_sentence = list()
-    input("The sentences have been successfully tagged. Please press enter to continue...")
-    return collective_results_tagged
+            processed_sentence = list()
+    input("The sentences have been successfully processed. Please press enter to continue...")
+    return collective_spacy_results
 
 
-def sentence_identification(collective_results_tagged, database, system_evaluation):
+def sentence_identification(collective_spacy_results, database, system_evaluation):
     """
     This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence.
     If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system sentence_results can be compared.
+    This evaluation mode is,however, experimental at best. It uses lexical information to determine if a sentence is LIT or ORAL. Due to the insufficient amount of 
+    training data for this function, it is not intended to be used. however, if there is more data available, it could be reliable. 
 
-    :parameter
+    :param collective_spacy_results
         :type dict
-            'collective_results_tagged': The sentence_results that have been tagged. The should be saved somewhere in the
-            the programs directory.py
-
+            The sentence_results that have been processed by Spacy.
+    
+    :param database
         :type str
-        ' database': the path file to the respective directory.py
+        the path file to the respective database where the training data should be stored
+
+    :param system_evaluation
+        :type bool
+            True sets the system to system evaluation mode  
 
     :return
         :rtype None
-            This function has no return, but saves the result to the specified database.
+            This function has no return,
+            but saves the result to the specified database.
     """
 
     current_time = datetime.now().strftime("%d_%m_%Y_%M_%S_")
@@ -541,11 +552,11 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
     gold_file = f"app_results/sentence_results/gold_{current_time}.csv"
 
     if system_evaluation:
-        redacted_corpus = DiscourseAnalysis(collective_results_tagged).redacted_corpus()
+        redacted_corpus = DiscourseAnalysis(collective_spacy_results).redacted_corpus()
         input("The system is being evaluated. Please press enter to start the evaluation...")
         # System sentence_results
         for corpus_sentence_id in redacted_corpus:
-            sub_sentences = collective_results_tagged[corpus_sentence_id]
+            sub_sentences = collective_spacy_results[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
             feat = sentence_info.feature_assignment()
             sentence = sentence_info.sentence_reconstruction()[1]
@@ -554,8 +565,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
             write_sentences(sentence, system_file, sen_num, sen_id, feat, True)
 
         # Gold sentence_results
-        for corpus_sentence_id in collective_results_tagged:
-            sub_sentences = collective_results_tagged[corpus_sentence_id]
+        for corpus_sentence_id in collective_spacy_results:
+            sub_sentences = collective_spacy_results[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
             feat = sentence_info.feature_assignment()
             sentence = sentence_info.sentence_reconstruction()[1]
@@ -580,8 +591,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                 lit_count, oral_count, sentence_count, token_count = 0, 0, 0, 0
                 lit_score, oral_score = {}, {}
 
-                for corpus_sentence_id in collective_results_tagged:
-                    sub_sentences = collective_results_tagged[corpus_sentence_id]
+                for corpus_sentence_id in collective_spacy_results:
+                    sub_sentences = collective_spacy_results[corpus_sentence_id]
                     sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                     feat = sentence_info.feature_assignment()
                     sentence = sentence_info.sentence_reconstruction()[1]
@@ -644,8 +655,8 @@ def sentence_identification(collective_results_tagged, database, system_evaluati
                 elif user == "1":
                     feat = "ORAL"
 
-                for corpus_sentence_id in collective_results_tagged:
-                    sub_sentences = collective_results_tagged[corpus_sentence_id]
+                for corpus_sentence_id in collective_spacy_results:
+                    sub_sentences = collective_spacy_results[corpus_sentence_id]
                     sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                     write_to_database(feat, sub_sentences, database)
                     sentence = sentence_info.sentence_reconstruction()[1]
@@ -667,16 +678,17 @@ def get_feat_count(file):
     """
     This function retrieves the count of the features in the database.
 
-    :param
+    :param file
         :type str
-            'file'': the path file of the database
+             the path file of the database
 
-    :return
+    :return prior_prob
         :rtype dict
-            'prior_prob': the frequency of said features.
+            The count of the database features
 
+    :return training_data
         :rtype list
-            'training_data': the data from the csv file saved in a list.
+            The data from the .csv file saved in a list.
     """
 
     with open(file, mode="r", encoding="utf-8") as training_data:
