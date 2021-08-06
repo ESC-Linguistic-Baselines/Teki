@@ -15,7 +15,7 @@ def oral ():
     presentatifs=open("fra_oral_doc/FA_pres.txt", mode="r", encoding="utf-8").read().split()
 
 
-    with open ("../databases/oral_french.json", mode="w", encoding="utf-8") as oral_file:
+    with open ("../user_databases/oral_french.json", mode="w", encoding="utf-8") as oral_file:
 
         data={
              "EMO":emoticon_symbols,
@@ -42,7 +42,7 @@ def lit ():
     francais_technique_pre = open("fra_lit_docs/Fl_pre.txt", mode="r", encoding="utf-8").read().split()
 
     # writing to json file
-    with open("../databases/lit_french.json", mode="w", encoding="utf-8") as oral_file:
+    with open("../user_databases/lit_french.json", mode="w", encoding="utf-8") as oral_file:
         data = {
             "FC": [word for word in francais_cultive],
             "FC_abs": [word for word in francais_cultive_abs],

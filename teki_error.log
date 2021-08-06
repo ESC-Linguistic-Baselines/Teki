@@ -1,431 +1,126 @@
-
-ERROR_TIME: 2021-08-05 06:07:09,670
+ERROR_TIME: 2021-08-06 17:41:36,540
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 996
-ERROR_SCOPE  'if __name__ == __main__': is due to '[Errno 2] No such file or directory: '')'
+LINE_NO: 1040
+ERROR_SCOPE Main Menu: string index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 979, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 942, in run_program
-    freq = get_feat_count(database)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 607, in get_feat_count
-    with open(file, mode="r", encoding="utf-8") as training_data:
-FileNotFoundError: [Errno 2] No such file or directory: ''
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1035, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 640, in sentence_identification
+    save_results(feat, sentence_info, sentence_file, database_file)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 557, in save_results
+    if database_file: write_to_database(feat, sentence, database_file)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 1061, in write_to_database
+    sen_word_pos = element[1]
+IndexError: string index out of range
 
-ERROR_TIME: 2021-08-05 06:22:10,943
+ERROR_TIME: 2021-08-06 18:27:19,229
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 939
-ERROR_SCOPE Main Menu: [Errno 2] No such file or directory: 'app_resources/results/default_result_sentence_05_08_2021_22_09_.csv'
+LINE_NO: 1038
+ERROR_SCOPE Main Menu: save_results() takes from 3 to 4 positional arguments but 5 were given
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 935, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 554, in sentence_identification
-    write_sentences(sentence, f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 908, in write_sentences
-    with open(file, mode="a+", encoding="utf-8", newline="") as results:
-FileNotFoundError: [Errno 2] No such file or directory: 'app_resources/results/default_result_sentence_05_08_2021_22_09_.csv'
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1033, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 638, in sentence_identification
+    save_results(feat, sub_sentences, sentence_info, sentence_file, database_file)
+TypeError: save_results() takes from 3 to 4 positional arguments but 5 were given
 
-ERROR_TIME: 2021-08-05 06:25:34,753
+ERROR_TIME: 2021-08-06 18:29:10,144
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 939
-ERROR_SCOPE Main Menu: [Errno 2] No such file or directory: 'app_resources/results/default_result_sentence_05_08_2021_25_33_.csv'
+LINE_NO: 1037
+ERROR_SCOPE Main Menu: 'LanguageIndependentAnalysis' object is not iterable
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 935, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 554, in sentence_identification
-    write_sentences(sentence, f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 908, in write_sentences
-    with open(file, mode="a+", encoding="utf-8", newline="") as results:
-FileNotFoundError: [Errno 2] No such file or directory: 'app_resources/results/default_result_sentence_05_08_2021_25_33_.csv'
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1032, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 637, in sentence_identification
+    save_results(feat, sentence_info, sentence_file, database_file)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 555, in save_results
+    write_to_database(feat, sentence_info, database_file)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 1059, in write_to_database
+    for element in sentence:
+TypeError: 'LanguageIndependentAnalysis' object is not iterable
 
-ERROR_TIME: 2021-08-05 06:27:13,755
+ERROR_TIME: 2021-08-06 18:33:17,609
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 939
-ERROR_SCOPE Main Menu: [Errno 2] No such file or directory: 'app_resources/results/default_result_sentence_05_08_2021_27_12_.csv'
+LINE_NO: 1042
+ERROR_SCOPE Main Menu: 'LanguageIndependentAnalysis' object is not iterable
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 935, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 554, in sentence_identification
-    write_sentences(sentence, f"app_resources/results/default_result_sentence_{current_time}.csv", sen_num, sen_id, feat, True)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 908, in write_sentences
-    with open(file, mode="w+", encoding="utf-8", newline="") as results:
-FileNotFoundError: [Errno 2] No such file or directory: 'app_resources/results/default_result_sentence_05_08_2021_27_12_.csv'
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1037, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 642, in sentence_identification
+    save_results(feat, sentence_info, sentence_file, database_file)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 556, in save_results
+    write_to_database(feat, sentence_info, database_file)
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 1059, in write_to_database
+    for element in sentence:
+TypeError: 'LanguageIndependentAnalysis' object is not iterable
 
-ERROR_TIME: 2021-08-05 07:14:28,715
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 921
-ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 918, in run_program
-    doc = get_text(path_name)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 171, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-08-05 07:15:56,019
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 391
-ERROR_SCOPE xml_analysis error due to: list index out of range
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 368, in xml_analysis
-    start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
-IndexError: list index out of range
-
-ERROR_TIME: 2021-08-05 07:28:42,714
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 969
-ERROR_SCOPE invalid literal for int() with base 10: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 967, in sub_menu
-    choice_num = int(choice_str)
-ValueError: invalid literal for int() with base 10: ''
-
-ERROR_TIME: 2021-08-05 07:29:43,513
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 969
-ERROR_SCOPE invalid literal for int() with base 10: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 967, in sub_menu
-    choice_num = int(choice_str)
-ValueError: invalid literal for int() with base 10: ''
-
-ERROR_TIME: 2021-08-05 07:29:52,969
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 997
-ERROR_SCOPE  'if __name__ == __main__': is due to ''NoneType' object is not iterable)'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 980, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 945, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 807, in document_classificaiton
-    tagger_results = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 468, in spacy_tagger
-    for sent in corpus_content:
-TypeError: 'NoneType' object is not iterable
-
-ERROR_TIME: 2021-08-05 07:37:22,550
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 997
-ERROR_SCOPE  'if __name__ == __main__': is due to ''NoneType' object is not iterable)'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 980, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 945, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 807, in document_classificaiton
-    tagger_results = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 468, in spacy_tagger
-    for sent in corpus_content:
-TypeError: 'NoneType' object is not iterable
-
-ERROR_TIME: 2021-08-05 07:38:25,786
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 997
-ERROR_SCOPE  'if __name__ == __main__': is due to ''NoneType' object is not iterable)'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 980, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 945, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 807, in document_classificaiton
-    tagger_results = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 468, in spacy_tagger
-    for sent in corpus_content:
-TypeError: 'NoneType' object is not iterable
-
-ERROR_TIME: 2021-08-05 07:39:10,883
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 969
-ERROR_SCOPE invalid literal for int() with base 10: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 967, in sub_menu
-    choice_num = int(choice_str)
-ValueError: invalid literal for int() with base 10: ''
-
-ERROR_TIME: 2021-08-05 08:29:55,550
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 943
-ERROR_SCOPE Main Menu: 'list' object has no attribute 'get'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 939, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 550, in sentence_identification
-    feat = sentence_info.feature_assignment()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 376, in feature_assignment
-    sorted_scores = sorted( self.calculate_scores()["LIT"],key=self.sub_sentences.get,reverse=False)
-AttributeError: 'list' object has no attribute 'get'
-
-ERROR_TIME: 2021-08-05 08:33:24,209
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 945
-ERROR_SCOPE Main Menu: file must have a 'write' attribute
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 941, in run_program
-    sentence_identification(collective_results_tagged, database, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 560, in sentence_identification
-    pickle.dump(p,collective_results_tagged)
-TypeError: file must have a 'write' attribute
-
-ERROR_TIME: 2021-08-05 10:31:43,732
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 963
-ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 960, in run_program
-    doc = get_text(path_name)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 171, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-08-05 10:44:17,697
+ERROR_TIME: 2021-08-06 19:00:24,934
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
 LINE_NO: 1039
-ERROR_SCOPE  'if __name__ == __main__': is due to 'string indices must be integers)'
+ERROR_SCOPE Main Menu: tuple index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1022, in <module>
-    run_program(default_doc, default_train,system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 987, in run_program
-    document_classificaiton(probs)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 861, in document_classificaiton
-    print(i,bayes[i])
-TypeError: string indices must be integers
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1034, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 636, in sentence_identification
+    feature_info = sentence_info.feature_assignment()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 425, in feature_assignment
+    lit = self.calculate_scores()["LIT"]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 237, in calculate_scores
+    dep_info = self.part_of_speech()[2]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in part_of_speech
+    morph = [word[5] for word in self.sub_sentences]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in <listcomp>
+    morph = [word[5] for word in self.sub_sentences]
+IndexError: tuple index out of range
 
-ERROR_TIME: 2021-08-05 10:58:01,900
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 974
-ERROR_SCOPE invalid literal for int() with base 10: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 972, in sub_menu
-    choice_num = int(choice_str)
-ValueError: invalid literal for int() with base 10: ''
-
-ERROR_TIME: 2021-08-05 10:59:37,574
+ERROR_TIME: 2021-08-06 19:01:50,445
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 960
-ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
+LINE_NO: 1039
+ERROR_SCOPE Main Menu: tuple index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 957, in run_program
-    doc = get_text(path_name)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 171, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1034, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 636, in sentence_identification
+    feature_info = sentence_info.feature_assignment()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 425, in feature_assignment
+    lit = self.calculate_scores()["LIT"]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 237, in calculate_scores
+    dep_info = self.part_of_speech()[2]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in part_of_speech
+    morph = [word[5] for word in self.sub_sentences]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in <listcomp>
+    morph = [word[5] for word in self.sub_sentences]
+IndexError: tuple index out of range
 
-ERROR_TIME: 2021-08-05 11:01:14,343
+ERROR_TIME: 2021-08-06 19:04:16,023
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 960
-ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
+LINE_NO: 1041
+ERROR_SCOPE Main Menu: tuple index out of range
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 957, in run_program
-    doc = get_text(path_name)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 171, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-08-05 11:01:26,176
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 391
-ERROR_SCOPE xml_analysis error due to: list index out of range
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 368, in xml_analysis
-    start, stop = int(corpus_range_choice[0]), int(corpus_range_choice[1])
-IndexError: list index out of range
-
-ERROR_TIME: 2021-08-05 11:02:46,417
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 974
-ERROR_SCOPE invalid literal for int() with base 10: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 972, in sub_menu
-    choice_num = int(choice_str)
-ValueError: invalid literal for int() with base 10: ''
-
-ERROR_TIME: 2021-08-05 11:25:31,916
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 988
-ERROR_SCOPE Sub menu error: list index out of range
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 985, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 686, in evaluate_naive_bayes
-    sen, feat = row[0], row[3]
-IndexError: list index out of range
-
-ERROR_TIME: 2021-08-05 11:44:26,464
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 988
-ERROR_SCOPE Sub menu error: list index out of range
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 985, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 691, in evaluate_naive_bayes
-    sen, feat = row[0], row[3]
-IndexError: list index out of range
-
-ERROR_TIME: 2021-08-05 11:52:35,684
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 988
-ERROR_SCOPE Sub menu error: division by zero
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 985, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 712, in evaluate_naive_bayes
-    accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_positive + false_negative)
-ZeroDivisionError: division by zero
-
-ERROR_TIME: 2021-08-05 11:54:19,663
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 958
-ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 955, in run_program
-    doc = get_text(path_name)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 171, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: ''
-
-ERROR_TIME: 2021-08-05 12:13:49,010
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 988
-ERROR_SCOPE Sub menu error: [Errno 2] No such file or directory: 'app_resources/app_common_default_docs/validation_data.csv'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 985, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 734, in cross_validation
-    data = pd.read_csv("app_resources/app_common_default_docs/validation_data.csv")
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 688, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 454, in _read
-    parser = TextFileReader(fp_or_buf, **kwds)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 948, in __init__
-    self._make_engine(self.engine)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 1180, in _make_engine
-    self._engine = CParserWrapper(self.f, **self.options)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 2010, in __init__
-    self._reader = parsers.TextReader(src, **kwds)
-  File "pandas\_libs\parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
-  File "pandas\_libs\parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
-FileNotFoundError: [Errno 2] No such file or directory: 'app_resources/app_common_default_docs/validation_data.csv'
-
-ERROR_TIME: 2021-08-05 12:15:18,560
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 988
-ERROR_SCOPE Sub menu error: Error tokenizing data. C error: Expected 2 fields in line 4, saw 3
-
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 985, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 734, in cross_validation
-    data = pd.read_csv(file_finder())
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 688, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 460, in _read
-    data = parser.read(nrows)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 1198, in read
-    ret = self._engine.read(nrows)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 2157, in read
-    data = self._reader.read(nrows)
-  File "pandas\_libs\parsers.pyx", line 847, in pandas._libs.parsers.TextReader.read
-  File "pandas\_libs\parsers.pyx", line 862, in pandas._libs.parsers.TextReader._read_low_memory
-  File "pandas\_libs\parsers.pyx", line 918, in pandas._libs.parsers.TextReader._read_rows
-  File "pandas\_libs\parsers.pyx", line 905, in pandas._libs.parsers.TextReader._tokenize_rows
-  File "pandas\_libs\parsers.pyx", line 2042, in pandas._libs.parsers.raise_parser_error
-pandas.errors.ParserError: Error tokenizing data. C error: Expected 2 fields in line 4, saw 3
-
-
-ERROR_TIME: 2021-08-05 12:16:27,543
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 988
-ERROR_SCOPE Sub menu error: Error tokenizing data. C error: Expected 2 fields in line 4, saw 3
-
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 985, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\Bachleorarbeit\app_resources\app_auxiliary_functions.py", line 734, in cross_validation
-    data = pd.read_csv(file_finder())
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 688, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 460, in _read
-    data = parser.read(nrows)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 1198, in read
-    ret = self._engine.read(nrows)
-  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers.py", line 2157, in read
-    data = self._reader.read(nrows)
-  File "pandas\_libs\parsers.pyx", line 847, in pandas._libs.parsers.TextReader.read
-  File "pandas\_libs\parsers.pyx", line 862, in pandas._libs.parsers.TextReader._read_low_memory
-  File "pandas\_libs\parsers.pyx", line 918, in pandas._libs.parsers.TextReader._read_rows
-  File "pandas\_libs\parsers.pyx", line 905, in pandas._libs.parsers.TextReader._tokenize_rows
-  File "pandas\_libs\parsers.pyx", line 2042, in pandas._libs.parsers.raise_parser_error
-pandas.errors.ParserError: Error tokenizing data. C error: Expected 2 fields in line 4, saw 3
-
-
-ERROR_TIME: 2021-08-05 17:25:21,283
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 1059
-ERROR_SCOPE  'if __name__ == __main__': is due to '[Errno 2] No such file or directory: 'app_core_resources/default_docs/mueller_oral.txt')'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1042, in <module>
-    run_program(default_doc, default_train, system_evaluation)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 940, in run_program
-    doc = get_text(default_doc)
-  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 231, in get_text
-    with open(document, mode="r", encoding="utf-8") as file:
-FileNotFoundError: [Errno 2] No such file or directory: 'app_core_resources/default_docs/mueller_oral.txt'
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 1036, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Bachleorarbeit\teki_main_app.py", line 638, in sentence_identification
+    feature_info = sentence_info.feature_assignment()
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 425, in feature_assignment
+    lit = self.calculate_scores()["LIT"]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 237, in calculate_scores
+    dep_info = self.part_of_speech()[2]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in part_of_speech
+    morph = [word[5] for word in self.sub_sentences]
+  File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in <listcomp>
+    morph = [word[5] for word in self.sub_sentences]
+IndexError: tuple index out of range
