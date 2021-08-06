@@ -67,15 +67,31 @@ The inspiration is limited to the dynamic menu system that is sued within this p
 # Requirements 
 
 ## Python Version
-This program was created and designed with **python 3.9.6** in mind. Therefore, that is the recommended version for teki. 
-It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed. 
-You can download the latest python version [ here](https://www.python.org/downloads/).  
+This program was created and designed with **3.9.6** in mind. Therefore, that is the recommended version for teki. 
+It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed.
+<br>You can download the latest python version [ here](https://www.python.org/downloads/).  
 
-## Pip Modules
+## Modules and Libraries
 
-The following pip packages must be installed in order for the program to run properly:
+This program makes use of the following standard libraries:
 
 ```
+csv
+datetime
+json
+logging
+os
+re
+sys
+timeit
+tkinter
+shutil
+```
+
+In addition to these, the following pip packages must be present in order for the program to run properly:
+
+```
+
 bs4>=0.0.1
 beautifulsoup4>=4.9.3
 nltk>=3.5
@@ -115,21 +131,37 @@ When starting the program, a check is performed to ensure that the directory **a
 
 Once the modules, files and libraries, have been successfully loaded, then you will be greeted with the following a menu system:
 
-```
-1: load .XML or .TXT file
-2: load training file
-3: analyze contents
-4: document classification
-5: clear error log file
-6: restore default database
-7: evaluation
-8: about program
-9: end program
-```
+ 
+* [1: load .XML or .TXT file](#menu_item_1)
+* [2: load training file](#menu_item_2)
+* [3: analyze contents](#menu_item_3)
+* [4: document classification](#menu_item_4)
+* [5: clear error log file](#menu_item_5)
+* [6: restore default database](#menu_item_6)
+* [7: evaluation](#menu_item_7)
+* [8: about program](#menu_item_8)
+* [9: end program](#menu_item_9)
 
 This is a dynmaic menu to which you can return. Should an error arise in the program, you will automatically be returned to this menu. 
 
 
-#  load .XML or .TXT file
+# <a name="menu_item_1"> 1 load .XML or .TXT file</a>
+
+# <a name="menu_item_2"> 2: load training file</a>
+
+# <a name="menu_item_3"> 3: analyze contents</a>
+
+# <a name="menu_item_4"> 4: document classification</a>
+
+# <a name="menu_item_5"> 5: clear error log file</a>
+
+# <a name="menu_item_6"> 6: restore default database</a>
+
+# <a name="menu_item_7"> 7: evaluation</a>
+
+# <a name="menu_item_8"> 8: about program</a>
+
+#  <a name="menu_item_9"> 9: end program</a>
+
 
 
