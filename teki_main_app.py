@@ -924,18 +924,19 @@ def document_classification(probabilities):
 
         elif user == "2": # Collection of sentences from a document
             collective_res = dict()
-            file = open(file_finder(), mode="w", encoding="utf-8")
             text = get_text(file_finder())
             content = content_analysis(text)
             tagger_results = spacy_tagger(content)
+            save_file = file_finder()
 
             for corpus_sentence_id in tagger_results:
                 sub_sentences = tagger_results[corpus_sentence_id]
                 sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                 sentence = sentence_info.sentence_reconstruction()[1]
-                tokens = sentence.split()
-                bayes = calculate(tokens)
+                bayes = calculate(sentence.split())
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
+                save_results(bayes,sentence_info,corpus_sentence_id,sub_sentences,save_file)
+
         elif user == "3":
             input("Please press enter to return to the main menu...")
             break
@@ -1048,7 +1049,7 @@ def run_program(default_doc, default_train, system_evaluation):
                             print(f"An unknown error occurred. {main_message}")
                             logging.exception(f"Main Menu: {error}")
 
-                    elif function_name == "document_classificaiton":
+                    elif function_name == "document_classification":
                         freq = get_feat_count(database)
                         probs = get_probs(freq)
                         document_classification(probs)
