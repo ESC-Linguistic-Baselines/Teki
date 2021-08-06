@@ -8,7 +8,7 @@
 ___
 
 
-Teki is a naive baysian classifier that is used to tag french chat data according their orality and literacy. 
+Teki is a naive Bayesian classifier that is used to tag french chat data according their orality and literacy. 
  
 ## Academic Formalities
 Information  | Description
@@ -87,14 +87,15 @@ python -m spacy download fr_core_news_sm
 If the modules have been successfully loaded, then you will be greeted with the following a menu system:
 
 ```
-1: import file
+1: load .XML or .TXT file
 2: load training file
 3: analyze contents
-4: classify string
-5: clear log file
-6: author information
-7: program description
-8: end program
+4: document classification
+5: clear error log file
+6: restore default database
+7: evaluation
+8: about program
+9: end program
 ```
 
 # Criteria 
