@@ -66,7 +66,8 @@ The inspiration, and to a certain extent the contribution, for this program is t
 As this program does not appear in any official form, I cannot directly cite it. However, all other things being equal:
 
 ```
-I hereby declare that the work submitted is my own and that all passages and ideas that are not mine have been fully and properly acknowledged.<br>I am aware that I will fail the entire course should I include passages and ideas from other sources and present them as if they were my own.
+I hereby declare that the work submitted is my own and that all passages and ideas that are not mine have been fully and properly acknowledged.
+I am aware that I will fail the entire course should I include passages and ideas from other sources and present them as if they were my own.
 
 Christopher Chandler 31/08/2021
 ```
