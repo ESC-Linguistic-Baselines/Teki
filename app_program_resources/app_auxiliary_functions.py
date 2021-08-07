@@ -801,12 +801,12 @@ def evaluation():
         true_negative = 0
 
         for row in csv_gold_reader:
-            sen, feat = row[0], row[1]
+            sen, feat = row[0], row[3]
             sentence_features[sen] = {"SYS": "", "GOLD": ""}
             sentence_features[sen]["GOLD"] = feat
 
         for row in csv_system_reader:
-            sen, feat = row[0], row[1]
+            sen, feat = row[0], row[3]
             sentence_features[sen]["SYS"] = feat
 
         for entry in sentence_features:
