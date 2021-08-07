@@ -218,6 +218,173 @@ After having selected a file, the user will be returned to the main menu.
 
 # <a name="menu_item_3"> 3: analyze contents</a>
 
+After having loaded in the desired files or progressing with the default files,  
+the user is greeted with the following submenu:
+
+Content Analysis                 
+  How would you like to proceed with the file?
+ 
+ * [1: read file contents](#read_file)
+* [2: analyze .XML data](#xml)
+* [3: analyze .TXT data](#txt)
+* [4: return to  main menu](#return)
+
+### <a name="read_file"> read file contents</a>
+This displays the content of the .xml or .txt file to the user. After which the user is brought back to
+the submenu 
+
+### <a name="xml"> 2: analyze .XML data</a>
+
+There are three main corpora available within the program: 
+
+```
+1 eBay
+2 SMS
+3 Wikiconflict
+```
+
+The program could theoretically work with any .xml file. The programm has been desigend to work with these three data sets in mind. Working knowledge of python would allow for one to  easily alter the .xml parsing process within the programm. To do so, please refer to function xml_analysis. 
+
+However, it should be noted that these three corporora provide at least ca. 100,000 sentences and offer a wide arrange of possibilties with respect to linguistic analysis. Therefore, they should suffice for the average user. 
+
+
+Once a data set is chosen, the user will have option of input a range of tags to be removed from the corpus 
+
+```
+Example:
+    There are 100 tags. Please enter a selection range from 0 - 100.
+    A range should be specified as follows with a single space between both numbers: start stop.
+```
+
+```
+Answer:
+    start   stop 
+    0       100
+```
+
+## Proceeding with the corpus
+
+```
+1 process sentences
+2 save unprocessed sentences
+3 return to menu
+```
+
+### 1 process sentences 
+processing the sentences means  that the spacy tagger will analyze them
+to retrieve linguistic relevant information. If the user wishes to train or build up their own
+database, then they must proceed with this option.
+
+The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The larlongerger the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that **the max range should be no more than 100**. 
+
+```
+Example.:
+    0 100
+    50 150
+    200 300 
+```
+
+It is possible to enter a range that spans the entire corpus, but this is not advised as it could lead to program instability. 
+
+Once a range has been entered and parsed entere 
+
+```
+The sentences have been successfully processed. Please press enter to continue...
+1 automatically
+2 manually
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 2 save unprocessed sentences 
+If the user is simply interested in retrieving the sentences retrieved from the corpus, 
+then the  user should proceed with this option. The user will be promoted by file dialog to select the file in which the results should be saved.  
+
+If file does not exist, the user can create the file from the dialog window. Once it has been created, the user must click on this file and then press 'open'. This will save the path file name and pass it on to the program. 
+
+The user will then be returned to the main menu, where they can safely exit the program. The results will then be in the file specified by the user. 
+
+### 3 return to menu 
+This will bring the user back to the main menu 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### <a name="txt"> 3: analyze .TXT data</a>
+
+
+### <a name="return"> 4: return to  main menu</a>
+
+If the user chooses to analyze an .xml file, 
+then the user has three options available 
+
+
+
+
+
 # <a name="menu_item_4"> 4: document classification</a>
 
 # <a name="menu_item_5"> 5: clear error log file</a>
