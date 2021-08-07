@@ -190,48 +190,55 @@ This is a dynamic menu to which you can return. Should an error arise in the pro
 
 # <a name="menu_item_1"> 1 load .XML or .TXT file</a>
 
-When first starting the program, the program will run using the following files:
+When first starting the program, the program will run using the following default file:
  ```
 Default Text: 'app_program_resources/default_files/mueller_oral.txt'
  ```
 If the user would like to change this, then it is necessary to choose a new file. 
-The program comes with corpora and it is designed to be used with this corpora. 
-It is possible to dynamically select the file. 
-Simply click on the .xml file and it will be read into the program. 
+The program comes with corpora and it is designed to be used with these corpora. 
+Simply click on the .xml file that should be read into the program. 
+These can be found in the **app_program_resources** under **app_corpora**
 
 ### XMl
-
- <img src="app_program_resources/readme_images/load_xml_file.png" />
-
-Alternatively, you can click on any .txt and the program will progress just the sample 
+The user will be presented with a file prompt to select the desired file. 
+ <img src="app_program_resources/readme_images/load_xml_file.png"  width ="650" />
 
 
 ### .Txt
- <img src="app_program_resources/readme_images/load_txt_file.png" width ="700" />
+Alternatively, the user can select a desired .txt file that may or may not be contained in the aforementioned directory.
+ <img src="app_program_resources/readme_images/load_txt_file.png" width ="650" />
 
 
-# <a name="menu_item_2"> 2: load training file</a>
+⚠️ **Note**  
+The file must have .txt or .xml ending. 
+Also, it must only contain text and tags (if .xml) or only text (if .txt) 
+
+Other file formats such as .pdf, .doc, .xml, etc. are not supported and could lead to the program unexpectedly crashing. 
+<br>⚠️
+
+After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.
+
+# <a name="menu_item_2">2: load training file</a>
 
  ```
 Default Training: 'app_program_resources/default_files/default_training.csv'
  ```
 
-If the user does not wish to use the default database, 
+As with loading a .txt or .xml file, if the user does not wish to use the default database, 
 a different database can also be selected dynamically. 
-After having selected a file, the user will be returned to the main menu.
+Default databases can be found under **app_program_resources** under **default_files**
 
+If the user has trained and saved databases, then they should be under **app_user_resource** under **user_databases**
+After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.
 
  <img src="app_program_resources/readme_images/load_database.png" />
 
-All database files must be saved in a .csv format and has the following structure
+All database files must be saved in a .csv format and has the following structure:
 
 | Token  | POS | Dependency | Corpus Id | Sentence Id | Feature |
 |----------|------|------------|-----------|-------------|---------|
 | ENSEMBLE | NOUN | ROOT    | e05p-001 | SEN:0    | LIT   |
 
-
-The user can either select databases that are available in **app_program_resources**
-or train the model and save the results in **app_user_resources/user_databases**
 
 After having selected a file, the user will be returned to the main menu.
 
@@ -243,14 +250,14 @@ the user is greeted with the following submenu:
 Content Analysis         
  How would you like to proceed with the file?
  
- * [1: read file contents](#read_file)
+* [1: read file contents](#read_file)
 * [2: analyze .XML data](#xml)
 * [3: analyze .TXT data](#txt)
 * [4: return to main menu](#return)
 
-### <a name="read_file"> read file contents</a>
+### <a name="read_file">1: read file contents</a>
 This displays the content of the .xml or .txt file to the user. After which the user is brought back to
-the submenu 
+the submenu.
 
 ### <a name="xml"> 2: analyze .XML data</a>
 
@@ -262,58 +269,50 @@ There are three main corpora available within the program:
 3 Wikiconflict
 ```
 
-The program could theoretically work with any .xml file. The programm has been desigend to work with these three data sets in mind. Working knowledge of python would allow for one to easily alter the .xml parsing process within the programm. To do so, please refer to function xml_analysis. 
+The program could theoretically work with any .xml file. The programm has been desigend to work with these three data sets in mind. Working knowledge of python would allow for one to easily alter the .xml parsing process within the programm. To do so, please refer to function xml_analysis.  However, it should be noted that these three corporora provide at least ca. 100,000 sentences and offer a wide arrange of possibilties with respect to linguistic analysis. Therefore, they should suffice for the average user.
 
-However, it should be noted that these three corporora provide at least ca. 100,000 sentences and offer a wide arrange of possibilties with respect to linguistic analysis. Therefore, they should suffice for the average user. 
-
-
-Once a data set is chosen, the user will have option of input a range of tags to be removed from the corpus 
+Once a data set is chosen, the user will have option of input a range of tags to be extracted from the corpus 
 
 ```
-Example:
-  There are 100 tags. Please enter a selection range from 0 - 100.
+There are 100 tags. Please enter a selection range from 0 - 100.
   A range should be specified as follows with a single space between both numbers: start stop.
 ```
 
-```
-Answer:
-  start  stop 
-  0    100
-```
+The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The longer the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that **the max range should be no more than 100**. 
 
-## Proceeding with the corpus
-
-```
-1 process sentences
-2 save unprocessed sentences
-3 return to menu
-```
-
-### 1 process sentences 
-processing the sentences means that the spacy tagger will analyze them
-to retrieve linguistic relevant information. If the user wishes to train or build up their own
-database, then they must proceed with this option.
-
-The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The larlongerger the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that **the max range should be no more than 100**. 
-
-```
-Example.:
-  0 100
-  50 150
-  200 300 
-```
+**Example Range**
+| start | stop |
+|-------|------|
+| 0     | 10   |
 
 It is possible to enter a range that spans the entire corpus, but this is not advised as it could lead to program instability. 
 
-Once a range has been entered, the sentnece will then parsed, analyzed and assigend a unique identifier. Afterwards, the following menu will appear:
+## Proceeding with the corpus
+* [1: process sentences](#process_sentences)
+* [2: save unprocessed](#unprocessed_sentences)
+* [3: return to menu](#txt)
+
+### <a name="process_sentences">1: process sentences </a>
+Processing the sentences means that the spacy tagger will analyze them
+to retrieve linguistic relevant information. If the user wishes to train or build up their own
+database, then they must proceed with this option.
+
+Once a range has been entered, the sentnece will then parsed, analyzed and assigend a unique identifier. 
+Afterwards, the following option selection will appear:
 
 ```
-The sentences have been successfully processed. Please press enter to continue...
+The sentences have been successfully processed.
+Please press enter to continue...
 1 automatically
 2 manually
 ```
 
+In both cases, a unique identifier will be assigend to each sentence so that it can be found in the corpus, should the user 
+wish to manually inspect the database. This identifier is also available to the system and necessary so that it it can
+correctly read in the databases later. 
+
 ### 1 manually 
+___
 
 If the user already knows the features or wants to specify the features that should be assigned to the respective sentences, the user may do so here by using the following features. 
 1. LIT
@@ -321,12 +320,11 @@ If the user already knows the features or wants to specify the features that sho
 
 The feature will then be applied to every sentence within the corpus as previously selected by the user. Therefore, this feature should only be used if the user knows that all sentneces are of the same kind, i.e. all sentence should receive the same feature. 
 
-
 ### 2 automtically 
-
+____
 This is the prefered method as the program using as a scoring system to guage the most appropriate feature and assign it to each sentence respectively. For more information on the scoring system and how this works, please consult the documentation. 
 
-### 2 save unprocessed sentences 
+### <a name="unprocessed_sentences">2: save unprocessed sentences </a>
 If the user is simply interested in retrieving the sentences retrieved from the corpus, 
 then the user should proceed with this option. The user will be promoted by file dialog to select the file in which the results should be saved. 
 
