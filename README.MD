@@ -160,7 +160,7 @@ Would you like to continue with the program?
 ```
 
 The user can continue using the program despite the program not having access to all files.
-However, program stability cannot be guaranteed.
+However, program stability cannot be guaranteed.  Please consult the error log in this case if program instabiltiy does arise. 
 
 
 ## Program start
@@ -190,7 +190,7 @@ This is a dynamic menu to which you can return. Should an error arise in the pro
 
 # <a name="menu_item_1"> 1 load .XML or .TXT file</a>
 
-When first starting the program, the program will run using the following files. 
+When first starting the program, the program will run using the following files:
  ```
 Default Text: 'app_program_resources/default_files/mueller_oral.txt'
  ```
@@ -199,9 +199,16 @@ The program comes with corpora and it is designed to be used with this corpora.
 It is possible to dynamically select the file. 
 Simply click on the .xml file and it will be read into the program. 
 
- <img src="app_program_resources/readme_images/load_xml_txt_file.png" />
+### XMl
+
+ <img src="app_program_resources/readme_images/load_xml_file.png" />
 
 Alternatively, you can click on any .txt and the program will progress just the sample 
+
+
+### .Txt
+ <img src="app_program_resources/readme_images/load_txt_file.png" width ="700" />
+
 
 # <a name="menu_item_2"> 2: load training file</a>
 
