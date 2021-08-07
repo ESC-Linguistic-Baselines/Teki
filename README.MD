@@ -151,7 +151,8 @@ This should only take between 3 - 10 seconds depending on your system resources.
 If the files have been moved or corrupted, then the following prompt will be displayed to the user. 
 
 ```
-The app resource directory is either missing, has been renamed or the file has been altered in some other way.
+The app resource directory is either missing, 
+has been renamed or the file has been altered in some other way.
 
 0 yes
 1 no
@@ -231,7 +232,7 @@ Default databases can be found under **app_program_resources** under **default_f
 If the user has trained and saved databases, then they should be under **app_user_resource** under **user_databases**
 After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.
 
- <img src="app_program_resources/readme_images/load_database.png" />
+ <img src="app_program_resources/readme_images/load_database.png" width ="650" />
 
 All database files must be saved in a .csv format and has the following structure:
 
@@ -286,11 +287,12 @@ The speed and efficacy of this process is highly dependent on the system resourc
 | 0     | 10   |
 
 It is possible to enter a range that spans the entire corpus, but this is not advised as it could lead to program instability. 
+___
 
 ## Proceeding with the corpus
 * [1: process sentences](#process_sentences)
 * [2: save unprocessed](#unprocessed_sentences)
-* [3: return to menu](#txt)
+* [3: return to menu](#corpus_menu)
 
 ### <a name="process_sentences">1: process sentences </a>
 Processing the sentences means that the spacy tagger will analyze them
@@ -322,7 +324,10 @@ The feature will then be applied to every sentence within the corpus as previous
 
 ### 2 automtically 
 ____
-This is the prefered method as the program using as a scoring system to guage the most appropriate feature and assign it to each sentence respectively. For more information on the scoring system and how this works, please consult the documentation. 
+This is the prefered method as the program using as a scoring system to guage the most appropriate feature and assign it to each sentence respectively. The feature LIT or ORAL will the n be assigned my by the program itself. 
+
+For more information on the scoring system and how this works, please consult the documentation. 
+___
 
 ### <a name="unprocessed_sentences">2: save unprocessed sentences </a>
 If the user is simply interested in retrieving the sentences retrieved from the corpus, 
@@ -331,20 +336,20 @@ then the user should proceed with this option. The user will be promoted by file
 If file does not exist, the user can create the file from the dialog window. Once it has been created, the user must click on this file and then press 'open'. This will save the path file name and pass it on to the program. 
 
 The user will then be returned to the main menu, where they can safely exit the program. The results will then be in the file specified by the user. 
+____
 
-### 3 return to menu 
-This will bring the user back to the main menu 
-
+### <a name="return_to_menu">3: Return to menu </a>
+This will bring the user back to the main menu.
+____
 
 ### <a name="txt"> 3: analyze .TXT data</a>
 This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique indentifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicitator so that the user and the program can identify from corpus the sentence came from. 
 
 
-### <a name="return"> 4: return to main menu</a>
+### <a name="corpus_menu"> 3: return to main menu</a>
 
 If the user chooses to analyze an .xml file, 
 then the user has three options available 
-
 # <a name="menu_item_4"> 4: document classification</a>
 
 Once a databse has been trained, it possible for a document to be classified by the naive bayes formula: 
@@ -353,13 +358,12 @@ Once a databse has been trained, it possible for a document to be classified by 
 The structure of the database is as follows:
 LIT: 24
 ORAL: 24
-
-1 enter a sentence
-2 enter a document
-3 return to main menu
 ```
+* [1: enter a sentence](#enter_sentence)
+* [2: enter a document](#enter_document)
+* [3: return to main menu](#classify_main_menu)
 
-### 1 enter a sentence 
+### <a name="enter_sentence"> 1: enter a sentence </a>
 If the user wishes to simply analyze just one sentence, then please use this function. 
 The user will then be prompted to enter a **French sentence**. 
 
@@ -369,18 +373,23 @@ It is possible to enter something that is not a French sentence. However, these 
 
 The user will be returned to the submenu and will have the option of entering a sentence again. 
 
-### enter a document 
-
+### <a name="enter_document"> 2: enter a document </a>
 This will pull up the <a name="menu_item_3"> analyze contents menu </a> and it follows the same process. 
 The user should consult the chapter if they have not already done so. 
-
-The only difference here is that the results will be saved within a file as specified by the user.
 
 Due to the problem of underflow, a document as a whole cannot be properly anaylzed. That is why the document will only be 
 analyzed on a sentence by sentence level. The program will return the most approrpraite feature per sentence, not necessary per document. 
 
+The only difference here is that the results will be saved within a file as specified by the user.
+The user will be prompted to select a file. If one is not available, then it can be created in the windows prompt. 
+Clicking on the file will allow for the sentences to be saved here. 
+
 After the analysis, the user can chose to exit the program or continue with other sentences. 
 
+### <a name="classify_main_menu"> 3: return to main menu</a>
+
+This will return the user back to the main menu
+___
 
 # <a name="menu_item_5"> 5: clear error log file</a>
 
@@ -406,14 +415,13 @@ the user may reset the database using this function.
 
 The user has the option of ascertaining the evaluation metrics of the naive bayes or cross validating the data used to train the naive bayes. 
 
-```
 Which files would you like to evaluate:   
-1: evaluate naive bayes
-2: cross validation
-3: return to menu
-```
+ 
+* [1: evaluate naive bayes](#evaluate)
+* [2: cross validation](#validate)
+* [3: return to main menu](#evaluation_main_menu)
 
-# 1 evaluate naive bayes 
+### <a name="evaluate">1: evaluate naive bayes</a>
 
 This evaluator takes into files: a system file and gold file. 
 
@@ -440,7 +448,7 @@ Recall
 F-Score
 ```
 
-# 2 cross validation
+### <a name="validate">2: cross validation</a>
 The cross validation works the same way as the evaluate bayes, but it only requires one file to work. 
 using the sentence file generated by the document classification or analyze content, 
 you can validate the data for overfitting. 
@@ -455,8 +463,9 @@ text, feature
 at the top of this file in order for it to be read properly. Once having done so, the results will be shown below. 
 
 
-# 3 return to menu 
+### <a name="evaluation_main_menu"> 3: return to main menu</a>
 This brings the user back to the main menu. 
+____
 
 # <a name="menu_item_8"> 8: about program</a>
 This function provides the user with this readme file.
@@ -464,6 +473,3 @@ The user can therefore access the program information from the menu.
 
 # <a name="menu_item_9"> 9: end program</a>
 You can force exit the program by killing the script, but this could lead to file corruption. Therefore, using this function is the preferred way of exiting program because the results from the other functions are only saved to the respective files once you have properly exited the program. 
-
-
-
