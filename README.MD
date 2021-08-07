@@ -1,12 +1,11 @@
 # Téki:  A Naïve Bayesian French Discourse Analyzer
 
- ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
- ![Project Size](https://img.shields.io/badge/Project_Size-25mb-yellow)
+![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
+![Project Size](https://img.shields.io/badge/Project_Size-25mb-yellow)
 ![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
- [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 
 
- 
 ## Academic Formalities
 Information  | Description
 ------------- | -------------
@@ -54,7 +53,7 @@ The difference between the conceptual and medial representation of language is o
 The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
 the words actually reflect a stream of consciousness if you will. 
 
-Teki is a  [naive bayes classifier](https://web.stanford.edu/~jurafsky/slp3/4.pdf) that is used to tag French chat data according to their literacy and orality. 
+Teki is a [naive bayes classifier](https://web.stanford.edu/~jurafsky/slp3/4.pdf) that is used to tag French chat data according to their literacy and orality. 
 Since there was no training data available for the naive bayes, a scoring system was developped that tagged sentences according to  their literacy and orality. Then, using this newly acquiered training data, the naive bayes was trained so that it could decide if a sentence was literal or oral. 
 
 For more information on this topic, please consult the program documentation. 
@@ -67,7 +66,7 @@ The inspiration, and to a certain extent the contribution, for this program is t
 As this program does not appear in any official form, I cannot directly cite it. However, all other things being equal:
 
 ```
-I hereby declare that the work submitted is my own and that all passages and ideas that are not mine have been fully and properly acknowledged. I am aware that I will fail the entire course should I include passages and ideas from other sources and present them as if they were my own.
+I hereby declare that the work submitted is my own and that all passages and ideas that are not mine have been fully and properly acknowledged.<br>I am aware that I will fail the entire course should I include passages and ideas from other sources and present them as if they were my own.
 
 Christopher Chandler 31/08/2021
 ```
@@ -77,7 +76,7 @@ Christopher Chandler 31/08/2021
 ## Python Version
 This program was created and designed with **3.9.6** in mind. Therefore, that is the recommended version for teki. 
 It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed.
-<br>You can download the latest python version [ here](https://www.python.org/downloads/).  
+<br>You can download the latest python version [here](https://www.python.org/downloads/).  
 
 ## Modules and Libraries
 
