@@ -137,3 +137,16 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 659, in sentence_identification
     lit_score[element] = lit_score.get(element, 0) + classification[element]
 TypeError: string indices must be integers
+
+ERROR_TIME: 2021-08-07 12:44:30,675
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1031
+ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1028, in run_program
+    doc = get_text(path_name)
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 257, in get_text
+    with open(document, mode="r", encoding="utf-8") as file:
+FileNotFoundError: [Errno 2] No such file or directory: ''
