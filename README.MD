@@ -183,9 +183,10 @@ When first starting the program, the program will run using the following files.
 Default Text: 'app_program_resources/default_files/mueller_oral.txt'
 Default Training: 'app_program_resources/default_files/default_training.csv'
  ```
-If the user would like 
-![dynamic file selection](app_program_resources/readme_images/load_xml_txt_file.png )
- 
+If the user would like to change this, then it is necessary to choose a new file. 
+The program comes  with corpora and it is designed to be used with this corpora. 
+
+ r<img height="400" src="app_program_resources/readme_images/load_xml_txt_file.png" width="400"/>
 
 # <a name="menu_item_2"> 2: load training file</a>
 
