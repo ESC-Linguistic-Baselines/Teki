@@ -181,7 +181,7 @@ def _rebuild_requirement_resources():
                 resources.write(os.path.join(path, name)+"\n")
     print("The requirement_resources.txt file has been updated.")
 
-# Uncomment the following line for depencies to rebuilt. After having done so, comment it again to deactivate it.
+# Uncomment the following line for dependencies to rebuilt. After having done so, comment it again to deactivate it.
 # _rebuild_requirement_resources()
 
 ###########################################
@@ -197,7 +197,7 @@ Necessary file names stored as requirement_resources.txt
 """
 
 core_file_missing = list()
-if os.path.exists("app_core_resources"):
+if os.path.exists("app_programf_resources"):
     with open("requirement_resources.txt", mode="r", encoding="utf-8") as resource:
         for line in resource:
             if not os.path.exists(line.strip()):
@@ -1081,8 +1081,8 @@ if __name__ == "__main__":
 
     system_evaluation = False
     missing_files_libares = bool(core_file_missing) + bool(library_error)
-    default_doc = r"app_core_resources/default_files/mueller_oral.txt"
-    default_train = r"app_core_resources/default_files/default_training.csv"
+    default_doc = r"app_program_resources/default_files/mueller_oral.txt"
+    default_train = r"app_program_resources/default_files/default_training.csv"
     defaults = os.path.exists(default_doc), os.path.exists(default_train)
     default_files = {"Default doc exists: ": os.path.exists(default_doc),
                      "Default train exist: ": os.path.exists(default_train)}

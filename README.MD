@@ -126,12 +126,43 @@ python -m spacy download fr_core_news_sm
 
 # Program
 
-When starting the program, a check is performed to ensure that the directory **app_program_resources** and its files are all present. These files should not be changed in anyway. If you decide to add databases or corpora to this program, they should be placed in **app_user_resources**.
+## File check
+
+When starting the program, a check is performed to ensure that the directory **app_program_resources** and its files are all present. These files should not be changed in any way. If you decide to add databases or corpora to this program, they should be placed in **app_user_resources**.
+```
+The current time is 06:17:32.
+Please wait while libraries, modules and corpora are being imported...
+This should only take between 3 - 10 seconds depending on your system resources...
+```
+
+### Failure to start 
+If the files  have been moved or corrupted, then the following prompt will be displayed to the user. 
+
+```
+The app resource directory is either missing, has been renamed or the file has been altered in some other way.
+
+0 yes
+1 no
+
+Would you like to continue with the program? 
+```
+
+The user can continue using the program despite the program not having access to all files.
+However, program  stability cannot be guaranteed.
 
 
-Once the modules, files and libraries, have been successfully loaded, then you will be greeted with the following a menu system:
+## Program start
+If the modules, files and libraries, have been successfully loaded, you should be greeted with the following: 
 
- 
+```
+All libraries were loaded 9 seconds. The program can now start.
+
+You are currently using the app_common_default_docs files:
+
+Default Text: 'app_program_resources/default_files/mueller_oral.txt'
+Default Training: 'app_program_resources/default_files/default_training.csv'
+ ```
+
 * [1: load .XML or .TXT file](#menu_item_1)
 * [2: load training file](#menu_item_2)
 * [3: analyze contents](#menu_item_3)
@@ -161,7 +192,14 @@ This is a dynmaic menu to which you can return. Should an error arise in the pro
 
 # <a name="menu_item_8"> 8: about program</a>
 
+This function provides the user with this readme file.
+The user can therefore access the program information from the menu. 
+
 #  <a name="menu_item_9"> 9: end program</a>
+
+You can force exit the program by killing the script, but this could lead to file corruption. Therefore, this
+is the preferred way of exiting program because the results from the other functions are only saved to the respective files 
+once you have properly exited. 
 
 
 

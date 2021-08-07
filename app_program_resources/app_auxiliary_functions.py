@@ -29,8 +29,8 @@ except ImportError as error:
 # Database Files
 #########################
 
-lit_french_file = "app_core_resources/default_files/lit_french.json"
-oral_french_file = "app_core_resources/default_files/oral_french.json"
+lit_french_file = "app_program_resources/default_files/lit_french.json"
+oral_french_file = "app_program_resources/default_files/oral_french.json"
 error_log = 'teki_error.log'
 
 #########################
