@@ -173,10 +173,19 @@ Default Training: 'app_program_resources/default_files/default_training.csv'
 * [8: about program](#menu_item_8)
 * [9: end program](#menu_item_9)
 
-This is a dynmaic menu to which you can return. Should an error arise in the program, you will automatically be returned to this menu. 
+This is a dynamic menu to which you can return. Should an error arise in the program, you will automatically be returned to this menu. 
 
 
 # <a name="menu_item_1"> 1 load .XML or .TXT file</a>
+
+When first starting the program, the program will run using the following files. 
+ ```
+Default Text: 'app_program_resources/default_files/mueller_oral.txt'
+Default Training: 'app_program_resources/default_files/default_training.csv'
+ ```
+If the user would like 
+![dynamic file selection](app_program_resources/readme_images/load_xml_txt_file.png )
+ 
 
 # <a name="menu_item_2"> 2: load training file</a>
 
@@ -191,12 +200,10 @@ This is a dynmaic menu to which you can return. Should an error arise in the pro
 # <a name="menu_item_7"> 7: evaluation</a>
 
 # <a name="menu_item_8"> 8: about program</a>
-
 This function provides the user with this readme file.
 The user can therefore access the program information from the menu. 
 
 #  <a name="menu_item_9"> 9: end program</a>
-
 You can force exit the program by killing the script, but this could lead to file corruption. Therefore, this
 is the preferred way of exiting program because the results from the other functions are only saved to the respective files 
 once you have properly exited. 

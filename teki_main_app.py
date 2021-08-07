@@ -197,7 +197,7 @@ Necessary file names stored as requirement_resources.txt
 """
 
 core_file_missing = list()
-if os.path.exists("app_programf_resources"):
+if os.path.exists("app_program_resources"):
     with open("requirement_resources.txt", mode="r", encoding="utf-8") as resource:
         for line in resource:
             if not os.path.exists(line.strip()):
