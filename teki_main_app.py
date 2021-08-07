@@ -336,9 +336,8 @@ def content_analysis(text):
             options = "process sentences", "save unprocessed sentences", "return to menu"
             for number, choice in enumerate(options, start=1):
                 print(number, choice)
-            print("")
 
-            user = input(f"\nThe text has been parsed into approx. {sentence_count} sentences. How would you like to proceed?\n")
+            user = input(f"\nThe text has been parsed into approx. {sentence_count} sentences. How would you like to proceed? ")
             if user == "1":
                 input("The sentence_results will now be processed. Please press enter to continue...")
                 return collective_results
@@ -610,8 +609,8 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         for corpus_sentence_id in redacted_corpus:
             sub_sentences = collective_spacy_results[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
-            feat = sentence_info.feature_assignment()
-            feat = feat[0]
+            sentence_feature_info = sentence_info.feature_assignment()
+            feat = sentence_feature_info[0]
 
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, system_eval_file)
 
@@ -619,8 +618,8 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         for corpus_sentence_id in collective_spacy_results:
             sub_sentences = collective_spacy_results[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
-            feat = sentence_info.feature_assignment()
-            feat = feat[0]
+            sentence_feature_info = sentence_info.feature_assignment()
+            feat = sentence_feature_info[0]
 
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, gold_eval_file)
 
@@ -641,10 +640,11 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                 for corpus_sentence_id in collective_spacy_results:
                     sub_sentences = collective_spacy_results[corpus_sentence_id]
                     sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
-                    feat = sentence_info.feature_assignment()
-                    feat = feat[0]
+                    sentence_feature_info = sentence_info.feature_assignment()
+                    feat = sentence_feature_info[0]
 
-                    save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, automatic_file, database_file)
+                    save_results(feat, sentence_info, corpus_sentence_id,
+                                 sub_sentences, automatic_file, database_file)
 
                     ##############################
                     # Determining sentence properties
@@ -653,17 +653,17 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                     sentence_count += 1
                     token_count += len(sentence.split())
 
-                    if feat[0] == "LIT":
+                    if feat == "LIT":
                         lit_count += 1
-                        classification = feat[1]
+                        classification = sentence_feature_info[1]
                         for element in classification:
                             lit_score[element] = lit_score.get(element, 0) + classification[element]
 
-                    if feat[0] == "ORAL":
-                        oral_count += 1
-                        classification = feat[1]
+                    if feat == "ORAL":
+                        lit_count += 1
+                        classification = sentence_feature_info[1]
                         for element in classification:
-                            oral_score[element] = oral_score.get(element, 0) + classification[element]
+                            lit_score[element] = lit_score.get(element, 0) + classification[element]
 
                 # Sentence property results
                 count_results = {"Sentences": sentence_count,
@@ -684,7 +684,7 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
 
                 print("\nCombined total points of each class per Feature\n")
                 for score in score_points:
-                    for entry in score_points[score]:
+                    for entry in sorted(score_points[score]):
                         print(score, entry)
                     print("")
 

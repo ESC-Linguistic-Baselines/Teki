@@ -124,3 +124,16 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Bachleorarbeit\app_core_resources\app_auxiliary_functions.py", line 190, in <listcomp>
     morph = [word[5] for word in self.sub_sentences]
 IndexError: tuple index out of range
+
+ERROR_TIME: 2021-08-07 11:38:39,494
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1049
+ERROR_SCOPE Main Menu: string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1044, in run_program
+    sentence_identification(collective_results_tagged,
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 659, in sentence_identification
+    lit_score[element] = lit_score.get(element, 0) + classification[element]
+TypeError: string indices must be integers

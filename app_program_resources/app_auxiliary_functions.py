@@ -762,7 +762,7 @@ def end_program():
         for number, choice in enumerate(options):
             print(number, choice)
         print("")
-        user = input("Are you sure that you would like exit the program?").lower()
+        user = input("Are you sure that you would like exit the program? ").lower()
         if user == "0":  # Yes
                 sys.exit("The program will now be terminated.")
         elif user == "1":  # No
