@@ -533,7 +533,7 @@ def spacy_tagger(corpus_content):
                                      str(token.morph)) # morphology
                                     )
             #  Unique sentence identifier
-            processed_sentence_key = f"{sen_id}-sen_no-{number}"
+            processed_sentence_key = f"{sen_id}-{number}"
             collective_spacy_results[processed_sentence_key] = processed_sentence
 
             # overwriting the old with a new list so that the new sentence_results can be saved.

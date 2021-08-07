@@ -884,6 +884,8 @@ def file_finder():
     """
 
     root = Tk()
+    root.title("File Finder")
+    root.geometry("500x400")
     root.attributes("-topmost", True)
     root.withdraw()
     path_name = filedialog.askopenfilename()
@@ -1068,8 +1070,8 @@ def write_to_database(feature, corpus_sentence_id, sentence, database):
                 {"token_text": sen_word,
                  "token_pos": sen_word_pos,
                  "token_dep": sen_word_dep,
-                 "token_id": corpus_sentence_id,
-                 "sen_no": sen_word_id,
+                 "token_id": sen_word_id,
+                 "sen_no": corpus_sentence_id,
                  "oral_literate": feature
                  }
             )

@@ -42,4 +42,5 @@ app_program_resources\default_files\mueller_lit.txt
 app_program_resources\default_files\mueller_oral.txt
 app_program_resources\default_files\oral_french.json
 app_program_resources\default_files\validation_data.csv
+app_program_resources\readme_images\load_xml_txt_file.png
 app_program_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc
