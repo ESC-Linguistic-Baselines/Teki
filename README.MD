@@ -83,7 +83,7 @@ For more information on this topic, please consult the program documentation.
 ## Python Version
 This program was created and designed with **3.9.6** in mind. Therefore, that is the recommended version for teki. 
 It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed.
-<br>You can download the [latest python version at the official website](https://www.python.org/downloads/). 
+You can download the [latest python version at the official website](https://www.python.org/downloads/). 
 
 ## Modules and Libraries
 
@@ -105,10 +105,8 @@ shutil
 In addition to these, the following pip packages must be present in order for the program to run properly:
 
 ```
-
 bs4>=0.0.1
 beautifulsoup4>=4.9.3
-nltk>=3.5
 lxml>=4.6.1
 pandas~=1.1.5
 sklearn~=0.0
@@ -118,26 +116,26 @@ spacy>=2.3.5
 
 There are three ways to install the *requirements.txt* file:
 
-* 1) Install all modules individually via pip.
-<br><br>
-* 2) install all modules with pip using the requirements.txt without specifying the version number:
+1) Install all modules individually via [pip](https://www.python.org/downloads/).
+```
+pip install module name
+```
+2) install all modules with pip using the requirements.txt without specifying the version number:
 ```
 pip install -r requirements.txt
 ```
-<br>
-
-* 3) install with pip using the requirements.txt with specifying the version number:
+3) install with pip using the requirements.txt with specifying the version number:
 ```
 pip3.9 install -r requirements.txt
 ```
 
-<br>
-Additionally, the following for spacy must also be installed separately:
-
+In addition to those, the following for spacy must also be installed separately:
 ```
 python -m spacy download fr_core_news_sm
 ```
 
+If problems arise with installing Spacy or more information is needed, 
+please consult their [website](https://spacy.io/). 
 # Program
 
 ## File check
