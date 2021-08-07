@@ -286,7 +286,7 @@ Example.:
 
 It is possible to enter a range that spans the entire corpus, but this is not advised as it could lead to program instability. 
 
-Once a range has been entered and parsed entere 
+Once a range has been entered, the sentnece will then parsed, analyzed and assigend a unique identifier. Afterwards, the following menu will appear:
 
 ```
 The sentences have been successfully processed. Please press enter to continue...
@@ -294,54 +294,18 @@ The sentences have been successfully processed. Please press enter to continue..
 2 manually
 ```
 
+### 1 manually 
+
+If the user already knows the features or wants to specify the features that should be assigned to the respective sentences, the user may do so here by using the following features. 
+1. LIT
+2. ORAL
+
+The feature will then be applied to every sentence within the corpus as previously selected by the user. Therefore, this feature should only be used if the user knows that all sentneces are of the same kind, i.e. all  sentence should receive the same feature. 
 
 
+### 2 automtically 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+This is the prefered method as the program using as a scoring system to guage the most appropriate feature and assign it to each sentence respectively. For more information on the scoring system and how this works, please consult the documentation. 
 
 ### 2 save unprocessed sentences 
 If the user is simply interested in retrieving the sentences retrieved from the corpus, 
@@ -355,25 +319,8 @@ The user will then be returned to the main menu, where they can safely exit the 
 This will bring the user back to the main menu 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### <a name="txt"> 3: analyze .TXT data</a>
+This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique indentifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicitator so that the user and the program can identify from corpus the sentence came from. 
 
 
 ### <a name="return"> 4: return to  main menu</a>
@@ -381,16 +328,21 @@ This will bring the user back to the main menu
 If the user chooses to analyze an .xml file, 
 then the user has three options available 
 
-
-
-
-
 # <a name="menu_item_4"> 4: document classification</a>
+
+Once a databse has been trained 
+
 
 # <a name="menu_item_5"> 5: clear error log file</a>
 
 # <a name="menu_item_6"> 6: restore default database</a>
 
+The user may build upon the default database as provided with the program. However, 
+if this databsse becomes corrupt, is accidentaly deleted, becomes inbalanced due to improper training,
+the user may reset the database using this function.
+
+:warning: 
+⚠️
 # <a name="menu_item_7"> 7: evaluation</a>
 
 # <a name="menu_item_8"> 8: about program</a>
