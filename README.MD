@@ -181,14 +181,40 @@ This is a dynamic menu to which you can return. Should an error arise in the pro
 When first starting the program, the program will run using the following files. 
  ```
 Default Text: 'app_program_resources/default_files/mueller_oral.txt'
-Default Training: 'app_program_resources/default_files/default_training.csv'
  ```
 If the user would like to change this, then it is necessary to choose a new file. 
 The program comes  with corpora and it is designed to be used with this corpora. 
+It is possible to dynamically select the file. 
+Simply click on the .xml file and it will be read into the program. 
 
- <img  src="app_program_resources/readme_images/load_xml_txt_file.png" height="55%" />
+ <img  src="app_program_resources/readme_images/load_xml_txt_file.png" />
+
+Alternatively, you can click on any .txt and the program will  progress just the sample 
 
 # <a name="menu_item_2"> 2: load training file</a>
+
+ ```
+Default Training: 'app_program_resources/default_files/default_training.csv'
+ ```
+
+If the user does not wish to use the default database, 
+a different database can also be selected dynamically. 
+After having selected a file, the user will be returned to the main menu.
+
+
+ <img  src=" app_program_resources/readme_images/load_database.png" />
+
+All database files must be saved in a .csv format and has the following structure
+
+| Token    | POS  | Dependency | Corpus Id | Sentence Id | Feature |
+|----------|------|------------|-----------|-------------|---------|
+| ENSEMBLE | NOUN | ROOT       | e05p-001  | SEN:0       | LIT     |
+
+
+The user can either select databases that are available in **app_program_resources**
+or train the model and save the results in **app_user_resources/user_databases**
+
+After having selected a file, the user will be returned to the main menu.
 
 # <a name="menu_item_3"> 3: analyze contents</a>
 
