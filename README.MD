@@ -214,7 +214,7 @@ a different database can also be selected dynamically.
 After having selected a file, the user will be returned to the main menu.
 
 
- <img src=" app_program_resources/readme_images/load_database.png" />
+ <img src="app_program_resources/readme_images/load_database.png" />
 
 All database files must be saved in a .csv format and has the following structure
 
