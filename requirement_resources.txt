@@ -1,4 +1,6 @@
 app_program_resources\app_auxiliary_functions.py
+app_program_resources\app_corpora\app_dev\results\sms_sentences.csv
+app_program_resources\app_corpora\app_dev\results\wiki_sentences.csv
 app_program_resources\app_corpora\app_dev\testing\ebayfr-e05p_0_100.xml
 app_program_resources\app_corpora\app_dev\testing\ebayfr-e17p_0_100.xml
 app_program_resources\app_corpora\app_dev\testing\ebayfr-e17x_0_100.xml
@@ -19,7 +21,7 @@ app_program_resources\app_corpora\app_train\sms_29508_59014.xml
 app_program_resources\app_corpora\app_train\wikiconflits_53_106.xml
 app_program_resources\default_files\databases\default_database.csv
 app_program_resources\default_files\databases\default_database_recovery.csv
-app_program_resources\default_files\databases\dev_data.csv
+app_program_resources\default_files\databases\dev_database.csv
 app_program_resources\default_files\discourse_reference\lit_french.json
 app_program_resources\default_files\discourse_reference\oral_french.json
 app_program_resources\default_files\mueller_registers\ebay_tag_results.csv

@@ -905,10 +905,10 @@ def document_classification(probabilities):
             oral_prob_total *= word_feat_prob[word][1]
 
         if lit_prob_total > oral_prob_total:
-            print(f" The text '{sent_excerpt}...'is LIT.")
+            print(f" The text '{sent_excerpt}...'is LIT. {lit_prob_total}")
             return "LIT"
         elif oral_prob_total > lit_prob_total:
-            print(f" The text '{sent_excerpt}...' is ORAL.")
+            print(f" The text '{sent_excerpt}...' is ORAL.  {oral_prob_total}")
             return "ORAL"
         else:
             return "UNK"
@@ -930,6 +930,7 @@ def document_classification(probabilities):
             content = content_analysis(text)
             tagger_results = spacy_tagger(content)
             save_file = file_finder()
+            sentence_count, token_count, lit_count, oral_count = 0, 0, 0, 0
 
             for corpus_sentence_id in tagger_results:
                 sub_sentences = tagger_results[corpus_sentence_id]
@@ -939,6 +940,22 @@ def document_classification(probabilities):
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
                 save_results(bayes,sentence_info,corpus_sentence_id,sub_sentences,save_file)
 
+                sentence_count += 1
+                token_count += len(sentence.split())
+                if bayes == "LIT":
+                    lit_count+=1
+                if bayes == "ORAL":
+                    oral_count +=1
+
+            res = {
+                "Sentence count":sentence_count,
+                "Token count": token_count,
+                "LIT count":lit_count,
+                "ORAL count": oral_count
+                }
+
+            for i in res:
+                print(i,res[i])
         elif user == "3":
             input("Please press enter to return to the main menu...")
             break
@@ -1075,8 +1092,9 @@ if __name__ == "__main__":
     #########################
     # Program Execution
     #########################
+
     """
-    The main program will only run if all of the necessary files are available and 
+    The main program will only run if all of the necessary files are available and
     if all of the main libraries have been installed. This can be overridden by the user, 
     but it is not advised as it can lead to the program becoming unstable.  
     """
