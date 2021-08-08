@@ -3,7 +3,6 @@
 This folder contains all the original unedited data in a compressed format. 
 
 #  Ebay
-
 Gerstenberg, A., & Hewett, F. (2019). A collection of online auction listings from 2005 to 2018 (anonymised) [Data set]. La-bank: Resources for Research and Teaching.
 https://www.uni-potsdam.de/langage/la-bank/ebay.php
 

@@ -29,8 +29,8 @@ except ImportError as error:
 # Database Files
 #########################
 
-lit_french_file = "app_program_resources/default_files/lit_french.json"
-oral_french_file = "app_program_resources/default_files/oral_french.json"
+lit_french_file = "app_program_resources/default_files/discourse_reference/lit_french.json"
+oral_french_file = "app_program_resources/default_files/discourse_reference/oral_french.json"
 error_log = 'teki_error.log'
 
 #########################
@@ -544,7 +544,7 @@ class DiscourseAnalysis:
             # Regex Expressions
             adverbs = re.compile(r"(?<!^)ment")
             future_simple = re.compile(r"(?<!^)rai")
-            hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
+            hyphenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
             ne_negation = re.compile(r"n'|ne")
             particle_negation = re.compile(r"pas|jamais|aucun|rien")
 
@@ -569,12 +569,12 @@ class DiscourseAnalysis:
             francais_vulgaire = len([word for word in sentence if word in oral_file["FV"]])
 
             # Lexical information
-            hypenated_words_count = hypenated_words.findall(sentence)
+            hyphenated_words_count = hyphenated_words.findall(sentence)
 
             # French Syntactical information
             proper_negation = ne_negation.findall(sentence) and particle_negation.findall(sentence)
-            ne = len(ne_negation.findall(sentence))
-            particle = len(particle_negation.findall(sentence))
+            ne_negation = len(ne_negation.findall(sentence))
+            particle_negation = len(particle_negation.findall(sentence))
 
             #########################
             # LIT CLASSIFICATION II
@@ -617,7 +617,7 @@ class DiscourseAnalysis:
                 total_score["LIT"]["IL"] = 1
 
             # High use of hyphenated words
-            if hypenated_words_count:
+            if hyphenated_words_count:
                 total_score["LIT"]["HYPHENATED"] = 1
 
             # Negation with ne .... (pas,jamais..etc)
@@ -665,8 +665,8 @@ class DiscourseAnalysis:
                 total_score["ORAL"]["FRANCAIS_VULGAIRE"] = 0
 
             # Improper Negation
-            if ne == False and particle == True:
-                total_score["ORAL"]["IMPROPER_NEGATION"] = ne
+            if ne_negation == False and particle_negation == True:
+                total_score["ORAL"]["IMPROPER_NEGATION"] = ne_negation
 
             return total_score
 
@@ -742,8 +742,8 @@ def restore_default_database ():
         if user == "0":  # Yes
             input("The database will now be restored. Please press enter to continue...")
             print("Please wait while the database is being restored....")
-            destination = "app_core_resources/default_files/default_training.csv"
-            source = "app_core_resources/default_files/default_recovery.csv"
+            destination = "app_core_resources/default_files/default_database.csv"
+            source = "app_core_resources/default_files/default_database_recovery.csv"
             copyfile(source, destination)
             input("The database has been restored.Please press enter to return the main menu...")
         elif user == "1":  # No

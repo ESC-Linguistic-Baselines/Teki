@@ -524,12 +524,13 @@ def spacy_tagger(corpus_content):
         for number, sentence in enumerate(corpus_sentence):
             doc = nlp(sentence)  # Spacy doc object
             for token in doc:
+                # token, part-of-speech, dependencies, sentence id, morphology
                 processed_sentence.append(
-                                    (token.text, # token
-                                     token.pos_, # part-of-speech
-                                     token.dep_, # dependencies
-                                     f"SEN:{number}", # sentence id
-                                     str(token.morph)) # morphology
+                                    (token.text,
+                                     token.pos_,
+                                     token.dep_,
+                                     f"SEN:{number}",
+                                     str(token.morph))
                                     )
             #  Unique sentence identifier
             processed_sentence_key = f"{sen_id}-{number}"
@@ -634,6 +635,7 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
 
             user = input("\nWould you like to have the features assigned automatically or manually? ")
             if user == "1":  # Automatic Assignment
+                print("Please wait while the features are being assigned....")
                 lit_count, oral_count, sentence_count, token_count = 0, 0, 0, 0
                 lit_score, oral_score = {}, {}
 
@@ -660,10 +662,10 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                             lit_score[element] = lit_score.get(element, 0) + classification[element]
 
                     if feat == "ORAL":
-                        lit_count += 1
+                        oral_count += 1
                         classification = sentence_feature_info[1]
                         for element in classification:
-                            lit_score[element] = lit_score.get(element, 0) + classification[element]
+                            oral_score[element] = oral_score.get(element, 0) + classification[element]
 
                 # Sentence property results
                 count_results = {"Sentences": sentence_count,
@@ -922,7 +924,7 @@ def document_classification(probabilities):
             calculate(sentence)
             input("Please press enter to return to the main menu...")
 
-        elif user == "2": # Collection of sentences from a document
+        elif user == "2":  # Collection of sentences from a document
             collective_res = dict()
             text = get_text(file_finder())
             content = content_analysis(text)
@@ -1081,8 +1083,8 @@ if __name__ == "__main__":
 
     system_evaluation = False
     missing_files_libares = bool(core_file_missing) + bool(library_error)
-    default_doc = r"app_program_resources/default_files/mueller_oral.txt"
-    default_train = r"app_program_resources/default_files/default_training.csv"
+    default_doc = r"app_program_resources/default_files/muller_corpora/mueller_oral.txt"
+    default_train = r"app_program_resources/default_files/databases/default_database.csv"
     defaults = os.path.exists(default_doc), os.path.exists(default_train)
     default_files = {"Default doc exists: ": os.path.exists(default_doc),
                      "Default train exist: ": os.path.exists(default_train)}
