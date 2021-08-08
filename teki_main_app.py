@@ -905,10 +905,10 @@ def document_classification(probabilities):
             oral_prob_total *= word_feat_prob[word][1]
 
         if lit_prob_total > oral_prob_total:
-            print(f" The text '{sent_excerpt}...'is LIT. {lit_prob_total}")
+            print(f" The text '{sent_excerpt}...'is LIT.")
             return "LIT"
         elif oral_prob_total > lit_prob_total:
-            print(f" The text '{sent_excerpt}...' is ORAL.  {oral_prob_total}")
+            print(f" The text '{sent_excerpt}...' is ORAL.")
             return "ORAL"
         else:
             return "UNK"
