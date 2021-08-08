@@ -180,7 +180,7 @@ class DiscourseAnalysis:
 
             :return dep
                 :rtype str
-                syntatical dependencies in the sentence.
+                syntactical dependencies in the sentence.
 
             :return morph
                 :rtype list
