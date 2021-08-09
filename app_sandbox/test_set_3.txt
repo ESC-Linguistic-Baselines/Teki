@@ -1,5 +1,5 @@
 Vous dites quoi ? true
-Faut partir parce qu’ il pleut true
-Je  n’ sais pas true
-Il faut partir , car il pleut false
-Elle m' a dit que j' étais une imbécile false
+Faut partir parce qu’ il pleut . true
+Je  n’ sais pas  . true
+Il faut partir , car il pleut . false
+Elle m' a dit que j' étais une imbécile . false

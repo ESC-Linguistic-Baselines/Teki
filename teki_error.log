@@ -180,3 +180,20 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 520, in spacy_tagger
     for sen_id in corpus_content:
 TypeError: 'bool' object is not iterable
+
+ERROR_TIME: 2021-08-09 14:32:56,557
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1132
+ERROR_SCOPE  'if __name__ == __main__': is due to ''bool' object is not iterable)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1112, in <module>
+    run_program(default_doc, default_train, system_evaluation)
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1074, in run_program
+    document_classification(probs)
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 931, in document_classification
+    tagger_results = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 520, in spacy_tagger
+    for sen_id in corpus_content:
+TypeError: 'bool' object is not iterable

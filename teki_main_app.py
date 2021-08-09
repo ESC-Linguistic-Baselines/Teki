@@ -925,11 +925,17 @@ def document_classification(probabilities):
             input("Please press enter to return to the main menu...")
 
         elif user == "2":  # Collection of sentences from a document
+
             collective_res = dict()
             text = get_text(file_finder())
             content = content_analysis(text)
-            tagger_results = spacy_tagger(content)
-            save_file = file_finder()
+
+            if content:
+                tagger_results = spacy_tagger(content)
+                save_file = file_finder()
+            else:
+                # the user wants to return to the main menu
+                break
             sentence_count, token_count, lit_count, oral_count = 0, 0, 0, 0
 
             for corpus_sentence_id in tagger_results:
@@ -1063,15 +1069,17 @@ def run_program(default_doc, default_train, system_evaluation):
                                 collective_results_tagged = spacy_tagger(content)
                                 sentence_identification(collective_results_tagged,
                                                         database, system_evaluation)
-
                         except Exception as error:
                             print(f"An unknown error occurred. {main_message}")
                             logging.exception(f"Main Menu: {error}")
 
                     elif function_name == "document_classification":
-                        freq = get_feat_count(database)
-                        probs = get_probs(freq)
-                        document_classification(probs)
+                        try:
+                            freq = get_feat_count(database)
+                            probs = get_probs(freq)
+                            document_classification(probs)
+                        except:
+                            pass
 
                     elif function_name == "clear_log":
                         clear_log('teki_error.log')

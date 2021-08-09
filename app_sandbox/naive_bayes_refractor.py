@@ -101,7 +101,7 @@ def classify(text,probs,prior_prob):
     ans=1
 
     system_results = {"TP": 0, "FP": 0, "FN": 0}
-
+    print(true,false)
     if true > false:
 
         print(f" is true with {true}")

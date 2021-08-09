@@ -15,8 +15,8 @@ app_program_resources\app_corpora\app_test\results\ebayfr-e05p_201_.txt
 app_program_resources\app_corpora\app_test\results\ebayfr-e17p_201_300.txt
 app_program_resources\app_corpora\app_test\results\ebayfr-e17x_201_300.txt
 app_program_resources\app_corpora\app_test\results\ebayfr-e18v_201_300.txt
-app_program_resources\app_corpora\app_test\results\Nouveau document texte.txt
 app_program_resources\app_corpora\app_test\results\sms_59015_88522.txt
+app_program_resources\app_corpora\app_test\results\wikiconflits_79_159.txt
 app_program_resources\app_corpora\app_test\testing\ebayfr-e05p_201_300.xml
 app_program_resources\app_corpora\app_test\testing\ebayfr-e17p_201_300.xml
 app_program_resources\app_corpora\app_test\testing\ebayfr-e17x_201_300.xml
