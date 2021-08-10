@@ -197,3 +197,20 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 520, in spacy_tagger
     for sen_id in corpus_content:
 TypeError: 'bool' object is not iterable
+
+ERROR_TIME: 2021-08-10 20:15:57,864
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1140
+ERROR_SCOPE  'if __name__ == __main__': is due to '[Errno 2] No such file or directory: 'app_core_resources/default_files/default_database_recovery.csv')'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1120, in <module>
+    run_program(default_doc, default_train, system_evaluation)
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1088, in run_program
+    function_values[function_number]()
+  File "C:\Users\chris\Desktop\Teki\app_program_resources\app_auxiliary_functions.py", line 747, in restore_default_database
+    copyfile(source, destination)
+  File "C:\Users\chris\AppData\Local\Programs\Python\Python39\lib\shutil.py", line 264, in copyfile
+    with open(src, 'rb') as fsrc, open(dst, 'wb') as fdst:
+FileNotFoundError: [Errno 2] No such file or directory: 'app_core_resources/default_files/default_database_recovery.csv'
