@@ -1,0 +1,1 @@
+You should place the databases that you have trained or created in this directory.

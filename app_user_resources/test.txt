@@ -1,2 +1,0 @@
-"Il faut partir , car il pleut .",SEN:0,muller_lit_0-0,LIT
-Elle m ' a dit que j ' étais une imbécile false .,SEN:0,muller_lit_1-0,LIT

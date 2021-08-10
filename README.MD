@@ -1,7 +1,7 @@
 # Téki: A Naïve Bayesian French Discourse Analyzer
 
 ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
-![Project Size](https://img.shields.io/badge/Project_Size-25mb-yellow)
+![Project Size](https://img.shields.io/badge/Project_Size-50mb-yellow)
 ![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 
