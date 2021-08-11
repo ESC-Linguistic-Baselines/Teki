@@ -59,18 +59,22 @@ app_program_resources\default_files\mueller_registers\FRE.txt
 app_program_resources\default_files\mueller_registers\FV.txt
 app_program_resources\default_files\muller_corpora\mueller_lit.txt
 app_program_resources\default_files\muller_corpora\mueller_oral.txt
-app_program_resources\metric_data\classification (lit)\gold.csv
-app_program_resources\metric_data\classification (lit)\system.csv
-app_program_resources\metric_data\classification (oral)\gold.csv
-app_program_resources\metric_data\classification (oral)\system.csv
+app_program_resources\metric_data\naive_bayes\classification (lit)\gold.csv
+app_program_resources\metric_data\naive_bayes\classification (lit)\system.csv
+app_program_resources\metric_data\naive_bayes\classification (oral)\gold.csv
+app_program_resources\metric_data\naive_bayes\classification (oral)\system.csv
 app_program_resources\metric_data\naive_bayes\evaluation\evaluation_gold.csv
 app_program_resources\metric_data\naive_bayes\evaluation\evaluation_system.csv
+app_program_resources\metric_data\naive_bayes\validation_data\validation_data.csv
 app_program_resources\metric_data\sentence_tokenizer\sentence_ebay_system.txt
 app_program_resources\metric_data\sentence_tokenizer\sentence_sms_gold.txt
 app_program_resources\metric_data\sentence_tokenizer\sentence_sms_system.txt
 app_program_resources\metric_data\sentence_tokenizer\sentence_wiki_gold.txt
 app_program_resources\metric_data\sentence_tokenizer\sentence_wiki_system.txt
 app_program_resources\metric_data\sentence_tokenizer\system_ebay_gold.txt
+app_program_resources\metric_data\spacy_data\ebay_system_gold.csv
+app_program_resources\metric_data\spacy_data\ebay_system_results.csv
+app_program_resources\metric_data\spacy_data\eval.txt
 app_program_resources\metric_data\spacy_data\sms_system_gold.csv
 app_program_resources\metric_data\spacy_data\sms_system_results.csv
 app_program_resources\metric_data\spacy_data\wiki_system_gold.csv

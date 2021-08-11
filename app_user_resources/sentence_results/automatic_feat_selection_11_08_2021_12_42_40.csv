@@ -12,7 +12,7 @@ C' est quand la feria de Nimes ?,SEN:1,cmr-88milsms-a3-1,ORAL
 J' suis pas bien sure de la faire mais pourquoi pas !,SEN:2,cmr-88milsms-a3-2,LIT
 "Sinon oui , j' profite de ma derniere semaine de vacance !",SEN:3,cmr-88milsms-a3-3,LIT
 Bon courage !,SEN:4,cmr-88milsms-a3-4,ORAL
-Bisoux,SEN:5,cmr-88milsms-a3-5,ORAL
+Bisoux,SEN:5,cmr-88milsms-a3-5,LIT
 Coucou :) Oui ca c' est bien passe !,SEN:0,cmr-88milsms-a4-0,ORAL
 Alors je sais pas du tout pour jeudi soir ...,SEN:1,cmr-88milsms-a4-1,ORAL
 Non pas que je veuille pas mais je suis pas sure d' etre sur Montpel .,SEN:2,cmr-88milsms-a4-2,LIT
@@ -20,29 +20,29 @@ J' y serai de sur qu' a partir de lundi prochain car je commence les cours ...,S
 On peut se rejoindre quelque part ?,SEN:0,cmr-88milsms-a5-0,ORAL
 Tu as cours ou ?,SEN:1,cmr-88milsms-a5-1,ORAL
 Encore moi ...,SEN:0,cmr-88milsms-a6-0,ORAL
-"J' te harcele , oui oui et j' assume :) Juste j' te tiens au courant .",SEN:1,cmr-88milsms-a6-1,ORAL
+"J' te harcele , oui oui et j' assume :) Juste j' te tiens au courant .",SEN:1,cmr-88milsms-a6-1,LIT
 On sera 4 .,SEN:2,cmr-88milsms-a6-2,ORAL
-"Toi , [ _ forename _ ] , [ _ forename _ ] et moi a participer .",SEN:3,cmr-88milsms-a6-3,ORAL
+"Toi , [ _ forename _ ] , [ _ forename _ ] et moi a participer .",SEN:3,cmr-88milsms-a6-3,LIT
 On t' avance ?,SEN:4,cmr-88milsms-a6-4,ORAL
 "Dis , pour le premier midi on s' fait a manger de nous comme on avait fait y' a deux ans ?",SEN:0,cmr-88milsms-a7-0,LIT
 Ou vous allez acheter des trucs pour le samedi midi ?,SEN:1,cmr-88milsms-a7-1,LIT
-Biisoux,SEN:2,cmr-88milsms-a7-2,ORAL
+Biisoux,SEN:2,cmr-88milsms-a7-2,U
 Hey hey !,SEN:0,cmr-88milsms-a8-0,ORAL
-J' te souhaite un tres joyeux n' anniversaire !,SEN:1,cmr-88milsms-a8-1,ORAL
+J' te souhaite un tres joyeux n' anniversaire !,SEN:1,cmr-88milsms-a8-1,LIT
 Profite bien de ta journee !,SEN:2,cmr-88milsms-a8-2,ORAL
 Le [ _ nickname _ ] te souhaite aussi un tres joyeux anniv ' !,SEN:3,cmr-88milsms-a8-3,LIT
-Bisoux,SEN:4,cmr-88milsms-a8-4,ORAL
+Bisoux,SEN:4,cmr-88milsms-a8-4,LIT
 Je suis desolee ...,SEN:0,cmr-88milsms-a9-0,ORAL
-J' avais pas vu l' heure et pas de portable sur moi ...,SEN:1,cmr-88milsms-a9-1,ORAL
+J' avais pas vu l' heure et pas de portable sur moi ...,SEN:1,cmr-88milsms-a9-1,LIT
 Encore desolee ...,SEN:2,cmr-88milsms-a9-2,ORAL
-Bisoux,SEN:3,cmr-88milsms-a9-3,ORAL
+Bisoux,SEN:3,cmr-88milsms-a9-3,LIT
 Ah d' accord .,SEN:0,cmr-88milsms-a10-0,ORAL
 Ca me fait vraiment plaisir .,SEN:1,cmr-88milsms-a10-1,ORAL
 Merci d' avoir pense a moi !,SEN:2,cmr-88milsms-a10-2,ORAL
 Je vous fait des Bisous a vous tous !,SEN:3,cmr-88milsms-a10-3,ORAL
 Histoire d' etre sure certaine !,SEN:0,cmr-88milsms-a11-0,ORAL
 Demain je commence a 7h30 c' est ca ?,SEN:1,cmr-88milsms-a11-1,ORAL
-Bisoux,SEN:2,cmr-88milsms-a11-2,ORAL
+Bisoux,SEN:2,cmr-88milsms-a11-2,LIT
 Ca y est le truc d' sms commence mdr mon [ _ nickname _ ],SEN:0,cmr-88milsms-a12-0,LIT
 Coucou !,SEN:0,cmr-88milsms-a13-0,ORAL
 T' es pas la alors ce weekend ?,SEN:1,cmr-88milsms-a13-1,ORAL
@@ -63,28 +63,28 @@ Oh trop mignon mon bbé<3 jsuis au travaiiiil la,SEN:0,cmr-88milsms-a17-0,LIT
 Penseea moi aujourdhhui !,SEN:0,cmr-88milsms-a18-0,ORAL
 Lec mec qui saime pas trop,SEN:1,cmr-88milsms-a18-1,ORAL
 Bon alors jvais etre serieuse un ptit moment ..,SEN:0,cmr-88milsms-a19-0,LIT
-"On se connais pas depuis longtemps cest le moins quon puisse dire mais je taime déjà beaucoup et ca me touche enormement que tu me confit des choses comme ca , donc a lavenir jveux que tu sache que petetre que je ne suis pas la personne ideal pour ca , surment quil ya des gens beaucoup mieu placer que moi pour te comprendre et ben je peux essaye et pyis meme si je ny arriverai surment pas toujours ..",SEN:1,cmr-88milsms-a19-1,ORAL
-"Bah quand on est triste et qu' on se sent seule , c' est bon de savoir quune personne est la pour toi , juste pour toi <3 .",SEN:2,cmr-88milsms-a19-2,ORAL
-Bonne nuit dors bien choux je taime ( oui parce que en plus detre tactile je suis super affective avec les gens * quelle,SEN:3,cmr-88milsms-a19-3,ORAL
+"On se connais pas depuis longtemps cest le moins quon puisse dire mais je taime déjà beaucoup et ca me touche enormement que tu me confit des choses comme ca , donc a lavenir jveux que tu sache que petetre que je ne suis pas la personne ideal pour ca , surment quil ya des gens beaucoup mieu placer que moi pour te comprendre et ben je peux essaye et pyis meme si je ny arriverai surment pas toujours ..",SEN:1,cmr-88milsms-a19-1,LIT
+"Bah quand on est triste et qu' on se sent seule , c' est bon de savoir quune personne est la pour toi , juste pour toi <3 .",SEN:2,cmr-88milsms-a19-2,LIT
+Bonne nuit dors bien choux je taime ( oui parce que en plus detre tactile je suis super affective avec les gens * quelle,SEN:3,cmr-88milsms-a19-3,LIT
 plait cette [ _ forename _ ] ;) *,SEN:4,cmr-88milsms-a19-4,ORAL
 ),SEN:5,cmr-88milsms-a19-5,ORAL
 Héhé on va gagner lipad,SEN:0,cmr-88milsms-a20-0,ORAL
 Mon cher et tendre filleul ...,SEN:0,cmr-88milsms-a21-0,ORAL
-Je m' engage a etre a tes coté tt au long de ta vie ...,SEN:1,cmr-88milsms-a21-1,ORAL
+Je m' engage a etre a tes coté tt au long de ta vie ...,SEN:1,cmr-88milsms-a21-1,LIT
 "A te soutenir ds tes moments difficiles et a partager tes bons moments , je souhaite etre la pr toi qd tu en auras besoin ...",SEN:2,cmr-88milsms-a21-2,LIT
 "Un soutien , un avis , une Amie ...",SEN:3,cmr-88milsms-a21-3,ORAL
-"Tu viens de rentrer ds ma famille et j' en suis fière , notre relation va s' epanouir quel bonheur ! ! !",SEN:4,cmr-88milsms-a21-4,ORAL
+"Tu viens de rentrer ds ma famille et j' en suis fière , notre relation va s' epanouir quel bonheur ! ! !",SEN:4,cmr-88milsms-a21-4,LIT
 <3 <3 <3 [ _ forename _ ] ta marraine ...,SEN:5,cmr-88milsms-a21-5,ORAL
 Se soir tu m' apelle hein chou ?,SEN:0,cmr-88milsms-a22-0,ORAL
 Ohhhhhh non !,SEN:0,cmr-88milsms-a23-0,ORAL
 Héhé j' te texto en mode scred mon bbé<3,SEN:1,cmr-88milsms-a23-1,ORAL
-Vasi lache moi :o Aller plus tard je taime gros zoubia toi ! <3,SEN:0,cmr-88milsms-a24-0,ORAL
+Vasi lache moi :o Aller plus tard je taime gros zoubia toi ! <3,SEN:0,cmr-88milsms-a24-0,LIT
 "Des bisous , des bisous partout !",SEN:0,cmr-88milsms-a25-0,ORAL
-Le plus svt possible je raterais peut etre 2 ou 3cours lol,SEN:0,cmr-88milsms-a26-0,ORAL
-Ben sa va arrivé alors l' année derniere on avait un decalage aussi,SEN:0,cmr-88milsms-a27-0,ORAL
+Le plus svt possible je raterais peut etre 2 ou 3cours lol,SEN:0,cmr-88milsms-a26-0,LIT
+Ben sa va arrivé alors l' année derniere on avait un decalage aussi,SEN:0,cmr-88milsms-a27-0,LIT
 La j' ai fini je regarde le film,SEN:0,cmr-88milsms-a28-0,ORAL
 Coucou !,SEN:0,cmr-88milsms-a29-0,ORAL
-Mon permis c' est bien passé sauf a un rond point ou j' ai un peu foiré : s donc on verra bien .,SEN:1,cmr-88milsms-a29-1,ORAL
+Mon permis c' est bien passé sauf a un rond point ou j' ai un peu foiré : s donc on verra bien .,SEN:1,cmr-88milsms-a29-1,LIT
 Voila !,SEN:2,cmr-88milsms-a29-2,ORAL
 Bisous a toute ta petite famille,SEN:3,cmr-88milsms-a29-3,ORAL
 Je suis vraiment desolée,SEN:0,cmr-88milsms-a30-0,ORAL
@@ -98,8 +98,8 @@ Je suis vraiment fatiguée et j' enchaine les cours non stop jusqu' a [ _ locati
 vous derange ?,SEN:3,cmr-88milsms-a32-3,ORAL
 Si oui j' arrive mais j' en ai pour au moins une demie heure ...,SEN:4,cmr-88milsms-a32-4,LIT
 Je suis vraiment desolee ...,SEN:5,cmr-88milsms-a32-5,ORAL
-[ _ tel _ ] texto [ _ forename _ ] vite vite pour le casting getwild ! ! !,SEN:0,cmr-88milsms-a33-0,ORAL
-Euh tu sais qd [ _ forename _ ] a prévu de revenir ?,SEN:0,cmr-88milsms-a34-0,ORAL
+[ _ tel _ ] texto [ _ forename _ ] vite vite pour le casting getwild ! ! !,SEN:0,cmr-88milsms-a33-0,LIT
+Euh tu sais qd [ _ forename _ ] a prévu de revenir ?,SEN:0,cmr-88milsms-a34-0,LIT
 J' ai pas son numéro ...,SEN:1,cmr-88milsms-a34-1,ORAL
 Non ça s' est bien passé ;-) .,SEN:0,cmr-88milsms-a35-0,ORAL
 Moi je serai là vendredi t' inquiétes .,SEN:1,cmr-88milsms-a35-1,ORAL
@@ -125,7 +125,7 @@ Mais tu viens quand meme hein ?,SEN:1,cmr-88milsms-a46-1,ORAL
 Je suis a la maison !,SEN:0,cmr-88milsms-a47-0,ORAL
 "Je commence qu' a 13h donc je me repose , fin je dois partir a 12h30 il faut que je prenne une douche avant !",SEN:1,cmr-88milsms-a47-1,LIT
 Je ne rentrerais que ce soir je pense ensuite,SEN:2,cmr-88milsms-a47-2,ORAL
-Coucou mon coeur je vais appeler le banquier .,SEN:0,cmr-88milsms-a48-0,ORAL
+Coucou mon coeur je vais appeler le banquier .,SEN:0,cmr-88milsms-a48-0,LIT
 [ _ forename _ ] m' a appelé et mis un cours là où je dois être a la fac ...,SEN:1,cmr-88milsms-a48-1,LIT
 Génial ^^ j' ai appelé pour changer et elle me rappelle pas .,SEN:2,cmr-88milsms-a48-2,LIT
 Marre de [ _ forename _ ] ...,SEN:3,cmr-88milsms-a48-3,ORAL
@@ -141,7 +141,7 @@ De 11h45 a 13h45 ?,SEN:1,cmr-88milsms-a52-1,ORAL
 Bisous ma biche ;),SEN:2,cmr-88milsms-a52-2,ORAL
 Allez debout ! ! !,SEN:0,cmr-88milsms-a53-0,ORAL
 Yen a ki chaume pas,SEN:1,cmr-88milsms-a53-1,ORAL
-Fou :( oui comme tu dis on ne va jamais y arriver mais samedi !,SEN:0,cmr-88milsms-a55-0,ORAL
+Fou :( oui comme tu dis on ne va jamais y arriver mais samedi !,SEN:0,cmr-88milsms-a55-0,LIT
 <3,SEN:1,cmr-88milsms-a55-1,ORAL
 Mardi pause de 1h entre 12 et 13h et mercredi entre 13h15 et 14h15 ça te va ?,SEN:0,cmr-88milsms-a56-0,LIT
 Ok pa de pblm ma belle !,SEN:0,cmr-88milsms-a57-0,ORAL
@@ -161,11 +161,11 @@ Donc je cherche un boulot/ [ _ brand _ ] pr passer le temps remplir les poches !
 "donc il fait un BTS en trois ans je crois bref c' est une bonne nouvelle Parce que la theSe ne mène a rien , et je pense que des tensions venaient de la aussi ...",SEN:4,cmr-88milsms-a63-4,LIT
 Et puis ils devaient faire Manaa ( je crois ça s' appelle comme ça ) mais la directrice a vu ses travaux et le fait rentrer en première année directos .,SEN:5,cmr-88milsms-a63-5,LIT
 "Er toi , comment va ? ?",SEN:6,cmr-88milsms-a63-6,ORAL
-Tu as trouvé une entreprise qui te prend pas en stage mais en vrai alternance ?,SEN:7,cmr-88milsms-a63-7,ORAL
+Tu as trouvé une entreprise qui te prend pas en stage mais en vrai alternance ?,SEN:7,cmr-88milsms-a63-7,LIT
 Quelle genre d' entreprise ?,SEN:8,cmr-88milsms-a63-8,ORAL
 Et ac [ _ forename _ ] vs avez pu vous voir récemment ?,SEN:9,cmr-88milsms-a63-9,LIT
 Punaise de distance ...,SEN:10,cmr-88milsms-a63-10,ORAL
-Bon j' espère qu' on se verra bientôt quand même :-) gros bisous !,SEN:11,cmr-88milsms-a63-11,ORAL
+Bon j' espère qu' on se verra bientôt quand même :-) gros bisous !,SEN:11,cmr-88milsms-a63-11,LIT
 Tu m' appelles pas ?,SEN:0,cmr-88milsms-a64-0,ORAL
 T' as eu mon texto ?,SEN:1,cmr-88milsms-a64-1,ORAL
 Tu finis à quelle heure ?,SEN:2,cmr-88milsms-a64-2,ORAL
@@ -174,16 +174,16 @@ C' est pas grave pour les schoumi - Gateau,SEN:0,cmr-88milsms-a65-0,ORAL
 une autre fois ^^ a toute .,SEN:1,cmr-88milsms-a65-1,ORAL
 J' ai pas envie d' y aller lol .,SEN:2,cmr-88milsms-a65-2,ORAL
 Il fallait rien faire ?,SEN:3,cmr-88milsms-a65-3,ORAL
-Ok keep cool pr l' entreprise et tiens moi au jus quand tu l' as trouvée ^^ et bon séjour toulousain :P bisous ;-),SEN:0,cmr-88milsms-a66-0,ORAL
+Ok keep cool pr l' entreprise et tiens moi au jus quand tu l' as trouvée ^^ et bon séjour toulousain :P bisous ;-),SEN:0,cmr-88milsms-a66-0,LIT
 Punaise .,SEN:0,cmr-88milsms-a67-0,ORAL
 Me souviens plus :-(,SEN:1,cmr-88milsms-a67-1,ORAL
 Nn j' ai cours ka 15h15,SEN:0,cmr-88milsms-a68-0,ORAL
-De rien ^^ c' est vrai que c' était tard hier jetais crevé aussi .,SEN:0,cmr-88milsms-a69-0,ORAL
+De rien ^^ c' est vrai que c' était tard hier jetais crevé aussi .,SEN:0,cmr-88milsms-a69-0,LIT
 Bisous ;-),SEN:1,cmr-88milsms-a69-1,ORAL
 Ca marche !,SEN:0,cmr-88milsms-a70-0,ORAL
-Pour les inscriptions on passe au Secretariat ou on attend ... ?,SEN:0,cmr-88milsms-a71-0,ORAL
+Pour les inscriptions on passe au Secretariat ou on attend ... ?,SEN:0,cmr-88milsms-a71-0,LIT
 Tkt tu ne me deranges pas !,SEN:0,cmr-88milsms-a72-0,ORAL
-"Je sais pas du tout , je suis en robe mais bon j' met jamais de pantalon :/ jean tshirt assez joli ca le fait je pense !",SEN:1,cmr-88milsms-a72-1,ORAL
+"Je sais pas du tout , je suis en robe mais bon j' met jamais de pantalon :/ jean tshirt assez joli ca le fait je pense !",SEN:1,cmr-88milsms-a72-1,LIT
 C : est pas un pyjama hahaha,SEN:2,cmr-88milsms-a72-2,ORAL
 Alala ..,SEN:0,cmr-88milsms-a73-0,ORAL
 Cc ma chérie ça va ?,SEN:0,cmr-88milsms-a74-0,ORAL
@@ -195,7 +195,7 @@ Ya ma trousse de maquillage chez toi ?,SEN:0,cmr-88milsms-a75-0,ORAL
 [ _ forename _ ] non plus !,SEN:1,cmr-88milsms-a76-1,ORAL
 Tanpis !,SEN:2,cmr-88milsms-a76-2,ORAL
 Lol J' irai aux journée du patrimoine !,SEN:3,cmr-88milsms-a76-3,ORAL
-[ _ forename _ ] m' a dit que tu venais cette semaine peut etre !,SEN:4,cmr-88milsms-a76-4,ORAL
+[ _ forename _ ] m' a dit que tu venais cette semaine peut etre !,SEN:4,cmr-88milsms-a76-4,LIT
 Bisous !,SEN:5,cmr-88milsms-a76-5,ORAL
 !,SEN:6,cmr-88milsms-a76-6,ORAL
 <3 savvva alors<3,SEN:0,cmr-88milsms-a77-0,ORAL
@@ -223,7 +223,7 @@ Ha !,SEN:0,cmr-88milsms-a88-0,ORAL
 Dis moi demain si les horaires te conviennent,SEN:0,cmr-88milsms-a89-0,ORAL
 Tkt tu sera juste moins bien accompagné !,SEN:0,cmr-88milsms-a90-0,ORAL
 Tu viens au truc de litterature generale ?,SEN:0,cmr-88milsms-a91-0,ORAL
-Ya [ _ forename _ ] qui vient chez nous vers 14h15 .,SEN:0,cmr-88milsms-a92-0,ORAL
+Ya [ _ forename _ ] qui vient chez nous vers 14h15 .,SEN:0,cmr-88milsms-a92-0,LIT
 "Rentre , on ira a odyseum en voiture",SEN:1,cmr-88milsms-a92-1,ORAL
 Toi aussi ?,SEN:0,cmr-88milsms-a93-0,ORAL
 Par hasard la grande carte monoprix serait pas avec toi ?,SEN:0,cmr-88milsms-a94-0,LIT
@@ -257,7 +257,7 @@ Elles sont extraites de la FAQ en cours d' élaboration sur un site que j' admin
 "Comme j' ai dû aussi intervenir sur la Courbe de Gauss , etc.",SEN:5,cmr-wiki-c001-a2-5,LIT
 "Volontairement , j' ai cherché à rester le plus simple possible et à m' éloigner des chiffres : derrière le QI , il y a des gens .",SEN:6,cmr-wiki-c001-a2-6,LIT
 J' ai ajouté donc ajouté des liens faciles d' accès ( sic ) .,SEN:7,cmr-wiki-c001-a2-7,LIT
---Lauranne 29 nov 2004 à 00:31 ( CET ),SEN:8,cmr-wiki-c001-a2-8,LIT
+--Lauranne 29 nov 2004 à 00:31 ( CET ),SEN:8,cmr-wiki-c001-a2-8,ORAL
 Ci - dessous,SEN:0,cmr-wiki-c001-a3-0,ORAL
 un copier - coller,SEN:1,cmr-wiki-c001-a3-1,ORAL
 d' une partie de la page que je trouve trop chevelu pour être intégré et que je n' arrive pas à peigner .,SEN:2,cmr-wiki-c001-a3-2,LIT

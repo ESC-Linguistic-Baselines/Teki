@@ -9,6 +9,7 @@ import logging
 import os
 import re
 import sys
+import statistics
 from tkinter import filedialog, Tk
 from shutil import copyfile
 
@@ -830,6 +831,7 @@ def evaluation():
                 true_positive += 1
 
             elif sys_feat == feat_2 and gold_feat == feat_2:
+                print(sys_feat,gold_feat)
                 true_negative += 1
 
             elif sys_feat == feat_1 and gold_feat == feat_2:
@@ -839,6 +841,7 @@ def evaluation():
                 false_negative += 1
 
         accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_positive + false_negative)
+        false_postive_rate = false_negative / (true_positive + false_negative)
         error_rate = true_negative / (true_positive + true_negative + false_positive + false_negative)
         precision = true_positive / (true_positive + false_positive)
         recall = true_positive / (true_positive + true_negative)
@@ -846,7 +849,8 @@ def evaluation():
 
         system_metrics = {
             "Accuracy": round(accuracy, 4),
-            "Error rate": round(error_rate, 4),
+            "Error rate":error_rate,
+            "False positive rate": round(false_postive_rate, 4),
             "Precision": round(precision, 4),
             "Recall": round(recall, 4),
             "F-score": round(f_score, 4),
@@ -870,9 +874,9 @@ def evaluation():
         classes = data["feat"].values
         classifier.fit(counts, classes)
 
-        scores = cross_val_score(classifier, counts, classes, cv=10)
-        for score in scores:
-            print(score)
+        scores = cross_val_score(classifier, counts, classes, cv=2)
+
+        print(statistics.mean(scores))
 
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate naive bayes": evaluate_naive_bayes,

@@ -6,7 +6,7 @@ results = pickle.load( open ("debug.pickle","rb"))
 #
 # sentence_identification(results,database,False)
 
-text = open("../app_program_resources/metric_data/spacy_data/wiki_system_results.csv", mode="w", encoding="utf-8")
+text = open("../app_program_resources/metric_data/spacy_data/ebay_system_results.csv", mode="w", encoding="utf-8")
 for sen in results:
     res=results[sen]
     text.write(sen+"\n")

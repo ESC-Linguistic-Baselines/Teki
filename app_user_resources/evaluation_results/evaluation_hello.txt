@@ -1,1 +1,1 @@
-You should save your evaluation in this directory.
+You should save your evaluation documents in this directory.

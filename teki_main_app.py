@@ -588,13 +588,15 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
-    import pickle
-    f = open("app_sandbox/debug.pickle", "wb")
-    pickle.dump(collective_spacy_results, f)
+    # import pickle
+    # f = open("app_sandbox/debug.pickle", "wb")
+    # pickle.dump(collective_spacy_results, f)
 
     # Save directory and ID
-    save_dir = "app_user_resources/evaluation_results"
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
+    save_dir = "app_user_resources/evaluation_results"
+    automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
+    manual_file = f"app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
 
     # Result files
     if system_evaluation:
@@ -627,7 +629,6 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         input("The system evaluation was completed without any errors. Please press enter to return to the main menu...")
 
     else:
-        automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
         while True:
             options = "automatically", "manually"
             for number, choice in enumerate(options,start=1):
@@ -703,7 +704,7 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                 if user == "1": feat = "LIT"
                 elif user == "2": feat = "ORAL"
                 input("Press enter to select the save location of the manual files....")
-                manual_file = file_finder()
+
 
                 for corpus_sentence_id in collective_spacy_results:
                     sub_sentences = collective_spacy_results[corpus_sentence_id]
