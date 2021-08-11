@@ -730,27 +730,38 @@ def clear_log(error_log):
 
 def restore_default_database ():
     """
-    This restores the default database
+    This restores the default database by overwriting the database built up by the user
+    with that of the system default.
     """
+    destination = "app_program_resources/default_files/databases/default_database.csv"
+    source = "app_program_resources/default_files/databases/default_database_recovery.csv"
     options = "yes", "no"
 
-    while True:
-        for number, choice in enumerate(options):
-            print(number, choice)
-        print("")
-        user = input("Are you sure that you would like restore the default database?").lower()
-        if user == "0":  # Yes
-            input("The database will now be restored. Please press enter to continue...")
-            print("Please wait while the database is being restored....")
-            destination = "app_core_resources/default_files/default_database.csv"
-            source = "app_core_resources/default_files/default_database_recovery.csv"
-            copyfile(source, destination)
-            input("The database has been restored.Please press enter to return the main menu...")
-        elif user == "1":  # No
-                input("The database will not be restored.Please press enter to return the main menu...")
-        else:  # Incorrect or invalid answer
-            print(f"'{user}' is not a valid response. Please enter a valid response.\n")
+    des=os.path.exists(destination)
+    src =  os.path.exists(source)
 
+    if des == src == True:
+        while True:
+            for number, choice in enumerate(options):
+                print(number, choice)
+            print("")
+            user = input("Are you sure that you would like restore the default database?").lower()
+            if user == "0":  # Yes
+                input("The database will now be restored. Please press enter to continue...")
+                print("Please wait while the database is being restored....")
+                copyfile(source, destination)
+                input("The database has been restored.Please press enter to return the main menu...")
+                break
+            elif user == "1":  # No
+                    input("The database will not be restored.Please press enter to return the main menu...")
+                    break
+            else:  # Incorrect or invalid answer
+                print(f"'{user}' is not a valid response. Please enter a valid response.\n")
+    else:
+        print("The files needed for recovery have been removed or renamed.")
+        print("Please check the directory 'app_program_resources/default_files/databases/'")
+        print("The files should be located in this redirectory and named 'default_database.csv' and 'default_database_recovery.csv'")
+        input("Please press enter to return to the main  menu.")
 
 def end_program():
     """

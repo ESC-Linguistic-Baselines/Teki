@@ -512,7 +512,7 @@ def spacy_tagger(corpus_content):
             The tagged and tokenized sentence_results of the corpus content from the content analysis.
     """
     print("The individual sentences are now being processed.")
-    print("The duration will depend on your system resources and the number of sentences being tagged.")
+    print("The duration will depend on your system resources and the number of sentences being processed.")
     print("Please wait...\n")
 
     nlp = spacy.load("fr_core_news_sm")
@@ -588,9 +588,9 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         :rtype None
             This function has no return, but saves the result to the specified database.
     """
-    # import pickle
-    # f=open("debug.pickle","wb")
-    # pickle.dump(collective_spacy_results,f)
+    import pickle
+    f = open("app_sandbox/debug.pickle", "wb")
+    pickle.dump(collective_spacy_results, f)
 
     # Save directory and ID
     save_dir = "app_user_resources/evaluation_results"

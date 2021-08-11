@@ -1,0 +1,29 @@
+cmr-88milsms-a423-0
+TOK - 100%
+POS - 100%
+DEP - 100%
+MORPH  - 75%
+
+cmr-88milsms-a424-0
+TOK - 100%
+POS - 100%
+DEP - 100%
+MORPH - 100%
+
+cmr-88milsms-a424-1
+TOK - 100%
+POS - 100%
+DEP - 100%
+MORPH  - 76%
+
+cmr-88milsms-a424-2
+TOK - 100%
+POS - 81%
+DEP - 100%
+MORPH  - 76%
+
+cmr-88milsms-a424-3
+TOK - 100%
+POS - 100%
+DEP - 100%
+MORPH  - 100%
