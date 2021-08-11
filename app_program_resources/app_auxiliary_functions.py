@@ -831,7 +831,6 @@ def evaluation():
                 true_positive += 1
 
             elif sys_feat == feat_2 and gold_feat == feat_2:
-                print(sys_feat,gold_feat)
                 true_negative += 1
 
             elif sys_feat == feat_1 and gold_feat == feat_2:
