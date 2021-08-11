@@ -28,3 +28,27 @@ Traceback (most recent call last):
   File "C:\Users\chris\Desktop\Teki\app_program_resources\app_auxiliary_functions.py", line 802, in evaluate_naive_bayes
     system = open(system_file, mode="r", encoding="utf-8")
 FileNotFoundError: [Errno 2] No such file or directory: ''
+
+ERROR_TIME: 2021-08-11 20:26:48,826
+FILE_NAME: app_auxiliary_functions.py
+MODULE: app_auxiliary_functions
+                        
+LINE_NO: 1038
+ERROR_SCOPE invalid literal for int() with base 10: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Teki\app_program_resources\app_auxiliary_functions.py", line 1036, in sub_menu
+    choice_num = int(choice_str)
+ValueError: invalid literal for int() with base 10: ''
+
+ERROR_TIME: 2021-08-11 21:22:59,732
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1141
+ERROR_SCOPE  'if __name__ == __main__': is due to 'EOF when reading a line)'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1121, in <module>
+    run_program(default_doc, default_train, system_evaluation)
+  File "C:\Users\chris\Desktop\Teki\teki_main_app.py", line 1035, in run_program
+    choice_str = input('\nPlease enter the number of your entry: ')
+EOFError: EOF when reading a line
