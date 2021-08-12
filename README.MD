@@ -50,7 +50,10 @@ Christopher Chandler
 
 ## Eigenständigkeitserklärung
 ```
-Hiermit versichere ich, dass ich die Arbeit selbständig angefertigt, außer den im Quellen- und Literaturverzeichnis sowie in den Anmerkungen genannten Hilfsmitteln keine weiteren benutzt und alle Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach entnommen sind, unter Angabe der Quellen als Entlehnung kenntlich gemacht habe. 
+Hiermit versichere ich, dass ich die Arbeit selbständig angefertigt, außer den im Quellen- und
+Literaturverzeichnis sowie in den Anmerkungen genannten Hilfsmitteln keine weiteren benutzt und
+alle Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach entnommen sind,
+unter Angabe der Quellen als Entlehnung kenntlich gemacht habe. 
 
 Kamen, 14.12.2021
 Christopher Chandler 
