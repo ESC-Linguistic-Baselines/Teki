@@ -1,12 +1,8 @@
-# Téki: A Naïve Bayesian French Discourse Analyzer
 
-![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
-![Project Size](https://img.shields.io/badge/Project_Size-50mb-yellow)
-![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
-[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+# Academic Formalities
 
+## Student Information
 
-## Academic Formalities
 Information | Description
 ------------- | -------------
 Name | Christopher Michael Chandler
@@ -17,8 +13,30 @@ Titel | From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Li
 Kurs | Schriftliche Hausarbeit für die Bachelorprüfung der Fakultät für Philologie an der Ruhr-Universität Bochum (Gemeinsame Prüfungsordnung für das Bachelor/Master-Studium im Rahmen des 2-Fach-Modells an der RUB vom 03. November 2016)
 ___
 
-### Declaration of Authenticity 
+## Preface
 
+The layout of this program is partly inspired by a computational linguistics project that I did with a partner in the summer semester of 2020 (Chandler & Cultraro, 2020). The function of that program was to recognize emoticons, both old and new, and emojis within a given text. The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used extensively within this program.
+
+There are files pertaining to protoypical sentences and texts that are representative of the conceptual discourse types ,i.e., literacy and orality (Cook, 2012; Goudailler, 2002; Müller 1975). There are three primary data sets that are the focus of the linguistic analysis: eBay petites annonces, or EPA, (Gerstenberg & Hewett, 2019), CMR-wikiconflits, which will be referred as Wikiconflits, (Poudat et al., 2015) and 88milsms (Panckhurst, 2016). 
+
+## References 
+____
+Chandler, C., & Cultraro G. (2020) Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Dokumentation]. 
+
+Cook, J. (2012). Les marques lexicales du français familier dans la traduction polonaise des dialogues romanesques. Traduire, 226, 93–107. https://doi.org/10.4000/traduire.162
+
+Gerstenberg, A., & Hewett, F. (2019). A collection of online auction listings from 2005 to 2018 (anonymised) [Data set]. La-bank: Resources for Research and Teaching. https://www.uni-potsdam.de/langage/la-bank/ebay.php
+
+Goudailler, J.-P. (2002). De l’argot traditionnel au français contemporain des cités. La linguistique, 38(1), 5–24. https://doi.org/10.3917/ling.381.0005
+
+Müller, B. (1975). Das Französische der Gegenwart: Varietäten, Strukturen, Tendenzen. Winter. 
+
+Panckhurst, R., Détrie, C., Lopez, C., Moïse, C., Roche, M., & Verine, B. (2016). 88milSMS. A corpus of authentic text messages in French (nouvelle version du corpus ISLRN : 024-713-187-947-8) (Cmr-88milsms-tei-v1) [Data set]. Banque de Corpus CoMeRe. https://hdl.handle.net/11403/comere/cmr-88milsms/cmr-88milsms-tei-v1
+
+Poudat, C., Grabar, N., Kun, J., & Paloque-Berges, C. (2015). TEI-CMC version of wikipedia discussions associated to the article “Quotient intellectuel” (Cmr-wikiconflits-qi_discu-tei-v1) [Data set]. CoMeRe Corpora Repository. https://hdl.handle.net/11403/comere/cmr-wikiconflits/cmr-wikiconflits-qi_discu-tei-v1
+_____
+
+## Declaration of Authenticity 
 
 ```
 I hereby declare that the work submitted is my own and 
@@ -30,7 +48,7 @@ Kamen, 14.12.2021
 Christopher Chandler 
 ```
 
-### Eigenständigkeitserklärung
+## Eigenständigkeitserklärung
 ```
 Hiermit versichere ich, dass ich die Arbeit selbständig angefertigt, außer den im Quellen- und Literaturverzeichnis sowie in den Anmerkungen genannten Hilfsmitteln keine weiteren benutzt und alle Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach entnommen sind, unter Angabe der Quellen als Entlehnung kenntlich gemacht habe. 
 
@@ -38,8 +56,34 @@ Kamen, 14.12.2021
 Christopher Chandler 
 ```
 
+# Téki: A Naïve Bayesian French Discourse Analyzer
+
+![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
+![Project Size](https://img.shields.io/badge/Project_Size-50mb-yellow)
+![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+
+
+# What is Teki?
+
+The name 'Teki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase t'es qui' - 'Who are you'.
+It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father, you are where?
+It there contrasts with the more formal phrase "Qui es-tu". The spelling of the name is meant to represent this. 
+This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
+
+The name was chose to reflect the process of researching the conceptual and medial representation of the French language. 
+Message and intent are often communicated either through text or speech. However, these two only represent the medium of the language. 
+The difference between the conceptual and medial representation of language is often overlooked when assessing language. 
+The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
+the words actually reflect a stream of consciousness if you will. 
+
+Teki is a [naive bayes classifier](https://web.stanford.edu/~jurafsky/slp3/4.pdf) that is used to tag French chat data according to their literacy and orality. 
+Since there was no training data available for the naive bayes, a scoring system was developped that tagged sentences according to their literacy and orality. Then, using this newly acquiered training data, the naive bayes was trained so that it could decide if a sentence was literal or oral. 
+
+For more information on this topic, please consult the program documentation. 
 
 # License 
+
 ## MIT License
 
 
@@ -63,28 +107,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-_____
-
 ```
-
-
-# What is Teki?
-
-The name 'Teki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase t'es qui' - 'Who are you'.
-It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father, you are where?
-It there contrasts with the more formal phrase "Qui es-tu". The spelling of the name is meant to represent this. 
-This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
-
-The name was chose to reflect the process of researching the conceptual and medial representation of the French language. 
-Message and intent are often communicated either through text or speech. However, these two only represent the medium of the language. 
-The difference between the conceptual and medial representation of language is often overlooked when assessing language. 
-The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
-the words actually reflect a stream of consciousness if you will. 
-
-Teki is a [naive bayes classifier](https://web.stanford.edu/~jurafsky/slp3/4.pdf) that is used to tag French chat data according to their literacy and orality. 
-Since there was no training data available for the naive bayes, a scoring system was developped that tagged sentences according to their literacy and orality. Then, using this newly acquiered training data, the naive bayes was trained so that it could decide if a sentence was literal or oral. 
-
-For more information on this topic, please consult the program documentation. 
 
 # Program Requirements 
 
@@ -481,4 +504,3 @@ The user can therefore access the program information from the menu.
 
 # <a name="menu_item_9"> 9: end program</a>
 You can force exit the program by killing the script, but this could lead to file corruption. Therefore, using this function is the preferred way of exiting program because the results from the other functions are only saved to the respective files once you have properly exited the program. 
-
