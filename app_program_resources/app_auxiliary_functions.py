@@ -840,8 +840,7 @@ def evaluation():
                 false_negative += 1
 
         accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_positive + false_negative)
-        false_postive_rate = false_negative / (true_positive + false_negative)
-        error_rate = true_negative / (true_positive + true_negative + false_positive + false_negative)
+        error_rate = (false_negative + false_positive) / (true_positive + true_negative + false_positive + false_negative)
         precision = true_positive / (true_positive + false_positive)
         recall = true_positive / (true_positive + true_negative)
         f_score = (2 * precision * recall) / (precision + recall)
@@ -849,7 +848,6 @@ def evaluation():
         system_metrics = {
             "Accuracy": round(accuracy, 4),
             "Error rate":error_rate,
-            "False positive rate": round(false_postive_rate, 4),
             "Precision": round(precision, 4),
             "Recall": round(recall, 4),
             "F-score": round(f_score, 4),
