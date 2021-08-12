@@ -1,4 +1,0 @@
-chinese beijing chinese true
-chinese chinese shangai true
-chinese macao true
-tokyo japan chinese false

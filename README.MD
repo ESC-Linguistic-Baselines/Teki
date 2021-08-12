@@ -127,22 +127,25 @@ json
 logging
 os
 re
+shutil
+statistics
 sys
 timeit
 tkinter
-shutil
 ```
 
 In addition to these, the following pip packages must be present in order for the program to run properly:
 
 ```
-bs4>=0.0.1
-beautifulsoup4>=4.9.3
-lxml>=4.6.1
+bs4~=0.0.1
+beautifulsoup4~=4.9.3
+spacy~=3.1.1
+lxml~=4.6.1
 pandas~=1.1.5
+future~=0.18.2
 sklearn~=0.0
 scikit-learn~=0.24.2
-spacy>=2.3.5
+docx2txt~=0.8
 ```
 
 There are three ways to install the *requirements.txt* file:
