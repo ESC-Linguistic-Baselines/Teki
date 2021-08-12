@@ -17,11 +17,8 @@ Titel | From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Li
 Kurs | Schriftliche Hausarbeit für die Bachelorprüfung der Fakultät für Philologie an der Ruhr-Universität Bochum (Gemeinsame Prüfungsordnung für das Bachelor/Master-Studium im Rahmen des 2-Fach-Modells an der RUB vom 03. November 2016)
 ___
 
-### Inspiration and Contribution
-The layout of this program is partly inspired by a computational linguistics project that I did with a partner in the summer semester of 2020. The function of that program was to recognize emoticons, both old and new, and emojis within a given text.
-The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used extensively within this program. 
+### Declaration of Authenticity 
 
-As this program does not appear in any official form, I cannot directly cite it. However, all other things being equal:
 
 ```
 I hereby declare that the work submitted is my own and 
@@ -29,8 +26,18 @@ that all passages and ideas that are not mine have been fully and properly ackno
 I am aware that I will fail the entire course should I include passages and 
 ideas from other sources and present them as if they were my own.
 
-Christopher Chandler 31/08/2021
+Kamen, 14.12.2021
+Christopher Chandler 
 ```
+
+### Eigenständigkeitserklärung
+```
+Hiermit versichere ich, dass ich die Arbeit selbständig angefertigt, außer den im Quellen- und Literaturverzeichnis sowie in den Anmerkungen genannten Hilfsmitteln keine weiteren benutzt und alle Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach entnommen sind, unter Angabe der Quellen als Entlehnung kenntlich gemacht habe. 
+
+Kamen, 14.12.2021
+Christopher Chandler 
+```
+
 
 # License 
 ## MIT License
@@ -474,3 +481,4 @@ The user can therefore access the program information from the menu.
 
 # <a name="menu_item_9"> 9: end program</a>
 You can force exit the program by killing the script, but this could lead to file corruption. Therefore, using this function is the preferred way of exiting program because the results from the other functions are only saved to the respective files once you have properly exited the program. 
+
