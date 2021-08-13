@@ -35,7 +35,6 @@ app_program_resources\app_corpora\app_train\testing\ebayfr-e17x_101_200.xml
 app_program_resources\app_corpora\app_train\testing\ebayfr-e18v_101_200.xml
 app_program_resources\app_corpora\app_train\training\sms_29508_59014.xml
 app_program_resources\app_corpora\app_train\training\wikiconflits_54_106.xml
-app_program_resources\default_files\readme.md
 app_program_resources\default_files\databases\default_database.csv
 app_program_resources\default_files\databases\default_database_recovery.csv
 app_program_resources\default_files\databases\dev_database.csv
