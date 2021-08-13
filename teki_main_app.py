@@ -623,7 +623,6 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
-
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, gold_eval_file)
 
         input("The system evaluation was completed without any errors. Please press enter to return to the main menu...")
@@ -926,6 +925,8 @@ def document_classification(probabilities):
             input("Please press enter to return to the main menu...")
 
         elif user == "2":  # Collection of sentences from a document
+            file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
+            bayes_file = f"app_user_resources/naive_bayes_results/naive_bayes_{file_time_id}.csv"
 
             collective_res = dict()
             text = get_text(file_finder())
@@ -933,7 +934,6 @@ def document_classification(probabilities):
 
             if content:
                 tagger_results = spacy_tagger(content)
-                save_file = file_finder()
             else:
                 # the user wants to return to the main menu
                 break
@@ -945,7 +945,7 @@ def document_classification(probabilities):
                 sentence = sentence_info.sentence_reconstruction()[1]
                 bayes = calculate(sentence.split())
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
-                save_results(bayes,sentence_info,corpus_sentence_id,sub_sentences,save_file)
+                save_results(bayes,sentence_info,corpus_sentence_id,sub_sentences,bayes_file)
 
                 sentence_count += 1
                 token_count += len(sentence.split())
