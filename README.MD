@@ -15,25 +15,27 @@ ___
 
 ## Preface
 
-The layout of this program is partly inspired by a computational linguistics project that I did with a partner in the summer semester of 2020 (Chandler & Cultraro, 2020). The function of that program was to recognize emoticons, both old and new, and emojis within a given text. The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used extensively within this program.
+The layout of this program was partly inspired by a computational linguistics project called " Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen" that I did with a partner in the summer semester of 2020 (Chandler & Cultraro, 2020). The goal of that project and its program was to recognize emoticons, both old and new, and emojis within a given text. The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used within this program.
 
-There are files pertaining to protoypical sentences and texts that are representative of the conceptual discourse types ,i.e., literacy and orality (Cook, 2012; Goudailler, 2002; Müller 1975). There are three primary data sets that are the focus of the linguistic analysis: eBay petites annonces, or EPA, (Gerstenberg & Hewett, 2019), CMR-wikiconflits, which will be referred as Wikiconflits, (Poudat et al., 2015) and 88milsms (Panckhurst, 2016). 
+As this is a lingistic project, there are files pertaining to protoypical sentences and texts that are representative of the conceptual discourse types ,i.e., literacy and orality (Cook, 2012; Goudailler, 2002; Müller, 1975). There are three primary data sets that are the focus of the linguistic analysis: eBay petites annonces, or EPA, (Gerstenberg & Hewett, 2019), CMR-wikiconflits (Poudat, Grabar, et al., 2015), and 88milsms (Panckhurst et al., 2016). 
+
+Please refer to the references for information on how to obtain the specific corpora used within this project. 
 
 ## References 
 ____
-Chandler, C., & Cultraro G. (2020) Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Dokumentation]. 
+Chandler, C., & Cultraro G. (2020) <i> Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Gray literature]</i>. 
 
-Cook, J. (2012). Les marques lexicales du français familier dans la traduction polonaise des dialogues romanesques. Traduire, 226, 93–107. https://doi.org/10.4000/traduire.162
+Cook, J. (2012). Les marques lexicales du français familier dans la traduction polonaise des dialogues romanesques. <i>Traduire, 226</i>, 93–107. https://doi.org/10.4000/traduire.162
 
-Gerstenberg, A., & Hewett, F. (2019). A collection of online auction listings from 2005 to 2018 (anonymised) [Data set]. La-bank: Resources for Research and Teaching. https://www.uni-potsdam.de/langage/la-bank/ebay.php
+Gerstenberg, A., & Hewett, F. (2019). <i>A collection of online auction listings from 2005 to 2018</i> (anonymised) [Data set]. La-bank: Resources for Research and Teaching. https://www.uni-potsdam.de/langage/la-bank/ebay.php
 
-Goudailler, J.-P. (2002). De l’argot traditionnel au français contemporain des cités. La linguistique, 38(1), 5–24. https://doi.org/10.3917/ling.381.0005
+Goudailler, J.-P. (2002). De l’argot traditionnel au français contemporain des cités. <i> La linguistique, 38(1)</i>, 5–24. https://doi.org/10.3917/ling.381.0005
 
-Müller, B. (1975). Das Französische der Gegenwart: Varietäten, Strukturen, Tendenzen. Winter. 
+Müller, B. (1975). <i>Das Französische der Gegenwart: Varietäten, Strukturen, Tendenzen</i>. Winter. 
 
-Panckhurst, R., Détrie, C., Lopez, C., Moïse, C., Roche, M., & Verine, B. (2016). 88milSMS. A corpus of authentic text messages in French (nouvelle version du corpus ISLRN : 024-713-187-947-8) (Cmr-88milsms-tei-v1) [Data set]. Banque de Corpus CoMeRe. https://hdl.handle.net/11403/comere/cmr-88milsms/cmr-88milsms-tei-v1
+Panckhurst, R., Détrie, C., Lopez, C., Moïse, C., Roche, M., & Verine, B. (2016). 88milSMS.<i> A corpus of authentic text messages in French</i> (nouvelle version du corpus ISLRN : 024-713-187-947-8) (Cmr-88milsms-tei-v1) [Data set]. Banque de Corpus CoMeRe. https://hdl.handle.net/11403/comere/cmr-88milsms/cmr-88milsms-tei-v1
 
-Poudat, C., Grabar, N., Kun, J., & Paloque-Berges, C. (2015). TEI-CMC version of wikipedia discussions associated to the article “Quotient intellectuel” (Cmr-wikiconflits-qi_discu-tei-v1) [Data set]. CoMeRe Corpora Repository. https://hdl.handle.net/11403/comere/cmr-wikiconflits/cmr-wikiconflits-qi_discu-tei-v1
+Poudat, C., Grabar, N., Kun, J., & Paloque-Berges, C. (2015). <i>TEI-CMC version of wikipedia discussions associated to the article “Quotient intellectuel” </i> (Cmr-wikiconflits-qi_discu-tei-v1) [Data set]. CoMeRe Corpora Repository. https://hdl.handle.net/11403/comere/cmr-wikiconflits/cmr-wikiconflits-qi_discu-tei-v1
 _____
 
 ## Declaration of Authenticity 
@@ -62,7 +64,7 @@ Christopher Chandler
 # Téki: A Naïve Bayesian French Discourse Analyzer
 
 ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
-![Project Size](https://img.shields.io/badge/Project_Size-50mb-yellow)
+![Project Size](https://img.shields.io/badge/Project_Size-35mb-yellow)
 ![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 
@@ -74,16 +76,16 @@ It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father
 It there contrasts with the more formal phrase "Qui es-tu". The spelling of the name is meant to represent this. 
 This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
 
-The name was chose to reflect the process of researching the conceptual and medial representation of the French language. 
+The name was chosen to reflect the process of researching the conceptual and medial representation of the French language. 
 Message and intent are often communicated either through text or speech. However, these two only represent the medium of the language. 
 The difference between the conceptual and medial representation of language is often overlooked when assessing language. 
 The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
 the words actually reflect a stream of consciousness if you will. 
 
 Teki is a [naive bayes classifier](https://web.stanford.edu/~jurafsky/slp3/4.pdf) that is used to tag French chat data according to their literacy and orality. 
-Since there was no training data available for the naive bayes, a scoring system was developped that tagged sentences according to their literacy and orality. Then, using this newly acquiered training data, the naive bayes was trained so that it could decide if a sentence was literal or oral. 
+Since there was no training data available for the naive bayes, a scoring system was developped that tagged sentences according to their literacy and orality. Then, using this newly acquiered training data, the naive bayes was trained so that it could probabilistically decide if a sentence was representative of literacy or oralality. 
 
-For more information on this topic, please consult the program documentation. 
+For more information on this topic, please consult the program documentation located in the app_program_documentation folder. 
 
 # License 
 
@@ -115,12 +117,12 @@ SOFTWARE.
 # Program Requirements 
 
 ## Python Version
-This program was created and designed with **3.9.6** in mind. Therefore, that is the recommended version for teki. 
-It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed.
-You can download the [latest python version at the official website](https://www.python.org/downloads/). 
+This program was created and designed with **3.9.6** in mind and is therefore the recommended version.
+It is possible to run the program using any version **above 3.6**, but program stability cannot be guaranteed.You can download the [latest python version at the official website](https://www.python.org/downloads/). 
 
 ## Modules and Libraries
 
+### standard
 This program makes use of the following standard libraries:
 
 ```
@@ -137,27 +139,27 @@ timeit
 tkinter
 ```
 
-In addition to these, the following pip packages must be present in order for the program to run properly:
+### Pip 
+In addition to these, the following [pip](https://www.python.org/downloads/) packages must be present in order for the program to run properly:
 
-```
-bs4~=0.0.1
-beautifulsoup4~=4.9.3
-spacy~=3.1.1
-lxml~=4.6.1
-pandas~=1.1.5
-future~=0.18.2
-sklearn~=0.0
-scikit-learn~=0.24.2
-docx2txt~=0.8
-```
+
+* [spacy>=2.3.5](https://pypi.org/project/spacy/)
+* [beautifulsoup4>=4.9.3](https://pypi.org/project/beautifulsoup4/)
+* [bs4>=0.0.1](https://pypi.org/project/beautifulsoup4/)
+* [lxml>=4.6.1](https://pypi.org/project/lxml/)
+* [pandas~=1.1.5](https://pypi.org/project/pandas/)
+* [sklearn~=0.0](https://pypi.org/project/scikit-learn/)
+* [scikit-learn~=0.24.2](https://pypi.org/project/scikit-learn/)
+* [future~=0.18.2](https://pypi.org/project/future/)
+
 
 There are three ways to install the *requirements.txt* file:
 
-1) Install all modules individually via [pip](https://www.python.org/downloads/).
+1) Install all modules individually via the pip installer .
 ```
-pip install module name
+pip install module_name
 ```
-2) install all modules with pip using the requirements.txt without specifying the version number:
+2) Install all modules with pip using the requirements.txt without specifying the version number:
 ```
 pip install -r requirements.txt
 ```
@@ -171,8 +173,8 @@ In addition to those, the following for spacy must also be installed separately:
 python -m spacy download fr_core_news_sm
 ```
 
-If problems arise with installing Spacy or more information is needed, 
-please consult their [website](https://spacy.io/). 
+If problems arise with any of the installation, please 
+consult the respective module repositories 
 # Program
 
 ## File check
