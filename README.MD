@@ -173,17 +173,17 @@ In addition to those, the following for spacy must also be installed separately:
 python -m spacy download fr_core_news_sm
 ```
 
-If problems arise with any of the installation, please 
-consult the respective module repositories 
+If problems arise with any of the installation, please consult the respective module repositories 
+Please also ensure that you have enough disk space so that the extra modules can be installed. 
 # Program
-
+The python file that is to be run is called ***teki_main_app.py***.
 ## File check
 
 When starting the program, a check is performed to ensure that the directory **app_program_resources** and its files are all present. These files should not be changed in any way. If you decide to add databases or corpora to this program, they should be placed in **app_user_resources**.
 ```
 The current time is 06:17:32.
 Please wait while libraries, modules and corpora are being imported...
-This should only take between 3 - 10 seconds depending on your system resources...
+This should take between 5 - 30 seconds depending on your system resources...
 ```
 
 ### Failure to start 
@@ -200,11 +200,11 @@ Would you like to continue with the program?
 ```
 
 The user can continue using the program despite the program not having access to all files.
-However, program stability cannot be guaranteed.  Please consult the error log in this case if program instabiltiy does arise. 
+However, program stability cannot be guaranteed. Please consult **teki_error.log**, which is located in the main directory, in this case if program instabiltiy does arise. 
 
 
-## Program start
-If the modules, files and libraries, have been successfully loaded, you should be greeted with the following: 
+## Program Start
+If the modules, files and libraries have been successfully loaded, the user should be greeted with the following: 
 
 ```
 All libraries were loaded 9 seconds. The program can now start.
@@ -215,7 +215,7 @@ Default Text: 'app_program_resources/default_files/mueller_oral.txt'
 Default Training: 'app_program_resources/default_files/default_training.csv'
  ```
 
-* [1: load .XML or .TXT file](#menu_item_1)
+* [1: load .xml or .txt file](#menu_item_1)
 * [2: load training file](#menu_item_2)
 * [3: analyze contents](#menu_item_3)
 * [4: document classification](#menu_item_4)
@@ -225,8 +225,10 @@ Default Training: 'app_program_resources/default_files/default_training.csv'
 * [8: about program](#menu_item_8)
 * [9: end program](#menu_item_9)
 
-This is a dynamic menu to which you can return. Should an error arise in the program, you will automatically be returned to this menu. 
-
+ ```
+This is a dynamic menu to which the user can return. Should an error arise in the program, 
+the user will automatically be redirected to this menu. 
+ ```
 
 # <a name="menu_item_1"> 1 load .XML or .TXT file</a>
 
@@ -237,19 +239,21 @@ Default Text: 'app_program_resources/default_files/mueller_oral.txt'
 If the user would like to change this, then it is necessary to choose a new file. 
 The program comes with corpora and it is designed to be used with these corpora. 
 Simply click on the .xml file that should be read into the program. 
-These can be found in the **app_program_resources** under **app_corpora**
+The subdirectories containing the .xml files 
+can be found in the **app_program_resources** under **app_corpora**.
 
-### XMl
-The user will be presented with a file prompt to select the desired file. 
- <img src="app_program_resources/readme_images/load_xml_file.png"  width ="650" />
+### .Xml
+The user will be presented with a file prompt to select the desired file:
+ <img src="app_program_resources/readme_images/load_xml_file.png" width ="650" />
 
 
 ### .Txt
-Alternatively, the user can select a desired .txt file that may or may not be contained in the aforementioned directory.
+The user can select a desired .txt file from the **muller_corpora**, which is also located under **app_corpora**.
  <img src="app_program_resources/readme_images/load_txt_file.png" width ="650" />
 
+Alternatively, a user can input any .txt file regardless of its location.
 
-⚠️ **Note**  
+⚠️ **Note** 
 The file must have .txt or .xml ending. 
 Also, it must only contain text and tags (if .xml) or only text (if .txt) 
 
@@ -273,11 +277,11 @@ After having selected a file, the file will be loaded into memory and the user w
 
  <img src="app_program_resources/readme_images/load_database.png" width ="650" />
 
-All database files must be saved in a .csv format and has the following structure:
+All database files must be saved in a .csv format and have the following structure:
 
-| Token  | POS | Dependency | Corpus Id | Sentence Id | Feature |
+| Token | POS | Dependency | Sentence Id | Corpus Id | Feature |
 |----------|------|------------|-----------|-------------|---------|
-| ENSEMBLE | NOUN | ROOT    | e05p-001 | SEN:0    | LIT   |
+| ENSEMBLE | NOUN | ROOT  | SEN:0 | e05p-001| LIT  |
 
 
 After having selected a file, the user will be returned to the main menu.
@@ -287,7 +291,7 @@ After having selected a file, the user will be returned to the main menu.
 After having loaded in the desired files or progressing with the default files, 
 the user is greeted with the following submenu:
 
-Content Analysis         
+Content Analysis     
  How would you like to proceed with the file?
  
 * [1: read file contents](#read_file)
@@ -309,13 +313,13 @@ There are three main corpora available within the program:
 3 Wikiconflict
 ```
 
-The program could theoretically work with any .xml file. The programm has been desigend to work with these three data sets in mind. Working knowledge of python would allow for one to easily alter the .xml parsing process within the programm. To do so, please refer to function xml_analysis.  However, it should be noted that these three corporora provide at least ca. 100,000 sentences and offer a wide arrange of possibilties with respect to linguistic analysis. Therefore, they should suffice for the average user.
+The program could theoretically work with any .xml file. The programm has been desigend to work with these three data sets in mind. Working knowledge of python would allow for one to easily alter the .xml parsing process within the programm. To do so, please refer to function xml_analysis within the python code. However, it should be noted that these three corporora provide at least ca. 100,000 sentences and offer a wide arrange of possibilties with respect to linguistic analysis. Therefore, they should suffice for the average user.
 
-Once a data set is chosen, the user will have option of input a range of tags to be extracted from the corpus 
+Once a data set has been chosen, the user will have option of inputting a range of tags to be extracted from the corpus.
 
 ```
 There are 100 tags. Please enter a selection range from 0 - 100.
-  A range should be specified as follows with a single space between both numbers: start stop.
+ A range should be specified as follows with a single space between both numbers: start stop.
 ```
 
 The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The longer the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that **the max range should be no more than 100**. 
@@ -323,7 +327,7 @@ The speed and efficacy of this process is highly dependent on the system resourc
 **Example Range**
 | start | stop |
 |-------|------|
-| 0     | 10   |
+| 0   | 10  |
 
 It is possible to enter a range that spans the entire corpus, but this is not advised as it could lead to program instability. 
 ___
@@ -372,9 +376,9 @@ ___
 If the user is simply interested in retrieving the sentences retrieved from the corpus, 
 then the user should proceed with this option. The user will be promoted by file dialog to select the file in which the results should be saved. 
 
-If file does not exist, the user can create the file from the dialog window. Once it has been created, the user must click on this file and then press 'open'. This will save the path file name and pass it on to the program. 
+If file does not exist, the user can create the file from  within the dialog window. Once it has been created, the user must click on this file and then press 'open'. This will save the path file name and pass it on to the program. 
 
-The user will then be returned to the main menu, where they can safely exit the program. The results will then be in the file specified by the user. 
+The user will then be returned to the main menu, where the user can safely exit the program. The results will then be in the file specified by the user. 
 ____
 
 ### <a name="return_to_menu">3: Return to menu </a>
@@ -394,8 +398,8 @@ then the user has three options available
 Once a databse has been trained, it possible for a document to be classified by the naive bayes formula: 
 
 ```
-The structure of the database is as follows:
-LIT: 24
+The database contains the following documents:
+LIT: 30
 ORAL: 24
 ```
 * [1: enter a sentence](#enter_sentence)
@@ -404,30 +408,25 @@ ORAL: 24
 
 ### <a name="enter_sentence"> 1: enter a sentence </a>
 If the user wishes to simply analyze just one sentence, then please use this function. 
-The user will then be prompted to enter a **French sentence**. 
+The user will then be prompted to enter a **French sentence**.  It is possible to enter something that is not a French sentence. However, these answers are to be ignored because they simply rely on default values when the program does not know which exact response it should give. 
 
-It is possible to enter something that is not a French sentence. However, these answers are to be ignored because they simply rely on default values when the program does not know which exact response it should give. 
-
- After having successfully entering a sentence, the program will return an answer based on the training data available to it. The more reliable the training data, the more reliable the answer will be. 
+After having successfully entering a sentence, the program will return an answer based on the training data available to it. The more reliable the training data, the more reliable the answer will be. 
 
 The user will be returned to the submenu and will have the option of entering a sentence again. 
 
 ### <a name="enter_document"> 2: enter a document </a>
 This will pull up the <a name="menu_item_3"> analyze contents menu </a> and it follows the same process. 
-The user should consult the chapter if they have not already done so. 
+The user should consult the chapter if the user has not already done so. 
 
 Due to the problem of underflow, a document as a whole cannot be properly anaylzed. That is why the document will only be 
 analyzed on a sentence by sentence level. The program will return the most approrpraite feature per sentence, not necessary per document. 
 
-The only difference here is that the results will be saved within a file as specified by the user.
-The user will be prompted to select a file. If one is not available, then it can be created in the windows prompt. 
-Clicking on the file will allow for the sentences to be saved here. 
-
-After the analysis, the user can chose to exit the program or continue with other sentences. 
+After the analysis, the files will be saved in **naive_bayes_results**.
+the user can chose to exit the program or continue with other sentences/documents. 
 
 ### <a name="classify_main_menu"> 3: return to main menu</a>
 
-This will return the user back to the main menu
+This will return the user back to the main menu.
 ___
 
 # <a name="menu_item_5"> 5: clear error log file</a>
@@ -438,23 +437,24 @@ Errors can occur due to :
 2. reading unsupported files such as .pdf, .doc(x)
 3. altering the app program directory 
 4. altering the programs source code 
+5. Missing libarries or modules 
 
-⚠️ **Note** this function will erase your error report and the data of which cannot be recovered. ⚠️
+⚠️ **Note:** this function will erase your error report and the data of which cannot be recovered. ⚠️
 
 
 # <a name="menu_item_6"> 6: restore default database</a>
 
 The user may build upon the default database as provided with the program. However, 
-if this databsse becomes corrupt, is accidentaly deleted, becomes inbalanced due to improper training,
+if this databsse becomes corrupt or becomes inbalanced due to improper training,
 the user may reset the database using this function.
 
-⚠️ **Note** this function will erase all of your progress and the results of which cannot be recovered. ⚠️
+⚠️ **Note:** this function will erase all of your progress and the results of which cannot be recovered. ⚠️
 
 # <a name="menu_item_7"> 7: evaluation</a>
 
 The user has the option of ascertaining the evaluation metrics of the naive bayes or cross validating the data used to train the naive bayes. 
 
-Which files would you like to evaluate:   
+Which files would you like to evaluate:  
  
 * [1: evaluate naive bayes](#evaluate)
 * [2: cross validation](#validate)
@@ -462,22 +462,21 @@ Which files would you like to evaluate:
 
 ### <a name="evaluate">1: evaluate naive bayes</a>
 
-This evaluator takes into files: a system file and gold file. 
+This evaluator takes in two files: a system file and gold file. 
 
 The system file are the sentences that were produced by the program. 
 This is not the same as the database files created by the system. 
 
 The format of both files should be as follows: 
 
-| Sentence                            | Sentence Number | Corpus ID | Feat |
+| Sentence              | Sentence Number | Corpus ID | Feat |
 |----------------------------------------------------------------|-----------------|------------|------|
-| A noter que le film n' est pas <br> encore sorti en dvd en France ! | SEN:4      | e05p-005-4 | ORAL |
+| A noter que le film n' est pas <br> encore sorti en dvd en France ! | SEN:4   | e05p-005-4 | ORAL |
 
 
-The gold file must be annotated by hand as the program is currently incapable of generating one. 
+**The gold file must be annotated by hand as the program is currently incapable of generating one.***
 
-Once both files are present, the user will be prompted to first select the system file and then gold file. 
-The programm will compare the two files and return the following values: 
+Once both files are present, the user will be prompted to first select the system file and then gold file. The programm will compare the two files and return the following values: 
 
 ```
 Accuracy
@@ -492,14 +491,14 @@ The cross validation works the same way as the evaluate bayes, but it only requi
 using the sentence file generated by the document classification or analyze content, 
 you can validate the data for overfitting. 
 
-Once a file has been seleteced, 
-the user must place 
+Once a file has been seleteced, the user must place 
 
 ```
-text, feature
+sentence,sentence_number,corpus_id,feat
 ```
 
-at the top of this file in order for it to be read properly. Once having done so, the results will be shown below. 
+at the top of this file in order for it to be read properly. 
+Once having done so, the results of the cross validation will be shown within the program. 
 
 
 ### <a name="evaluation_main_menu"> 3: return to main menu</a>

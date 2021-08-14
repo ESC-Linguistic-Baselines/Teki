@@ -98,7 +98,7 @@ if __name__ == "__main__":
     start_time = timeit.default_timer()
     print(f"The current time is {current_time}.")
     print("Please wait while libraries, modules and corpora are being imported...")
-    print("This should only take between 3 - 10 seconds depending on your system resources...\n")
+    print("This should only take between 5 - 30 seconds depending on your system resources...\n")
 
 #########################
 # Pip libraries
@@ -342,10 +342,11 @@ def content_analysis(text):
                 input("The sentence_results will now be processed. Please press enter to continue...")
                 return collective_results
             elif user == "2":
-                input("Please press enter select the file in which the results should be saved:")
-                save_path = file_finder()
-                write_sentences(collective_results, save_path)
-                print(f"\nThe sentences have been saved in {save_path}.")
+                file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
+                unprocessed_sentences_file = f"app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
+
+                write_sentences(collective_results, unprocessed_sentences_file)
+                print(f"\nThe sentences have been saved")
                 input("Press enter to return to the main menu...")
                 return False
             elif user == "3":
@@ -745,7 +746,7 @@ def get_feat_count(file):
             feat = sentence[2]
             feat_count[feat] = feat_count.get(feat, 0) + 1
 
-        print("The structure of the database is as follows:")
+        print("The database contains the following documents:")
         print("LIT:", feat_count.get("LIT", 0))
         print("ORAL:", feat_count.get("ORAL", 0))
         print("")
@@ -996,7 +997,7 @@ def run_program(default_doc, default_train, system_evaluation):
     print(f"All libraries were loaded {execution_time} seconds. The program can now start.\n")
 
     main_menu = {
-        "load .XML or .TXT file": get_text,
+        "load .xml or .txt file": get_text,
         "load training file": get_database,
         "analyze contents": content_analysis,
         "document classification": document_classification,

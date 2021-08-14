@@ -59,12 +59,13 @@ app_program_resources\default_files\french_registers\ebay_tag_results.csv
 app_program_resources\default_files\french_registers\emoticons.csv
 app_program_resources\default_files\muller_corpora\mueller_lit.txt
 app_program_resources\default_files\muller_corpora\mueller_oral.txt
-app_program_resources\metric_data\naive_bayes\classification (lit)\gold.csv
-app_program_resources\metric_data\naive_bayes\classification (lit)\system.csv
-app_program_resources\metric_data\naive_bayes\classification (oral)\gold.csv
-app_program_resources\metric_data\naive_bayes\classification (oral)\system.csv
+app_program_resources\metric_data\classification_system\classification (lit)\gold.csv
+app_program_resources\metric_data\classification_system\classification (lit)\system.csv
+app_program_resources\metric_data\classification_system\classification (oral)\gold.csv
+app_program_resources\metric_data\classification_system\classification (oral)\system.csv
 app_program_resources\metric_data\naive_bayes\evaluation\evaluation_gold.csv
 app_program_resources\metric_data\naive_bayes\evaluation\evaluation_system.csv
+app_program_resources\metric_data\naive_bayes\validation_data\test.csv
 app_program_resources\metric_data\naive_bayes\validation_data\validation_data.csv
 app_program_resources\metric_data\sentence_tokenizer\sentence_ebay_system.txt
 app_program_resources\metric_data\sentence_tokenizer\sentence_sms_gold.txt

@@ -1,1 +1,0 @@
-You should place the texts you want to analyze in this directory.

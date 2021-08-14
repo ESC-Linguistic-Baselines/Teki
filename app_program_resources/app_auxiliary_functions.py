@@ -864,7 +864,7 @@ def evaluation():
         """
         data = pd.read_csv(file_finder())
         vectorizer = CountVectorizer()
-        text = data["text"].values
+        text = data["sentence"].values
         counts = vectorizer.fit_transform(text)
 
         classifier = MultinomialNB()

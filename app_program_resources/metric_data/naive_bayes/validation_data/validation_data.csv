@@ -1,3 +1,4 @@
+sentence,number,id,feat
 Hey ca va ?,SEN:0,cmr-88milsms-a1-0,ORAL
 Alors cette rentree ?,SEN:1,cmr-88milsms-a1-1,ORAL
 Va falloir se trouver un p' tit creneau pour se voir !,SEN:2,cmr-88milsms-a1-2,LIT
@@ -5,8 +6,7 @@ Va falloir se trouver un p' tit creneau pour se voir !,SEN:2,cmr-88milsms-a1-2,L
 que tu sais quand commence les cours de langue non specialiste ?,SEN:4,cmr-88milsms-a1-4,LIT
 Bisoux,SEN:5,cmr-88milsms-a1-5,LIT
 Ok super merci !,SEN:0,cmr-88milsms-a2-0,ORAL
-Oui j' y comprends rien du tout moi a cette fac :p J' irai me renseigner aussi ( si j' trouve le batiment :) ) Merci encore !
-SEN:1,cmr-88milsms-a2-1,LIT
+Oui j' y comprends rien du tout moi a cette fac :p J' irai me renseigner aussi ( si j' trouve le batiment :) ) Merci encore !, SEN:1,cmr-88milsms-a2-1,LIT
 Bonne soiree bisoux !,SEN:2,cmr-88milsms-a2-2,ORAL
 Coucou !,SEN:0,cmr-88milsms-a3-0,ORAL
 C' est quand la feria de Nimes ?,SEN:1,cmr-88milsms-a3-1,ORAL
@@ -27,7 +27,7 @@ On sera 4 .,SEN:2,cmr-88milsms-a6-2,ORAL
 On t' avance ?,SEN:4,cmr-88milsms-a6-4,ORAL
 "Dis , pour le premier midi on s' fait a manger de nous comme on avait fait y' a deux ans ?",SEN:0,cmr-88milsms-a7-0,LIT
 Ou vous allez acheter des trucs pour le samedi midi ?,SEN:1,cmr-88milsms-a7-1,LIT
-Biisoux,SEN:2,cmr-88milsms-a7-2,U
+Biisoux,SEN:2,cmr-88milsms-a7-2,ORAL
 Hey hey !,SEN:0,cmr-88milsms-a8-0,ORAL
 J' te souhaite un tres joyeux n' anniversaire !,SEN:1,cmr-88milsms-a8-1,LIT
 Profite bien de ta journee !,SEN:2,cmr-88milsms-a8-2,ORAL
@@ -449,7 +449,7 @@ Cela n' a rien d' un commentaire personnel à mon avis .,SEN:0,cmr-wiki-c001-a40
 Ce sont les conclusions de Thurstone !,SEN:1,cmr-wiki-c001-a40-1,ORAL
 "Si on devait enlever les commentaires personnelles de ce type , alors il faudrait jeter tout le contenu du Wiki "" QI "" ...",SEN:2,cmr-wiki-c001-a40-2,LIT
 Et garder seulement les éléments qui vous font plaisir .,SEN:3,cmr-wiki-c001-a40-3,LIT
-ci-dessous,SEN:0,cmr-wiki-c001-a41-0,U
+ci-dessous,SEN:0,cmr-wiki-c001-a41-0,LIT
 "un texte extrait de la page de cette personne , à recycler éventuellement dans la page QI .",SEN:1,cmr-wiki-c001-a41-1,LIT
 "Chris93 30 août 2006 à 15:55 ( CEST ) None NB : si la moyenne est de 10 , une personne sur 6 résout 20 problèmes 116 QI , une personne sur 40 résout 30 problèmes 132 ( niveau à partir duquel on est considéré comme surdoué ) , 1 personne sur 500 ( on attendrait une personne sur 750 en loi normale ) résout 40 problèmes 148 , et une personne sur 10 000 résout 50 problèmes 164 .",SEN:2,cmr-wiki-c001-a41-2,LIT
 "Au delà , les psychologues ne disposent pas de données fiables parce qu' il faudrait rendre les questions beaucoup plus difficiles pour que la moyenne chûte et permette à un nombre infime d' avoir plus de 5 fois plus de bonnes réponses .",SEN:3,cmr-wiki-c001-a41-3,LIT
