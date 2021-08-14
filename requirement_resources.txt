@@ -41,8 +41,6 @@ app_program_resources\default_files\databases\dev_database.csv
 app_program_resources\default_files\databases\training_database.csv
 app_program_resources\default_files\discourse_reference\lit_french.json
 app_program_resources\default_files\discourse_reference\oral_french.json
-app_program_resources\default_files\french_registers\ebay_tag_results.csv
-app_program_resources\default_files\french_registers\emoticons.csv
 app_program_resources\default_files\french_registers\FA.txt
 app_program_resources\default_files\french_registers\FA_pres.txt
 app_program_resources\default_files\french_registers\FA_suf.txt
@@ -52,11 +50,13 @@ app_program_resources\default_files\french_registers\FF.txt
 app_program_resources\default_files\french_registers\FF_inst.txt
 app_program_resources\default_files\french_registers\FL.txt
 app_program_resources\default_files\french_registers\FL_abs.txt
-app_program_resources\default_files\french_registers\Fl_pre.txt
 app_program_resources\default_files\french_registers\FL_suf.txt
 app_program_resources\default_files\french_registers\FPA.txt
 app_program_resources\default_files\french_registers\FRE.txt
 app_program_resources\default_files\french_registers\FV.txt
+app_program_resources\default_files\french_registers\Fl_pre.txt
+app_program_resources\default_files\french_registers\ebay_tag_results.csv
+app_program_resources\default_files\french_registers\emoticons.csv
 app_program_resources\default_files\muller_corpora\mueller_lit.txt
 app_program_resources\default_files\muller_corpora\mueller_oral.txt
 app_program_resources\metric_data\naive_bayes\classification (lit)\gold.csv
@@ -82,4 +82,3 @@ app_program_resources\metric_data\spacy_data\wiki_system_results.csv
 app_program_resources\readme_images\load_database.png
 app_program_resources\readme_images\load_txt_file.png
 app_program_resources\readme_images\load_xml_file.png
-app_program_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc

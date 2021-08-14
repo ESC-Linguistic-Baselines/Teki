@@ -181,8 +181,8 @@ def _rebuild_requirement_resources():
                 resources.write(os.path.join(path, name)+"\n")
     print("The requirement_resources.txt file has been updated.")
 
-# Uncomment the following line for dependencies to rebuilt. After having done so, comment it again to deactivate it.
-# _rebuild_requirement_resources()
+# Uncomment the following line for dependencies to rebuilt. After having done so, comment it out again to deactivate it.
+#_rebuild_requirement_resources()
 
 ###########################################
 # Importing custom files and modules
