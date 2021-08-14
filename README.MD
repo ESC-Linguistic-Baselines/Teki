@@ -272,7 +272,8 @@ As with loading a .txt or .xml file, if the user does not wish to use the defaul
 a different database can also be selected dynamically. 
 Default databases can be found under **app_program_resources** under **default_files**
 
-If the user has trained and saved databases, then they should be under **app_user_resource** under **user_databases**
+If the user has trained and saved databases, then they should be under **app_user_resource** under **user_databases**. If no  custom databases currently exist, simply create an empty .csv file and then load it. The results of the training will be saved there. 
+
 After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.
 
  <img src="app_program_resources/readme_images/load_database.png" width ="650" />
