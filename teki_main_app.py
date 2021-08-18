@@ -339,7 +339,7 @@ def content_analysis(text):
 
             user = input(f"\nThe text has been parsed into approx. {sentence_count} sentences. How would you like to proceed? ")
             if user == "1":
-                input("The sentence_results will now be processed. Please press enter to continue...")
+                input("The sentence results will now be processed. Please press enter to continue...")
                 return collective_results
             elif user == "2":
                 file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
@@ -590,7 +590,7 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
             This function has no return, but saves the result to the specified database.
     """
     # import pickle
-    # f = open("app_sandbox/debug.pickle", "wb")
+    # f = open("debug.pickle", "wb")
     # pickle.dump(collective_spacy_results, f)
 
     # Save directory and ID
@@ -637,7 +637,7 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
             user = input("\nWould you like to have the features assigned automatically or manually? ")
             if user == "1":  # Automatic Assignment
                 print("Please wait while the features are being assigned....")
-                lit_count, oral_count, sentence_count, token_count = 0, 0, 0, 0
+                lit_count, oral_count, unk_count, sentence_count, token_count = 0, 0, 0, 0, 0
                 lit_score, oral_score = {}, {}
 
                 for corpus_sentence_id in collective_spacy_results:
@@ -662,17 +662,20 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                         for element in classification:
                             lit_score[element] = lit_score.get(element, 0) + classification[element]
 
-                    if feat == "ORAL":
+                    elif feat == "ORAL":
                         oral_count += 1
                         classification = sentence_feature_info[1]
                         for element in classification:
                             oral_score[element] = oral_score.get(element, 0) + classification[element]
+                    else:
+                        unk_count += 1
 
                 # Sentence property results
                 count_results = {"Sentences": sentence_count,
                                  "Tokens": token_count,
                                  "LIT": lit_count,
                                  "ORAL": oral_count,
+                                 "UNK": unk_count,
                                  }
 
                 score_points = {
@@ -682,14 +685,20 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
 
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.\n")
                 print("The sentence_results are as follows:")
-                for entry in count_results:
-                    print(entry, count_results[entry])
+                for score in count_results:
+                    print(score, count_results[score])
 
-                print("\nCombined total points of each class per Feature\n")
-                for score in score_points:
-                    for entry in sorted(score_points[score]):
-                        print(score, entry)
-                    print("")
+                print("\nCombined total points of each class per feature\n")
+
+                top_score_lit=sorted([number[1] for number in score_points["LIT"]], reverse=True)[:3]
+                top_score_oral = sorted([number[1] for number in score_points["ORAL"]], reverse=True)[:3]
+
+                for class_feat in score_points:
+                    for score in score_points[class_feat]:
+                        if class_feat =="LIT" and score [1] in top_score_lit:
+                            print(class_feat, score)
+                        elif class_feat =="ORAL" and score [1] in top_score_oral:
+                            print(class_feat, score)
 
                 input("\nPlease press enter to continue to the main... ")
                 break
@@ -938,7 +947,7 @@ def document_classification(probabilities):
             else:
                 # the user wants to return to the main menu
                 break
-            sentence_count, token_count, lit_count, oral_count = 0, 0, 0, 0
+            sentence_count, token_count, lit_count, oral_count,unk_count = 0, 0, 0, 0, 0
 
             for corpus_sentence_id in tagger_results:
                 sub_sentences = tagger_results[corpus_sentence_id]
@@ -952,14 +961,17 @@ def document_classification(probabilities):
                 token_count += len(sentence.split())
                 if bayes == "LIT":
                     lit_count+=1
-                if bayes == "ORAL":
+                elif bayes == "ORAL":
                     oral_count +=1
+                else:
+                    unk_count +=1
 
             res = {
                 "Sentence count":sentence_count,
                 "Token count": token_count,
                 "LIT count":lit_count,
-                "ORAL count": oral_count
+                "ORAL count": oral_count,
+                "UNK count": unk_count
                 }
 
             for i in res:

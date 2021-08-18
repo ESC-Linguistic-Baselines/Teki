@@ -1,0 +1,4 @@
+Accuracy (in Percent)
+eBay	100%
+SMS	95%
+Wikiconflits	94%

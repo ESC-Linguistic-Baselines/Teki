@@ -1,0 +1,21 @@
+Hey ca va?,cmr-88milsms-a1,SEN:0
+Alors cette rentree?,cmr-88milsms-a1,SEN:1
+Va falloir se trouver un p'tit creneau pour se voir!,cmr-88milsms-a1,SEN:2
+"Dis moi, est-ce",cmr-88milsms-a1,SEN:3
+que tu sais quand commence les cours de langue non specialiste?,cmr-88milsms-a1,SEN:4
+Bisoux ,cmr-88milsms-a1,SEN:5
+Ok super merci!,cmr-88milsms-a2,SEN:0
+Oui j'y comprends rien du tout moi a cette fac :p J'irai me renseigner aussi ( si j'trouve le batiment :) ) Merci encore!,cmr-88milsms-a2,SEN:1
+Bonne soiree bisoux!,cmr-88milsms-a2,SEN:2
+Coucou !,cmr-88milsms-a3,SEN:0
+C'est quand la feria de Nimes?,cmr-88milsms-a3,SEN:1
+J'suis pas bien sure de la faire mais pourquoi pas!,cmr-88milsms-a3,SEN:2
+"Sinon oui, j'profite de ma derniere semaine de vacance!",cmr-88milsms-a3,SEN:3
+Bon courage!,cmr-88milsms-a3,SEN:4
+Bisoux ,cmr-88milsms-a3,SEN:5
+Coucou :) Oui ca c'est bien passe!,cmr-88milsms-a4,SEN:0
+Alors je sais pas du tout pour jeudi soir...,cmr-88milsms-a4,SEN:1
+Non pas que je veuille pas mais je suis pas sure d'etre sur Montpel.,cmr-88milsms-a4,SEN:2
+J'y serai de sur qu'a partir de lundi prochain car je commence les cours...,cmr-88milsms-a4,SEN:3
+On peut se rejoindre quelque part?,cmr-88milsms-a5,SEN:0
+Tu as cours ou ?,cmr-88milsms-a5,SEN:1

@@ -288,7 +288,7 @@ class DiscourseAnalysis:
             # LIT CLASSIFICATION I
             #########################
 
-            # Sentence lenght measured in char.
+            # Sentence length measured in characters
             if sentence_length > 45:
                 total_score["LIT"]["SEN_LEN"] = sentence_length
             elif sentence_length < 45:
@@ -304,7 +304,7 @@ class DiscourseAnalysis:
             if dummy_subject_count >= 1:
                 total_score["LIT"]["THIRD_PERSON_EXPL"] = dummy_subject_count
             elif dep_info.count("expl:subj") < 1:
-                total_score["ORAL"]["THIRD_PERSON_EXPL"] = 0
+                total_score["LIT"]["THIRD_PERSON_EXPL"] = 0
 
             # Frequency of nominal subjects e.g. je, moi, me, toi, etc.
             if nominal_subject_count >= 1:
@@ -332,9 +332,9 @@ class DiscourseAnalysis:
 
             # Verb to adjective ratio
             if low_verb_high_adj_ratio:
-                total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = verb_count + adj_count
+                total_score["LIT"]["LOW_VERB_HIGH_ADJ"] = verb_count + adj_count
             elif not low_verb_high_adj_ratio:
-                total_score["ORAL"]["LOW_VERB_HIGH_ADJ"] = 0
+                total_score["LIT"]["LOW_VERB_HIGH_ADJ"] = 0
 
             # More coordinating conjunctions than verbs
             if conj_verb_ratio:
@@ -393,7 +393,7 @@ class DiscourseAnalysis:
             elif not word_word_redup:
                 total_score["ORAL"]["WORD_WORD_REDUPLICATION"] = 0
 
-            # Emphasis via all Caps
+            # Emphasis via all caps
             if all_caps_count:
                 total_score["ORAL"]["ALL_CAPS"] = all_caps_count
             elif all_caps_count < 1:
@@ -413,9 +413,9 @@ class DiscourseAnalysis:
 
             # Abbreviations and Acronyms
             if abrev_count:
-                total_score["LIT"]["ABBR"] = abrev_count
+                total_score["ORAL"]["ABBR"] = abrev_count
             elif not abrev_count:
-                total_score["LIT"]["ABBR"] = 0
+                total_score["ORAL"]["ABBR"] = 0
 
             return total_score
 
@@ -439,7 +439,7 @@ class DiscourseAnalysis:
             elif oral_score > lit_score:
                 return "ORAL", oral_classification
             else:
-                return "UNK"
+                return "UNK","no_classification"
 
     class FrenchBasedAnalysis:
         """
@@ -871,9 +871,9 @@ def evaluation():
         classes = data["feat"].values
         classifier.fit(counts, classes)
 
-        scores = cross_val_score(classifier, counts, classes, cv=2)
-
-        print(statistics.mean(scores))
+        scores = cross_val_score(classifier, counts, classes, cv=10)
+        results=  round(statistics.mean(scores),4)
+        print(results)
 
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate naive bayes": evaluate_naive_bayes,

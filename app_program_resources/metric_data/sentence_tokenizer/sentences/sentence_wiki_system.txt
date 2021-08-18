@@ -1,0 +1,18 @@
+Je viens de réécrire la page qui contenait de multiples erreurs.,cmr-wiki-c001-a1,SEN:0
+La nouvelle page est très incomplète.,cmr-wiki-c001-a1,SEN:1
+Il manque notamment : Les principes fondamentaux des tests (mesure de l'intelligence par ses manifestations et non pas par ses caractéristiques) 
+L'explication des problèmes posés par le passage du QI en âge mental au QI par rang (et la solution de Cattell d'utiliser un écart-type,cmr-wiki-c001-a1,SEN:2
+"de 48) Les limites de la modélisation par une Loi Normale L'étude de la validité des tests (ils sont corrélés à 0,7 avec l'Intelligence Générale) etc.",cmr-wiki-c001-a1,SEN:3
+Il faudrait aussi compléter la page Intelligence pour y rajouter une explication de ce qu'est l'Intelligence Générale.,cmr-wiki-c001-a1,SEN:4
+Mais tout cela serait beaucoup trop long.,cmr-wiki-c001-a1,SEN:5
+"J'ai donc uniquement cherché à donner une indication des différentes significations que peut prendre le terme QI, et indiqué les liens vers un site francophone assez complet que j'ai développé sur le sujet.",cmr-wiki-c001-a1,SEN:6
+PG 30 avr 2004 à 00:53 (CEST) ,cmr-wiki-c001-a1,SEN:7
+il semble qu'on a ajouté beaucoup de choses sur cette page depuis avril.,cmr-wiki-c001-a2,SEN:0
+"J'ai ajouté des réserves à la partie sur ""les réserves sur le QI"" car il y en a.",cmr-wiki-c001-a2,SEN:1
+Elles sont extraites de la FAQ en cours d'élaboration sur un site que j'administre.,cmr-wiki-c001-a2,SEN:2
+"Au fur et à mesure, je reviens ici déposer ce que mes recherches ont donné.",cmr-wiki-c001-a2,SEN:3
+"Du coup, j'ai été amenée à ajouté aussi une page sur l'effet Flynn.",cmr-wiki-c001-a2,SEN:4
+"Comme j'ai dû aussi intervenir sur la Courbe de Gauss, etc.",cmr-wiki-c001-a2,SEN:5
+"Volontairement, j'ai cherché à rester le plus simple possible et à m'éloigner des chiffres : derrière le QI, il y a des gens.",cmr-wiki-c001-a2,SEN:6
+J'ai ajouté donc ajouté des liens faciles d'accès (sic).,cmr-wiki-c001-a2,SEN:7
+--Lauranne 29 nov 2004 à 00:31 (CET) ,cmr-wiki-c001-a2,SEN:8
