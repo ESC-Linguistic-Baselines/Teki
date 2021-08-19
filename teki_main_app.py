@@ -70,9 +70,7 @@ Both of these refer to the conceptual intent of the speaker of a given message. 
 Upon manual inspection and automatic assessment, SMS and Wikiconflicts do represent the aforementioned features. However, eBay does not represent an intersection.
 The reason behind this is that sellers are more interested in using short descriptors, that often lack any verbs or pronouns. This is something would not be expressed orality, 
 but rather literally i.e. it  represents literal language more than anything else.  Even with these parameters however,  it is exceedingly difficult to know exactly to ascertain the thoughts of speakers to a high degree of certainty. 
-To remedy this problem, more precise parameters would have to be chosen to better accommodate the French language or the object language of choice. 
-
-Despite all of this, the program has a high accuracy in identifying literality and orality using the aforementioned naive parameters.
+To remedy this problem, more precise parameters would have to be chosen to better accommodate the French language or the object language of choice.
 """
 
 ###########################
