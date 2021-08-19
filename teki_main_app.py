@@ -913,7 +913,7 @@ def document_classification(probabilities):
         for word in word_feat_prob:
             lit_prob_total *= word_feat_prob[word][0]
             oral_prob_total *= word_feat_prob[word][1]
-         
+
         if lit_prob_total > oral_prob_total:
             print(f" The text '{sent_excerpt}...'is LIT.")
             return "LIT"
