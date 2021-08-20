@@ -224,7 +224,8 @@ the following prompt will appear
 
 ```
 The following error has occurred:
-cannot import name 'evaluagtion' from 'app_program_resources.app_auxiliary_functions' (app_program_resources\app_auxiliary_functions.py)
+cannot import name 'evaluagtion' from 'app_program_resources.app_auxiliary_functions
+(app_program_resources\app_auxiliary_functions.py)
 
 Would you like to proceed despite this error?
 
