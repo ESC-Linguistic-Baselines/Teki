@@ -399,7 +399,7 @@ ___
 
 * [1: process sentences](#process_sentences)
 * [2: save unprocessed](#unprocessed_sentences)
-* [3: return to menu](#corpus_menu)
+* [3: return to menu](#return_corpus_menu)
 
 ### <a name="process_sentences">1: process sentences </a>
 
@@ -491,7 +491,7 @@ This process is largely similar to that of the .xml process as described above. 
 Please enter a unique identifier ONLY using number of characters from (a-z, A-Z, 0-9) for this text: 
 ```
 
-### <a name="corpus_menu"> 4: return to main menu</a>
+### <a name="return_corpus_menu"> 4: return to main menu</a>
 The user is returned to the main menu
 
 # <a name="menu_item_4"> 4: sentence classification</a>
