@@ -568,11 +568,11 @@ The gold files must be created by hand as the program is currently incapable of 
 
 Which files would you like to evaluate:  
  
-* [1: evaluate using system and gold files](#evaluate)
-* [2: cross validation](#validate)
+* [1: evaluate using system and gold files](#evaluate_sys_gold)
+* [2: cross validation](#cross_validate)
 * [3: return to main menu](#evaluation_main_menu)
 
-### <a name="evaluate"> 1: evaluate using system and gold files</a>
+### <a name="evaluate_sys_gold"> 1: evaluate using system and gold files</a>
 
 This evaluator takes in two files: a system file and gold file. 
 
@@ -599,7 +599,7 @@ F-Score
 This function can be used to evaluate to the reliability of the naive Bayes and the classification sets. 
 
 
-### <a name="validate">2: cross validation</a>
+### <a name="cross_validate">2: cross validation</a>
 The cross validation works the same way as <a name="evaluate"> evaluate using system and gold files</a>, but it only requires one file to work. 
 
 Before a file has been selected, the user must first place: 
