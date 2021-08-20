@@ -401,7 +401,7 @@ The system is being evaluated. Please press enter to start the evaluation...
 If system_evaluation is selected, then a system and gold file will be saved under **app_user_resources/system_evaluation** These can then be used to evalute the classification system. The system file is based on 
 language indepdent criteria while the second file is created using French-based criteria. 
 
-The language independent-criteria can then be evaluated using the following function <a name="evaluate"> evaluate using system and gold files</a>.
+The language independent-criteria can then be evaluated using the following function <a name="evaluate"> Evaluate using system and gold files</a>.
 
 This function was not developped further as it did not provide reliable results. 
 
