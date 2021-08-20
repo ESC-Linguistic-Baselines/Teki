@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.MD</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="academic-formalities">Academic Formalities</h1>
+<h2 id="student-information">Student Information</h2>
+<table>
+<thead>
+<tr>
+<th>Information</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Christopher Michael Chandler</td>
+</tr>
+<tr>
+<td>Matrikelnummer</td>
+<td>108017107247</td>
+</tr>
+<tr>
+<td>Erstfach</td>
+<td>Linguistik B.A, 6. Semester</td>
+</tr>
+<tr>
+<td>Zweitfach</td>
+<td>Romanische Philologie Franzoesisch B.A, 9. Semester</td>
+</tr>
+<tr>
+<td>Titel</td>
+<td>From T’es Qui to Qui Es-Tu: A Naïve Bayesian Approach to Assessing Literate and Oral Discourse in Nonstandard French Language Data</td>
+</tr>
+<tr>
+<td>Kurs</td>
+<td>Schriftliche Hausarbeit für die Bachelorprüfung der Fakultät für Philologie an der Ruhr-Universität Bochum (Gemeinsame Prüfungsordnung für das Bachelor/Master-Studium im Rahmen des 2-Fach-Modells an der RUB vom 03. November 2016)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="preface">Preface</h2>
+<p>The layout of this program was partly inspired by a computational linguistics project called &quot; Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen&quot; that I did with a partner in the summer semester of 2020 (Chandler &amp; Cultraro, 2020). The goal of that project and its program was to recognize emoticons, both old and new, and emojis within a given text. The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used within this program.</p>
+<p>As this is a linguistic project, there are files pertaining to protoypical sentences and texts that are representative of the conceptual literacy and conceptual orality (Cook, 2012; Goudailler, 2002; Müller, 1975). The three primary corpora that are the focus of the linguistic analysis: eBay petites annonces (Gerstenberg &amp; Hewett, 2019) CMR-wikiconflits (Poudat et al., 2015) and 88milsms (Panckhurst et al., 2014), which will be referred to as eBay, Wikiconflits or Wikipedia, and SMS respectively.</p>
+<p>Please refer to the references for information on how to obtain the specific corpora used within this project.</p>
+<h2 id="references">References</h2>
+<hr>
+<p>Chandler, C., &amp; Cultraro G. (2020) <i> Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Gray literature]</i>.</p>
+<p>Cook, J. (2012). Les marques lexicales du français familier dans la traduction polonaise des dialogues romanesques. <i>Traduire, 226</i>, 93–107. https://doi.org/10.4000/traduire.162</p>
+<p>Gerstenberg, A., &amp; Hewett, F. (2019). <i>A collection of online auction listings from 2005 to 2018 (anonymised) </i>[Data set]. La-bank: Resources for Research and Teaching. https://www.uni-potsdam.de/langage/la-bank/ebay.php</p>
+<p>Goudailler, J.-P. (2002). De l’argot traditionnel au français contemporain des cités. <i> La linguistique, 38(1)</i>, 5–24. https://doi.org/10.3917/ling.381.0005</p>
+<p>Müller, B. (1975). <i>Das Französische der Gegenwart: Varietäten, Strukturen, Tendenzen</i>. Winter.</p>
+<p>Panckhurst, R., Détrie, C., Lopez, C., Moïse, C., Roche, M., &amp; Verine, B. (2014). <i> 88milSMS. A corpus of authentic text messages in French </i> (ISLRN 024-713-187-947-8; cmr-88milsms-tei-v1) [Data set]. ISLRN . https://hdl.handle.net/11403/comere/cmr-88milsms/cmr-88milsms-tei-v1</p>
+<p>Poudat, C., Grabar, N., Kun, J., &amp; Paloque-Berges, C. (2015). <i> TEI-CMC version of Wikipedia discussions associated to the article “Quotient intellectuel”</i> (cmr-wikiconflits-qi_discu-tei-v1) [Data set]. CoMeRe Corpora Repository. https://hdl.handle.net/11403/comere/cmr-wikiconflits/cmr-wikiconflits-qi_discu-tei-v1</p>
+<hr>
+<h2 id="eigenst%C3%A4ndigkeitserkl%C3%A4rung">Eigenständigkeitserklärung</h2>
+<pre class="hljs"><code><div>Hiermit versichere ich, dass ich die Arbeit selbständig angefertigt, außer den im Quellen- und
+Literaturverzeichnis sowie in den Anmerkungen genannten Hilfsmitteln keine weiteren benutzt und
+alle Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach entnommen sind,
+unter Angabe der Quellen als Entlehnung kenntlich gemacht habe. 
+
+Kamen, 23.12.2021
+Christopher Chandler 
+</div></code></pre>
+<h2 id="declaration-of-authenticity">Declaration of Authenticity</h2>
+<pre class="hljs"><code><div>I hereby declare that the work submitted is my own and 
+that all passages and ideas that are not mine have been fully and properly acknowledged.
+I am aware that I will fail the entire course should I include passages and 
+ideas from other sources and present them as if they were my own.
+
+Kamen, 23.12.2021
+Christopher Chandler 
+</div></code></pre>
+<h1 id="t%C3%A9ki-a-na%C3%AFve-bayesian-french-discourse-analyzer">Téki: A Naïve Bayesian French Discourse Analyzer</h1>
+<h2 id="project-information">Project information</h2>
+<p><img src="https://img.shields.io/badge/Version-1.0.0-brightgreen" alt="Version Nubmer">
+<img src="https://img.shields.io/badge/Project_Size-35mb-yellow" alt="Project Size">
+<img src="https://img.shields.io/badge/Last_Updated-August_2021-blue" alt="Version Date">
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-orange.svg" alt="License: MIT"></a></p>
+<h1 id="what-is-teki">What is Teki?</h1>
+<p>Teki is a <a href="https://web.stanford.edu/~jurafsky/slp3/4.pdf">naïve Bayes classifier</a> that is used to classify French sentences according to conceptual literacy and orality.</p>
+<p>The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the informal phrase  <em>t'es qui?</em> - <em>you are who?</em>.
+It is reminiscent of Stromae's 2013 song - <em>Papoutai</em> - <em>Papa ou t'es</em> - lit. <em>Father, you are where?</em>
+This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, The name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.</p>
+<p>By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc, it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS.</p>
+<p>Since no training data could be found that was adequate for the scope of this project, training data had to be created. Using the aforementioned parameters, classification sets were created to automatically create training data  pertaining to conceptual literacy and orality. After having done so, Teki was trained on this data so that it could probabilistically assign a feature to an unknown sentence based on sentences it had previously seen.</p>
+<p>The program works using the tags LIT and ORAL: LIT refers to the conceptually literacy and ORAL refers to conceptual orality.</p>
+<p>For more information on this topic  and the development of this program,
+please consult the program documentation located in the app_program_documentation folder.</p>
+<h1 id="license">License</h1>
+<h2 id="mit-license">MIT License</h2>
+<pre class="hljs"><code><div>Copyright (c) 2021 Christopher Chandler
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</div></code></pre>
+<h1 id="program-requirements">Program Requirements</h1>
+<h2 id="tested-on">Tested on:</h2>
+<p><img src="https://img.shields.io/badge/Windows-Windows_10_-blue" alt="Windows"> <img src="https://img.shields.io/badge/MacOS-_Big_Sur_-blueviolet" alt="MacOS"> <img src="https://img.shields.io/badge/Linx-Not_tested-red" alt="Linux"></p>
+<h2 id="python-version">Python Version</h2>
+<p>This program was created and designed with <strong>3.9.6</strong> in mind and is therefore the recommended version.
+It is possible to run the program using any version <strong>above 3.6</strong>, but program stability cannot be guaranteed. You can download the <a href="https://www.python.org/downloads/">latest python version at the official website</a>.</p>
+<h2 id="modules-and-libraries">Modules and Libraries</h2>
+<h3 id="standard"><strong>Standard</strong></h3>
+<p>This program makes use of the following standard libraries:</p>
+<pre class="hljs"><code><div>csv
+datetime
+json
+logging
+os
+re
+shutil
+statistics
+sys
+timeit
+tkinter
+</div></code></pre>
+<h3 id="pip"><strong>Pip</strong></h3>
+<p>In addition to these modules, the following <a href="https://www.python.org/downloads/">pip</a> packages must be present for the program to run properly:</p>
+<ul>
+<li><a href="https://pypi.org/project/spacy/">spacy&gt;=2.3.5</a></li>
+<li><a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup4&gt;=4.9.3</a></li>
+<li><a href="https://pypi.org/project/beautifulsoup4/">bs4&gt;=0.0.1</a></li>
+<li><a href="https://pypi.org/project/lxml/">lxml&gt;=4.6.1</a></li>
+<li><a href="https://pypi.org/project/pandas/">pandas~=1.1.5</a></li>
+<li><a href="https://pypi.org/project/scikit-learn/">sklearn~=0.0</a></li>
+<li><a href="https://pypi.org/project/scikit-learn/">scikit-learn~=0.24.2</a></li>
+<li><a href="https://pypi.org/project/future/">future~=0.18.2</a></li>
+</ul>
+<p>Before the installation,
+please also ensure that there is enough disk space so that the extra modules can be installed.</p>
+<p>There are three ways to install the libraries and modules:</p>
+<ol>
+<li>Install all modules individually via the pip installer:</li>
+</ol>
+<pre class="hljs"><code><div>pip install module_name
+</div></code></pre>
+<ol start="2">
+<li>Install all modules with pip using the <em>requirements.txt</em> without specifying the version number:</li>
+</ol>
+<pre class="hljs"><code><div>pip install -r requirements.txt
+</div></code></pre>
+<ol start="3">
+<li>install with pip using the <em>requirements.txt</em> with specifying the version number:</li>
+</ol>
+<pre class="hljs"><code><div>pip3.9 install -r requirements.txt
+</div></code></pre>
+<p>Note: This  is only necessary if there are multiple python versions installed on the computer.</p>
+<p>In addition to those, the following for spaCy must also be installed separately:</p>
+<pre class="hljs"><code><div>python -m spacy download fr_core_news_sm
+</div></code></pre>
+<p>If problems arise with during the installation of any of the modules or libraries,
+please consult the respective module repositories</p>
+<h1 id="program">Program</h1>
+<p>To start teki, run the file <em><strong>teki_main_app.py</strong></em>.
+By doing so, it will also import the secondary python file <strong>app_auxiliary_functions.py</strong>  - located in
+<strong>app_program_resources</strong> - ,which contains secondary functions that are necessary for the program to run properly.</p>
+<h2 id="file-check">File check</h2>
+<p>When starting the program, a check is performed to ensure that the directory <strong>app_program_resources</strong> and its files are all present. <strong>These files should not be changed in any way</strong>. If the user decides to add databases, corpora, texts, etc. to this program, then they should be placed in <strong>app_user_resources</strong> in their respective folders.</p>
+<pre class="hljs"><code><div>The current time is 06:17:32.
+Please wait while libraries, modules and corpora are being imported...
+This should take between 5 - 30 seconds depending on your system resources...
+</div></code></pre>
+<p>Note: The ideal startup time should be no more than 10 seconds.</p>
+<h3 id="missing-files"><strong>Missing files</strong></h3>
+<p>If the files have been moved or corrupted, then the following prompt will be displayed to the user:</p>
+<pre class="hljs"><code><div>An error has occurred probably because files, libraries or directories are missing:
+
+Default doc exists:  True
+Default train exist:  True
+
+Files Missing:
+app_program_resources\app_corpora\app_test\telsting\ebayfr-e17p_201_300.xml
+
+
+Please enter the number of your response:
+0 yes
+1 no
+
+Would you like to continue with the program? 
+</div></code></pre>
+<h3 id="missing-functions"><strong>Missing Functions</strong></h3>
+<p>If functions have been renamed or are missing from <strong>app_auxiliary_functions.py</strong>,
+the following prompt will appear</p>
+<pre class="hljs"><code><div>The following error has occurred:
+cannot import name 'evaluagtion' from 'app_program_resources.app_auxiliary_functions
+(app_program_resources\app_auxiliary_functions.py)
+
+Would you like to proceed despite this error?
+
+Please enter the number of your response:
+0 yes
+1 no
+</div></code></pre>
+<p>Note: This error should not occur as long as the app_auxiliary_functions.py and its functions have not been altered in any way.</p>
+<h3 id="continue-despite-error"><strong>Continue Despite Error</strong></h3>
+<p>In either case, the user can continue using the program despite the program not having access to all files or functions. However, program stability cannot be guaranteed.
+Please consult teki_error.log, which is located in the main directory if program instability does arise.</p>
+<h2 id="program-start">Program Start</h2>
+<p>If the modules, files and libraries have been successfully loaded, the user should be greeted with the following:</p>
+<pre class="hljs"><code><div>The current time is 13:31:26.
+Please wait while libraries, modules and corpora are being imported...
+This should only take between 5 - 30 seconds depending on your system resources...
+
+All libraries were loaded 9 seconds. The program can now start.
+
+You are currently using the app_common_default_docs files:
+
+Default Text: 'app_program_resources/default_files/muller_corpora/mueller_oral.txt'
+Default Training: 'app_program_resources/default_files/databases/default_database.csv'
+ 
+If you wish to proceed with other files, please load them from respective directories.
+
+      ~ Teki - French Discourse Analyzer ~        
+               #### Main Menu ####
+</div></code></pre>
+<ul>
+<li><a href="#menu_item_1">1: load .xml or .txt file</a></li>
+<li><a href="#menu_item_2">2: load training file</a></li>
+<li><a href="#menu_item_3">3: analyze contents</a></li>
+<li><a href="#menu_item_4">4: sentence classification</a></li>
+<li><a href="#menu_item_5">5: clear error log file</a></li>
+<li><a href="#menu_item_6">6: restore default database</a></li>
+<li><a href="#menu_item_7">7: evaluation</a></li>
+<li><a href="#menu_item_8">8: about program</a></li>
+<li><a href="#menu_item_9">9: end program</a></li>
+</ul>
+<p>This is a dynamic menu to which the user can return. Should an error arise in the program,
+the user will automatically be redirected to this menu. The default files are loaded in automatically, but can be changed by the user.</p>
+<h1 id="a-name%22menuitem1%22-1-load-xml-or-txt-filea"><a name="menu_item_1"> 1 load .XML or .TXT file</a></h1>
+<p>When first starting the program, the program will run using the following default file:</p>
+<pre class="hljs"><code><div>Default Text: 'app_program_resources/default_files/mueller_oral.txt'
+</div></code></pre>
+<p>If the user would like to change this, then it is necessary to choose a new file.
+The program comes with corpora and it is designed to be used with these corpora.
+Simply click on the .xml file that should be read into the program.
+The subdirectories containing the .xml files
+can be found in the <strong>app_program_resources</strong> under <strong>app_corpora</strong>.</p>
+<h3 id="xml"><strong>.Xml</strong></h3>
+<hr>
+<p>The user will be presented with a file dialog to select the desired file:
+<img src="app_program_resources/readme_images/load_xml_file.png" width ="650" /></p>
+<h3 id="txt"><strong>.Txt</strong></h3>
+<hr>
+<p>The user can select a desired .txt file from <strong>app_program_resources/default_files/muller_corpora</strong>.</p>
+<p>Alternatively, a user can also input any .txt file regardless of its location.</p>
+ <img src="file:///c:/Users/chris/Desktop/B.A/Teki/app_program_resources/readme_images/load_txt_file.png" width="650">
+<p>⚠️</p>
+<p><strong>Note</strong>
+The file must have .txt or .xml ending.
+Also, it must only contain text and tags (if .xml) or only text (if .txt)
+Other file formats such as .pdf, .doc, .xml, etc. are not supported and could lead to the program unexpectedly crashing.
+<br>⚠️</p>
+<p>After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.</p>
+<h1 id="a-name%22menuitem2%222-load-training-filea"><a name="menu_item_2">2: load training file</a></h1>
+<pre class="hljs"><code><div>Default Training: 'app_program_resources/default_files/default_training.csv'
+</div></code></pre>
+<p>All database, i.e., training files must be saved in a .csv format and have the following structure:</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>POS</th>
+<th>Dependency</th>
+<th>Sentence Id</th>
+<th>Corpus Id</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ENSEMBLE</td>
+<td>NOUN</td>
+<td>ROOT</td>
+<td>SEN:0</td>
+<td>e05p-001</td>
+<td>LIT</td>
+</tr>
+</tbody>
+</table>
+<p>These are referred to as training files because they are used to train Teki. At the same time,
+they are also database file because they contain the training data.</p>
+<p>As with loading a .txt or .xml file, if the user does not wish to use the default database,
+a different database can also be selected dynamically.
+Default databases can be found under <strong>app_program_resources/default_files/databases</strong>.</p>
+<p>If the user has trained and saved databases, then they should be saved under <strong>app_user_resources/user_databases</strong> . If no  custom databases currently exist, simply create <strong>an empty .csv</strong> file, place it in the appropriate folder and then load it. The results of the training will be saved to selected file.</p>
+ <img src="file:///c:/Users/chris/Desktop/B.A/Teki/app_program_resources/readme_images/load_database.png" width="650">
+<p>After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.</p>
+<h1 id="a-name%22menuitem3%22-3-analyze-contentsa"><a name="menu_item_3"> 3: analyze contents</a></h1>
+<p>Using this function, it is possible to generate training data for Teki, extract sentences from a specific corpus or read the files that have been loaded into the system.
+Training data can either be gathered using .txt or .xml files. From where the training data is gathered will depend entirely on the files that the user has loaded into memory. If no files have been loaded into memory by the user, then the the default files will automatically be used.  Once the training data has been generated, it will be either saved to the default database file or
+to the database file  that was previously selected by the user.</p>
+<p>After having loaded  the desired files or progressing with the default files, the user is greeted with the following submenu:</p>
+<pre class="hljs"><code><div>Content Analysis     
+ How would you like to proceed with the file?
+</div></code></pre>
+<ul>
+<li><a href="#read_file">1: read file contents</a></li>
+<li><a href="#xml_data">2: analyze .XML data</a></li>
+<li><a href="#txt_data">3: analyze .TXT data</a></li>
+<li><a href="#return_to_menu_0">4: return to main menu</a></li>
+</ul>
+<pre class="hljs"><code><div>Please enter the desired menu number:
+</div></code></pre>
+<h3 id="a-name%22readfile%221-read-file-contentsa"><a name="read_file">1: read file contents</a></h3>
+<p>This displays the content of the .xml or .txt file to the user. After which the user is brought back to
+the submenu.</p>
+<h3 id="a-name%22xmldata%22-2-analyze-xml-dataa"><a name="xml_data"> 2: analyze .XML data</a></h3>
+<p>There are three main corpora available within the program:</p>
+<pre class="hljs"><code><div>1 eBay
+2 SMS
+3 Wikipedia
+</div></code></pre>
+<p>Once a corpus has been chosen, the user will have option of inputting a range of tags to be extracted from the corpus.</p>
+<pre class="hljs"><code><div>There are 100 documents. Please enter a selection range from 0 - 100.
+ A range should be specified as follows with a single space between both numbers: start stop.
+</div></code></pre>
+<p>The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The longer the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that <strong>the max range should be no more than 100</strong>.</p>
+<p><strong>Example Range</strong></p>
+<table>
+<thead>
+<tr>
+<th>start</th>
+<th>stop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>It is possible to enter a range that spans the entire corpus, but this is not advised as it could lead to program instability.</p>
+<p>Note:</p>
+<p>The program could theoretically work with any .xml file. The program has been designed to work with these three corpora. Working knowledge of Python would allow for one to easily alter the .xml parsing process within the program.</p>
+<p>To do so, please refer to function xml_analysis within the python code. However, it should be noted that these three corpora provide at least ca. 100,000 sentences and offer a wide arrange of possibilities with respect to linguistic analysis. Therefore, they should suffice for the average user.</p>
+<hr>
+<h2 id="proceeding-with-the-corpus-selection">Proceeding with the Corpus Selection</h2>
+<ul>
+<li><a href="#process_sentences">1: process sentences</a></li>
+<li><a href="#unprocessed_sentences">2: save unprocessed</a></li>
+<li><a href="#return_to_menu_1">3: return to menu</a></li>
+</ul>
+<h3 id="a-name%22processsentences%221-process-sentences-a"><a name="process_sentences">1: process sentences </a></h3>
+<p>There are two main ways in which this function can be used:</p>
+<h3 id="classification-evaluation"><strong>Classification Evaluation</strong></h3>
+<hr>
+<p>If this is activated, then the choices of assigning features manually or automatically are deactivated.</p>
+<p>There is an experimental function that allows for the creation of a system file and a gold file.
+This is done by setting the parameter <strong>system_evaluation</strong> to <strong>True</strong> . This must be done from within the program.</p>
+<pre class="hljs"><code><div>Note: This is an experimental function that might not deliver the best results.
+The system is being evaluated. Please press enter to start the evaluation...
+</div></code></pre>
+<p>If system_evaluation is implemented, then a system and gold file will be saved under <strong>app_user_resources/system_evaluation</strong>. These can then be used to evaluate the classification system. The system file is based on language-independent criteria while the second file is created using French-based criteria.</p>
+<p>The language-independent criteria can then be evaluated using the following function <a name="evaluate"> Evaluate using system and gold files</a>.</p>
+<p>This function was not developed further as it did not provide reliable results as too many of the sentences in the gold file were being classified as unknown.</p>
+<p>For information on why this is, please consult the program documentation.</p>
+<h3 id="default-setting"><strong>Default Setting</strong></h3>
+<hr>
+<p>Processing the sentences means that spaCy will analyze them
+to retrieve linguistic relevant information. If the user wishes to train or build up their own
+database, then they must proceed with this option.</p>
+<p>Once a range has been entered, the sentences will then parsed, analyzed and assigned a unique identifier.
+Afterwards, the following option selection will appear:</p>
+<pre class="hljs"><code><div>The sentences have been successfully processed.
+Please press enter to continue...
+1 automatically
+2 manually
+</div></code></pre>
+<p>In both cases, a unique identifier will be assigned to each sentence so that it can be found in the corpus, should the user
+wish to manually inspect the database. This identifier is also available to the system and necessary so that it it can
+correctly read in the databases later.</p>
+<h3 id="1-manually"><strong>1 manually</strong></h3>
+<hr>
+<p>If the user already knows the features or wants to specify the features that should be assigned to the respective sentences, the user may do so here by using the following features.</p>
+<ol>
+<li>LIT</li>
+<li>ORAL</li>
+</ol>
+<p>The feature will then be applied to every sentence within the corpus as previously selected by the user. Therefore, this feature should only be used if the user knows that all sentences are of the same kind, i.e. all sentence should receive the same feature.</p>
+<h3 id="2-automatically"><strong>2 automatically</strong></h3>
+<hr>
+<p>This is the preferred method as the program uses the classification criteria to gauge the most appropriate feature and assign it to each sentence respectively. The feature LIT or ORAL will the n be assigned my by the program itself.</p>
+<p>For more information on the scoring system and how this works, please consult the documentation.</p>
+<hr>
+<h3 id="creation-of-training-data">Creation of Training Data</h3>
+<p>Once the corpus range has been analyzed by spaCy and then assigned its respective feature
+according to conceptual orality or literacy, the results are saved to the database file that
+was selected by the user. The user is then returned to the main menu.</p>
+<hr>
+<h3 id="a-name%22unprocessedsentences%222-save-unprocessed-sentences-a"><a name="unprocessed_sentences">2: save unprocessed sentences </a></h3>
+<p>If the user is simply interested in retrieving the sentences from the corpus,
+then the user should proceed with this option.
+The results will automatically be saved in a file under <strong>app_user_resources/sentence_results</strong>.
+The user will then be returned to the main menu, where the user can safely exit the program.</p>
+<h3 id="a-name%22returntomenu0%224-return-to-menu-a"><a name="return_to_menu_0">4: Return to menu </a></h3>
+<p>This will bring the user back to the main menu.</p>
+<pre class="hljs"><code><div>The sentences will neither be saved nor processed. 
+Please press return to return to the main menu...
+</div></code></pre>
+<hr>
+<h3 id="a-name%22txtdata%22-3-analyze-txt-dataa"><a name="txt_data"> 3: analyze .TXT data</a></h3>
+<p>This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from.</p>
+<pre class="hljs"><code><div>Please enter a unique identifier ONLY using number of characters from (a-z, A-Z, 0-9) for this text: 
+</div></code></pre>
+<h3 id="a-name%22returncorpusmenu%22-4-return-to-main-menua"><a name="return_corpus_menu"> 4: return to main menu</a></h3>
+<p>The user is returned to the main menu</p>
+<h1 id="a-name%22menuitem4%22-4-sentence-classificationa"><a name="menu_item_4"> 4: sentence classification</a></h1>
+<p>Once a database has been selected, it possible for a document to be classified by the naïve Bayes formula:</p>
+<pre class="hljs"><code><div>The database contains sentences with the following features:
+LIT: 30
+ORAL: 24
+</div></code></pre>
+<ul>
+<li><a href="#enter_sentence">1: analyze an individual sentence</a></li>
+<li><a href="#enter_document">2: analyze sentences of a file</a></li>
+<li><a href="#classify_main_menu">3: return to main menu</a></li>
+</ul>
+<h3 id="a-name%22entersentence%22-1-analyze-an-individual-sentence-a"><a name="enter_sentence"> 1: analyze an individual sentence </a></h3>
+<p>If the user wishes to simply analyze just one sentence, then use this function.
+The user will then be prompted to enter a <strong>French sentence</strong>.</p>
+<p>After having successfully entering a sentence, the program will return an answer based on the training data available to it. LIT indicates conceptual literacy, with ORAL being conceptual orality.</p>
+<p>The answer provided by teki will depend on the training data provided.
+The more reliable the training data, the more reliable the answer will be.</p>
+<p>The user will be returned to the submenu and will have the option of entering a sentence again.</p>
+<p>Note:</p>
+<p>It is possible to enter something that is not a French sentence. However, these answers are to be ignored because they simply rely on default values when the program does not know which exact response it should give.</p>
+<h3 id="a-name%22enterdocument%22-2-analyze-sentences-of-a-file-a"><a name="enter_document"> 2: analyze sentences of a file </a></h3>
+<p>This will pull up the <a name="menu_item_3"> analyze contents menu </a> and it follows the same process.
+The user should consult the chapter if the user has not already done so.</p>
+<p>Note:</p>
+<p>Due to the problem of underflow, a document as a whole cannot be properly analyzed. That is why the document will only be
+analyzed on a sentence by sentence level. The program will return the most appropriate feature per sentence, not necessary per document.</p>
+<p>After the analysis, the files will be saved in <strong>app_user_resources/naive_bayes_results</strong>.
+the user can chose to exit the program or continue with other sentences/documents.</p>
+<h3 id="a-name%22classifymainmenu%22-3-return-to-main-menua"><a name="classify_main_menu"> 3: return to main menu</a></h3>
+<p>This will return the user back to the main menu.</p>
+<hr>
+<h1 id="a-name%22menuitem5%22-5-clear-error-log-filea"><a name="menu_item_5"> 5: clear error log file</a></h1>
+<p>Should unforeseen errors arise within the program, they will be saved within teki_error.log.
+Errors can occur due to :</p>
+<ol>
+<li>not reading in files</li>
+<li>reading unsupported files such as .pdf, .doc(x)</li>
+<li>altering the app program directory</li>
+<li>altering the programs source code</li>
+<li>Missing libraries or modules</li>
+</ol>
+<p>⚠️ <strong>Note:</strong> this function will erase your error report and the data of which cannot be recovered. ⚠️</p>
+<h1 id="a-name%22menuitem6%22-6-restore-default-databasea"><a name="menu_item_6"> 6: restore default database</a></h1>
+<p>The user may build upon the default database provided with the program. However,
+if this database becomes corrupt or becomes imbalanced due to improper training,
+the user may reset the database using this function.</p>
+<p>⚠️ <strong>Note:</strong> this function will erase all of your progress and the results of which cannot be recovered. ⚠️</p>
+<h1 id="a-name%22menuitem7%22-7-evaluationa"><a name="menu_item_7"> 7: evaluation</a></h1>
+<p>This function requires reference files, i.e., system files and gold files in order for it to work.
+The gold files must be created by hand as the program is currently incapable of generating them.</p>
+<p>Which files would you like to evaluate:</p>
+<ul>
+<li><a href="#evaluate_sys_gold">1: evaluate using system and gold files</a></li>
+<li><a href="#cross_validate">2: cross validation</a></li>
+<li><a href="#evaluation_main_menu">3: return to main menu</a></li>
+</ul>
+<h3 id="a-name%22evaluatesysgold%22-1-evaluate-using-system-and-gold-filesa"><a name="evaluate_sys_gold"> 1: evaluate using system and gold files</a></h3>
+<p>This evaluator takes in two files: a system file and gold file.</p>
+<p>The system file are the sentences that were produced by the program.
+This is not the same as the database files created by the system.</p>
+<p>The format of both files should be as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Sentence</th>
+<th>Sentence Number</th>
+<th>Corpus ID</th>
+<th>Feat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A noter que le film n' est pas <br> encore sorti en dvd en France !</td>
+<td>SEN:4</td>
+<td>e05p-005-4</td>
+<td>ORAL</td>
+</tr>
+</tbody>
+</table>
+<p>Once both files are present, the user will be prompted to first select the system file and then gold file. The program will compare the two files and return the following values:</p>
+<pre class="hljs"><code><div>Accuracy
+Error Rate 
+Precision 
+Recall 
+F-Score
+</div></code></pre>
+<p>This function can be used to evaluate to the reliability of the naive Bayes and the classification sets.</p>
+<h3 id="a-name%22crossvalidate%222-cross-validationa"><a name="cross_validate">2: cross validation</a></h3>
+<p>The cross validation works the same way as <a name="evaluate"> evaluate using system and gold files</a>, but it only requires one file to work.</p>
+<p>Before a file has been selected, the user must first place:</p>
+<pre class="hljs"><code><div>sentence,sentence_number,corpus_id,feat
+</div></code></pre>
+<p>at the top of this file in order for it to be read properly.
+Once having done so, the results of the cross validation will be shown within the program.</p>
+<h3 id="a-name%22evaluationmainmenu%22-3-return-to-main-menua"><a name="evaluation_main_menu"> 3: return to main menu</a></h3>
+<p>This brings the user back to the main menu.</p>
+<hr>
+<h1 id="a-name%22menuitem8%22-8-about-programa"><a name="menu_item_8"> 8: about program</a></h1>
+<p>This function provides the user with this readme file.
+The user can therefore access the program information from the menu.</p>
+<h1 id="a-name%22menuitem9%22-9-end-programa"><a name="menu_item_9"> 9: end program</a></h1>
+<p>The user can force exit the program by killing the script, but this could lead to file corruption. Therefore, using this function is the preferred way of exiting program because the results from the other functions are only saved to the respective files once the user has properly exited the program.</p>
+
+</body>
+</html>
