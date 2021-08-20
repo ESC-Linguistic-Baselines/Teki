@@ -1,0 +1,2 @@
+If the program is run in system evaluation mode,
+then the results are saved in this directory.

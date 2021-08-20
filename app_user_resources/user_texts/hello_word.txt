@@ -1,1 +1,1 @@
-Save your texts to be analyzed in this directory
+Your texts that you would like to analyze should be saved in this directory.

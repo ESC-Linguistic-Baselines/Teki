@@ -3,6 +3,7 @@
 ###########################
 # Standard libraries
 ###########################
+
 import csv
 import logging
 import os
@@ -22,7 +23,7 @@ if __name__ == "__main__":
     current_time = datetime_now.strftime("%H:%M:%S")
     start_time = timeit.default_timer()
     print(f"The current time is {current_time}.")
-    print("Please wait while libraries, modules and corpora are being imported...")
+    print("Please wait while libraries, modules, and corpora are being imported...")
     print("This should only take between 5 - 30 seconds depending on your system resources...\n")
 
 ###############################
@@ -50,7 +51,7 @@ def continue_program(*args):
     options = "yes", "no"
 
     # The while-loop remains in place until the user provides an appropriate response.
-    print("Please enter the number of your response:")
+    print("Please enter the number of your response:  ")
     while True:
 
         for number, choice in enumerate(options):
@@ -77,8 +78,7 @@ def _rebuild_requirement_resources():
         This function recreates the dependencies so that that the main script can run properly
         in the event that certain files were deleted. This is not intended to circumvent the checks, but rather to allow the program to run,
         even if in properly, without getting an error message at the beginning of the program.
-        Recreating the file does not allow for code stability, but rather for the initial file check
-        to be bypassed.
+        Recreating the file does not allow for code stability, but rather for the initial file check to be bypassed.
 
      :return
         :rtype None
@@ -100,7 +100,7 @@ def _rebuild_requirement_resources():
 
 
 """
-The program can be run without the pip  modules, but program stability will be effected.
+The program can be run without the pip modules, but program stability will be effected.
 """
 
 try:
@@ -162,14 +162,14 @@ if os.path.exists("app_program_resources"):
 #########################
 
 # message prompt
-return_main_menu_msg = "Please press return to enter to the main menu..."
+return_main_menu_msg = "Please press enter to return to the main menu..."
 enter_valid_option = "Please press enter to be able to reenter a valid option."
 
 
 def get_text(document):
     """
     This functions reads in a .txt, .xml or .csv.
-    This file is either in /app_program_resources/app_corpora
+    This file is either in app_program_resources/app_corpora
     or it is a file that has been dynamically specified by the user.
 
     :param 'document':
@@ -238,7 +238,7 @@ def get_database():
 
 def content_analysis(text):
     """
-    This function returns the sentence_results of the functions contained within this function.
+    This function returns the sentence results of the functions contained within this function.
 
     :param text
         :type str
@@ -252,7 +252,7 @@ def content_analysis(text):
     def process_save(sentence_count, collective_results):
         """
         This function gives the user the option of either continue with processing their sentence results or
-        saving them in a designated file.
+        saving the results in a designated file.
 
         :param sentence_count
             :type int
@@ -312,10 +312,13 @@ def content_analysis(text):
         the .xml file that was selected by the user.
 
         The respective directories are listed from which the user may select.
-        The user must input a valid option that is in the range
-        of the corpus length. Once done, the loop will be broken and the user can progress.
+        The user must input a valid option that is in the range of the corpus length.
+        Once done, the loop will be broken and the user can progress.
 
-        If the user has entered a valid selection, then this range is extracted from the desired corpus.
+        As the corpora are from different sources, it was necessary to create different control structures
+        so that the .xml tags could be retrieved from the respective corpus.
+
+        If the user has entered a valid range, then this range is extracted from the desired corpus.
         The sentences are then parsed using the sentence_tokenizer located in the app_auxiliary_functions.py.
         It returns the parsed sentences and they are saved together with their respective id in a dictionary.
 
@@ -343,6 +346,7 @@ def content_analysis(text):
                 for number, corpus in enumerate(corpora, start=1):
                     print(number, corpus)
                 corpus_choice = input("\nFrom which corpus are you extracting the information? ")
+
                 if corpus_choice.isdigit():
                     check_choice = int(corpus_choice)
                     if check_choice in list(range(1, 4)):
@@ -352,10 +356,11 @@ def content_analysis(text):
                         print(f"{corpus_choice} is not a valid option.")
                         input(enter_valid_option)
 
-            if corpus_choice == 1:  # eBay listing
+            if corpus_choice == 1:  # eBay
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
-            elif corpus_choice == 2 or 3:  # SMS, wikipedia
+
+            elif corpus_choice == 2 or 3:  # SMS, Wikipedia
                 for tag in soup.select("post"):
                     xml_tag_id.append(tag["xml:id"])
             else:
@@ -364,7 +369,7 @@ def content_analysis(text):
 
             while True:
                 print(f"There are {len(xml_tag_id)} documents. Please enter a selection range from 0 - {len(xml_tag_id)}.")
-                print("A range should be specified as follows with a single space between both numbers: start stop.\n")
+                print(" A range should be specified with a single space between both numbers: start stop.\n")
                 corpus_range_choice = input("Please enter a valid range: ")
                 print("")
 
@@ -375,28 +380,29 @@ def content_analysis(text):
                     sentence_count = 0
 
                     for i in range(start, stop):
-                        if corpus_choice == 1:
+                        if corpus_choice == 1: # eBay
                             corpus_text = soup.find("div", id=xml_tag_id[i]).getText().strip().split()
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
 
-                        elif corpus_choice == 2 or 3:
+                        elif corpus_choice == 2 or 3:  # SMS, Wikipedia
                             corpus_text = soup.find("post", {"xml:id": xml_tag_id[i]}).getText().strip().split()
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
 
-                    for sentence in collective_results:  # Sentence calculation
+                    for sentence in collective_results:  # Sentence count
                         sentence_count += len(collective_results[sentence])
+
                     return process_save(sentence_count, collective_results)
 
                 except Exception as error:
                     print(f"{corpus_range_choice} is not a valid range.")
-                    input("Please press enter to be able to reenter a valid range.")
+                    input(enter_valid_option)
                     logging.exception(f"xml_analysis error due to: {error}.")
 
     def txt_analysis():
         """
-        This function tokenizes any text that is saved in .txt document.
+        This function tokenizes any text that is saved as .txt.
         It first creates simplified tokens for the sake of creating sentence-level tokens are created in this functions.
         The real tokenization is done with Spacy.
 
@@ -407,58 +413,64 @@ def content_analysis(text):
                 :rtype None
                     the user is brought back to the main menu.
         """
+        user = input("Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text: ")
 
         # Sentence tokenization
-        user = input("Please enter a unique identifier ONLY using number of characters from (a-z, A-Z, 0-9) for this text: ")
         tokens = text.split()
         results = sentence_tokenizer(tokens)
         collective_results = dict()
 
+        # Creating the unique id
         for number, sentence in enumerate(results):
             sentence_id = f"{user}_{number}"
             collective_results[sentence_id] = [sentence]
+
         return process_save(len(results), collective_results)
 
     # Dynamic submenu
     output_menu = {"read file contents": read_contents,
                    "analyze .XML data": xml_analysis,
                    "analyze .TXT data": txt_analysis,
-                   "return to  main menu": lambda: False}
+                   "return to main menu": lambda: False}
 
     # Submenu parameters
     menu_name = "\nContent Analysis"
     menu_information = "How would you like to proceed with the file?\n"
     menu = sub_menu(output_menu, menu_name, menu_information)
 
-    # Value from one of the respective sub-functions
+    # value from one of the respective sub-functions.
+    # See the description of the other functions for more information..
     return menu
 
 
 def spacy_tagger(corpus_content):
     """
     This function takes in the information as determined by content analysis, which contains the parsed sentences.
-    The relevant elements are then determined by Spacy which are:
+    The relevant elements that are then to be determined by Spacy are:
         Token
         Part-of-speech
-        Dependencies
-        Morphology
+        Syntactical Dependencies
+        Morphological Information
 
-    a unique sentence id is also added to each token and sentence so that it can identified in the database.
+    A unique sentence id is also added to each token and sentence so that they can later be identified in the database
+    either by hand or by the program.
 
     :param corpus_content
        :type dict
-        The sentence_results from the content analysis function
+        The sentence results from the content analysis function
 
     :return collective_spacy_results
         :type dict
             The tagged and tokenized sentence_results of the corpus content from the content analysis.
     """
-    print("The individual sentences are now being processed.")
-    print("The duration will depend on your system resources and the number of sentences being processed.")
+
+    print("The individual sentences will now be processed...")
+    print("The duration will depend on your system resources and the number of sentences being processed....")
     print("Please wait...\n")
 
     nlp = spacy.load("fr_core_news_sm")
     collective_spacy_results = dict()
+
     for sen_id in corpus_content:
         corpus_sentence = corpus_content[sen_id]
         processed_sentence = list()
@@ -466,6 +478,7 @@ def spacy_tagger(corpus_content):
         for number, sentence in enumerate(corpus_sentence):
             doc = nlp(sentence)  # Spacy doc object
             for token in doc:
+
                 # token, part-of-speech, dependencies, sentence id, morphology
                 processed_sentence.append(
                                     (token.text,
@@ -474,21 +487,51 @@ def spacy_tagger(corpus_content):
                                      f"SEN:{number}",
                                      str(token.morph))
                                     )
+
             #  Unique sentence identifier
             processed_sentence_key = f"{sen_id}-{number}"
             collective_spacy_results[processed_sentence_key] = processed_sentence
 
-            # overwriting the old with a new list so that the new sentence_results can be saved.
+            # overwriting the old with a new list so that the new sentence results can be saved.
             processed_sentence = list()
 
-    input(f"The sentences have been successfully processed.Please press enter to continue.")
+    input(f"The sentences have been successfully processed by Spacy. Please press enter to continue.")
+
     return collective_spacy_results
 
 
 def save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, sentence_file, database_file=False):
     """
-    This saves the results from the analysis to the appropriate file and database.
+    This saves the results from the respective analysis to the appropriate file and database.
+
+    :param  feat
+       :type  str
+        The feature of the respective sentence
+
+    :param  sentence_info
+       :type  list
+        info about the sentence with respect to length, tokens, id
+
+    :param  corpus_sentence_id
+       :type  str
+       specific id of the sentence within the corpus
+
+    :param  sub_sentences
+       :type  str
+       The specific sentence retrieved from the collection of sentences from within the corpus
+
+    :param  sentence_file
+       :type
+
+    :param  database_file
+       :type bool
+       This is activated if the respective results should be saved to a database
+
+    :return
+    :rtype None
+        This function has no return, but saves the result to the specified file.
     """
+
     sentence = sentence_info.sentence_reconstruction()[1]
     sen_num = sentence_info.sentence_reconstruction()[2]
 
@@ -513,11 +556,18 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
     differentiate between features whereas 'manually' can.
 
    Note to System _evaluation
-
     If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system sentence_results can be compared.
     However, this evaluation mode is experimental at best. It uses lexical information to determine if a sentence is LIT or ORAL. Due to the insufficient amount of
     data for this function, it is not intended to be used to create a reliable gold file. If one were to supply the files with more reliable training data,
     then it could be used to create more reliable results.
+
+    In short, the classification works with a redacted corpus. Words and elements typical of conceptual literacy and orality are removed
+    and then this corpus is given to the program. This generates the system file
+
+    The gold file is generated by using words that would indicate the presence of conceptual literacy and orality within a given sentence.
+
+    This system does not work very well due to the lack of specific features needed in order to classify the sentences according.
+    THis leads to the gold file having a high number of unknown sentences and thus making it not reliable
 
     :param collective_spacy_results
         :type dict
@@ -541,20 +591,17 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
 
     # Save directory and ID
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-    save_dir = "app_user_resources/evaluation_results"
-    sys_eval =  "app_user_resources/system_evaluation"
+    sys_eval = "app_user_resources/system_evaluation"
     automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
     manual_file = f"app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
 
-    # Result files
+    # Running the program in evaluation mode
     if system_evaluation:
         system_eval_file = f"{sys_eval}/system_{file_time_id}.csv"
         gold_eval_file = f"{sys_eval}/gold_{file_time_id}.csv"
 
         print("Note: This is an experimental function that might not deliver the best results.")
         input("The system is being evaluated. Please press enter to start the evaluation...")
-        sys =list()
-        gold = list()
 
         # System results
         redacted_corpus = DiscourseAnalysis(collective_spacy_results).redacted_corpus()
@@ -583,7 +630,7 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
                 print(number, choice)
 
             user = input("\nWould you like to have the features assigned automatically or manually? ")
-            if user == "1":  # Automatic Assignment
+            if user == "1":  # Automatic feature assignment
                 print("Please wait while the features are being assigned....")
                 lit_count, oral_count, unk_count, sentence_count, token_count = 0, 0, 0, 0, 0
                 lit_score, oral_score = {}, {}
@@ -594,8 +641,7 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
                     sentence_feature_info = sentence_info.feature_assignment()
                     feat = sentence_feature_info[0]
 
-                    save_results(feat, sentence_info, corpus_sentence_id,
-                                 sub_sentences, automatic_file, database_file)
+                    save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, automatic_file, database_file)
 
                     ##############################
                     # Determining sentence properties
@@ -632,11 +678,11 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
                 }
 
                 print(f"\nAll of the sentences have been automatically assigned the most appropriate feature.\n")
-                print("The sentence_results are as follows:")
+                print("The sentence results are as follows:")
                 for score in count_results:
                     print(score, count_results[score])
 
-                print("\nCombined total points of each class per feature\n")
+                print("\nThe total points of the top three criteria per feature\n")
 
                 top_score_lit = sorted([number[1] for number in score_points["LIT"]], reverse=True)[:3]
                 top_score_oral = sorted([number[1] for number in score_points["ORAL"]], reverse=True)[:3]
@@ -662,7 +708,6 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
                     feat = "LIT"
                 elif user == "2":
                     feat = "ORAL"
-                input("Press enter to select the save location of the manual files....")
 
                 for corpus_sentence_id in collective_spacy_results:
                     sub_sentences = collective_spacy_results[corpus_sentence_id]
@@ -727,7 +772,7 @@ def get_probs(freq_training_data):
         P(s) = C(s,w)/C(w)
 
     individual feature probabilities:
-        count how often each classification (oral) feature occurs with the different possible features
+        count how often each classification feature occurs with the different possible features
         p(Cj|S) = C(Cj,s)/C(s)
 
     For OOV (out of vocabulary) words:
@@ -803,10 +848,10 @@ def sentence_classification(probabilities):
             P(c|s)= πCj∈cP(Cj|s)
 
         Result:
-            The product of the probabilities (word count/feature count) are multiplied together and then with the a priori probability.
+            The product of the probabilities (word count/feature count) are multiplied together and then multiplied with the a priori probability.
              if a value is not available, then it is smoothed according to Ng(1997)
 
-            This product is the final value of the naive bayes.
+            This product is the final value of the naive Bayes.
 
     :param probabilities
         :type tuple
@@ -873,7 +918,7 @@ def sentence_classification(probabilities):
         for number, choice in enumerate(options, start=1):
             print(number, choice)
 
-        user = input("\nWould you like to analyze a single sentence or all sentences from a corpus?\n")
+        user = input("\nWould you like to analyze a single sentence or all sentences from a corpus range?\n")
         if user == "1":  # Sentence Analysis
             sentence = input("Please enter the sentence: ").split()
             calculate(sentence)
@@ -888,13 +933,21 @@ def sentence_classification(probabilities):
             content = content_analysis(text)
 
             if content:
+                # Only proceeds if the user selects a file
                 tagger_results = spacy_tagger(content)
+
             else:
                 # the user wants to return to the main menu
                 break
             sentence_count, token_count, lit_count, oral_count, unk_count = 0, 0, 0, 0, 0
 
             for corpus_sentence_id in tagger_results:
+                """
+                This process is similar of the generate_training_data function.
+                However, the sentences are not classified according to the classification criteria as  dictated in 
+                app_auxiliary_functions.py, but rather by the probabilities ascertained from the training file. 
+                """
+
                 sub_sentences = tagger_results[corpus_sentence_id]
                 sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
                 sentence = sentence_info.sentence_reconstruction()[1]
@@ -980,8 +1033,8 @@ def run_program(default_doc, default_train, system_evaluation):
         print("To turn this process off, please set system_evaluation variable to 'False'.\n")
 
     print("You are currently using the app_common_default_docs files:\n")
-    print(f"Default Text: '{default_doc}'")
-    print(f"Default Training: '{default_train}'")
+    print(f"Default text file: '{default_doc}'")
+    print(f"Default training file: '{default_train}'")
     print(" \nIf you wish to proceed with other files, please load them from respective directories.")
 
     while True:
@@ -1074,7 +1127,7 @@ if __name__ == "__main__":
 
     system_evaluation = False
     missing_files_libares = bool(core_file_missing)
-    default_doc = r"app_program_resources/default_files/muller_corpora/mueller_oral.txt"
+    default_doc = r"app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml"
     default_train = r"app_program_resources/default_files/databases/default_database.csv"
     defaults = os.path.exists(default_doc), os.path.exists(default_train)
     default_files = {"Default doc exists: ": os.path.exists(default_doc),

@@ -45,7 +45,7 @@ Literaturverzeichnis sowie in den Anmerkungen genannten Hilfsmitteln keine weite
 alle Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach entnommen sind,
 unter Angabe der Quellen als Entlehnung kenntlich gemacht habe. 
 
-Kamen, 23.12.2021
+Kamen, 23.08.2021
 Christopher Chandler 
 ```
 
@@ -57,7 +57,7 @@ that all passages and ideas that are not mine have been fully and properly ackno
 I am aware that I will fail the entire course should I include passages and 
 ideas from other sources and present them as if they were my own.
 
-Kamen, 23.12.2021
+Kamen, 23.08.2021
 Christopher Chandler 
 ```
 
@@ -376,7 +376,7 @@ Once a corpus has been chosen, the user will have option of inputting a range of
 
 ```
 There are 100 documents. Please enter a selection range from 0 - 100.
- A range should be specified as follows with a single space between both numbers: start stop.
+ A range should be specified with a single space between both numbers: start stop.
 ```
 
 The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The longer the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that **the max range should be no more than 100**. 
@@ -488,7 +488,7 @@ ____
 This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from. 
 
 ```
-Please enter a unique identifier ONLY using number of characters from (a-z, A-Z, 0-9) for this text: 
+Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text: : 
 ```
 
 ### <a name="return_corpus_menu"> 4: return to main menu</a>
