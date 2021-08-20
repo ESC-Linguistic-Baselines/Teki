@@ -399,7 +399,7 @@ ___
 
 * [1: process sentences](#process_sentences)
 * [2: save unprocessed](#unprocessed_sentences)
-* [3: return to menu](#return_corpus_menu)
+* [3: return to menu](#return_to_menu_1)
 
 ### <a name="process_sentences">1: process sentences </a>
 
@@ -475,7 +475,7 @@ then the user should proceed with this option.
 The results will automatically be saved in a file under **app_user_resources/sentence_results**.
 The user will then be returned to the main menu, where the user can safely exit the program. 
 
-### <a name="return_corpus_menu">3: Return to menu </a>
+### <a name="return_to_menu_1">3: Return to menu </a>
 This will bring the user back to the main menu.
 
 ```
