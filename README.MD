@@ -154,7 +154,7 @@ In addition to these modules, the following [pip](https://www.python.org/downloa
 * [future~=0.18.2](https://pypi.org/project/future/)
 
 Before the installation, 
-please also ensure that you have enough disk space so that the extra modules can be installed. 
+please also ensure that there is enough disk space so that the extra modules can be installed. 
 
 There are three ways to install the libraries and modules:
 
@@ -619,4 +619,4 @@ This function provides the user with this readme file.
 The user can therefore access the program information from the menu. 
 
 # <a name="menu_item_9"> 9: end program</a>
-You can force exit the program by killing the script, but this could lead to file corruption. Therefore, using this function is the preferred way of exiting program because the results from the other functions are only saved to the respective files once you have properly exited the program. 
+The user can force exit the program by killing the script, but this could lead to file corruption. Therefore, using this function is the preferred way of exiting program because the results from the other functions are only saved to the respective files once the user has properly exited the program. 
