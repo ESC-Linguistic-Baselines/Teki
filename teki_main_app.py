@@ -282,7 +282,7 @@ def content_analysis(text):
                 return collective_results
             elif user == "2":
                 file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-                unprocessed_sentences_file = f"../App-Documentation/app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
+                unprocessed_sentences_file = f"app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
 
                 write_sentences(collective_results, unprocessed_sentences_file)
                 print(f"\nThe sentences have been saved.")
@@ -481,7 +481,7 @@ def spacy_tagger(corpus_content):
             # overwriting the old with a new list so that the new sentence_results can be saved.
             processed_sentence = list()
 
-    input(f"The sentences have been successfully processed. {return_main_menu_msg}")
+    input(f"The sentences have been successfully processed.Please press enter to continue.")
     return collective_spacy_results
 
 
@@ -541,10 +541,10 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
 
     # Save directory and ID
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-    save_dir = "../App-Documentation/app_user_resources/evaluation_results"
+    save_dir = "app_user_resources/evaluation_results"
     sys_eval =  "app_user_resources/system_evaluation"
-    automatic_file = f"../App-Documentation/app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
-    manual_file = f"../App-Documentation/app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
+    automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
+    manual_file = f"app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
 
     # Result files
     if system_evaluation:
@@ -705,7 +705,7 @@ def get_feat_count(file):
             feat = sentence[2]
             feat_count[feat] = feat_count.get(feat, 0) + 1
 
-        print("The database contains sentences with the following feature:")
+        print("The database contains sentences with the following features:")
         print("LIT:", feat_count.get("LIT", 0))
         print("ORAL:", feat_count.get("ORAL", 0))
         print("")
@@ -881,7 +881,7 @@ def sentence_classification(probabilities):
 
         elif user == "2":  # Collection of sentences from a document
             file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-            bayes_file = f"../App-Documentation/app_user_resources/naive_bayes_results/naive_bayes_{file_time_id}.csv"
+            bayes_file = f"app_user_resources/naive_bayes_results/naive_bayes_{file_time_id}.csv"
 
             collective_res = dict()
             text = get_text(file_finder())

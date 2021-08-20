@@ -1,4 +1,5 @@
 import os
+
 def _rebuild_requierement_resources():
     """
         This function regenerates the dependencies so that that the main script can  run properly
