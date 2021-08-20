@@ -350,8 +350,8 @@ Content Analysis
 ```
  
 * [1: read file contents](#read_file)
-* [2: analyze .XML data](#xml)
-* [3: analyze .TXT data](#txt)
+* [2: analyze .XML data](#xml_data)
+* [3: analyze .TXT data](#txt_data)
 * [4: return to main menu](#return)
 
 ```
@@ -362,7 +362,7 @@ Please enter the desired menu number:
 This displays the content of the .xml or .txt file to the user. After which the user is brought back to
 the submenu.
 
-### <a name="xml"> 2: analyze .XML data</a>
+### <a name="xml_data"> 2: analyze .XML data</a>
 
 There are three main corpora available within the program: 
 
@@ -484,7 +484,7 @@ Please press return to return to the main menu...
 ```
 ____
 
-### <a name="txt"> 3: analyze .TXT data</a>
+### <a name="txt_data"> 3: analyze .TXT data</a>
 This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from. 
 
 ```
