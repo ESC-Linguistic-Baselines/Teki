@@ -34,6 +34,7 @@ lit_french_file = "app_program_resources/default_files/discourse_reference/lit_f
 oral_french_file = "app_program_resources/default_files/discourse_reference/oral_french.json"
 error_log = 'teki_error.log'
 
+
 #########################
 # Auxiliary Classes
 #########################
@@ -42,7 +43,7 @@ error_log = 'teki_error.log'
 class DiscourseAnalysis:
     """
      This class has the primary goal of providing functions and methods
-     to automatically assign ORAL and LIT tags to the appropriate sentences.
+     to automatically assign ORAL and LIT tags to the appropriate sentences and thus creating training data.
      This is done in one of two ways: Language-dependent and language-independent criteria.
      The language-dependent method is an experimental way of creating a gold file.
      However, due to the lack of necessary training data, it was deemed not viable.
@@ -345,7 +346,7 @@ class DiscourseAnalysis:
             # Short sentence, presence of numbers
             if len_sen_and_len_word_amount_num:
                 total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 1
-            elif len_sen_and_len_word_amount_num == False:
+            elif not len_sen_and_len_word_amount_num:
                 total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 0
 
             #########################
@@ -427,19 +428,19 @@ class DiscourseAnalysis:
 
             lit = self.calculate_scores()["LIT"]
             lit_score = sum(lit.values())
-            lit_classification = {key:lit[key] for key in sorted(lit,key=lit.get,reverse=False) if lit[key] > 0}
+            lit_classification = {key: lit[key] for key in sorted(lit, key=lit.get, reverse=False) if lit[key] > 0}
 
             oral = self.calculate_scores()["ORAL"]
             oral_score = sum(oral.values())
-            oral_classification = {key:oral[key] for key in sorted(oral,key=oral.get,reverse=False) if oral[key] > 0}
+            oral_classification = {key: oral[key] for key in sorted(oral, key=oral.get, reverse=False) if oral[key] > 0}
 
             # Returning the sentence score
             if lit_score > oral_score:
-                return "LIT",lit_classification
+                return "LIT", lit_classification
             elif oral_score > lit_score:
                 return "ORAL", oral_classification
             else:
-                return "UNK","no_classification"
+                return "UNK", "unk_classification"
 
     class FrenchBasedAnalysis:
         """
@@ -679,11 +680,11 @@ class DiscourseAnalysis:
 
             lit = self.calculate_scores()["LIT"]
             lit_score = sum(lit.values())
-            lit_classification = {key:lit[key] for key in sorted(lit,key=lit.get,reverse=False) if lit[key] > 0}
+            lit_classification = {key: lit[key] for key in sorted(lit, key=lit.get, reverse=False) if lit[key] > 0}
 
             oral = self.calculate_scores()["ORAL"]
             oral_score = sum(oral.values())
-            oral_classification = {key:oral[key] for key in sorted(oral,key=oral.get,reverse=False) if oral[key] > 0}
+            oral_classification = {key: oral[key] for key in sorted(oral, key=oral.get, reverse=False) if oral[key] > 0}
 
             # Returning the sentence score
             if lit_score > oral_score:
@@ -729,7 +730,8 @@ def clear_log(error_log):
     print("The log file will be cleared after restarting the program.\n")
     input("Please press enter to return the main menu....")
 
-def restore_default_database ():
+
+def restore_default_database():
     """
     This restores the default database by overwriting the database built up by the user
     with that of the system default.
@@ -738,8 +740,8 @@ def restore_default_database ():
     source = "app_program_resources/default_files/databases/default_database_recovery.csv"
     options = "yes", "no"
 
-    des=os.path.exists(destination)
-    src =  os.path.exists(source)
+    des = os.path.exists(destination)
+    src = os.path.exists(source)
 
     if des == src == True:
         while True:
@@ -754,15 +756,17 @@ def restore_default_database ():
                 input("The database has been restored.Please press enter to return the main menu...")
                 break
             elif user == "1":  # No
-                    input("The database will not be restored.Please press enter to return the main menu...")
-                    break
+                input("The database will not be restored.Please press enter to return the main menu...")
+                break
             else:  # Incorrect or invalid answer
                 print(f"'{user}' is not a valid response. Please enter a valid response.\n")
     else:
         print("The files needed for recovery have been removed or renamed.")
         print("Please check the directory 'app_program_resources/default_files/databases/'")
-        print("The files should be located in this redirectory and named 'default_database.csv' and 'default_database_recovery.csv'")
+        print(
+            "The files should be located in this redirectory and named 'default_database.csv' and 'default_database_recovery.csv'")
         input("Please press enter to return to the main  menu.")
+
 
 def end_program():
     """
@@ -776,7 +780,7 @@ def end_program():
         print("")
         user = input("Are you sure that you would like exit the program? ").lower()
         if user == "0":  # Yes
-                sys.exit("The program will now be terminated.")
+            sys.exit("The program will now be terminated.")
         elif user == "1":  # No
             sys.exit("The program will not be terminated.")
         else:  # Incorrect or invalid answer
@@ -847,11 +851,11 @@ def evaluation():
 
         system_metrics = {
             "Accuracy": round(accuracy, 4),
-            "Error rate":error_rate,
+            "Error rate": error_rate,
             "Precision": round(precision, 4),
             "Recall": round(recall, 4),
             "F-score": round(f_score, 4),
-            }
+        }
 
         for metric in system_metrics:
             print(metric, system_metrics[metric])
@@ -872,7 +876,7 @@ def evaluation():
         classifier.fit(counts, classes)
 
         scores = cross_val_score(classifier, counts, classes, cv=10)
-        results=  round(statistics.mean(scores),4)
+        results = round(statistics.mean(scores), 4)
         print(results)
 
     # This is the dynamic menu that the user has access during this function
@@ -942,7 +946,8 @@ def sentence_tokenizer(simple_split_tokens):
     return sentence_results
 
 
-def write_sentences(collective_results=False, results_file=False, sen_num=False, sen_id=False, feat=False, feat_save=False):
+def write_sentences(collective_results=False, results_file=False, sen_num=False, sen_id=False, feat=False,
+                    feat_save=False):
     """
     this saves the untagged sentences to a desired text file
     :param collective_results
@@ -978,20 +983,20 @@ def write_sentences(collective_results=False, results_file=False, sen_num=False,
                 sentence = collective_results[res]
                 for number, sen in enumerate(sentence):
                     writer.writerow({
-                                    "sentence": sen,
-                                     "sentence_id": res,
-                                     "SEN:": f"SEN:{number}",
-                                     })
+                        "sentence": sen,
+                        "sentence_id": res,
+                        "SEN:": f"SEN:{number}",
+                    })
         elif feat_save:
             fieldnames = "sen", "sen_num", "sen_id", "sen_feat"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
             sen = collective_results
             writer.writerow({
-                            "sen": sen,
-                             "sen_num": sen_num,
-                             "sen_id": sen_id,
-                             "sen_feat": feat
-                            })
+                "sen": sen,
+                "sen_num": sen_num,
+                "sen_id": sen_id,
+                "sen_feat": feat
+            })
 
 
 def sub_menu(output_menu, menu_name, menu_information):

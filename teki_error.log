@@ -1,52 +1,11 @@
 
-ERROR_TIME: 2021-08-14 12:31:14,097
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 1050
-ERROR_SCOPE Sub menu error: 'str' object has no attribute 'select'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\B.A\Teki\app_program_resources\app_auxiliary_functions.py", line 1047, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 419, in xml_analysis
-    for tag in soup.select("post"):
-AttributeError: 'str' object has no attribute 'select'
-
-ERROR_TIME: 2021-08-14 12:31:15,454
+ERROR_TIME: 2021-08-20 08:06:42,040
 FILE_NAME: teki_main_app.py
 MODULE: teki_main_app
                         
-LINE_NO: 1076
-ERROR_SCOPE Main Menu: 'function' object is not iterable
+LINE_NO: 1081
+ERROR_SCOPE No txt/xml selection: name 'file_finder' is not defined
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 1071, in run_program
-    collective_results_tagged = spacy_tagger(content)
-  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 521, in spacy_tagger
-    for sen_id in corpus_content:
-TypeError: 'function' object is not iterable
-
-ERROR_TIME: 2021-08-18 12:54:24,163
-FILE_NAME: app_auxiliary_functions.py
-MODULE: app_auxiliary_functions
-                        
-LINE_NO: 1050
-ERROR_SCOPE Sub menu error: type numpy.ndarray doesn't define __round__ method
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\B.A\Teki\app_program_resources\app_auxiliary_functions.py", line 1047, in sub_menu
-    return options_func_dict()
-  File "C:\Users\chris\Desktop\B.A\Teki\app_program_resources\app_auxiliary_functions.py", line 874, in cross_validation
-    scores = round(cross_val_score(classifier, counts, classes, cv=2),4)
-TypeError: type numpy.ndarray doesn't define __round__ method
-
-ERROR_TIME: 2021-08-18 13:35:18,170
-FILE_NAME: teki_main_app.py
-MODULE: teki_main_app
-                        
-LINE_NO: 1077
-ERROR_SCOPE Main Menu: [Errno 2] No such file or directory: 'app_sandbox/debug.pickle'
-Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 1073, in run_program
-    sentence_identification(collective_results_tagged,
-  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 593, in sentence_identification
-    f = open("app_sandbox/debug.pickle", "wb")
-FileNotFoundError: [Errno 2] No such file or directory: 'app_sandbox/debug.pickle'
+  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 1077, in run_program
+    path_name = file_finder()
+NameError: name 'file_finder' is not defined

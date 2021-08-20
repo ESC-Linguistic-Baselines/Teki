@@ -76,8 +76,7 @@ The thinking behind this is that sellers would have to use a blend of both to at
 This is done by appealing to a more expressive side using conceptual orality,
 but also using conceptual literacy in order to appeal to customers as this seems to be more professional.
 
-
-When creating the training data, eBay and Wikipedia had high levels of literacy with SMS chats having a high level of orality .
+When creating the training data, eBay and Wikipedia had high levels of literacy with SMS chats having a high level of orality.
 Testing with the naïve Bayes, eBay and Wikipedia had levels of literacy like those of the classification phase.
 However, SMS chats had a low level of orality due to difficulties in classifying the non-standard data.
 """
@@ -107,23 +106,6 @@ if __name__ == "__main__":
     print("Please wait while libraries, modules and corpora are being imported...")
     print("This should only take between 5 - 30 seconds depending on your system resources...\n")
 
-#########################
-# Pip libraries
-#########################
-
-library_error = list()
-try:
-    import bs4
-    import spacy
-    import lxml
-    from spacy.lang.fr import French
-    from spacy.tokenizer import Tokenizer
-    from bs4 import BeautifulSoup
-except ImportError as error:
-    library_error.append(error.name)
-    logging.exception(f" Module import': is due to '{error.name})'")
-    sys.exit(1)
-
 ###############################
 # Program continuation function
 ###############################
@@ -149,7 +131,9 @@ def continue_program(*args):
     options = "yes", "no"
 
     # The while-loop remains in place until the user provides an appropriate response.
+    print("Please enter the number of your response:")
     while True:
+
         for number, choice in enumerate(options):
             print(number, choice)
         print("")
@@ -191,10 +175,34 @@ def _rebuild_requirement_resources():
 # Uncomment the following line for dependencies to rebuilt. After having done so, comment it out again to deactivate it.
 #_rebuild_requirement_resources()
 
+#########################
+# Pip libraries
+#########################
+
+
+"""
+The program can be run without the pip  modules, but program stability will be effected.
+"""
+
+try:
+    import bs4
+    import spacy
+    import lxml
+    from spacy.lang.fr import French
+    from spacy.tokenizer import Tokenizer
+    from bs4 import BeautifulSoup
+except ImportError as error:
+    requirements = sorted(open("requirements.txt").readlines())
+    print("Necessary modules are missing from the program.")
+    print("All of the following libraries and modules must be installed for the program to function properly:\n ")
+    for req in requirements:
+        print(req.strip())
+    print("")
+    continue_program("Would you like to continue without these libraries and modules?")
+
 ###########################################
 # Importing custom files and modules
 ###########################################
-
 
 """
 A program-wide check is performed for the necessary files. 
@@ -225,22 +233,24 @@ if os.path.exists("app_program_resources"):
         )
 
     except Exception as error:
-        print("It seems that not all custom modules could be imported. Please check the log file.")
-        logging.exception(f" custom module import': is due to '{error})'")
-        sys.exit(1)
-else:
-    message = "The app resource directory is either missing, has been renamed or the file has been altered in some other way."
-    continue_program(message)
+        print(f"The following error has occurred:\n{error}\n")
+        message = "Would you like to proceed despite this error?"
+        continue_program(message)
 
 
 #########################
 # Main Program Functions
 #########################
 
+# message prompt
+return_main_menu_msg = "Please press return to enter to the main menu..."
+enter_valid_option = "Please press enter to be able to reenter a valid option."
+
 
 def get_text(document):
     """
-    This functions reads in a .txt, .xml or .csv. This file is either the app_core_resources
+    This functions reads in a .txt, .xml or .csv.
+    This file is either in /app_program_resources/app_corpora
     or it is a file that has been dynamically specified by the user.
 
     :param 'document':
@@ -252,13 +262,14 @@ def get_text(document):
         If the user chooses an xml-file, then a beautiful object is returned.
 
     :return csv_data
-        :rtype str
-            If the user chooses csv file.
+        :rtype list
+            If the user chooses csv file, the a list of that data is returned.
 
     :return text
         :rtype str
-            If the user chooses a .txt file.
+            If the user chooses a .txt file,  then a string object is returned.
     """
+
     name, extension = os.path.splitext(document)
 
     with open(document, mode="r", encoding="utf-8") as file:
@@ -288,15 +299,18 @@ def get_database():
     Word, POS, Dep, Sentence Number, Corpus Tag, Feature, Tag
     corrélés,VERB,acl:relcl,SEN:2,cmr-wiki-c001-a1,LIT
 
-    The function retrieves the file by invoking the function file_finder
-    from app_auxiliary_functions
+    The function retrieves the file by invoking the function file_finder from app_auxiliary_functions
+    The databases are located in
+        app_program_resources/default_files/databases
+        or
+        app_user_resources/user_databases
 
     :param
         There are no parameters.
 
     :return database
         :rtype str
-            The path name of the database selected
+            The path name of the database selected.
     """
 
     database = file_finder()
@@ -305,11 +319,11 @@ def get_database():
 
 def content_analysis(text):
     """
-    This function returns the sentence_results of the functions  contained within this function.
+    This function returns the sentence_results of the functions contained within this function.
 
     :param text
         :type str
-            The data from the get_text function
+            The data from the get_text function.
 
     :return menu
         :rtype dict
@@ -318,7 +332,7 @@ def content_analysis(text):
 
     def process_save(sentence_count, collective_results):
         """
-        This function gives the user the option of either continue with processing their sentence_results or
+        This function gives the user the option of either continue with processing their sentence results or
         saving them in a designated file.
 
         :param sentence_count
@@ -330,8 +344,7 @@ def content_analysis(text):
               All of the sentences with their respective id markers.
 
         :return:
-
-            if user contines with the tagging processing
+            if user continues with the tagging processing
                 :rtype None
             else
                 :return collective sentence_results
@@ -353,37 +366,38 @@ def content_analysis(text):
                 unprocessed_sentences_file = f"app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
 
                 write_sentences(collective_results, unprocessed_sentences_file)
-                print(f"\nThe sentences have been saved")
-                input("Press enter to return to the main menu...")
+                print(f"\nThe sentences have been saved.")
+                input(return_main_menu_msg)
                 return False
             elif user == "3":
-                print("\nThe sentences will neither be saved nor tagged. ")
-                input("Please press enter to return to the main menu...")
+                print("\nThe sentences will neither be saved nor processed. ")
+                input(return_main_menu_msg)
                 break
             else:
                 print(f"{user} is not a valid option.")
-                input("Please press enter to be able to reenter a valid option.")
+                input(enter_valid_option)
 
     def read_contents():
         """
-        This function only reads in the text data. After the text data has been read,
-        the user will be forwarded back to the main menu.
+        This function only reads in the text data.
+        After the text data has been read to the user, the user will be returned to the main menu.
         """
         print(text)
-        input("\nPlease press enter to continue to the main menu...")
+        input(f"\n{return_main_menu_msg}")
 
     def xml_analysis():
         """
+        The .xml files are located in app_program_resources/app_corpora
+
         This function automatically extracts textual information from
-        the .xml files that are located in the app resource directory.
+        the .xml file that was selected by the user.
 
         The respective directories are listed from which the user may select.
         The user must input a valid option that is in the range
         of the corpus length. Once done, the loop will be broken and the user can progress.
 
-        If the user has entered a valid selection,
-        then this range i.e. selection is extracted from the desired corpus.
-        The sentences are then parsed using the sentence_tokenizer located in the auxiliary_functions.
+        If the user has entered a valid selection, then this range is extracted from the desired corpus.
+        The sentences are then parsed using the sentence_tokenizer located in the app_auxiliary_functions.py.
         It returns the parsed sentences and they are saved together with their respective id in a dictionary.
 
         It is theoretically possible for it to work with any file that has
@@ -406,7 +420,7 @@ def content_analysis(text):
 
         while True:
             while True:
-                corpora = "eBay", "SMS", "Wikiconflict"
+                corpora = "eBay", "SMS", "Wikipedia"
                 for number, corpus in enumerate(corpora, start=1):
                     print(number, corpus)
                 corpus_choice = input("\nFrom which corpus are you extracting the information? ")
@@ -417,17 +431,17 @@ def content_analysis(text):
                         break
                     else:
                         print(f"{corpus_choice} is not a valid option.")
-                        input("Please press enter to be able to reenter a valid option.")
+                        input(enter_valid_option)
 
             if corpus_choice == 1:  # eBay listing
                 for tag in soup.select("div[id]"):
                     xml_tag_id.append(tag["id"])
-            elif corpus_choice == 2 or 3:  # SMS, Wikiconflict
+            elif corpus_choice == 2 or 3:  # SMS, wikipedia
                 for tag in soup.select("post"):
                     xml_tag_id.append(tag["xml:id"])
             else:
                 print(f"{corpus_choice} is not a valid option.")
-                input("Please press enter to be able to reenter a valid option.")
+                input(enter_valid_option)
 
             while True:
                 print(f"There are {len(xml_tag_id)} tags. Please enter a selection range from 0 - {len(xml_tag_id)}.")
@@ -464,8 +478,8 @@ def content_analysis(text):
     def txt_analysis():
         """
         This function tokenizes any text that is saved in .txt document.
-        Creates simplified tokens for the sake of creating sentence-level tokens are created in this functions.
-        The real tokenization will be done with Spacy.
+        It first creates simplified tokens for the sake of creating sentence-level tokens are created in this functions.
+        The real tokenization is done with Spacy.
 
         :return collective sentence_results
             if user decides to continue with processing the sentences.
@@ -500,16 +514,17 @@ def content_analysis(text):
     # Value from one of the respective sub-functions
     return menu
 
+
 def spacy_tagger(corpus_content):
     """
-    This function takes in the information as determined by content analysis, which
-    contains the parsed sentences. The relevant elements are then extracted by Spacy which are:
+    This function takes in the information as determined by content analysis, which contains the parsed sentences.
+    The relevant elements are then determined by Spacy which are:
         Token
         Part-of-speech
         Dependencies
         Morphology
-    Additionally, a unique sentence id is added to each token and sentence so that it can identified in the
-    database.
+
+    a unique sentence id is also added to each token and sentence so that it can identified in the database.
 
     :param corpus_content
        :type dict
@@ -546,7 +561,8 @@ def spacy_tagger(corpus_content):
 
             # overwriting the old with a new list so that the new sentence_results can be saved.
             processed_sentence = list()
-    input("The sentences have been successfully processed. Please press enter to continue...")
+
+    input(f"The sentences have been successfully processed. {return_main_menu_msg}")
     return collective_spacy_results
 
 
@@ -564,13 +580,10 @@ def save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, sentenc
         write_to_database(feat, corpus_sentence_id, sub_sentences, database_file)
 
 
-def sentence_identification(collective_spacy_results, database_file, system_evaluation):
+def generate_training_data(collective_spacy_results, database_file, system_evaluation):
     """
+
     This function takes the sentence and its lexical information to determine the most appropriate feature to be assigned to said sentence.
-    If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system sentence_results can be compared.
-    However, this evaluation mode is experimental at best. It uses lexical information to determine if a sentence is LIT or ORAL. Due to the insufficient amount of
-    training data for this function, it is not intended to be used to create a reliable gold fild. If one were to supply the files with more reliable training data, then
-    it could be used to create more reliable results.
 
     The batch analysis can be performed either automatically or manually.
     Automatically means that you would let the system choose the most appropriate feature for sentence
@@ -579,6 +592,13 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
     'automatically' is the best option if you are not sure about which feature you should assign,
     'manually' is only useful if all of the sentences share the same feature as this option cannot
     differentiate between features whereas 'manually' can.
+
+   Note to System _evaluation
+
+    If the system is being run in evaluation mode, then a respective file is created i.e. a gold standard, against which the system sentence_results can be compared.
+    However, this evaluation mode is experimental at best. It uses lexical information to determine if a sentence is LIT or ORAL. Due to the insufficient amount of
+    data for this function, it is not intended to be used to create a reliable gold file. If one were to supply the files with more reliable training data,
+    then it could be used to create more reliable results.
 
     :param collective_spacy_results
         :type dict
@@ -612,7 +632,6 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
         gold_eval_file = f"{save_dir}/gold_{file_time_id}.csv"
 
         print("Note: This is an experimental function that might not deliver the best results.")
-        print("In order for this to be more reliable, please refer to the documentation.")
         input("The system is being evaluated. Please press enter to start the evaluation...")
 
         # System results
@@ -622,7 +641,6 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
-
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, system_eval_file)
 
         # Gold results
@@ -633,12 +651,12 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
             feat = sentence_feature_info[0]
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, gold_eval_file)
 
-        input("The system evaluation was completed without any errors. Please press enter to return to the main menu...")
+        input(f"The system evaluation was completed without any errors. {return_main_menu_msg}")
 
     else:
         while True:
             options = "automatically", "manually"
-            for number, choice in enumerate(options,start=1):
+            for number, choice in enumerate(options, start=1):
                 print(number, choice)
 
             user = input("\nWould you like to have the features assigned automatically or manually? ")
@@ -697,30 +715,31 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
 
                 print("\nCombined total points of each class per feature\n")
 
-                top_score_lit=sorted([number[1] for number in score_points["LIT"]], reverse=True)[:3]
+                top_score_lit = sorted([number[1] for number in score_points["LIT"]], reverse=True)[:3]
                 top_score_oral = sorted([number[1] for number in score_points["ORAL"]], reverse=True)[:3]
 
                 for class_feat in score_points:
                     for score in score_points[class_feat]:
-                        if class_feat =="LIT" and score [1] in top_score_lit:
+                        if class_feat == "LIT" and score[1] in top_score_lit:
                             print(class_feat, score)
-                        elif class_feat =="ORAL" and score [1] in top_score_oral:
+                        elif class_feat == "ORAL" and score[1] in top_score_oral:
                             print(class_feat, score)
 
-                input("\nPlease press enter to continue to the main... ")
+                input(f"\n{return_main_menu_msg}")
                 break
 
             elif user == "2":
                 options = "LIT", "ORAL"
-                for number, choice in enumerate(options,start  = 1):
+                for number, choice in enumerate(options, start=1):
                     print(number, choice)
                 print("")
 
                 user = input("Please enter the number of the desired feature: ")
-                if user == "1": feat = "LIT"
-                elif user == "2": feat = "ORAL"
+                if user == "1":
+                    feat = "LIT"
+                elif user == "2":
+                    feat = "ORAL"
                 input("Press enter to select the save location of the manual files....")
-
 
                 for corpus_sentence_id in collective_spacy_results:
                     sub_sentences = collective_spacy_results[corpus_sentence_id]
@@ -728,11 +747,12 @@ def sentence_identification(collective_spacy_results, database_file, system_eval
                     save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, manual_file, database_file)
 
                 print(f"\nAll of the sentences have been successfully assigned the feature {feat}.")
-                input("Please press enter to continue to the main... ")
+                input(return_main_menu_msg)
                 break
 
             else:
                 print(f"{user} is not a valid option.")
+                input(enter_valid_option)
 
 
 def get_feat_count(file):
@@ -762,7 +782,7 @@ def get_feat_count(file):
             feat = sentence[2]
             feat_count[feat] = feat_count.get(feat, 0) + 1
 
-        print("The database contains the following documents:")
+        print("The database contains sentences with the following feature:")
         print("LIT:", feat_count.get("LIT", 0))
         print("ORAL:", feat_count.get("ORAL", 0))
         print("")
@@ -792,13 +812,9 @@ def get_probs(freq_training_data):
                 p(Cj|Sn) = P(Sn)/N = C(Sn)/N**2 for (Cj,Sn) = 0
                 N is the training data.
 
-    :param csv_results
-        :type tuple
-            The frequency of the feature and the file_data
-
-    :return freq
+    :return feat_count
         :rtype dict
-            The frequency of said features.
+            The count of said features.
 
     :return prob_results
         :rtype dict
@@ -823,22 +839,18 @@ def get_probs(freq_training_data):
             oral_tokens.append((word, feat))
             lit_feat[word] = lit_feat.get(word, 0) + 1
 
-        ###########################
         # MLE probability of LIT
-        ###########################
         if oral_feat.get(word, 0) > 0:
             feat_1_prob = oral_feat.get(word) / feat_count["LIT"]
         else:
             # Ng Smoothing
             feat_1_prob = feat_count["LIT"] / n_training_data ** 2
 
-        ###########################
         # MLE probability of ORAL
-        ###########################
         if lit_feat.get(word, 0) > 0:
             feat_2_prob = lit_feat.get(word) / feat_count["ORAL"]
         else:
-            # Ng smooth
+            # Ng Smoothing
             feat_2_prob = feat_count["ORAL"] / n_training_data ** 2
 
         prob_results[word] = feat_1_prob, feat_2_prob
@@ -846,7 +858,7 @@ def get_probs(freq_training_data):
     return feat_count, prob_results
 
 
-def document_classification(probabilities):
+def sentence_classification(probabilities):
     """
     This function calculates the probability of the sentence.
     Using comparative product values, the biggest product with respect to feature 1 and feature 2 is chosen.
@@ -909,8 +921,6 @@ def document_classification(probabilities):
         oral_smooth = oral_prob / n_training_data
         word_feat_prob = dict()
 
-        sent_excerpt = " ".join(text[:7])
-
         for word in text:
             if bool(prior_prob.get(word)):
                 word_feat_prob[word] = prior_prob.get(word)
@@ -921,25 +931,30 @@ def document_classification(probabilities):
             lit_prob_total *= word_feat_prob[word][0]
             oral_prob_total *= word_feat_prob[word][1]
 
+        # a portion of the sentence is displayed
+        sent_excerpt = " ".join(text[:7])
+
+        # The results
         if lit_prob_total > oral_prob_total:
             print(f" The text '{sent_excerpt}...'is LIT.")
             return "LIT"
         elif oral_prob_total > lit_prob_total:
-            print(f" The text '{sent_excerpt}...' is ORAL.")
+            print(f" The text '{sent_excerpt}...'is ORAL.")
             return "ORAL"
         else:
+            print(f" The text '{sent_excerpt}...'is UNK.")
             return "UNK"
 
     while True:
-        options = "enter a sentence", "enter a document", "return to main menu"
-        for number, choice in enumerate(options,start=1):
+        options = "analyze an individual sentence", "analyze sentences of a file", "return to main menu"
+        for number, choice in enumerate(options, start=1):
             print(number, choice)
 
         user = input("\nWould you like to analyze a single sentence or all sentences from a corpus?\n")
-        if user == "1": # Sentence Analysis
+        if user == "1":  # Sentence Analysis
             sentence = input("Please enter the sentence: ").split()
             calculate(sentence)
-            input("Please press enter to return to the main menu...")
+            input(return_main_menu_msg)
 
         elif user == "2":  # Collection of sentences from a document
             file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
@@ -954,7 +969,7 @@ def document_classification(probabilities):
             else:
                 # the user wants to return to the main menu
                 break
-            sentence_count, token_count, lit_count, oral_count,unk_count = 0, 0, 0, 0, 0
+            sentence_count, token_count, lit_count, oral_count, unk_count = 0, 0, 0, 0, 0
 
             for corpus_sentence_id in tagger_results:
                 sub_sentences = tagger_results[corpus_sentence_id]
@@ -962,32 +977,34 @@ def document_classification(probabilities):
                 sentence = sentence_info.sentence_reconstruction()[1]
                 bayes = calculate(sentence.split())
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
-                save_results(bayes,sentence_info,corpus_sentence_id,sub_sentences,bayes_file)
+                save_results(bayes,  sentence_info, corpus_sentence_id, sub_sentences, bayes_file)
 
                 sentence_count += 1
                 token_count += len(sentence.split())
                 if bayes == "LIT":
-                    lit_count+=1
+                    lit_count += 1
                 elif bayes == "ORAL":
-                    oral_count +=1
+                    oral_count += 1
                 else:
-                    unk_count +=1
+                    unk_count += 1
 
             res = {
-                "Sentence count":sentence_count,
+                "Sentence count": sentence_count,
                 "Token count": token_count,
-                "LIT count":lit_count,
+                "LIT count": lit_count,
                 "ORAL count": oral_count,
                 "UNK count": unk_count
                 }
 
-            for i in res:
-                print(i,res[i])
+            for entry in res:
+                print(entry, res[entry])
         elif user == "3":
-            input("Please press enter to return to the main menu...")
+            input(return_main_menu_msg)
             break
+
         else:
-            print(f"{user} is not a valid option. Please enter a valid option.")
+            print(f"{user} is not a valid option.")
+            input(enter_valid_option)
 
 
 #########################
@@ -997,8 +1014,8 @@ def document_classification(probabilities):
 
 def run_program(default_doc, default_train, system_evaluation):
     """
-    This function contains all other functions listed within this script. The functions
-    can be selected It automatically loads the two standard files, but these can be changed dynamically by the user
+    This function contains all other functions listed within this script. The functions can then be selected.
+    It automatically loads the two standard files, but these can be changed dynamically by the user
     while the script is running. The menu loop is broken once the user has selected an option from the menu.
     after the desired function has been executed, the user is returned to the main menu
     unless the program has been terminated by the respective function.
@@ -1010,6 +1027,10 @@ def run_program(default_doc, default_train, system_evaluation):
     :param default_train
         :type str
             the path file name for the default training file.
+
+    :param system_evaluation
+        :type bool
+            this sets the program in evaluation mode and allows the automatic creation of a gold file.
     """
     stop = timeit.default_timer()
     execution_time = round(stop - start_time)
@@ -1019,9 +1040,9 @@ def run_program(default_doc, default_train, system_evaluation):
         "load .xml or .txt file": get_text,
         "load training file": get_database,
         "analyze contents": content_analysis,
-        "document classification": document_classification,
+        "sentence classification": sentence_classification,
         "clear error log file": clear_log,
-        "restore default database":restore_default_database,
+        "restore default database": restore_default_database,
         "evaluation": evaluation,
         "about program": about_program,
         "end program": end_program
@@ -1088,17 +1109,17 @@ def run_program(default_doc, default_train, system_evaluation):
                             content = content_analysis(doc)
                             if content:
                                 collective_results_tagged = spacy_tagger(content)
-                                sentence_identification(collective_results_tagged,
-                                                        database, system_evaluation)
+                                generate_training_data(collective_results_tagged,
+                                                       database, system_evaluation)
                         except Exception as error:
                             print(f"An unknown error occurred. {main_message}")
                             logging.exception(f"Main Menu: {error}")
 
-                    elif function_name == "document_classification":
+                    elif function_name == "sentence_classification":
                         try:
                             freq = get_feat_count(database)
                             probs = get_probs(freq)
-                            document_classification(probs)
+                            sentence_classification(probs)
                         except:
                             pass
 
@@ -1129,7 +1150,7 @@ if __name__ == "__main__":
     """
 
     system_evaluation = False
-    missing_files_libares = bool(core_file_missing) + bool(library_error)
+    missing_files_libares = bool(core_file_missing)
     default_doc = r"app_program_resources/default_files/muller_corpora/mueller_oral.txt"
     default_train = r"app_program_resources/default_files/databases/default_database.csv"
     defaults = os.path.exists(default_doc), os.path.exists(default_train)
@@ -1148,10 +1169,6 @@ if __name__ == "__main__":
                 for entry in core_file_missing:
                     print(entry)
                 print("")
-
-            if library_error:
-                for entry in library_error:
-                    print(entry)
 
             continue_program()
             run_program(default_doc, default_train, system_evaluation)
