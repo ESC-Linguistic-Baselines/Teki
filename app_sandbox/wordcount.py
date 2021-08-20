@@ -1,13 +1,7 @@
-import docx2txt
-from datetime import datetime
-import re
-
-datetime_object = datetime.now()
-
-#Loads the word document
-doc=r"C:\Users\chris\Desktop\B.A\Teki\app_program_documentation\Chandler_Linguistik_B_A_Theisis_SoSe2021 V5.docx"
-my_text = docx2txt.process(doc)
-
-result = re.findall('\(.*?\)', my_text)
-for i in result:
-    print(i)
+import csv
+with open("system_20_08_2021_09_18_08.csv",mode="r",encoding="utf-8") as system, \
+        open("gold_20_08_2021_09_18_08.csv",mode="r",encoding="utf-8")  as gold:
+    csv_reader_1 = csv.reader(system, delimiter = ",")
+    csv_reader_2 = csv.reader(gold, delimiter=",")
+    for sys,gold in zip(csv_reader_1,csv_reader_2):
+        print(sys[-1], gold[-1])

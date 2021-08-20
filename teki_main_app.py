@@ -1,86 +1,5 @@
 #  -*- coding: utf-8 -*-
 
-"""
-####################################
-#  Program Name
-###################################
-
-The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the informal phrase  t'es qui' - 'Who are you'.
-It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father, you are where?
-It there contrasts with the more formal phrase "Qui es-tu". The spelling of the program is meant to represent this. 
-This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself.
-The name was chosen to reflect the process of researching conceptual and medial literacy and orality within the French language.
-
-####################################
-#  Medial and Conceptual Literacy and Orality
-###################################
-
-Excluding other modes by which human communication can be realized such as via sign language, body language, and whistling,
-human languages are generally expressed medially by using graphic symbols or audible sound (Bader, 2002).
-Written language is mediated visually, using symbols, whereas spoken language can be understood as a process, which employs audible sounds to express meaning (Bader, 2002).
-However, an aspect that is often overlooked is literate vs. oral discourse.
-With these distinctions in mind, the concepts of written vs. spoken and literal vs. oral arise.
-The former represents the medial aspect of language, whereas the latter represents conceptual literacy and orality.
-In other words, is the message of the speaker conceptually representative of written or spoken language irrespective of the medium?
-These two domains do not represent a natural dichotomy, as one might automatically assume,
-but rather, they are two domains of language that regularly correlate (Koch & Oesterreicher, 1985).
-
-This distinction is best explain by the following tables:
-+--------+------------------+------------------+------------------------+
-|        |                  | Konzeption       | Konzeption             |
-+--------+------------------+------------------+------------------------+
-|        |                  | Gesprochen       | Geschrieben            |
-+--------+------------------+------------------+------------------------+
-| Medium | Graphischer Kode | Faut pas le dire | Il ne faut pas le dire |
-+--------+------------------+------------------+------------------------+
-| Medium | Phonischer Kode  | fopaldiʀ         | ilnəfplalədiʀ          |
-+--------+------------------+------------------+------------------------+
-Fig. 1 (Koch & Oesterreicher, 1985, p. 17)
-
-The medium is either the phonischer kode, i.e., phonic code or it is the graphischer kode, i.e., graphic code.
-This means that a message like faut pas le dire is medially literal, but conceptually oral.
-In this particular example, it is due to the omission of il and ne, which belong to standard French (Koch & Oesterreicher, 1985; Müller, 1975).
-The opposite of this applies as well where il ne faut pas le dire is conceptually and medially literal
-as it complies with the written norms set forth by the governing linguistic bodies of the French language (Müller, 1975).
-
-Terms:
-    Konzeption - concept
-    Gesprochen - spoken
-    Geschrieben - written
-    Graphischer Kode - graphic code
-    Phonischer Kode  -  phonetic code
-
-####################################
-#  Creating Training Data and Testing Naive B
-###################################
-
-By introducing parameters that are language-independent such as sentence length, abbreviations, average word length, contractions, etc.
-It was possible to identify literacy and orality even within a written medium. This program was designed with the goal of accessing the nature
-of non-standard French data gathered from various internet resources. The premise behind this research was that the internet
-is a place where norms are often overlooked and therefore most of the data would be conceptually oral, but medially literal.
-
-Since no training data could be found that was adequate for the scope of this program, training data had to be created. 
-Using the aforementioned parameters, classification sets were created to automatically identify sentences that contained features of conceptual literacy and conceptual orality.
-After having done so, a multinomial naïve Bayes was trained to statistically assign a feature to an unknown sentence based on sentences it had previously seen.
-The program works using the tags LIT and ORAL: LIT refers to the conceptually literacy and  ORAL refers to conceptual orality.
-
-####################################
-#  Program Application
-###################################
-
-To examine this further, three corpora were chosen: eBay, SMS and Wikiconflicts,i,e, French Wikipedia discussions.
-The working thesis was that the sentences of the documents in the SMS corpus would contain conceptual orality,
-whereas those of the Wikipedia discussions would  contain conceptual literacy.
-The intersection of this would be eBay: containing both conceptual literacy and orality.
-The thinking behind this is that sellers would have to use a blend of both to attract buyers.
-This is done by appealing to a more expressive side using conceptual orality,
-but also using conceptual literacy in order to appeal to customers as this seems to be more professional.
-
-When creating the training data, eBay and Wikipedia had high levels of literacy with SMS chats having a high level of orality.
-Testing with the naïve Bayes, eBay and Wikipedia had levels of literacy like those of the classification phase.
-However, SMS chats had a low level of orality due to difficulties in classifying the non-standard data.
-"""
-
 ###########################
 # Standard libraries
 ###########################
@@ -444,7 +363,7 @@ def content_analysis(text):
                 input(enter_valid_option)
 
             while True:
-                print(f"There are {len(xml_tag_id)} tags. Please enter a selection range from 0 - {len(xml_tag_id)}.")
+                print(f"There are {len(xml_tag_id)} documents. Please enter a selection range from 0 - {len(xml_tag_id)}.")
                 print("A range should be specified as follows with a single space between both numbers: start stop.\n")
                 corpus_range_choice = input("Please enter a valid range: ")
                 print("")
@@ -623,30 +542,34 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
     # Save directory and ID
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
     save_dir = "app_user_resources/evaluation_results"
+    sys_eval =  "app_user_resources/system_evaluation"
     automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
     manual_file = f"app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
 
     # Result files
     if system_evaluation:
-        system_eval_file = f"{save_dir}/system_{file_time_id}.csv"
-        gold_eval_file = f"{save_dir}/gold_{file_time_id}.csv"
+        system_eval_file = f"{sys_eval}/system_{file_time_id}.csv"
+        gold_eval_file = f"{sys_eval}/gold_{file_time_id}.csv"
 
         print("Note: This is an experimental function that might not deliver the best results.")
         input("The system is being evaluated. Please press enter to start the evaluation...")
+        sys =list()
+        gold = list()
 
         # System results
         redacted_corpus = DiscourseAnalysis(collective_spacy_results).redacted_corpus()
         for corpus_sentence_id in redacted_corpus:
-            sub_sentences = collective_spacy_results[corpus_sentence_id]
+            sub_sentences = redacted_corpus[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
+            print(sentence_info.sentence_reconstruction()[1])
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, system_eval_file)
 
         # Gold results
         for corpus_sentence_id in collective_spacy_results:
             sub_sentences = collective_spacy_results[corpus_sentence_id]
-            sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
+            sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(sub_sentences)
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, gold_eval_file)
@@ -1149,7 +1072,7 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
 
-    system_evaluation = False
+    system_evaluation = True
     missing_files_libares = bool(core_file_missing)
     default_doc = r"app_program_resources/default_files/muller_corpora/mueller_oral.txt"
     default_train = r"app_program_resources/default_files/databases/default_database.csv"
@@ -1166,9 +1089,9 @@ if __name__ == "__main__":
                 print(file, default_files[file])
 
             if core_file_missing:
+                print("\nFiles Missing:")
                 for entry in core_file_missing:
                     print(entry)
-                print("")
 
             continue_program()
             run_program(default_doc, default_train, system_evaluation)

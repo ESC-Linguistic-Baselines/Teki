@@ -102,7 +102,7 @@ class DiscourseAnalysis:
         ftr_smpl = re.compile(r"(?<!^)rai")
         hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
 
-        # Oral and literal elements that will be removed from old corpus
+        # elements that will be removed from old corpus
         oral_infile = DiscourseAnalysis.read_database(oral_french_file)
         lit_infile = DiscourseAnalysis.read_database(lit_french_file)
 
@@ -115,6 +115,21 @@ class DiscourseAnalysis:
         for language_register in oral_infile:
             for word in oral_infile[language_register]:
                 elements_to_be_removed.append(word)
+
+        # Regex for typical features of oral and lit
+        for sent in original_corpus:
+            corpus_sentence = original_corpus[sent]
+            for number, sentence in enumerate(corpus_sentence):
+                word = sentence[0]
+                adv = adverbs.findall(word)
+                ftr = ftr_smpl.findall(word)
+                hypenated = hypenated_words.findall(word)
+                if adv:
+                    elements_to_be_removed.append(word)
+                if ftr:
+                    elements_to_be_removed.append(word)
+                if hypenated:
+                    elements_to_be_removed.append(word)
 
         # Creating the new redacted corpus
         for sent in original_corpus:
@@ -163,10 +178,9 @@ class DiscourseAnalysis:
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
             sen_id = self.sub_sentences[0][3]
-            sen_num = self.sub_sentences[0][4]
             token_count = len(self.sub_sentences)
 
-            return token_count, sentence, sen_id, sen_num
+            return token_count, sentence, sen_id
 
         def part_of_speech(self):
             """
@@ -460,9 +474,6 @@ class DiscourseAnalysis:
             """
             The sentence consists of many elements when it is retrieved by this function.
 
-            sen_id - token - POS - DEP - Sen No -Morphology
-            It splits it apart, rebuilds the sentence and extracts the necessary identifiers
-
             :return token_count
                 :rtype int
                     amount of tokens in a sentence.
@@ -481,10 +492,9 @@ class DiscourseAnalysis:
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
             sen_id = self.sub_sentences[0][3]
-            sen_num = self.sub_sentences[0][4]
             token_count = len(self.sub_sentences)
 
-            return token_count, sentence, sen_id, sen_num
+            return token_count, sentence, sen_id
 
         def part_of_speech(self):
             """
@@ -688,11 +698,11 @@ class DiscourseAnalysis:
 
             # Returning the sentence score
             if lit_score > oral_score:
-                return "LIT"
+                return "LIT",lit_classification
             elif oral_score > lit_score:
-                return "ORAL"
+                return "ORAL",oral_classification
             else:
-                return "UNK"
+                return "UNK","unk_classification"
 
 
 #########################
@@ -792,7 +802,7 @@ def evaluation():
     This function simply contains two sub-functions: evaluate_naive_bayes and cross_validation
     """
 
-    def evaluate_naive_bayes():
+    def sys_gold_evaluation():
         """
         This function allows the user to dynamically select two files: gold file and a system file.
         The gold file is the file that is the one that is created by hand.
@@ -880,7 +890,7 @@ def evaluation():
         print(results)
 
     # This is the dynamic menu that the user has access during this function
-    output_menu = {"evaluate naive bayes": evaluate_naive_bayes,
+    output_menu = {"evaluate using system and gold files": sys_gold_evaluation,
                    "cross validation": cross_validation,
                    "return to menu": lambda: False}
 
