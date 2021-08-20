@@ -1,28 +1,31 @@
 #  -*- coding: utf-8 -*-
 
+"""
 ####################################
-#  Program description and intent
+#  Program Name
 ###################################
 
-"""
-The name 'Teki' pronounced as /Tɛki/ comes from a literal transcription of the informal phrase  t'es qui' - 'Who are you'.
+The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the informal phrase  t'es qui' - 'Who are you'.
 It is reminiscent of Stromae's 2013 song - Papoutai - Papa ou t'es - lit. Father, you are where?
 It there contrasts with the more formal phrase "Qui es-tu". The spelling of the program is meant to represent this. 
-This form of topicalization is actually quite common in French even if it is not necessarily exclusive to the language itself. 
+This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself.
+The name was chosen to reflect the process of researching conceptual and medial literacy and orality within the French language.
 
-The name was chose to reflect the process of researching the conceptual and medial representation of the French language. 
-Message and intent are often communicated either through text or speech. However, these two only represent the medium of the language. 
-The difference between the conceptual and medial representation of language is often overlooked when assessing language. 
-The phrase "someone writes how they speak" reflects this mentality. The train of thought is translated into a written medium, but
-the words actually reflect a stream of consciousness if you will. 
+####################################
+#  Medial and Conceptual Literacy and Orality
+###################################
+
+Excluding other modes by which human communication can be realized such as via sign language, body language, and whistling,
+human languages are generally expressed medially by using graphic symbols or audible sound (Bader, 2002).
+Written language is mediated visually, using symbols, whereas spoken language can be understood as a process, which employs audible sounds to express meaning (Bader, 2002).
+However, an aspect that is often overlooked is literate vs. oral discourse.
+With these distinctions in mind, the concepts of written vs. spoken and literal vs. oral arise.
+The former represents the medial aspect of language, whereas the latter represents conceptual literacy and orality.
+In other words, is the message of the speaker conceptually representative of written or spoken language irrespective of the medium?
+These two domains do not represent a natural dichotomy, as one might automatically assume,
+but rather, they are two domains of language that regularly correlate (Koch & Oesterreicher, 1985).
 
 This distinction is best explain by the following tables:
-Konzeption - concept 
-Gesprochen - spoken 
-Geschrieben - written 
-Graphischer Kode - graphic code 
-Phonischer Kode  -  phonetic code 
-
 +--------+------------------+------------------+------------------------+
 |        |                  | Konzeption       | Konzeption             |
 +--------+------------------+------------------+------------------------+
@@ -34,43 +37,49 @@ Phonischer Kode  -  phonetic code
 +--------+------------------+------------------+------------------------+
 Fig. 1 (Koch & Oesterreicher, 1985, p. 17)
 
-+--------+------------+---------------------------------------+----------------------------------------------+
-|        |            | Konzeption                            | Konzeption                                   |
-+--------+------------+---------------------------------------+----------------------------------------------+
-|        |            | gesprochen                            | geschrieben                                  |
-+--------+------------+---------------------------------------+----------------------------------------------+
-| Medium |  Graphisch | dt. Das ist ne wichtige Angelegenheit | dt. Das ist eine wichtige Angelgenheit       |
-|        |            | fr. Faut pas le dire                  | fr. Il ne faut pas le dire                   |
-|        |            | e. I've got a car                     | e. I have car                                |
-+--------+------------+---------------------------------------+----------------------------------------------+
-| Medium | Phonisch   | dt. [ˈdasnəˈviçtjəʔaŋgəˌleŋhaɪt]      | dt. [ˈdas ʔist ʔainəˈviçtjə ʔaŋgəˌle:gŋhaɪt] |
-|        |            | fr. [fopal'di:R]                      | fr.  [ilnefopalə'di:R]                       |
-|        |            | e. [aivˌgɑtə'ka:]                     | e. [aiˌhævə'ka:]                             |
-+--------+------------+---------------------------------------+----------------------------------------------+
- Fig. 1 (Koch & Oesterreicher, 2005, p. 348)
- 
-By introducing parameters that are language-independent such as  sentence length, abbreviations, average word length, contractions, etc. 
-It is possible to identify said features even in a written medium. This program was designed with the goal of accessing the nature
-of non-standard French chat data gather from various internet resources. The premise behind this research was that the internet  
-is a place where norms are often overlooked and therefore most of the data would be conceptually spoken, but medially written.
- 
-However, the internet, like the physical world, has sectors where medium and concept overlap and diverge. 
-To examine this further, three corpora were chosen: eBay, SMS and Wikiconflicts. 
-The working thesis was that SMS would be of a oral nature, whereas Wikiconflicts would be of a literal nature. 
-The intersection of this would be eBay: being both literal and spoken. The thinking behind this is that 
-sellers would have to use a blend of both to attract buyers. This is done by appealing to a more expressive side using oral language,
-but also using literal language in order to appeal to customers.
+The medium is either the phonischer kode, i.e., phonic code or it is the graphischer kode, i.e., graphic code.
+This means that a message like faut pas le dire is medially literal, but conceptually oral.
+In this particular example, it is due to the omission of il and ne, which belong to standard French (Koch & Oesterreicher, 1985; Müller, 1975).
+The opposite of this applies as well where il ne faut pas le dire is conceptually and medially literal
+as it complies with the written norms set forth by the governing linguistic bodies of the French language (Müller, 1975).
+
+Terms:
+    Konzeption - concept
+    Gesprochen - spoken
+    Geschrieben - written
+    Graphischer Kode - graphic code
+    Phonischer Kode  -  phonetic code
+
+####################################
+#  Creating Training Data and Testing Naive B
+###################################
+
+By introducing parameters that are language-independent such as sentence length, abbreviations, average word length, contractions, etc.
+It was possible to identify literacy and orality even within a written medium. This program was designed with the goal of accessing the nature
+of non-standard French data gathered from various internet resources. The premise behind this research was that the internet
+is a place where norms are often overlooked and therefore most of the data would be conceptually oral, but medially literal.
 
 Since no training data could be found that was adequate for the scope of this program, training data had to be created. 
-Using the aforementioned parameters, a scoring system was created to automatically identify sentences that were of a oral or a literal nature. 
-After having done so, a naive multinomial bayes was trained to statistically assign unknown a feature based on sentences it had previously seen. 
+Using the aforementioned parameters, classification sets were created to automatically identify sentences that contained features of conceptual literacy and conceptual orality.
+After having done so, a multinomial naïve Bayes was trained to statistically assign a feature to an unknown sentence based on sentences it had previously seen.
+The program works using the tags LIT and ORAL: LIT refers to the conceptually literacy and  ORAL refers to conceptual orality.
 
-The program works using the tags LIT and ORAL: LIT refers to the conceptually written language i.e. Literacy and  oral refers to the conceptually spoken language i.e. Orality.
-Both of these refer to the conceptual intent of the speaker of a given message.  It turns out that the initial thinking was only partially correct. 
-Upon manual inspection and automatic assessment, SMS and Wikiconflicts do represent the aforementioned features. However, eBay does not represent an intersection.
-The reason behind this is that sellers are more interested in using short descriptors, that often lack any verbs or pronouns. This is something would not be expressed orality, 
-but rather literally i.e. it  represents literal language more than anything else.  Even with these parameters however,  it is exceedingly difficult to know exactly to ascertain the thoughts of speakers to a high degree of certainty. 
-To remedy this problem, more precise parameters would have to be chosen to better accommodate the French language or the object language of choice.
+####################################
+#  Program Application
+###################################
+
+To examine this further, three corpora were chosen: eBay, SMS and Wikiconflicts,i,e, French Wikipedia discussions.
+The working thesis was that the sentences of the documents in the SMS corpus would contain conceptual orality,
+whereas those of the Wikipedia discussions would  contain conceptual literacy.
+The intersection of this would be eBay: containing both conceptual literacy and orality.
+The thinking behind this is that sellers would have to use a blend of both to attract buyers.
+This is done by appealing to a more expressive side using conceptual orality,
+but also using conceptual literacy in order to appeal to customers as this seems to be more professional.
+
+
+When creating the training data, eBay and Wikipedia had high levels of literacy with SMS chats having a high level of orality .
+Testing with the naïve Bayes, eBay and Wikipedia had levels of literacy like those of the classification phase.
+However, SMS chats had a low level of orality due to difficulties in classifying the non-standard data.
 """
 
 ###########################
