@@ -282,7 +282,7 @@ def content_analysis(text):
                 return collective_results
             elif user == "2":
                 file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-                unprocessed_sentences_file = f"app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
+                unprocessed_sentences_file = f"../App-Documentation/app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
 
                 write_sentences(collective_results, unprocessed_sentences_file)
                 print(f"\nThe sentences have been saved.")
@@ -541,10 +541,10 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
 
     # Save directory and ID
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-    save_dir = "app_user_resources/evaluation_results"
+    save_dir = "../App-Documentation/app_user_resources/evaluation_results"
     sys_eval =  "app_user_resources/system_evaluation"
-    automatic_file = f"app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
-    manual_file = f"app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
+    automatic_file = f"../App-Documentation/app_user_resources/sentence_results/automatic_feat_selection_{file_time_id}.csv"
+    manual_file = f"../App-Documentation/app_user_resources/sentence_results/manual_feat_selection_{file_time_id}.csv"
 
     # Result files
     if system_evaluation:
@@ -881,7 +881,7 @@ def sentence_classification(probabilities):
 
         elif user == "2":  # Collection of sentences from a document
             file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-            bayes_file = f"app_user_resources/naive_bayes_results/naive_bayes_{file_time_id}.csv"
+            bayes_file = f"../App-Documentation/app_user_resources/naive_bayes_results/naive_bayes_{file_time_id}.csv"
 
             collective_res = dict()
             text = get_text(file_finder())
@@ -1072,7 +1072,7 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
 
-    system_evaluation = True
+    system_evaluation = False
     missing_files_libares = bool(core_file_missing)
     default_doc = r"app_program_resources/default_files/muller_corpora/mueller_oral.txt"
     default_train = r"app_program_resources/default_files/databases/default_database.csv"

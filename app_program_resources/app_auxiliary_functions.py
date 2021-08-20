@@ -763,10 +763,10 @@ def restore_default_database():
                 input("The database will now be restored. Please press enter to continue...")
                 print("Please wait while the database is being restored....")
                 copyfile(source, destination)
-                input("The database has been restored.Please press enter to return the main menu...")
+                input("The database has been restored. Please press enter to return the main menu...")
                 break
             elif user == "1":  # No
-                input("The database will not be restored.Please press enter to return the main menu...")
+                input("The database will not be restored. Please press enter to return the main menu...")
                 break
             else:  # Incorrect or invalid answer
                 print(f"'{user}' is not a valid response. Please enter a valid response.\n")
