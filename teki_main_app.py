@@ -31,17 +31,22 @@ if __name__ == "__main__":
           "depending on your system resources...\n")
 
 ###############################
-# Program continuation function
+# Program Continuation Function
 ###############################
 
+# Message Prompts
+return_main_menu_msg = "Please press enter to return to the main menu..."
+enter_valid_option = "Please press enter to be able to reenter a valid option."
 
 def continue_program(*args):
     """
-    This function acts as a prompt for the user. The user can choose to either continue with the program or to exit it.
+    This function acts as a prompt for the user.
+    The user can choose to either continue with the program or to exit it.
 
     :param '*args'
         :type str
-            It can take as many string arguments as necessary. These are displayed as the message prompts.
+            It can take as many string arguments as necessary.
+            These are displayed as the message prompts.
 
     :return
        :rtype None
@@ -54,7 +59,8 @@ def continue_program(*args):
 
     options = "yes", "no"
 
-    # The while-loop remains in place until the user provides an appropriate response.
+    # The while-loop remains in place until
+    # the user provides an appropriate response.
     print("Please enter the number of your response:  ")
     while True:
 
@@ -64,7 +70,8 @@ def continue_program(*args):
         user = input("Would you like to continue with the program? ").lower()
         if user == "0":  # Yes
 
-            user = input("Are you sure ? Program stability cannot be guaranteed. ").lower()
+            user = input("Are you sure? "
+                         "Program stability cannot be guaranteed. ").lower()
             if user == "0":
                 break
             else:
@@ -74,22 +81,29 @@ def continue_program(*args):
             sys.exit("The program will not be terminated.")
 
         else:  # Incorrect or invalid answer
-            print(f"'{user}' is not a valid response. Please enter a valid response.\n")
+            print(f"'{user}' is not a valid response. {enter_valid_option} \n")
 
 
 def _rebuild_requirement_resources():
     """
-        This function recreates the dependencies so that that the main script can run properly
-        in the event that certain files were deleted. This is not intended to circumvent the checks, but rather to allow the program to run,
-        even if in properly, without getting an error message at the beginning of the program.
-        Recreating the file does not allow for code stability, but rather for the initial file check to be bypassed.
+        This function recreates the dependencies so that
+         the main script can run properly
+        in the event that certain files were deleted.
+        This is not intended to circumvent the checks,
+        but rather to allow the program to run,
+        even if in properly, without getting
+        an error message at the beginning of the program.
+        Recreating the file does not allow for code stability,
+        but rather for the initial file check to be bypassed.
 
      :return
         :rtype None
-        There is no object, but a file is created that is placed in the main directory.
+        There is no object, but a file is created
+        that is placed in the main directory.
     """
 
-    with open("requirement_resources.txt", mode="w+", encoding="utf-8") as resources:
+    with open("requirement_resources.txt", mode="w+",
+              encoding="utf-8") as resources:
         for path, subdirs, files in os.walk("app_program_resources"):
             for name in files:
                 resources.write(os.path.join(path, name)+"\n")
@@ -168,11 +182,6 @@ if os.path.exists("app_program_resources"):
 #########################
 # Main Program Functions
 #########################
-
-# message prompt
-return_main_menu_msg = "Please press enter to return to the main menu..."
-enter_valid_option = "Please press enter to be able to reenter a valid option."
-
 
 def get_text(document):
     """
@@ -821,7 +830,8 @@ def generate_training_data(collective_spacy_results,
                     print(number, choice)
                 print("")
 
-                user = input("Please enter the number of the desired feature: ")
+                user = input("Please enter the number"
+                             " of the desired feature: ")
                 if user == "1":
                     feat = "LIT"
                 elif user == "2":
@@ -1157,7 +1167,7 @@ def run_program(default_doc, default_train, system_evaluation):
     """
     stop = timeit.default_timer()
     execution_time = round(stop - start_time)
-    print(f"All libraries were loaded {execution_time} seconds. "
+    print(f"All libraries were loaded {execution_time} seconds."
           f"The program can now start.\n")
 
     main_menu = {
@@ -1238,7 +1248,8 @@ def run_program(default_doc, default_train, system_evaluation):
                         try:
                             content = content_analysis(doc)
                             if content:
-                                collective_results_tagged = spacy_tagger(content)
+                                collective_results_tagged = spacy_tagger(
+                                                                       content)
                                 generate_training_data(
                                     collective_results_tagged,
                                     database, system_evaluation)
