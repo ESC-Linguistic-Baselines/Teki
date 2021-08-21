@@ -264,7 +264,8 @@ def content_analysis(text):
 
     def process_save(sentence_count, collective_results):
         """
-        This function gives the user the option of either continue with processing their sentence results or
+        This function gives the user the option of either
+        continue with processing their sentence results or
         saving the results in a designated file.
 
         :param sentence_count
@@ -281,21 +282,27 @@ def content_analysis(text):
             else
                 :return collective sentence_results
             :rtype dict
-                the results of the sentence analysis so that they can be further processed.
+                the results of the sentence analysis
+                so that they can be further processed.
         """
 
         while True:
-            options = "process sentences", "save unprocessed sentences", "return to menu"
+            options = "process sentences", \
+                      "save unprocessed sentences", "return to menu"
             for number, choice in enumerate(options, start=1):
                 print(number, choice)
 
-            user = input(f"\nThe text has been parsed into approx. {sentence_count} sentences. How would you like to proceed? ")
+            user = input(f"\nThe text has been parsed into approx."
+                         f" {sentence_count} sentences. "
+                         f"How would you like to proceed? ")
             if user == "1":
-                input("The sentence results will now be processed. Please press enter to continue...")
+                input("The sentence results will now be processed."
+                      " Please press enter to continue...")
                 return collective_results
             elif user == "2":
                 file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-                unprocessed_sentences_file = f"app_user_resources/sentence_results/sen_results_{file_time_id}.csv"
+                sen_res = "app_user_resources/sentence_results/sen_results_"
+                unprocessed_sentences_file = f"{sen_res}{file_time_id}.csv"
 
                 write_sentences(collective_results, unprocessed_sentences_file)
                 print(f"\nThe sentences have been saved.")
@@ -312,7 +319,8 @@ def content_analysis(text):
     def read_contents():
         """
         This function only reads in the text data.
-        After the text data has been read to the user, the user will be returned to the main menu.
+        After the text data has been read to the user,
+        the user will be returned to the main menu.
         """
         print(text)
         input(f"\n{return_main_menu_msg}")
@@ -1081,7 +1089,8 @@ def sentence_classification(probabilities):
                 """
 
                 sub_sentences = tagger_results[corpus_sentence_id]
-                sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
+                sentence_info = DiscourseAnalysis.\
+                    LanguageIndependentAnalysis(sub_sentences)
                 sentence = sentence_info.sentence_reconstruction()[1]
                 bayes = calculate(sentence.split())
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
@@ -1193,7 +1202,8 @@ def run_program(default_doc, default_train, system_evaluation):
 
         # Standard message prompts
         choice_str = input('\nPlease enter the number of your entry: ')
-        main_message = "Please press the enter key to return to the main menu.\n"
+        main_message = "Please press the enter key " \
+                       "to return to the main menu.\n"
 
         # Executes the function as specified by the user via the number.
         if choice_str.isdigit():

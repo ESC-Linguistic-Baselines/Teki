@@ -256,7 +256,8 @@ class DiscourseAnalysis:
             sentence = self.sentence_reconstruction()[1]
             sentence_length = len([word for word in sentence])
             sentence_vocab = [word for word in sentence.split()]
-            avg_word_length = sum(len(word) for word in sentence_vocab) / len(sentence_vocab)
+            avg_word_length = sum(len(word) for word in sentence_vocab) \
+                              / len(sentence_vocab)
 
             # POS Information
             dep_info = self.part_of_speech()[2]
@@ -428,7 +429,8 @@ class DiscourseAnalysis:
 
             # Isolated verb stems or imperatives
             if isolated_verb_stems:
-                total_score["ORAL"]["ISOLATED_VERBS"] = sentence_length + verb_count
+                total_score["ORAL"]["ISOLATED_VERBS"] = (
+                        sentence_length + verb_count)
             elif not isolated_verb_stems:
                 total_score["ORAL"]["ISOLATED_VERBS"] = 0
 
@@ -633,7 +635,7 @@ class DiscourseAnalysis:
             # French Syntactical information
             proper_negation = ne_negation.findall(sentence) and \
                               particle_negation.findall(sentence)
-            
+
             ne_negation = len(ne_negation.findall(sentence))
             particle_negation = len(particle_negation.findall(sentence))
 
@@ -715,7 +717,8 @@ class DiscourseAnalysis:
 
             # Francais Familier Intensifiers
             if francais_familier_intes:
-                total_score["ORAL"]["FRANCAIS_FAMILIER_INTENSIFIERS"] = francais_familier_intes
+                total_score["ORAL"]["FRANCAIS_FAMILIER_INTENSIFIERS"] =(
+                    francais_familier_intes)
             elif francais_familier == 0:
                 total_score["ORAL"]["FRANCAIS_FAMILIER_INTENSIFIERS"] = 0
 
@@ -844,7 +847,8 @@ def restore_default_database():
         print("Please check the directory "
               "'app_program_resources/default_files/databases/'")
         print("The files should be located in this directory and "
-              "named 'default_database.csv' and 'default_database_recovery.csv'")
+              "named 'default_database.csv' "
+              "and 'default_database_recovery.csv'")
         input(return_main_menu)
 
 
