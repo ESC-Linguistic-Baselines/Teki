@@ -17,7 +17,7 @@ ___
 
 The layout of this program was partly inspired by a computational linguistics project called " Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen" that I did with a partner in the summer semester of 2020 (Chandler & Cultraro, 2020). The goal of that project and its program was to recognize emoticons, both old and new, and emojis within a given text. The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used within this program.
 
-As this is a linguistic project, there are files pertaining to protoypical sentences and texts that are representative of the conceptual literacy and conceptual orality (Cook, 2012; Goudailler, 2002; Müller, 1975). The three primary corpora that are the focus of the linguistic analysis: eBay petites annonces (Gerstenberg & Hewett, 2019) CMR-wikiconflits (Poudat et al., 2015) and 88milsms (Panckhurst et al., 2014), which will be referred to as eBay, Wikiconflits or Wikipedia, and SMS respectively. 
+As this is a linguistic project, there are files pertaining to prototypical sentences and texts that are representative of the conceptual literacy and conceptual orality (Cook, 2012; Goudailler, 2002; Müller, 1975). The three primary corpora that are the focus of the linguistic analysis: eBay petites annonces (Gerstenberg & Hewett, 2019) CMR-wikiconflits (Poudat et al., 2015) and 88milsms (Panckhurst et al., 2014), which will be referred to as eBay, Wikiconflits or Wikipedia, and SMS respectively. 
 
 Please refer to the references for information on how to obtain the specific corpora used within this project. 
 
@@ -61,7 +61,7 @@ Kamen, 23.08.2021
 Christopher Chandler 
 ```
 
-# Téki: A Naïve Bayesian French Discourse Analyzer
+# Teki: A Naïve Bayesian French Discourse Analyzer
 ## Project information
 ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
 ![Project Size](https://img.shields.io/badge/Project_Size-30mb-yellow)
@@ -74,7 +74,7 @@ Teki is a [naïve Bayes classifier](https://web.stanford.edu/~jurafsky/slp3/4.pd
 
 The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the informal phrase  *t'es qui?* - *you are who?*.
 It is reminiscent of Stromae's 2013 song - *Papoutai* - *Papa ou t'es* - lit. *Father, you are where?*
-This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, The name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.
+This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, the name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.
 
 By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc, it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS. 
 
@@ -177,11 +177,11 @@ In addition to those, the following for spaCy must also be installed separately:
 python -m spacy download fr_core_news_sm
 ```
 
-If problems arise with during the installation of any of the modules or libraries, 
+If problems arise during the installation of any of the modules or libraries, 
 please consult the respective module repositories 
 # Program
 
-To start teki, run the file ***teki_main_app.py***.
+To start Teki, run the file ***teki_main_app.py***.
 By doing so, it will also import the secondary python file **app_auxiliary_functions.py**  - located in 
 **app_program_resources** - ,which contains secondary functions that are necessary for the program to run properly.
 
@@ -304,9 +304,9 @@ Alternatively, a user can also input any .txt file regardless of its location.
 
 ⚠️ 
 
-**Note** 
+**Note:** 
 The file must have .txt or .xml ending. 
-Also, it must only contain text and tags (if .xml) or only text (if .txt) 
+Also, it must only contain text and tags (if .xml) or only text (if .txt).
 Other file formats such as .pdf, .doc, .xml, etc. are not supported and could lead to the program unexpectedly crashing. 
 <br>⚠️
 
@@ -433,7 +433,7 @@ Processing the sentences means that spaCy will analyze them
 to retrieve linguistic relevant information. If the user wishes to train or build up their own
 database, then they must proceed with this option.
 
-Once a range has been entered, the sentences will then parsed, analyzed and assigned a unique identifier. 
+Once a range has been entered, the sentences will then be parsed, analyzed and assigned a unique identifier. 
 Afterwards, the following option selection will appear:
 
 ```
@@ -488,11 +488,11 @@ ____
 This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from. 
 
 ```
-Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text: : 
+Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text:  
 ```
 
 ### <a name="return_corpus_menu"> 4: return to main menu</a>
-The user is returned to the main menu
+The user is returned to the main menu.
 
 # <a name="menu_item_4"> 4: sentence classification</a>
 
@@ -513,7 +513,7 @@ The user will then be prompted to enter a **French sentence**.
 
 After having successfully entering a sentence, the program will return an answer based on the training data available to it. LIT indicates conceptual literacy, with ORAL being conceptual orality.
 
-The answer provided by teki will depend on the training data provided.
+The answer provided by Teki will depend on the training data provided.
 The more reliable the training data, the more reliable the answer will be. 
 
 The user will be returned to the submenu and will have the option of entering a sentence again. 
@@ -532,7 +532,7 @@ Due to the problem of underflow, a document as a whole cannot be properly analyz
 analyzed on a sentence by sentence level. The program will return the most appropriate feature per sentence, not necessary per document. 
 
 After the analysis, the files will be saved in **app_user_resources/naive_bayes_results**.
-the user can chose to exit the program or continue with other sentences/documents. 
+The user can choose to exit the program or continue with other sentences/documents. 
 
 ### <a name="classify_main_menu"> 3: return to main menu</a>
 

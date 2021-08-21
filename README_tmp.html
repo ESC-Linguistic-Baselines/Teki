@@ -404,7 +404,7 @@ code {
 <hr>
 <h2 id="preface">Preface</h2>
 <p>The layout of this program was partly inspired by a computational linguistics project called &quot; Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen&quot; that I did with a partner in the summer semester of 2020 (Chandler &amp; Cultraro, 2020). The goal of that project and its program was to recognize emoticons, both old and new, and emojis within a given text. The inspiration, and to a certain extent the contribution, for this program is therefore limited to the dynamic menu system, file structure and control structure that is used within this program.</p>
-<p>As this is a linguistic project, there are files pertaining to protoypical sentences and texts that are representative of the conceptual literacy and conceptual orality (Cook, 2012; Goudailler, 2002; Müller, 1975). The three primary corpora that are the focus of the linguistic analysis: eBay petites annonces (Gerstenberg &amp; Hewett, 2019) CMR-wikiconflits (Poudat et al., 2015) and 88milsms (Panckhurst et al., 2014), which will be referred to as eBay, Wikiconflits or Wikipedia, and SMS respectively.</p>
+<p>As this is a linguistic project, there are files pertaining to prototypical sentences and texts that are representative of the conceptual literacy and conceptual orality (Cook, 2012; Goudailler, 2002; Müller, 1975). The three primary corpora that are the focus of the linguistic analysis: eBay petites annonces (Gerstenberg &amp; Hewett, 2019) CMR-wikiconflits (Poudat et al., 2015) and 88milsms (Panckhurst et al., 2014), which will be referred to as eBay, Wikiconflits or Wikipedia, and SMS respectively.</p>
 <p>Please refer to the references for information on how to obtain the specific corpora used within this project.</p>
 <h2 id="references">References</h2>
 <hr>
@@ -434,7 +434,7 @@ ideas from other sources and present them as if they were my own.
 Kamen, 23.08.2021
 Christopher Chandler 
 </div></code></pre>
-<h1 id="t%C3%A9ki-a-na%C3%AFve-bayesian-french-discourse-analyzer">Téki: A Naïve Bayesian French Discourse Analyzer</h1>
+<h1 id="teki-a-na%C3%AFve-bayesian-french-discourse-analyzer">Teki: A Naïve Bayesian French Discourse Analyzer</h1>
 <h2 id="project-information">Project information</h2>
 <p><img src="https://img.shields.io/badge/Version-1.0.0-brightgreen" alt="Version Nubmer">
 <img src="https://img.shields.io/badge/Project_Size-30mb-yellow" alt="Project Size">
@@ -444,7 +444,7 @@ Christopher Chandler
 <p>Teki is a <a href="https://web.stanford.edu/~jurafsky/slp3/4.pdf">naïve Bayes classifier</a> that is used to classify French sentences according to conceptual literacy and orality.</p>
 <p>The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the informal phrase  <em>t'es qui?</em> - <em>you are who?</em>.
 It is reminiscent of Stromae's 2013 song - <em>Papoutai</em> - <em>Papa ou t'es</em> - lit. <em>Father, you are where?</em>
-This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, The name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.</p>
+This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, the name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.</p>
 <p>By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc, it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS.</p>
 <p>Since no training data could be found that was adequate for the scope of this project, training data had to be created. Using the aforementioned parameters, classification sets were created to automatically create training data  pertaining to conceptual literacy and orality. After having done so, Teki was trained on this data so that it could probabilistically assign a feature to an unknown sentence based on sentences it had previously seen.</p>
 <p>The program works using the tags LIT and ORAL: LIT refers to the conceptually literacy and ORAL refers to conceptual orality.</p>
@@ -527,10 +527,10 @@ please also ensure that there is enough disk space so that the extra modules can
 <p>In addition to those, the following for spaCy must also be installed separately:</p>
 <pre class="hljs"><code><div>python -m spacy download fr_core_news_sm
 </div></code></pre>
-<p>If problems arise with during the installation of any of the modules or libraries,
+<p>If problems arise during the installation of any of the modules or libraries,
 please consult the respective module repositories</p>
 <h1 id="program">Program</h1>
-<p>To start teki, run the file <em><strong>teki_main_app.py</strong></em>.
+<p>To start Teki, run the file <em><strong>teki_main_app.py</strong></em>.
 By doing so, it will also import the secondary python file <strong>app_auxiliary_functions.py</strong>  - located in
 <strong>app_program_resources</strong> - ,which contains secondary functions that are necessary for the program to run properly.</p>
 <h2 id="file-check">File check</h2>
@@ -624,9 +624,9 @@ can be found in the <strong>app_program_resources</strong> under <strong>app_cor
 <p>Alternatively, a user can also input any .txt file regardless of its location.</p>
  <img src="file:///c:/Users/chris/Desktop/B.A/Teki/app_program_resources/readme_images/load_txt_file.png" width="650">
 <p>⚠️</p>
-<p><strong>Note</strong>
+<p><strong>Note:</strong>
 The file must have .txt or .xml ending.
-Also, it must only contain text and tags (if .xml) or only text (if .txt)
+Also, it must only contain text and tags (if .xml) or only text (if .txt).
 Other file formats such as .pdf, .doc, .xml, etc. are not supported and could lead to the program unexpectedly crashing.
 <br>⚠️</p>
 <p>After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.</p>
@@ -739,7 +739,7 @@ The system is being evaluated. Please press enter to start the evaluation...
 <p>Processing the sentences means that spaCy will analyze them
 to retrieve linguistic relevant information. If the user wishes to train or build up their own
 database, then they must proceed with this option.</p>
-<p>Once a range has been entered, the sentences will then parsed, analyzed and assigned a unique identifier.
+<p>Once a range has been entered, the sentences will then be parsed, analyzed and assigned a unique identifier.
 Afterwards, the following option selection will appear:</p>
 <pre class="hljs"><code><div>The sentences have been successfully processed.
 Please press enter to continue...
@@ -780,10 +780,10 @@ Please press return to return to the main menu...
 <hr>
 <h3 id="a-name%22txtdata%22-3-analyze-txt-dataa"><a name="txt_data"> 3: analyze .TXT data</a></h3>
 <p>This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from.</p>
-<pre class="hljs"><code><div>Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text: : 
+<pre class="hljs"><code><div>Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text:  
 </div></code></pre>
 <h3 id="a-name%22returncorpusmenu%22-4-return-to-main-menua"><a name="return_corpus_menu"> 4: return to main menu</a></h3>
-<p>The user is returned to the main menu</p>
+<p>The user is returned to the main menu.</p>
 <h1 id="a-name%22menuitem4%22-4-sentence-classificationa"><a name="menu_item_4"> 4: sentence classification</a></h1>
 <p>Once a database has been selected, it possible for a document to be classified by the naïve Bayes formula:</p>
 <pre class="hljs"><code><div>The database contains sentences with the following features:
@@ -799,7 +799,7 @@ ORAL: 24
 <p>If the user wishes to simply analyze just one sentence, then use this function.
 The user will then be prompted to enter a <strong>French sentence</strong>.</p>
 <p>After having successfully entering a sentence, the program will return an answer based on the training data available to it. LIT indicates conceptual literacy, with ORAL being conceptual orality.</p>
-<p>The answer provided by teki will depend on the training data provided.
+<p>The answer provided by Teki will depend on the training data provided.
 The more reliable the training data, the more reliable the answer will be.</p>
 <p>The user will be returned to the submenu and will have the option of entering a sentence again.</p>
 <p>Note:</p>
@@ -811,7 +811,7 @@ The user should consult the chapter if the user has not already done so.</p>
 <p>Due to the problem of underflow, a document as a whole cannot be properly analyzed. That is why the document will only be
 analyzed on a sentence by sentence level. The program will return the most appropriate feature per sentence, not necessary per document.</p>
 <p>After the analysis, the files will be saved in <strong>app_user_resources/naive_bayes_results</strong>.
-the user can chose to exit the program or continue with other sentences/documents.</p>
+The user can choose to exit the program or continue with other sentences/documents.</p>
 <h3 id="a-name%22classifymainmenu%22-3-return-to-main-menua"><a name="classify_main_menu"> 3: return to main menu</a></h3>
 <p>This will return the user back to the main menu.</p>
 <hr>

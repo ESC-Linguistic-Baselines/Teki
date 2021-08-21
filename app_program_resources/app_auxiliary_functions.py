@@ -30,10 +30,14 @@ except ImportError as error:
 #########################
 # Database Files
 #########################
-
-lit_french_file = "app_program_resources/default_files/discourse_reference/lit_french.json"
-oral_french_file = "app_program_resources/default_files/discourse_reference/oral_french.json"
+default = "app_program_resources/default_files/discourse_reference"
+lit_french_file = f"{default}/lit_french.json"
+oral_french_file = f"{default}oral_french.json"
 error_log = 'teki_error.log'
+
+# Main menu message prompt
+return_main_menu = "Please press enter to return to the main menu..."
+enter_valid_option = "Please press enter to be able to reenter a valid option."
 
 #########################
 # Auxiliary Classes
@@ -43,10 +47,14 @@ error_log = 'teki_error.log'
 class DiscourseAnalysis:
     """
      This class has the primary goal of providing functions and methods
-     to automatically assign ORAL and LIT tags to the appropriate sentences and thus creating training data.
-     This is done in one of two ways: Language-dependent and language-independent criteria.
-     The language-dependent method is an experimental way of creating a gold file.
-     However, due to the lack of necessary training data, it was deemed not viable.
+     to automatically assign ORAL and LIT tags
+     to the appropriate sentences and thus creating training data.
+     This is done in one of two ways:
+     Language-dependent and language-independent criteria.
+     The language-dependent method is an experimental way
+     of creating a gold file.
+     However, due to the lack of necessary training data,
+     it was deemed not viable.
     """
 
     def __init__(self, collective_spacy_results):
@@ -80,9 +88,11 @@ class DiscourseAnalysis:
         """
         This function returns a redacted version of the corpus.
         It is redacted as certain words are removed from the corpus.
-        The words that are removed depend on the corpus saved in the app resource.
+        The words that are removed depend on
+        the corpus saved in the app resource.
         Its main implementation is when the system is being evaluated.
-        However, this function is not necessarily fully operational and should be used with caution.
+        However, this function is not necessarily
+        fully operational and should be used with caution.
 
         :return redacted_corpus
             :rtype dict
@@ -155,7 +165,8 @@ class DiscourseAnalysis:
 
         def sentence_reconstruction(self):
             """
-            The sentence consists of many elements when it is retrieved by this function.
+            The sentence consists of many elements
+            when it is retrieved by this function.
 
             :return token_count
                 :rtype int
@@ -177,7 +188,8 @@ class DiscourseAnalysis:
 
         def part_of_speech(self):
             """
-            This retrieves the syntactical and POS information from the sentence.
+            This retrieves the syntactical and POS
+            information from the sentence.
 
             :return pos_count
                 :rtype dict
@@ -209,10 +221,12 @@ class DiscourseAnalysis:
 
         def calculate_scores(self):
             """
-            The score for the sentence is calculated for the the respective sentences.
+            The score for the sentence is calculated
+            for the the respective sentences.
             By analyzing the sentences based on the parameters listed below,
             it is possible to assign either LIT or Oral to a sentence.
-            For more information on the parameters, please consult the documentation
+            For more information on the parameters,
+            please consult the documentation
 
             :return total_score
                 :rtype dict
@@ -287,9 +301,13 @@ class DiscourseAnalysis:
             conj_verb_ratio = conj_count > verb_count
             isolated_verb_stems = sentence_length < 4 and verb_count < 1
             low_verb_high_adj_ratio = verb_count < 1 and adj_count > 3
-            len_sen_and_len_word_amount_num = sentence_length < 25 and len(word_count) < 5 and numbers_info
+            len_sen_and_len_word_amount_num = sentence_length < 25 \
+                                              and len(word_count) < 5 \
+                                              and numbers_info
+
             no_verb_short_sen_pro = verb_count == 0 and sentence_length < 10
-            verb_sen_len_ratio = verb_count == 0 and sentence_length < 5 and noun_count < 0
+            verb_sen_len_ratio = verb_count == 0 and sentence_length < 5 \
+                                 and noun_count < 0
             noun_verb_ratio = noun_count > verb_count
 
             #########################
@@ -359,7 +377,8 @@ class DiscourseAnalysis:
             #########################
             # ORAL CLASSIFICATION I
             #########################
-            # Sentence Length (defined by the number of characters, not words, that appear in the sentence)
+            # Sentence Length (defined by the number of characters, not words,
+            # that appear in the sentence)
             if sentence_length < 30:
                 total_score["ORAL"]["SEN_LEN"] = sentence_length
             elif sentence_length > 30:
@@ -434,11 +453,13 @@ class DiscourseAnalysis:
 
             :return "LIT", lit_classification
                 :rtype str,  tuple
-                LIT feature, with a tuple of  the features that important for literacy classification
+                LIT feature, with a tuple of  the features that important for
+                literacy classification
 
             :return "ORAL", oral_classification
                 :rtype str,  tuple
-                ORAL feature, with a tuple of  the features that important for the orality classification
+                ORAL feature, with a tuple of  the features that important
+                for the orality classification
 
 
             :return "UNK", "unk_classification"
@@ -448,11 +469,13 @@ class DiscourseAnalysis:
 
             lit = self.calculate_scores()["LIT"]
             lit_score = sum(lit.values())
-            lit_classification = {key: lit[key] for key in sorted(lit, key=lit.get, reverse=False) if lit[key] > 0}
+            lit_classification = {key: lit[key] for key in sorted(
+                lit, key=lit.get, reverse=False) if lit[key] > 0}
 
             oral = self.calculate_scores()["ORAL"]
             oral_score = sum(oral.values())
-            oral_classification = {key: oral[key] for key in sorted(oral, key=oral.get, reverse=False) if oral[key] > 0}
+            oral_classification = {key: oral[key] for key in sorted(
+                oral, key=oral.get, reverse=False) if oral[key] > 0}
 
             # Returning the sentence score
             if lit_score > oral_score:
@@ -465,7 +488,8 @@ class DiscourseAnalysis:
     class FrenchBasedAnalysis:
         """
         This class is intended to a separate french dataset in order
-        to create a gold file against which the independent test criteria is to be compared.
+        to create a gold file against
+        which the independent test criteria is to be compared.
         However, due to the lack of necessary data and lack of decisive results,
         this function is not intended to be used, unless it has more data.
         """
@@ -478,7 +502,8 @@ class DiscourseAnalysis:
 
         def sentence_reconstruction(self):
             """
-            The sentence consists of many elements when it is retrieved by this function.
+            The sentence consists of many elements
+            when it is retrieved by this function.
 
             :return token_count
                 :rtype int
@@ -500,7 +525,8 @@ class DiscourseAnalysis:
 
         def part_of_speech(self):
             """
-            This retrieves the syntactical and POS information from the sentence.
+            This retrieves the syntactical and
+            POS information from the sentence.
 
             :return pos_count
                 :rtype dict
@@ -568,25 +594,46 @@ class DiscourseAnalysis:
             # Language Registers
 
             # Lit
-            francais_cultive = [word for word in sentence.split() if word in lit_file["FC"]]
-            francais_cultive_abbs = [word for word in sentence.split() if word in lit_file["FC_abs"]]
+            francais_cultive = [word for word in sentence.split()
+                                if word in lit_file["FC"]]
+
+            francais_cultive_abbs = [word for word in sentence.split()
+                                     if word in lit_file["FC_abs"]]
+
             fl = [word for word in sentence.split() if word in lit_file["FRT"]]
-            frt_pre = [word for word in sentence.split() if word in lit_file["FRT_PRE"]]
-            frt_suf = [word for word in sentence.split() if word in lit_file["FRT_SUF"]]
+
+            frt_pre = [word for word in sentence.split()
+                       if word in lit_file["FRT_PRE"]]
+
+            frt_suf = [word for word in sentence.split()
+                       if word in lit_file["FRT_SUF"]]
 
             # Oral
-            presentatif = len([word for word in sentence.split() if word in oral_file["pres"]])
-            francais_argot = len([word for word in sentence.split() if word in oral_file["FA"]])
-            francais_parle = len([word for word in sentence.split() if word in oral_file["FPA"]])
-            francais_familier = len([word for word in sentence.split() if word in oral_file["FF"]])
-            francais_familier_intes = len([word for word in sentence.split() if word in oral_file["FF_intens"]])
-            francais_vulgaire = len([word for word in sentence if word in oral_file["FV"]])
+            presentatif = len([word for word in sentence.split()
+                               if word in oral_file["pres"]])
+
+            francais_argot = len([word for word in sentence.split()
+                                  if word in oral_file["FA"]])
+
+            francais_parle = len([word for word in sentence.split()
+                                  if word in oral_file["FPA"]])
+
+            francais_familier = len([word for word in sentence.split()
+                                     if word in oral_file["FF"]])
+
+            francais_familier_intes = len([word for word in sentence.split()
+                                           if word in oral_file["FF_intens"]])
+
+            francais_vulgaire = len([word for word in sentence
+                                     if word in oral_file["FV"]])
 
             # Lexical information
             hyphenated_words_count = hyphenated_words.findall(sentence)
 
             # French Syntactical information
-            proper_negation = ne_negation.findall(sentence) and particle_negation.findall(sentence)
+            proper_negation = ne_negation.findall(sentence) and \
+                              particle_negation.findall(sentence)
+            
             ne_negation = len(ne_negation.findall(sentence))
             particle_negation = len(particle_negation.findall(sentence))
 
@@ -691,11 +738,13 @@ class DiscourseAnalysis:
 
               :return "LIT", lit_classification
                   :rtype str,  tuple
-                  LIT feature, with a tuple of  the features that important for literacy classification
+                  LIT feature, with a tuple of  the features that important
+                  for literacy classification
 
               :return "ORAL", oral_classification
                   :rtype str,  tuple
-                  ORAL feature, with a tuple of  the features that important for the orality classification
+                  ORAL feature, with a tuple of  the features that important
+                  for the orality classification
 
 
               :return "UNK", "unk_classification"
@@ -705,11 +754,13 @@ class DiscourseAnalysis:
 
             lit = self.calculate_scores()["LIT"]
             lit_score = sum(lit.values())
-            lit_classification = {key: lit[key] for key in sorted(lit, key=lit.get, reverse=False) if lit[key] > 0}
+            lit_classification = {key: lit[key] for key in sorted(
+                lit, key=lit.get, reverse=False) if lit[key] > 0}
 
             oral = self.calculate_scores()["ORAL"]
             oral_score = sum(oral.values())
-            oral_classification = {key: oral[key] for key in sorted(oral, key=oral.get, reverse=False) if oral[key] > 0}
+            oral_classification = {key: oral[key] for key in sorted(
+                oral, key=oral.get, reverse=False) if oral[key] > 0}
 
             # Returning the sentence score
             if lit_score > oral_score:
@@ -758,11 +809,13 @@ def clear_log(error_log):
 
 def restore_default_database():
     """
-    This restores the default database by overwriting the database built up by the user
+    This restores the default database by
+    overwriting the database built up by the user
     with that of the system default.
     """
-    destination = "app_program_resources/default_files/databases/default_database.csv"
-    source = "app_program_resources/default_files/databases/default_database_recovery.csv"
+    default = "app_program_resources/default_files/databases/"
+    destination = f"{default}default_database.csv"
+    source = f"{default}default_database_recovery.csv"
     options = "yes", "no"
 
     des = os.path.exists(destination)
@@ -773,24 +826,26 @@ def restore_default_database():
             for number, choice in enumerate(options):
                 print(number, choice)
             print("")
-            user = input("Are you sure that you would like restore the default database?").lower()
+            user = input("Are you sure that you "
+                         "would like restore the default database?").lower()
             if user == "0":  # Yes
-                input("The database will now be restored. Please press enter to continue...")
+                input(f"The database will now be restored.{return_main_menu}")
                 print("Please wait while the database is being restored....")
                 copyfile(source, destination)
-                input("The database has been restored. Please press enter to return the main menu...")
+                input(f"The database has been restored. {return_main_menu}")
                 break
             elif user == "1":  # No
-                input("The database will not be restored. Please press enter to return the main menu...")
+                input(f"The database will not be restored. {return_main_menu}")
                 break
             else:  # Incorrect or invalid answer
-                print(f"'{user}' is not a valid response. Please enter a valid response.\n")
+                print(f"'{user}' is not a valid response. {enter_valid_option}\n")
     else:
         print("The files needed for recovery have been removed or renamed.")
-        print("Please check the directory 'app_program_resources/default_files/databases/'")
-        print(
-            "The files should be located in this directory and named 'default_database.csv' and 'default_database_recovery.csv'")
-        input("Please press enter to return to the main  menu.")
+        print("Please check the directory "
+              "'app_program_resources/default_files/databases/'")
+        print("The files should be located in this directory and "
+              "named 'default_database.csv' and 'default_database_recovery.csv'")
+        input(return_main_menu)
 
 
 def end_program():
@@ -805,14 +860,15 @@ def end_program():
         for number, choice in enumerate(options):
             print(number, choice)
         print("")
-        user = input("Are you sure that you would like exit the program? ").lower()
+        user = input("Are you sure that "
+                     "you would like exit the program? ").lower()
         if user == "0":  # Yes
             sys.exit("The program will now be terminated.")
         elif user == "1":  # No
             print("The program will not be terminated.")
             break
         else:  # Incorrect or invalid answer
-            print(f"'{user}' is not a valid response. Please enter a valid response.\n")
+            print(f"'{user}' is not a valid response. {enter_valid_option}\n")
 
 
 def evaluation():
@@ -823,18 +879,22 @@ def evaluation():
 
     def sys_gold_evaluation():
         """
-        This function allows the user to dynamically select two files: system and gold file.
-        The gold file is the file that is the one that is created by hand as a reference file
+        This function allows the user to dynamically select
+        two files: system and gold file.
+        The gold file is the file that is
+        the one that is created by hand as a reference file
         The system file is the one that was generated by the system.
         """
 
         # Reference files
-        input("Please first select the system file and then the gold file. Press enter to continue...")
+        input("Please first select the system file and then the gold file. "
+              "Press enter to continue...")
         system_file, gold_file = file_finder(), file_finder()
 
         system = open(system_file, mode="r", encoding="utf-8")
         gold = open(gold_file, mode="r", encoding="utf-8")
-        csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","), csv.reader(system, delimiter=",")
+        csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","),\
+                                             csv.reader(system, delimiter=",")
 
         sentence_features = dict()
 
@@ -871,7 +931,8 @@ def evaluation():
             elif sys_feat == feat_2 and gold_feat == feat_1:
                 false_negative += 1
 
-        total = sum((true_positive, true_negative, false_positive, false_negative))
+        total = sum((true_positive, true_negative,
+                     false_positive, false_negative))
 
         accuracy = (true_positive + true_negative) / total
         error_rate = (false_negative + false_positive) / total
@@ -927,7 +988,8 @@ def evaluation():
 
 def file_finder():
     """
-    This function allows to the user to select a file using the dialog with tkinter.
+    This function allows to the user
+    to select a file using the dialog with tkinter.
 
     :return path_name
         :rtype str
@@ -947,7 +1009,8 @@ def file_finder():
 
 def sentence_tokenizer(simple_split_tokens):
     """
-    This function takes in a text tokenized by .split() method and reconstructs them into sentences
+    This function takes in a text tokenized by .split()
+    method and reconstructs them into sentences
     using regular expressions.
 
     :param simple_split_tokens
@@ -960,9 +1023,13 @@ def sentence_tokenizer(simple_split_tokens):
     """
 
     # regex expression for recognizing sentences
-    regex = re.compile(rf'''(?P<sentence_basic>[a-zàâçéèêëîïôûùüÿñæœ]+[.!?-])|# single punctutation marks
-                            (?P<sentence_punctuatuion>)[*!?.]| # typical sentence punctation 
-                            (?P<sentence_period>)[.·] # different period types 
+    # regex 1: single punctuation marks
+    # regex 2: typical sentence punctuation
+    # regex 3: different period types
+
+    regex = re.compile(rf'''(?P<sentence_basic>[a-zàâçéèêëîïôûùüÿñæœ]+[.!?-])| 
+                            (?P<sentence_punctuatuion>)[*!?.]|  
+                            (?P<sentence_period>)[.·]  
                             ''', re.VERBOSE)
 
     new_tokens, sentence = list(), str()
@@ -981,18 +1048,21 @@ def sentence_tokenizer(simple_split_tokens):
     return sentence_results
 
 
-def write_sentences(collective_results=False, results_file=False, sen_num=False, sen_id=False, feat=False,
+def write_sentences(collective_results=False, results_file=False,
+                    sen_num=False, sen_id=False, feat=False,
                     feat_save=False):
     """
     this saves the unprocessed sentences to a desired text file
 
     :param collective_results
         :type dict
-            all of the results produced by spaCy concerning morphology, syntax,and tokenization.
+            all of the results produced by spaCy concerning morphology,
+            syntax,and tokenization.
 
     :param results_file
         :type str
-            This is the path name of the file where the sentences should be written.
+            This is the path name of the file
+            where the sentences should be written.
 
     :param sen_num
         :type int
@@ -1060,7 +1130,8 @@ def sub_menu(output_menu, menu_name, menu_information):
             returns the value of the respective function
     """
 
-    invalid_option = f'An error occurred. You can return to {menu_name} by pressing enter...'
+    invalid_option = f'An error occurred. ' \
+                     f'You can return to {menu_name} by pressing enter...'
 
     while True:
         banner = menu_name, menu_information
@@ -1117,7 +1188,8 @@ def write_to_database(feature, corpus_sentence_id, sentence, database):
     """
 
     with open(database, mode="a+", encoding="utf-8", newline="") as analysis:
-        fnames = "token_text", "token_pos", "token_dep", "token_id", "sen_no", "oral_literate"
+        fnames = "token_text", "token_pos", \
+                 "token_dep", "token_id", "sen_no", "oral_literate"
         writer = csv.DictWriter(analysis, fieldnames=fnames)
 
         for element in sentence:
