@@ -628,7 +628,6 @@ def generate_training_data(collective_spacy_results, database_file, system_evalu
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(sub_sentences)
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
-            print(sentence_info.sentence_reconstruction()[1])
             save_results(feat, sentence_info, corpus_sentence_id, sub_sentences, system_eval_file)
 
         # Gold results
@@ -1144,7 +1143,7 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
 
-    system_evaluation = False
+    system_evaluation = True
     missing_files_libares = bool(core_file_missing)
     default_doc = r"app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml"
     default_train = r"app_program_resources/default_files/databases/default_database.csv"
