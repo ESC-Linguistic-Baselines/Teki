@@ -1143,7 +1143,7 @@ if __name__ == "__main__":
     but it is not advised as it can lead to the program becoming unstable.  
     """
 
-    system_evaluation = True
+    system_evaluation = False
     missing_files_libares = bool(core_file_missing)
     default_doc = r"app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml"
     default_train = r"app_program_resources/default_files/databases/default_database.csv"
