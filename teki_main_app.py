@@ -1105,6 +1105,7 @@ def run_program(default_doc, default_train, system_evaluation):
                     # executes functions that do not require parameters
                     function_values[function_number]()
 
+
 if __name__ == "__main__":
     #########################
     # Error Logger

@@ -24,6 +24,7 @@ try:
     from sklearn.naive_bayes import MultinomialNB
     from sklearn.model_selection import cross_val_score
 except ImportError as error:
+    print("It seems that some libraries, and or modules are missing:\n")
     print(error)
 
 #########################
@@ -33,7 +34,6 @@ except ImportError as error:
 lit_french_file = "app_program_resources/default_files/discourse_reference/lit_french.json"
 oral_french_file = "app_program_resources/default_files/discourse_reference/oral_french.json"
 error_log = 'teki_error.log'
-
 
 #########################
 # Auxiliary Classes
@@ -60,7 +60,7 @@ class DiscourseAnalysis:
     @staticmethod
     def read_database(infile):
         """
-        This function loads the .csv file into the database.
+        This function loads the .json file into the database.
 
         :param infile
             :type str
@@ -97,7 +97,7 @@ class DiscourseAnalysis:
         redacted_corpus = {key: list() for (key) in original_corpus_keys}
         elements_to_be_removed = list()
 
-        # regex
+        # regex expressions
         adverbs = re.compile(r"(?<!^)ment")
         ftr_smpl = re.compile(r"(?<!^)rai")
         hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
@@ -123,12 +123,12 @@ class DiscourseAnalysis:
                 word = sentence[0]
                 adv = adverbs.findall(word)
                 ftr = ftr_smpl.findall(word)
-                hypenated = hypenated_words.findall(word)
+                hyphenated = hypenated_words.findall(word)
                 if adv:
                     elements_to_be_removed.append(word)
                 if ftr:
                     elements_to_be_removed.append(word)
-                if hypenated:
+                if hyphenated:
                     elements_to_be_removed.append(word)
 
         # Creating the new redacted corpus
@@ -157,9 +157,6 @@ class DiscourseAnalysis:
             """
             The sentence consists of many elements when it is retrieved by this function.
 
-            sen_id - token - POS - DEP - Sen No -Morphology
-            It splits it apart, rebuilds the sentence and extracts the necessary identifiers
-
             :return token_count
                 :rtype int
                     amount of tokens in a sentence.
@@ -169,10 +166,6 @@ class DiscourseAnalysis:
                 the reconstructed sentence.
 
             :return sen_id
-                :rtype str
-                unique id of the sentence
-
-            :return sen_num
                 :rtype int
                 sentence number of the analyzed corpus
             """
@@ -438,6 +431,19 @@ class DiscourseAnalysis:
             """
             This function takes the information from calculate_score and
             returns the highest score along with its respective feat
+
+            :return "LIT", lit_classification
+                :rtype str,  tuple
+                LIT feature, with a tuple of  the features that important for literacy classification
+
+            :return "ORAL", oral_classification
+                :rtype str,  tuple
+                ORAL feature, with a tuple of  the features that important for the orality classification
+
+
+            :return "UNK", "unk_classification"
+                :rtype str,  str
+                UNK  and classification no possible
             """
 
             lit = self.calculate_scores()["LIT"]
@@ -482,19 +488,15 @@ class DiscourseAnalysis:
                 :rtype str
                 the reconstructed sentence.
 
-            :return sen_id
-                :rtype str
-                unique id of the sentence
-
             :return sen_num
                 :rtype int
                 sentence number of the analyzed corpus
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
-            sen_id = self.sub_sentences[0][3]
+            sen_num = self.sub_sentences[0][3]
             token_count = len(self.sub_sentences)
 
-            return token_count, sentence, sen_id
+            return token_count, sentence, sen_num
 
         def part_of_speech(self):
             """
@@ -510,7 +512,7 @@ class DiscourseAnalysis:
 
             :return dep
                 :rtype str
-                syntatical dependencies in the sentence.
+                syntactical dependencies in the sentence.
 
             :return morph
                 :rtype list
@@ -684,9 +686,22 @@ class DiscourseAnalysis:
 
         def feature_assignment(self):
             """
-            This function takes the information from calculate_score and
-            returns the highest score along with its respective feat.
-            """
+              This function takes the information from calculate_score and
+              returns the highest score along with its respective feat
+
+              :return "LIT", lit_classification
+                  :rtype str,  tuple
+                  LIT feature, with a tuple of  the features that important for literacy classification
+
+              :return "ORAL", oral_classification
+                  :rtype str,  tuple
+                  ORAL feature, with a tuple of  the features that important for the orality classification
+
+
+              :return "UNK", "unk_classification"
+                  :rtype str,  str
+                  UNK  and classification no possible
+              """
 
             lit = self.calculate_scores()["LIT"]
             lit_score = sum(lit.values())
@@ -698,11 +713,11 @@ class DiscourseAnalysis:
 
             # Returning the sentence score
             if lit_score > oral_score:
-                return "LIT",lit_classification
+                return "LIT", lit_classification
             elif oral_score > lit_score:
-                return "ORAL",oral_classification
+                return "ORAL", oral_classification
             else:
-                return "UNK","unk_classification"
+                return "UNK", "unk_classification"
 
 
 #########################
@@ -774,7 +789,7 @@ def restore_default_database():
         print("The files needed for recovery have been removed or renamed.")
         print("Please check the directory 'app_program_resources/default_files/databases/'")
         print(
-            "The files should be located in this redirectory and named 'default_database.csv' and 'default_database_recovery.csv'")
+            "The files should be located in this directory and named 'default_database.csv' and 'default_database_recovery.csv'")
         input("Please press enter to return to the main  menu.")
 
 
@@ -782,7 +797,9 @@ def end_program():
     """
     This allows the user to safely exit the program.
     """
+
     options = "yes", "no"
+    print("Please enter the number of your response:  ")
 
     while True:
         for number, choice in enumerate(options):
@@ -799,13 +816,14 @@ def end_program():
 
 def evaluation():
     """
-    This function simply contains two sub-functions: evaluate_naive_bayes and cross_validation
+    This function simply contains two sub-functions:
+    sys_gold_evaluation and cross_validation
     """
 
     def sys_gold_evaluation():
         """
-        This function allows the user to dynamically select two files: gold file and a system file.
-        The gold file is the file that is the one that is created by hand.
+        This function allows the user to dynamically select two files: system and gold file.
+        The gold file is the file that is the one that is created by hand as a reference file
         The system file is the one that was generated by the system.
         """
 
@@ -821,19 +839,18 @@ def evaluation():
 
         feat_1, feat_2 = "LIT", "ORAL"
 
-        true_positive = 0
-        false_positive = 0
-        false_negative = 0
-        true_negative = 0
+        true_positive, false_positive = 0, 0
+        false_negative, true_negative = 0, 0
+        total = sum(true_positive, true_negative, false_positive, false_negative)
+
+        for row in csv_system_reader:
+            sen, feat = row[0], row[3]
+            sentence_features[sen]["SYS"] = feat
 
         for row in csv_gold_reader:
             sen, feat = row[0], row[3]
             sentence_features[sen] = {"SYS": "", "GOLD": ""}
             sentence_features[sen]["GOLD"] = feat
-
-        for row in csv_system_reader:
-            sen, feat = row[0], row[3]
-            sentence_features[sen]["SYS"] = feat
 
         for entry in sentence_features:
             results = sentence_features[entry]
@@ -853,8 +870,8 @@ def evaluation():
             elif sys_feat == feat_2 and gold_feat == feat_1:
                 false_negative += 1
 
-        accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_positive + false_negative)
-        error_rate = (false_negative + false_positive) / (true_positive + true_negative + false_positive + false_negative)
+        accuracy = (true_positive + true_negative) / total
+        error_rate = (false_negative + false_positive) / total
         precision = true_positive / (true_positive + false_positive)
         recall = true_positive / (true_positive + true_negative)
         f_score = (2 * precision * recall) / (precision + recall)
@@ -875,6 +892,11 @@ def evaluation():
         Using k-fold validation with skilearn, pandas and multinomial bayes,
         the data can be cross validated.
         Simply select the appropriate file for the respective directory.
+
+        Before a file has been selected, the user must first place:
+        ```
+        sentence,sentence_number,corpus_id,feat
+        ```
         """
         data = pd.read_csv(file_finder())
         vectorizer = CountVectorizer()
@@ -959,21 +981,23 @@ def sentence_tokenizer(simple_split_tokens):
 def write_sentences(collective_results=False, results_file=False, sen_num=False, sen_id=False, feat=False,
                     feat_save=False):
     """
-    this saves the untagged sentences to a desired text file
+    this saves the unprocessed sentences to a desired text file
+
     :param collective_results
         :type dict
-            all of the results produced by the spacy tagger.
+            all of the results produced by spaCy concerning morphology, syntax,and tokenization.
+
     :param results_file
         :type str
-            this is the path name of the file where the sentences should be written.
+            This is the path name of the file where the sentences should be written.
 
     :param sen_num
         :type int
-        number of the respective sentence
+        the sentence number of the respective sentence
 
     :param sen_id
         :type str
-            id of the respective sentence
+        The sentence id of the respective sentence
 
     :param feat
         :type str
@@ -986,6 +1010,7 @@ def write_sentences(collective_results=False, results_file=False, sen_num=False,
 
     with open(results_file, mode="a", encoding="utf-8", newline="") as results:
         if not feat_save:
+            #  The user  just wants to sve the unprocessed sentences.
             fieldnames = "sentence", "sentence_id", "SEN:"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
 
@@ -997,7 +1022,9 @@ def write_sentences(collective_results=False, results_file=False, sen_num=False,
                         "sentence_id": res,
                         "SEN:": f"SEN:{number}",
                     })
+
         elif feat_save:
+            # The user  wants to save the processed sentences
             fieldnames = "sen", "sen_num", "sen_id", "sen_feat"
             writer = csv.DictWriter(results, fieldnames=fieldnames)
             sen = collective_results
@@ -1021,7 +1048,7 @@ def sub_menu(output_menu, menu_name, menu_information):
         :type str
             name of the respective menu
 
-    :param menu information
+    :param menu_information
         :type str
             information that should be displayed in the sub_menu
 
@@ -1029,6 +1056,7 @@ def sub_menu(output_menu, menu_name, menu_information):
         :rtype
             returns the value of the respective function
     """
+
     invalid_option = f'An error occurred. You can return to {menu_name} by pressing enter...'
 
     while True:
@@ -1051,6 +1079,8 @@ def sub_menu(output_menu, menu_name, menu_information):
                 logging.exception(error)
                 input(invalid_option)
             else:
+                # The option is consider valid if
+                #  it is the menu selection
                 if 0 < choice_num <= len(output_menu):
                     func_list = list(output_menu.values())
                     function_number = choice_num - 1
