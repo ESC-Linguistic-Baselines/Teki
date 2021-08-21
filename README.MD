@@ -64,7 +64,7 @@ Christopher Chandler
 # Téki: A Naïve Bayesian French Discourse Analyzer
 ## Project information
 ![Version Nubmer](https://img.shields.io/badge/Version-1.0.0-brightgreen)
-![Project Size](https://img.shields.io/badge/Project_Size-35mb-yellow)
+![Project Size](https://img.shields.io/badge/Project_Size-30mb-yellow)
 ![Version Date](https://img.shields.io/badge/Last_Updated-August_2021-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 

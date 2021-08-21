@@ -1,0 +1,37 @@
+
+ERROR_TIME: 2021-08-21 09:09:25,849
+FILE_NAME: app_auxiliary_functions.py
+MODULE: app_auxiliary_functions
+                        
+LINE_NO: 1082
+ERROR_SCOPE invalid literal for int() with base 10: ''
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\B.A\Teki\app_program_resources\app_auxiliary_functions.py", line 1080, in sub_menu
+    choice_num = int(choice_str)
+ValueError: invalid literal for int() with base 10: ''
+
+ERROR_TIME: 2021-08-21 09:11:31,758
+FILE_NAME: app_auxiliary_functions.py
+MODULE: app_auxiliary_functions
+                        
+LINE_NO: 1098
+ERROR_SCOPE Sub menu error: 'str' object has no attribute 'select'
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\B.A\Teki\app_program_resources\app_auxiliary_functions.py", line 1095, in sub_menu
+    return options_func_dict()
+  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 364, in xml_analysis
+    for tag in soup.select("post"):
+AttributeError: 'str' object has no attribute 'select'
+
+ERROR_TIME: 2021-08-21 09:11:33,459
+FILE_NAME: teki_main_app.py
+MODULE: teki_main_app
+                        
+LINE_NO: 1103
+ERROR_SCOPE Main Menu: 'function' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 1098, in run_program
+    collective_results_tagged = spacy_tagger(content)
+  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 485, in spacy_tagger
+    for sen_id in corpus_content:
+TypeError: 'function' object is not iterable

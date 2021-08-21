@@ -799,7 +799,7 @@ def end_program():
     """
 
     options = "yes", "no"
-    print("Please enter the number of your response:  ")
+    print("\nPlease enter the number of your response:  ")
 
     while True:
         for number, choice in enumerate(options):
@@ -809,7 +809,8 @@ def end_program():
         if user == "0":  # Yes
             sys.exit("The program will now be terminated.")
         elif user == "1":  # No
-            sys.exit("The program will not be terminated.")
+            print("The program will not be terminated.")
+            break
         else:  # Incorrect or invalid answer
             print(f"'{user}' is not a valid response. Please enter a valid response.\n")
 
@@ -841,15 +842,14 @@ def evaluation():
 
         true_positive, false_positive = 0, 0
         false_negative, true_negative = 0, 0
-        total = sum(true_positive, true_negative, false_positive, false_negative)
 
         for row in csv_system_reader:
             sen, feat = row[0], row[3]
+            sentence_features[sen] = {"SYS": "", "GOLD": ""}
             sentence_features[sen]["SYS"] = feat
 
         for row in csv_gold_reader:
             sen, feat = row[0], row[3]
-            sentence_features[sen] = {"SYS": "", "GOLD": ""}
             sentence_features[sen]["GOLD"] = feat
 
         for entry in sentence_features:
@@ -858,6 +858,7 @@ def evaluation():
             gold_feat = feats[1]
             sys_feat = feats[0]
 
+            # Calculating positive and values
             if sys_feat == feat_1 and gold_feat == feat_1:
                 true_positive += 1
 
@@ -869,6 +870,8 @@ def evaluation():
 
             elif sys_feat == feat_2 and gold_feat == feat_1:
                 false_negative += 1
+
+        total = sum((true_positive, true_negative, false_positive, false_negative))
 
         accuracy = (true_positive + true_negative) / total
         error_rate = (false_negative + false_positive) / total
@@ -918,7 +921,7 @@ def evaluation():
 
     # Submenu parameters
     menu_name = "Evaluation Menu"
-    menu_information = "Which files would you like to evaluate:"
+    menu_information = "\nWhich files would you like to evaluate:"
     sub_menu(output_menu, menu_name, menu_information)
 
 
@@ -1067,7 +1070,7 @@ def sub_menu(output_menu, menu_name, menu_information):
         for number, option in enumerate(output_menu, start=1):
             print(f'{number}: {option}')
 
-        choice_str = input("\nPlease enter the desired menu number:")
+        choice_str = input("\nPlease enter the desired menu number: ")
         menu_option = output_menu.get(choice_str.title())
 
         if menu_option:

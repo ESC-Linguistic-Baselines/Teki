@@ -336,6 +336,12 @@ def content_analysis(text):
                 :rtype None
                     the user is brought back to the main menu.
         """
+        # This prevents users from accidentalty loading the wrong file type
+        file_type_check = str(type(text)) == "<class 'bs4.BeautifulSoup'>"
+        if not file_type_check:
+            print("You selected the wrong option.")
+            input(enter_valid_option)
+            return None
 
         # Relevant for BeautifulSoup
         soup, xml_tag_id = text, list()
@@ -368,6 +374,11 @@ def content_analysis(text):
                 input(enter_valid_option)
 
             while True:
+                if len(xml_tag_id) == 0:
+                    print("You selected the wrong corpus.")
+                    input(enter_valid_option)
+                    break
+
                 print(f"There are {len(xml_tag_id)} documents. Please enter a selection range from 0 - {len(xml_tag_id)}.")
                 print(" A range should be specified with a single space between both numbers: start stop.\n")
                 corpus_range_choice = input("Please enter a valid range: ")
@@ -413,6 +424,13 @@ def content_analysis(text):
                 :rtype None
                     the user is brought back to the main menu.
         """
+        # This prevents users from accidentalty loading the wrong file type
+        file_type_check = "<class 'bs4.BeautifulSoup'>" == str(type(text))
+        if file_type_check:
+            print("You selected the wrong option.")
+            input(enter_valid_option)
+            return None
+
         user = input("Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text: ")
 
         # Sentence tokenization
