@@ -15,8 +15,8 @@ if __name__ == "__main__":
     """
     Starting the program will take a bit of time due to 
     the amount of libraries and modules being imported.
-    In my testing, it should take around 3 (Mac Os 11) - 9 (Windows 10) 
-    seconds to load all of the necessary information.
+    In my testing, it should take only around 3 (Mac Os 11) - 9 (Windows 10) 
+    seconds to load all of the necessary data.
     However, the speed will depend entirely on your local resources. 
     """
 
@@ -53,20 +53,20 @@ def continue_program(*args):
     """
 
     # Error prompts
-    for message in args:
-        print(message)
+    for msg in args:
+        print(msg)
     print("")
 
     options = "yes", "no"
 
     # The while-loop remains in place until
     # the user provides an appropriate response.
-    print("Please enter the number of your response:  ")
+    print("Please enter the number of your response: ")
     while True:
-
         for number, choice in enumerate(options):
             print(number, choice)
         print("")
+
         user = input("Would you like to continue with the program? ").lower()
         if user == "0":  # Yes
 
@@ -87,13 +87,9 @@ def continue_program(*args):
 def _rebuild_requirement_resources():
     """
         This function recreates the dependencies so that
-         the main script can run properly
+        the main script can run properly
         in the event that certain files were deleted.
-        This is not intended to circumvent the checks,
-        but rather to allow the program to run,
-        even if in properly, without getting
-        an error message at the beginning of the program.
-        Recreating the file does not allow for code stability,
+        Recreating the file requierments does not create code stability,
         but rather for the initial file check to be bypassed.
 
      :return
@@ -138,7 +134,8 @@ except ImportError as error:
     for req in requirements:
         print(req.strip())
     print("")
-    continue_program("Continue without these libraries and modules?")
+    continue_program("Would you like to "
+                     "continue without these libraries and modules?")
 
 ###########################################
 # Importing custom files and modules
@@ -148,13 +145,14 @@ except ImportError as error:
 A program-wide check is performed for the necessary files. 
 The program can still be started if any of the necessary files are missing, 
 but the program stability will be greatly compromised. 
-Necessary file names stored as requirement_resources.txt
+Necessary file names are located in requirement_resources.txt
 """
 
 core_file_missing = list()
 if os.path.exists("app_program_resources"):
-    with open("requirement_resources.txt", mode="r", encoding="utf-8") \
-            as resource:
+    with open("requirement_resources.txt",
+              mode="r", encoding="utf-8") as resource:
+
         for line in resource:
             if not os.path.exists(line.strip()):
                 core_file_missing.append(line)
@@ -172,7 +170,6 @@ if os.path.exists("app_program_resources"):
             sentence_tokenizer,
             write_to_database
         )
-
     except Exception as error:
         print(f"The following error has occurred:\n{error}\n")
         message = "Would you like to proceed despite this error?"
@@ -189,13 +186,13 @@ def get_text(document):
     This file is either in app_program_resources/app_corpora
     or it is a file that has been dynamically specified by the user.
 
-    :param 'document':
+    :param document:
        :type str
             A path to the desired document file.
 
     :return soup
         :rtype <class 'bs4.BeautifulSoup>
-        If the user chooses an xml-file, then a beautiful object is returned.
+        If the user chooses an xml-file, then a beautiful class is returned.
 
     :return csv_data
         :rtype list
@@ -203,7 +200,7 @@ def get_text(document):
 
     :return text
         :rtype str
-            If the user chooses a .txt file,  then a string object is returned.
+            If the user chooses a .txt file, then a string object is returned.
     """
 
     name, extension = os.path.splitext(document)
