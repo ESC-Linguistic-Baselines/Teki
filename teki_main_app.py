@@ -35,7 +35,7 @@ if __name__ == "__main__":
 ###############################
 
 # Message Prompts
-return_main_menu_msg = "Please press enter to return to the main menu..."
+return_main_menu = "Please press enter to return to the main menu..."
 enter_valid_option = "Please press enter to be able to reenter a valid option."
 
 def continue_program(*args):
@@ -66,21 +66,22 @@ def continue_program(*args):
         for number, choice in enumerate(options):
             print(number, choice)
         print("")
-
         user = input("Would you like to continue with the program? ").lower()
-        if user == "0":  # Yes
-
-            user = input("Are you sure? "
+        if user == "0":
+            # Yes
+            user = input("Are you sure?"
                          "Program stability cannot be guaranteed. ").lower()
             if user == "0":
                 break
             else:
                 sys.exit("The program will now be terminated.")
 
-        elif user == "1":  # No answer
+        elif user == "1":
+            # No answer
             sys.exit("The program will not be terminated.")
 
-        else:  # Incorrect or invalid answer
+        else:
+            # Incorrect or invalid answer
             print(f"'{user}' is not a valid response. {enter_valid_option} \n")
 
 
@@ -192,15 +193,18 @@ def get_text(document):
 
     :return soup
         :rtype <class 'bs4.BeautifulSoup>
-        If the user chooses an xml-file, then a beautiful class is returned.
+        If the user chooses an xml-file,
+        then a beautiful soup class is returned.
 
     :return csv_data
         :rtype list
-            If the user chooses csv file, the a list of that data is returned.
+            If the user chooses csv file,
+            the a list of that data is returned.
 
     :return text
         :rtype str
-            If the user chooses a .txt file, then a string object is returned.
+            If the user chooses a .txt file,
+            then a string object is returned.
     """
 
     name, extension = os.path.splitext(document)
@@ -231,6 +235,7 @@ def get_database():
     that is saved in a .csv file.
     For the file to be properly processed,
     the database should have the following format:
+
     Word, POS, Dep, Sentence Number, Corpus Tag, Feature, Tag
     corrélés,VERB,acl:relcl,SEN:2,cmr-wiki-c001-a1,LIT
 
@@ -265,7 +270,8 @@ def content_analysis(text):
     :return menu
         :rtype dict
         The collective sentence_results of the user
-        according to the respective function.
+        according to the respective function that was
+        chosen by the user.
     """
 
     def process_save(sentence_count, collective_results):
@@ -293,31 +299,36 @@ def content_analysis(text):
         """
 
         while True:
-            options = "process sentences", \
-                      "save unprocessed sentences", "return to menu"
+            options = ("process sentences",
+                      "save unprocessed sentences",
+                       "return to menu")
+
             for number, choice in enumerate(options, start=1):
                 print(number, choice)
 
             user = input(f"\nThe text has been parsed into approx."
                          f" {sentence_count} sentences. "
                          f"How would you like to proceed? ")
+
             if user == "1":
                 input("The sentence results will now be processed."
                       " Please press enter to continue...")
                 return collective_results
+
             elif user == "2":
                 file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
                 sen_res = "app_user_resources/sentence_results/sen_results_"
                 unprocessed_sentences_file = f"{sen_res}{file_time_id}.csv"
-
                 write_sentences(collective_results, unprocessed_sentences_file)
                 print(f"\nThe sentences have been saved.")
-                input(return_main_menu_msg)
+                input(return_main_menu)
                 return False
+
             elif user == "3":
                 print("\nThe sentences will neither be saved nor processed. ")
-                input(return_main_menu_msg)
+                input(return_main_menu)
                 break
+
             else:
                 print(f"{user} is not a valid option.")
                 input(enter_valid_option)
@@ -329,7 +340,7 @@ def content_analysis(text):
         the user will be returned to the main menu.
         """
         print(text)
-        input(f"\n{return_main_menu_msg}")
+        input(f"\n{return_main_menu}")
 
     def xml_analysis():
         """
@@ -345,7 +356,7 @@ def content_analysis(text):
 
         As the corpora are from different sources,
         it was necessary to create different control structures
-        so that the .xml tags could be retrieved from the respective corpus.
+        so that the .xml tags could be retrieved from the respective corpora.
 
         If the user has entered a valid range,
         then this range is extracted from the desired corpus.
@@ -354,6 +365,7 @@ def content_analysis(text):
         It returns the parsed sentences and they are saved together
         with their respective id in a dictionary.
 
+        Note:
         It is theoretically possible for it to work with any file that has
         a corresponding .xml format.
         However, since the function was written with
@@ -371,11 +383,14 @@ def content_analysis(text):
                 :rtype None
                     the user is brought back to the main menu.
         """
-        # This prevents users from accidentally loading the wrong file type
+
+        # This prevents users from accidentally loading the wrong file type.
         file_type_check = str(type(text)) == "<class 'bs4.BeautifulSoup'>"
         if not file_type_check:
             print("You selected the wrong option.")
             input(enter_valid_option)
+
+            # returns the user to the main menu
             return None
 
         # Relevant for BeautifulSoup
@@ -418,8 +433,10 @@ def content_analysis(text):
                 print(f"There are {len(xml_tag_id)} documents. "
                       f"Please enter a selection range "
                       f"from 0 - {len(xml_tag_id)}.")
-                print(" A range should be specified with a "
+
+                print("A range should be specified with a "
                       "single space between both numbers: start stop.\n")
+
                 corpus_range_choice = input("Please enter a valid range: ")
                 print("")
 
@@ -432,13 +449,15 @@ def content_analysis(text):
 
                     for i in range(start, stop):
                         if corpus_choice == 1:  # eBay
-                            corpus_text = soup.find("div", id=xml_tag_id[i]
-                                                    ).getText().strip().split()
-
+                             # Extracting text from the respective eBay tags
+                            corpus_text = soup.find("div",
+                                    id=xml_tag_id[i]).getText().strip().split()
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
 
                         elif corpus_choice == 2 or 3:  # SMS, Wikipedia
+                            # Extracting text from the SMS and Wikipedia
+                            #  corpora
                             corpus_text = soup.find(
                                 "post", {"xml:id": xml_tag_id[i]}
                             ).getText().strip().split()
@@ -446,7 +465,8 @@ def content_analysis(text):
                             results = sentence_tokenizer(corpus_text)
                             collective_results[xml_tag_id[i]] = results
 
-                    for sentence in collective_results:  # Sentence count
+                    for sentence in collective_results:
+                        # Counting the number of sentences in the document
                         sentence_count += len(collective_results[sentence])
 
                     return process_save(sentence_count, collective_results)
@@ -461,7 +481,7 @@ def content_analysis(text):
         This function tokenizes any text that is saved as .txt.
         It first creates simplified tokens for the sake of
         creating sentence-level tokens are created in this functions.
-        The real tokenization is done with Spacy.
+        The linguistically motivated tokenization is done with Spacy.
 
         :return collective sentence_results
             if user decides to continue with processing the sentences.
@@ -477,8 +497,8 @@ def content_analysis(text):
             input(enter_valid_option)
             return None
 
-        user = input("Please enter a unique identifier "
-                     "using number or characters "
+        # Determining unique ID
+        user = input("Create a unique text identifier with characters "
                      "from (a-z, A-Z, 0-9) for this text: ")
 
         # Sentence tokenization
@@ -505,7 +525,7 @@ def content_analysis(text):
     menu = sub_menu(output_menu, menu_name, menu_information)
 
     # Value from one of the respective sub-functions.
-    # See the description of the other functions for more information..
+    # See the description of the other functions for more information.
     return menu
 
 
@@ -514,13 +534,13 @@ def spacy_tagger(corpus_content):
     This function takes in the information as determined by content analysis,
     which contains the parsed sentences.
     The relevant elements that are then to be determined by Spacy are:
-        Token
-        Part-of-speech
-        Syntactical Dependencies
-        Morphological Information
+       - Tokens
+       - Part-of-speech
+       -  Syntactical dependencies
+       - Morphological information
 
     A unique sentence id is also added to each token and sentence so that
-    they can later be identified in the database
+    the tokens can later be identified in the database
     either by hand or by the program.
 
     :param corpus_content
@@ -567,7 +587,7 @@ def spacy_tagger(corpus_content):
             # that the new sentence results can be saved.
             processed_sentence = list()
 
-    input(f"The sentences have been successfully processed by Spacy."
+    input(f"The sentences have been successfully processed by Spacy. "
           f"Please press enter to continue.")
 
     return collective_spacy_results
@@ -641,6 +661,9 @@ def generate_training_data(collective_spacy_results,
     share the same feature as this option cannot
     differentiate between features whereas 'manually' can.
 
+    For information on how the feature assignment, please refer to the class
+    Discourse Analysis in the app_auxiliary_functions.py
+
    Note to System _evaluation
     If the system is being run in evaluation mode,
     then a respective file is created i.e. a gold standard,
@@ -673,8 +696,8 @@ def generate_training_data(collective_spacy_results,
     
     :param database_file
         :type str
-        The path file to the respective database
-        where the training data should be stored.
+            The path file to the respective database
+            where the training data should be stored.
 
     :param system_evaluation
         :type bool
@@ -685,21 +708,22 @@ def generate_training_data(collective_spacy_results,
             This function has no return,
             but saves the result to the specified database.
     """
-    # import pickle
-    # f = open("debug.pickle", "wb")
-    # pickle.dump(collective_spacy_results, f)
 
     # Save directory and ID
     file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-    sys_eval = "app_user_resources/system_evaluation"
+
+    # File variables
+    sys_eval = "app_user_resources/system_evaluation/"
     sen_save = "app_user_resources/sentence_results/"
+
+    # Save files
     automatic_file = f"{sen_save}automatic_feat_selection_{file_time_id}.csv"
     manual_file = f"{sen_save}manual_feat_selection_{file_time_id}.csv"
 
     # Running the program in evaluation mode
     if system_evaluation:
-        system_eval_file = f"{sys_eval}/system_{file_time_id}.csv"
-        gold_eval_file = f"{sys_eval}/gold_{file_time_id}.csv"
+        system_eval_file = f"{sys_eval}system_{file_time_id}.csv"
+        gold_eval_file = f"{sys_eval}gold_{file_time_id}.csv"
 
         print("Note: This is an experimental "
               "function that might not deliver the best results.")
@@ -709,11 +733,11 @@ def generate_training_data(collective_spacy_results,
         # System results
         corpus = DiscourseAnalysis(collective_spacy_results)
         redacted_corpus = corpus.redacted_corpus()
+
         for corpus_sentence_id in redacted_corpus:
             sub_sentences = redacted_corpus[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.LanguageIndependentAnalysis(
                 sub_sentences)
-
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
             save_results(feat, sentence_info, corpus_sentence_id,
@@ -724,14 +748,13 @@ def generate_training_data(collective_spacy_results,
             sub_sentences = collective_spacy_results[corpus_sentence_id]
             sentence_info = DiscourseAnalysis.FrenchBasedAnalysis(
                 sub_sentences)
-
             sentence_feature_info = sentence_info.feature_assignment()
             feat = sentence_feature_info[0]
             save_results(feat, sentence_info, corpus_sentence_id,
                          sub_sentences, gold_eval_file)
 
-        input(f"The system evaluation was "
-              f"completed without any errors. {return_main_menu_msg}")
+        print(f"The system evaluation completed without any errors.")
+        input (return_main_menu)
 
     else:
         while True:
@@ -741,7 +764,9 @@ def generate_training_data(collective_spacy_results,
 
             user = input("\nWould you like to have the features"
                          " assigned automatically or manually? ")
-            if user == "1":  # Automatic feature assignment
+
+            if user == "1":
+                # Automatic feature assignment
                 print("Please wait while the features are being assigned....")
                 lit_count, oral_count, unk_count = 0, 0, 0
                 sentence_count, token_count = 0, 0
@@ -757,9 +782,7 @@ def generate_training_data(collective_spacy_results,
                     save_results(feat, sentence_info, corpus_sentence_id,
                                  sub_sentences, automatic_file, database_file)
 
-                    ##############################
-                    # Determining sentence properties
-                    ##############################
+                    # Gathering sentence properties
                     sentence = sentence_info.sentence_reconstruction()[1]
                     sentence_count += 1
                     token_count += len(sentence.split())
@@ -767,6 +790,8 @@ def generate_training_data(collective_spacy_results,
                     if feat == "LIT":
                         lit_count += 1
                         classification = sentence_feature_info[1]
+                        # retrieving the criteria that were most
+                        # relevant for classification.
                         for element in classification:
                             lit_score[element] = lit_score.get(element, 0) + \
                                                  classification[element]
@@ -774,6 +799,8 @@ def generate_training_data(collective_spacy_results,
                     elif feat == "ORAL":
                         oral_count += 1
                         classification = sentence_feature_info[1]
+                        # retrieving the criteria that were most
+                        # relevant for classification.
                         for element in classification:
                             oral_score[element] = oral_score.get(element, 0) + \
                                                   classification[element]
@@ -789,14 +816,15 @@ def generate_training_data(collective_spacy_results,
                                  }
 
                 score_points = {
-                    "LIT": [(key, value)
-                            for (key, value) in lit_score.items()],
-                    "ORAL": [(key, value)
-                             for (key, value) in oral_score.items()],
-                }
+                            "LIT": [(key, value)
+                                    for (key, value) in lit_score.items()],
+                            "ORAL": [(key, value)
+                                     for (key, value) in oral_score.items()],
+                                }
 
                 print(f"\nAll of the sentences have been automatically"
                       f" assigned the most appropriate feature.\n")
+
                 print("The sentence results are as follows:")
                 for score in count_results:
                     print(score, count_results[score])
@@ -804,9 +832,12 @@ def generate_training_data(collective_spacy_results,
                 print("\nThe total points of the top three"
                       " criteria per feature\n")
 
+                # Retrieving top 3 LIT criteria
                 top_score_lit = sorted([number[1]
                                         for number in score_points["LIT"]],
                                        reverse=True)[:3]
+
+                # Retrieving top 3 ORAL criteria
                 top_score_oral = sorted([number[1]
                                          for number in score_points["ORAL"]],
                                         reverse=True)[:3]
@@ -818,10 +849,11 @@ def generate_training_data(collective_spacy_results,
                         elif class_feat == "ORAL" and score[1] in top_score_oral:
                             print(class_feat, score)
 
-                input(f"\n{return_main_menu_msg}")
+                input(f"\n{return_main_menu}")
                 break
 
             elif user == "2":
+                #  Manual feature assignment
                 options = "LIT", "ORAL"
                 for number, choice in enumerate(options, start=1):
                     print(number, choice)
@@ -845,7 +877,7 @@ def generate_training_data(collective_spacy_results,
 
                 print(f"\nAll of the sentences have been "
                       f"successfully assigned the feature {feat}.")
-                input(return_main_menu_msg)
+                input(return_main_menu)
                 break
 
             else:
@@ -921,7 +953,7 @@ def get_probs(freq_training_data):
         :rtype dict
             The probability of the each word having a certain feature.
     """
-
+    # Information necessary for feature prob calculation
     feat_count, training_data = freq_training_data[0], freq_training_data[1]
     vocabulary, n_training_data = set(), sum(feat_count.values())
     prob_results = dict()
@@ -932,29 +964,31 @@ def get_probs(freq_training_data):
         word, feat = element[0], element[5]
         vocabulary.add(word)
 
+        # Counting vocab according to their features
         if feat == "LIT":
             lit_tokens.append((word, feat))
-            oral_feat[word] = oral_feat.get(word, 0) + 1
+            lit_feat[word] = lit_feat.get(word, 0) + 1
 
         elif feat == "ORAL":
             oral_tokens.append((word, feat))
-            lit_feat[word] = lit_feat.get(word, 0) + 1
+            oral_feat[word] = oral_feat.get(word, 0) + 1
 
+    for word in vocabulary:
         # MLE probability of LIT
-        if oral_feat.get(word, 0) > 0:
-            feat_1_prob = oral_feat.get(word) / feat_count["LIT"]
+        if lit_feat.get(word, 0) > 0:
+            lit_feat_prob = lit_feat.get(word) / feat_count["LIT"]
         else:
             # Ng Smoothing
-            feat_1_prob = feat_count["LIT"] / n_training_data ** 2
+            lit_feat_prob = feat_count["LIT"] / n_training_data ** 2
 
         # MLE probability of ORAL
-        if lit_feat.get(word, 0) > 0:
-            feat_2_prob = lit_feat.get(word) / feat_count["ORAL"]
+        if oral_feat.get(word, 0) > 0:
+            oral_feat_prob = oral_feat.get(word) / feat_count["ORAL"]
         else:
             # Ng Smoothing
-            feat_2_prob = feat_count["ORAL"] / n_training_data ** 2
+            oral_feat_prob = feat_count["ORAL"] / n_training_data ** 2
 
-        prob_results[word] = feat_1_prob, feat_2_prob
+        prob_results[word] = lit_feat_prob, oral_feat_prob
 
     return feat_count, prob_results
 
@@ -1029,7 +1063,9 @@ def sentence_classification(probabilities):
         lit_smooth = lit_prob / n_training_data
         oral_smooth = oral_prob / n_training_data
         word_feat_prob = dict()
-
+        
+        # Retrieves the words from the text
+        # and finds its respective properties
         for word in text:
             if bool(prior_prob.get(word)):
                 word_feat_prob[word] = prior_prob.get(word)
@@ -1065,7 +1101,7 @@ def sentence_classification(probabilities):
         if user == "1":  # Sentence Analysis
             sentence = input("Please enter the sentence: ").split()
             calculate(sentence)
-            input(return_main_menu_msg)
+            input(return_main_menu)
 
         elif user == "2":  # Collection of sentences from a document
             file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
@@ -1124,7 +1160,7 @@ def sentence_classification(probabilities):
             for entry in res:
                 print(entry, res[entry])
         elif user == "3":
-            input(return_main_menu_msg)
+            input(return_main_menu)
             break
 
         else:
