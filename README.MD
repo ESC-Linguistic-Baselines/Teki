@@ -642,7 +642,7 @@ Before a file has been selected, the user must first place:
 sentence,number,id,feat
 ```
 
-at the top of this file in order for it to be read properly. 
+at the top of this file for it to be read properly. 
 Once having done so, the results of the cross validation will be shown within the program. 
 
 
