@@ -80,7 +80,8 @@ app_program_resources\metric_data\spacy_data\spacy\sms_system_results.csv
 app_program_resources\metric_data\spacy_data\spacy\wiki_system_gold.csv
 app_program_resources\metric_data\spacy_data\spacy\wiki_system_results.csv
 app_program_resources\metric_data\spacy_data\spacy_results\spacy_eval.txt
+app_program_resources\readme_images\command_prompt.gif
 app_program_resources\readme_images\load_database.png
 app_program_resources\readme_images\load_txt_file.png
 app_program_resources\readme_images\load_xml_file.png
-app_program_resources\__pycache__\app_auxiliary_functions.cpython-39.pyc
+app_program_resources\readme_images\run_app.gif

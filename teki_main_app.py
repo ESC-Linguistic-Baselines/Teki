@@ -104,7 +104,9 @@ def _rebuild_requirement_resources():
               encoding="utf-8") as resources:
         for path, subdirs, files in os.walk("app_program_resources"):
             for name in files:
-                resources.write(os.path.join(path, name)+"\n")
+                file_name, extension = os.path.splitext(name)
+                if not extension == ".pyc":
+                    resources.write(os.path.join(path, name)+"\n")
     print("The requirement_resources.txt file has been updated.")
     sys.exit("Please comment '_rebuild_requirement_resources()' out"
              "  and restart the program")
