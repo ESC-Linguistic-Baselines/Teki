@@ -27,17 +27,15 @@ except ImportError as error:
     print("It seems that some libraries, and or modules are missing:\n")
     print(error)
 
-#########################
-# Database Files
-#########################
-default = "app_program_resources/default_files/discourse_reference"
-lit_french_file = f"{default}/lit_french.json"
-oral_french_file = f"{default}oral_french.json"
-error_log = 'teki_error.log'
-
 # Main menu message prompt
 return_main_menu = "Please press enter to return to the main menu..."
-enter_valid_option = "Please press enter to be able to reenter a valid option."
+enter_valid_option = "Please press enter to reenter a valid option."
+
+# Database Files
+default = "app_program_resources/default_files/discourse_reference/"
+lit_french_file = f"{default}lit_french.json"
+oral_french_file = f"{default}oral_french.json"
+error_log = 'teki_error.log'
 
 #########################
 # Auxiliary Classes
@@ -76,7 +74,7 @@ class DiscourseAnalysis:
 
         :return json_data
             :type list
-                a list with a nest listed of the respective .csv entries
+                A list with a nest listed of the respective .csv entries
         """
 
         with open(infile, mode="r", encoding="utf-8") as file:
@@ -96,7 +94,7 @@ class DiscourseAnalysis:
 
         :return redacted_corpus
             :rtype dict
-                a redacted version of the corpus
+                A redacted version of the corpus
         """
 
         # Keys from old corpus to be moved to the new corpus
@@ -110,7 +108,7 @@ class DiscourseAnalysis:
         # regex expressions
         adverbs = re.compile(r"(?<!^)ment")
         ftr_smpl = re.compile(r"(?<!^)rai")
-        hypenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
+        hyphenated_words = re.compile(r"\b\w*\s*[-]\s*\w*\b")
 
         # elements that will be removed from old corpus
         oral_infile = DiscourseAnalysis.read_database(oral_french_file)
@@ -133,7 +131,7 @@ class DiscourseAnalysis:
                 word = sentence[0]
                 adv = adverbs.findall(word)
                 ftr = ftr_smpl.findall(word)
-                hyphenated = hypenated_words.findall(word)
+                hyphenated = hyphenated_words.findall(word)
                 if adv:
                     elements_to_be_removed.append(word)
                 if ftr:
@@ -154,7 +152,8 @@ class DiscourseAnalysis:
     class LanguageIndependentAnalysis:
         """
         This class contains various functions that rely on the syntactical and
-        parts of speech tags to analyze the sentences and assign them a feature.
+        parts-of-speech tags
+        to analyze the sentences and assign them a feature.
         """
 
         def __init__(self, sub_sentences):
@@ -170,21 +169,21 @@ class DiscourseAnalysis:
 
             :return token_count
                 :rtype int
-                    amount of tokens in a sentence.
+                    Number of tokens in a sentence
 
             :return sentence
                 :rtype str
-                the reconstructed sentence.
+                    The reconstructed sentence
 
-            :return sen_id
+            :return sen_num
                 :rtype int
-                sentence number of the analyzed corpus
+                    Sentence number from the analyzed corpus
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
-            sen_id = self.sub_sentences[0][3]
+            sen_num = self.sub_sentences[0][3]
             token_count = len(self.sub_sentences)
 
-            return token_count, sentence, sen_id
+            return token_count, sentence, sen_num
 
         def part_of_speech(self):
             """
@@ -193,19 +192,19 @@ class DiscourseAnalysis:
 
             :return pos_count
                 :rtype dict
-                    amount of pos tags in a sentence.
+                    Amount of pos tags in a sentence
 
             :return pos
                 :rtype list
-                the reconstructed sentence.
+                The reconstructed sentence.
 
             :return dep
                 :rtype str
-                syntactical dependencies in the sentence.
+                Syntactical dependencies in the sentence
 
             :return morph
                 :rtype list
-                sentence number of the analyzed corpus
+                Morphological tags in the sentence.
             """
 
             pos = [word[1] for word in self.sub_sentences]
@@ -230,7 +229,7 @@ class DiscourseAnalysis:
 
             :return total_score
                 :rtype dict
-                the total scores for LIT and Oral
+                    The total scores for LIT and Oral
             """
 
             # Files
@@ -256,8 +255,8 @@ class DiscourseAnalysis:
             sentence = self.sentence_reconstruction()[1]
             sentence_length = len([word for word in sentence])
             sentence_vocab = [word for word in sentence.split()]
-            avg_word_length = sum(len(word) for word in sentence_vocab) \
-                              / len(sentence_vocab)
+            avg_word_length = sum(
+                len(word) for word in sentence_vocab) / len(sentence_vocab)
 
             # POS Information
             dep_info = self.part_of_speech()[2]
@@ -302,10 +301,8 @@ class DiscourseAnalysis:
             conj_verb_ratio = conj_count > verb_count
             isolated_verb_stems = sentence_length < 4 and verb_count < 1
             low_verb_high_adj_ratio = verb_count < 1 and adj_count > 3
-            len_sen_and_len_word_amount_num = sentence_length < 25 \
-                                              and len(word_count) < 5 \
+            len_sen_len_num = sentence_length < 25 and len(word_count) < 5 \
                                               and numbers_info
-
             no_verb_short_sen_pro = verb_count == 0 and sentence_length < 10
             verb_sen_len_ratio = verb_count == 0 and sentence_length < 5 \
                                  and noun_count < 0
@@ -321,7 +318,7 @@ class DiscourseAnalysis:
             elif sentence_length < 45:
                 total_score["LIT"]["SEN_LEN"] = 0
 
-            # High average word length
+            # Average word length
             if avg_word_length > 5:
                 total_score["LIT"]["AVG_WORD_LEN"] = avg_word_length
             elif avg_word_length < 5:
@@ -370,22 +367,22 @@ class DiscourseAnalysis:
                 total_score["LIT"]["CCONJ_VB_RATIO"] = 0
 
             # Short sentence, presence of numbers
-            if len_sen_and_len_word_amount_num:
+            if len_sen_len_num:
                 total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 1
-            elif not len_sen_and_len_word_amount_num:
+            elif not len_sen_len_num:
                 total_score["LIT"]["SHORT_SEN_LENGTH_PRESENCE_OF_NUMBERS"] = 0
 
             #########################
             # ORAL CLASSIFICATION I
             #########################
-            # Sentence Length (defined by the number of characters, not words,
-            # that appear in the sentence)
+
+            # Sentence length measured in characters
             if sentence_length < 30:
                 total_score["ORAL"]["SEN_LEN"] = sentence_length
             elif sentence_length > 30:
                 total_score["ORAL"]["SEN_LEN"] = 0
 
-            # Short word length
+            # Word length
             if avg_word_length < 5:
                 total_score["ORAL"]["AVG_WORD_LENGTH"] = avg_word_length
             elif avg_word_length > 5:
@@ -463,7 +460,6 @@ class DiscourseAnalysis:
                 ORAL feature, with a tuple of  the features that important
                 for the orality classification
 
-
             :return "UNK", "unk_classification"
                 :rtype str,  str
                 UNK  and classification no possible
@@ -476,8 +472,9 @@ class DiscourseAnalysis:
 
             oral = self.calculate_scores()["ORAL"]
             oral_score = sum(oral.values())
-            oral_classification = {key: oral[key] for key in sorted(
-                oral, key=oral.get, reverse=False) if oral[key] > 0}
+            oral_classification = {key: oral[key]
+                                   for key in sorted(
+                    oral, key=oral.get, reverse=False) if oral[key] > 0}
 
             # Returning the sentence score
             if lit_score > oral_score:
@@ -489,9 +486,8 @@ class DiscourseAnalysis:
 
     class FrenchBasedAnalysis:
         """
-        This class is intended to a separate french dataset in order
-        to create a gold file against
-        which the independent test criteria is to be compared.
+        This class is intended to a separate french dataset to create a
+        gold file against which the independent test criteria is to be compared.
         However, due to the lack of necessary data and lack of decisive results,
         this function is not intended to be used, unless it has more data.
         """
@@ -517,7 +513,7 @@ class DiscourseAnalysis:
 
             :return sen_num
                 :rtype int
-                sentence number of the analyzed corpus
+                sentence number from the analyzed corpus
             """
             sentence = " ".join([word[0] for word in self.sub_sentences])
             sen_num = self.sub_sentences[0][3]
@@ -527,25 +523,25 @@ class DiscourseAnalysis:
 
         def part_of_speech(self):
             """
-            This retrieves the syntactical and
-            POS information from the sentence.
+               This retrieves the syntactical and POS
+               information from the sentence.
 
-            :return pos_count
-                :rtype dict
-                    amount of pos tags in a sentence.
+               :return pos_count
+                   :rtype dict
+                       Amount of pos tags in a sentence
 
-            :return pos
-                :rtype list
-                the reconstructed sentence.
+               :return pos
+                   :rtype list
+                   The reconstructed sentence.
 
-            :return dep
-                :rtype str
-                syntactical dependencies in the sentence.
+               :return dep
+                   :rtype str
+                   Syntactical dependencies in the sentence
 
-            :return morph
-                :rtype list
-                sentence number of the analyzed corpus
-            """
+               :return morph
+                   :rtype list
+                   Morphological tags in the sentence.
+               """
 
             pos = [word[1] for word in self.sub_sentences]
             dep = [word[2] for word in self.sub_sentences]
@@ -566,7 +562,7 @@ class DiscourseAnalysis:
 
             :return total_score
                 :rtype dict
-                the total scores for LIT and Oral
+                    The total scores for LIT and Oral
             """
 
             # Files
@@ -593,7 +589,9 @@ class DiscourseAnalysis:
             # Sentence Information
             sentence = self.sentence_reconstruction()[1]
 
+            ######################################
             # Language Registers
+            ######################################
 
             # Lit
             francais_cultive = [word for word in sentence.split()
@@ -602,7 +600,8 @@ class DiscourseAnalysis:
             francais_cultive_abbs = [word for word in sentence.split()
                                      if word in lit_file["FC_abs"]]
 
-            fl = [word for word in sentence.split() if word in lit_file["FRT"]]
+            fl = [word for word in sentence.split()
+                  if word in lit_file["FRT"]]
 
             frt_pre = [word for word in sentence.split()
                        if word in lit_file["FRT_PRE"]]
@@ -628,6 +627,10 @@ class DiscourseAnalysis:
 
             francais_vulgaire = len([word for word in sentence
                                      if word in oral_file["FV"]])
+
+            ######################################
+            # Counting Elements
+            ######################################
 
             # Lexical information
             hyphenated_words_count = hyphenated_words.findall(sentence)
@@ -749,7 +752,6 @@ class DiscourseAnalysis:
                   ORAL feature, with a tuple of  the features that important
                   for the orality classification
 
-
               :return "UNK", "unk_classification"
                   :rtype str,  str
                   UNK  and classification no possible
@@ -812,9 +814,8 @@ def clear_log(error_log):
 
 def restore_default_database():
     """
-    This restores the default database by
-    overwriting the database built up by the user
-    with that of the system default.
+    This restores the default database by overwriting
+    the database built up by the user with that of the system default.
     """
     default = "app_program_resources/default_files/databases/"
     destination = f"{default}default_database.csv"
@@ -831,16 +832,20 @@ def restore_default_database():
             print("")
             user = input("Are you sure that you "
                          "would like restore the default database?").lower()
-            if user == "0":  # Yes
+
+            if user == "0":
+                # Yes
                 input(f"The database will now be restored.{return_main_menu}")
                 print("Please wait while the database is being restored....")
                 copyfile(source, destination)
                 input(f"The database has been restored. {return_main_menu}")
                 break
-            elif user == "1":  # No
+            elif user == "1":
+                # No
                 input(f"The database will not be restored. {return_main_menu}")
                 break
-            else:  # Incorrect or invalid answer
+            else:
+                # Incorrect or invalid answer
                 print(f"'{user}' is not a valid response. {enter_valid_option}\n")
     else:
         print("The files needed for recovery have been removed or renamed.")
@@ -849,6 +854,8 @@ def restore_default_database():
         print("The files should be located in this directory and "
               "named 'default_database.csv' "
               "and 'default_database_recovery.csv'")
+        print("\nIf the file are not available, the database will have to"
+              "be retrained.")
         input(return_main_menu)
 
 
@@ -866,9 +873,11 @@ def end_program():
         print("")
         user = input("Are you sure that "
                      "you would like exit the program? ").lower()
-        if user == "0":  # Yes
+        if user == "0":
+            # Yes
             sys.exit("The program will now be terminated.")
-        elif user == "1":  # No
+        elif user == "1":
+            # No
             print("The program will not be terminated.")
             break
         else:  # Incorrect or invalid answer
@@ -893,12 +902,13 @@ def evaluation():
         # Reference files
         input("Please first select the system file and then the gold file. "
               "Press enter to continue...")
-        system_file, gold_file = file_finder(), file_finder()
+        system, gold = file_finder(), file_finder()
 
-        system = open(system_file, mode="r", encoding="utf-8")
-        gold = open(gold_file, mode="r", encoding="utf-8")
-        csv_gold_reader, csv_system_reader = csv.reader(gold, delimiter=","),\
-                                             csv.reader(system, delimiter=",")
+        system_file = open(system, mode="r", encoding="utf-8")
+        gold_file = open(gold, mode="r", encoding="utf-8")
+
+        csv_system_reader = csv.reader(system_file, delimiter=",")
+        csv_gold_reader = csv.reader(gold_file, delimiter=",")
 
         sentence_features = dict()
 
@@ -919,8 +929,8 @@ def evaluation():
         for entry in sentence_features:
             results = sentence_features[entry]
             feats = list(results.values())
-            gold_feat = feats[1]
             sys_feat = feats[0]
+            gold_feat = feats[1]
 
             # Calculating positive and values
             if sys_feat == feat_1 and gold_feat == feat_1:
@@ -935,8 +945,10 @@ def evaluation():
             elif sys_feat == feat_2 and gold_feat == feat_1:
                 false_negative += 1
 
-        total = sum((true_positive, true_negative,
-                     false_positive, false_negative))
+        total = sum(
+                     (true_positive, true_negative,
+                     false_positive, false_negative)
+                    )
 
         accuracy = (true_positive + true_negative) / total
         error_rate = (false_negative + false_positive) / total
@@ -957,7 +969,7 @@ def evaluation():
 
     def cross_validation():
         """
-        Using k-fold validation with skilearn, pandas and multinomial bayes,
+        Using k-fold validation with skilearn, pandas, and multinomial bayes,
         the data can be cross validated.
         Simply select the appropriate file for the respective directory.
 
@@ -1013,8 +1025,8 @@ def file_finder():
 
 def sentence_tokenizer(simple_split_tokens):
     """
-    This function takes in a text tokenized by .split()
-    method and reconstructs them into sentences
+    This function takes in a text tokenized by the split method
+    and reconstructs them into sentences
     using regular expressions.
 
     :param simple_split_tokens
@@ -1060,7 +1072,7 @@ def write_sentences(collective_results=False, results_file=False,
 
     :param collective_results
         :type dict
-            all of the results produced by spaCy concerning morphology,
+            All of the results produced by spaCy concerning morphology,
             syntax,and tokenization.
 
     :param results_file
@@ -1070,19 +1082,19 @@ def write_sentences(collective_results=False, results_file=False,
 
     :param sen_num
         :type int
-        the sentence number of the respective sentence
+            The sentence number of the respective sentence
 
     :param sen_id
         :type str
-        The sentence id of the respective sentence
+            The sentence id of the respective sentence
 
     :param feat
         :type str
-        the feature that should be assigned to the sentence.
+            The feature that should be assigned to the sentence.
 
     :param feat_save
         :type bool
-        this is to determine if the feature should be saved.
+            This is to determine if the feature should be saved.
     """
 
     with open(results_file, mode="a", encoding="utf-8", newline="") as results:

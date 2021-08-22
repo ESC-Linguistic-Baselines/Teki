@@ -30,13 +30,14 @@ if __name__ == "__main__":
     print("This should only take between 5 - 30 seconds "
           "depending on your system resources...\n")
 
+# Message Prompts
+return_main_menu = "Please press enter to return to the main menu..."
+enter_valid_option = "Please press enter to reenter a valid option."
+
 ###############################
 # Program Continuation Function
 ###############################
 
-# Message Prompts
-return_main_menu = "Please press enter to return to the main menu..."
-enter_valid_option = "Please press enter to be able to reenter a valid option."
 
 def continue_program(*args):
     """
@@ -449,7 +450,7 @@ def content_analysis(text):
 
                     for i in range(start, stop):
                         if corpus_choice == 1:  # eBay
-                             # Extracting text from the respective eBay tags
+                            # Extracting text from the respective eBay tags
                             corpus_text = soup.find("div",
                                     id=xml_tag_id[i]).getText().strip().split()
                             results = sentence_tokenizer(corpus_text)
@@ -1063,7 +1064,7 @@ def sentence_classification(probabilities):
         lit_smooth = lit_prob / n_training_data
         oral_smooth = oral_prob / n_training_data
         word_feat_prob = dict()
-        
+
         # Retrieves the words from the text
         # and finds its respective properties
         for word in text:
@@ -1079,7 +1080,7 @@ def sentence_classification(probabilities):
         # a portion of the sentence is displayed
         sent_excerpt = " ".join(text[:7])
 
-        # The results
+        # The results of the calculation
         if lit_prob_total > oral_prob_total:
             print(f" The text '{sent_excerpt}...'is LIT.")
             return "LIT"
@@ -1091,19 +1092,22 @@ def sentence_classification(probabilities):
             return "UNK"
 
     while True:
-        options = "analyze an individual sentence", \
-                  "analyze sentences of a file", "return to main menu"
+        options = ("analyze an individual sentence",
+                  "analyze sentences of a file", "return to main menu")
         for number, choice in enumerate(options, start=1):
             print(number, choice)
 
         user = input("\nWould you like to analyze a single "
                      "sentence or all sentences from a corpus range?\n")
-        if user == "1":  # Sentence Analysis
+        if user == "1":
+            # Sentence analysis
             sentence = input("Please enter the sentence: ").split()
             calculate(sentence)
             input(return_main_menu)
 
-        elif user == "2":  # Collection of sentences from a document
+        elif user == "2":
+            # Collection of sentences from a document
+            # All of the sentences will be individually, iteratively evaluated
             file_time_id = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
             app_resource = "app_user_resources/naive_bayes_results/"
             bayes_file = f"{app_resource}naive_bayes_{file_time_id}.csv"
@@ -1121,20 +1125,24 @@ def sentence_classification(probabilities):
                 break
             sentence_count, token_count, lit_count = 0, 0, 0
             oral_count, unk_count = 0, 0
+
             for corpus_sentence_id in tagger_results:
                 """
                 This process is similar of the generate_training_data function.
                 However, the sentences are not classified according 
                 to the classification criteria as  dictated in 
-                app_auxiliary_functions.py, 
-                but rather by the probabilities 
-                ascertained from the training file. 
+                app_auxiliary_functions.py, but rather by the probabilities 
+                ascertained from the training data. 
+                If a training data file is available, then there is no need
+                to create training data. 
                 """
 
                 sub_sentences = tagger_results[corpus_sentence_id]
                 sentence_info = DiscourseAnalysis.\
                     LanguageIndependentAnalysis(sub_sentences)
                 sentence = sentence_info.sentence_reconstruction()[1]
+
+                # Calculation with Bayes
                 bayes = calculate(sentence.split())
                 collective_res[bayes] = collective_res.get(bayes, 0) + 1
                 save_results(bayes,  sentence_info,
@@ -1149,6 +1157,7 @@ def sentence_classification(probabilities):
                 else:
                     unk_count += 1
 
+            # Sentence results
             res = {
                 "Sentence count": sentence_count,
                 "Token count": token_count,
@@ -1159,6 +1168,7 @@ def sentence_classification(probabilities):
 
             for entry in res:
                 print(entry, res[entry])
+
         elif user == "3":
             input(return_main_menu)
             break
@@ -1219,12 +1229,14 @@ def run_program(default_doc, default_train, system_evaluation):
     doc = get_text(default_doc)
     database = default_train
 
+    # Displayed when creating gold files for the classification criteria
     if system_evaluation:
         print("You are currently running the system "
               "in experimental evaluation mode.")
         print("To turn this process off, "
               "please set system_evaluation variable to 'False'.\n")
 
+    # Standard message prompt
     print("You are currently using the app_common_default_docs files:\n")
     print(f"Default text file: '{default_doc}'")
     print(f"Default training file: '{default_train}'")
@@ -1234,8 +1246,8 @@ def run_program(default_doc, default_train, system_evaluation):
     while True:
         print("")
         # Text menu message prompt
-        banner = "~ Teki - French Discourse Analyzer ~ ", \
-                 "#### Main Menu ####\n"
+        banner = ("~ Teki - French Discourse Analyzer ~ ",
+                 "#### Main Menu ####\n")
         for word in banner:
             print(word.center(50))
 
@@ -1257,9 +1269,10 @@ def run_program(default_doc, default_train, system_evaluation):
             if 0 < choice_num <= len(main_menu):
                 function_number = choice_num - 1
                 function_values = list(main_menu.values())
-                function_name = str(function_values[function_number]).split()[1]
+                function_name = str(
+                    function_values[function_number]).split()[1]
 
-                # Functions that require parameters are executed here.
+                # Functions that require parameters/args are executed here.
                 if function_number in list(range(5)):
 
                     if function_name == "get_text":
@@ -1275,12 +1288,14 @@ def run_program(default_doc, default_train, system_evaluation):
                             database = get_database()
                         except Exception as error:
                             input(f"You did not select a file. {main_message}")
-                            logging.exception(f"No database selection: {error}")
+                            logging.exception(
+                                f"No database selection: {error}")
 
                     elif function_name == "content_analysis":
                         try:
                             content = content_analysis(doc)
                             if content:
+                                # only runs if files are in memory
                                 collective_results_tagged = spacy_tagger(
                                                                        content)
                                 generate_training_data(
@@ -1296,13 +1311,14 @@ def run_program(default_doc, default_train, system_evaluation):
                             freq = get_feat_count(database)
                             probs = get_probs(freq)
                             sentence_classification(probs)
-                        except:
-                            pass
+                        except Exception as error:
+                            logging.exception(
+                                f"No database selection: {error}")
 
                     elif function_name == "clear_log":
                         clear_log('teki_error.log')
                 else:
-                    # executes functions that do not require parameters
+                    # all other functions that do not require parameters/args.
                     function_values[function_number]()
 
 
@@ -1323,11 +1339,10 @@ if __name__ == "__main__":
     #########################
 
     """
-    The main program will only run if 
-    all of the necessary files are available and
-    if all of the main libraries have been installed. 
-    This can be overridden by the user, 
-    but it is not advised as it can lead to the program becoming unstable.  
+    The main program will only run if all of the necessary files are available 
+    and if all of the main libraries have been installed. 
+    This can be overridden by the user, but 
+    it is not advised as it can lead to the program becoming unstable.  
     """
 
     system_evaluation = False
@@ -1340,8 +1355,7 @@ if __name__ == "__main__":
                      "Default train exist: ": os.path.exists(default_train)}
 
     try:
-        if missing_files_libraries == False \
-                and defaults[0] == defaults[1] == True:
+        if not missing_files_libraries and all(default_files.values()):
             run_program(default_doc, default_train, system_evaluation)
         else:
             print("\nAn error has occurred probably because files, "
