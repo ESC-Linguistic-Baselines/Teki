@@ -408,7 +408,7 @@ code {
 <p>Please refer to the references for information on how to obtain the specific corpora used within this project.</p>
 <h2 id="references">References</h2>
 <hr>
-<p>Chandler, C., &amp; Cultraro G. (2020) <i> Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Gray literature]</i>.</p>
+<p>Chandler, C., &amp; Cultraro, G. (2020) <i> Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Gray literature]</i>.</p>
 <p>Cook, J. (2012). Les marques lexicales du français familier dans la traduction polonaise des dialogues romanesques. <i>Traduire, 226</i>, 93–107. https://doi.org/10.4000/traduire.162</p>
 <p>Gerstenberg, A., &amp; Hewett, F. (2019). <i>A collection of online auction listings from 2005 to 2018 (anonymised) </i>[Data set]. La-bank: Resources for Research and Teaching. https://www.uni-potsdam.de/langage/la-bank/ebay.php</p>
 <p>Goudailler, J.-P. (2002). De l’argot traditionnel au français contemporain des cités. <i> La linguistique, 38(1)</i>, 5–24. https://doi.org/10.3917/ling.381.0005</p>
@@ -445,7 +445,7 @@ Christopher Chandler
 <p>The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the informal phrase  <em>t'es qui?</em> - <em>you are who?</em>.
 It is reminiscent of Stromae's 2013 song - <em>Papoutai</em> - <em>Papa ou t'es</em> - lit. <em>Father, you are where?</em>
 This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, the name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.</p>
-<p>By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc, it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS.</p>
+<p>By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc., it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS.</p>
 <p>Since no training data could be found that was adequate for the scope of this project, training data had to be created. Using the aforementioned parameters, classification sets were created to automatically create training data  pertaining to conceptual literacy and orality. After having done so, Teki was trained on this data so that it could probabilistically assign a feature to an unknown sentence based on sentences it had previously seen.</p>
 <p>The program works using the tags LIT and ORAL: LIT refers to the conceptually literacy and ORAL refers to conceptual orality.</p>
 <p>For more information on this topic  and the development of this program,
@@ -505,13 +505,15 @@ tkinter
 <li><a href="https://pypi.org/project/scikit-learn/">scikit-learn~=0.24.2</a></li>
 <li><a href="https://pypi.org/project/future/">future~=0.18.2</a></li>
 </ul>
-<p>Before the installation,
+<p><strong>Note:</strong>
+Before the installation,
 please also ensure that there is enough disk space so that the extra modules can be installed.</p>
 <h2 id="open-command-prompt">Open Command Prompt</h2>
-<p>Once the user has installed python, the command prompt must be opened:
-This is done by entering &quot;cmd&quot; into the line of the folder in which
+<p>Once python has been opened, please open the command prompt.
+This is done by entering &quot;cmd&quot; into the path line of the folder in which
 the program is located.
 <img src="app_program_resources/readme_images/command_prompt.gif" width ="650" /></p>
+<p>After opening the command prompt, one of the following options has to be entered within the command propmpt:</p>
 <p>There are three ways to install the libraries and modules:</p>
 <ol>
 <li>Install all modules individually via the pip installer:</li>
@@ -535,32 +537,36 @@ the program is located.
 <p>If problems arise during the installation of any of the modules or libraries,
 please consult the respective module repositories</p>
 <h1 id="program">Program</h1>
-<p>To start Teki, run the file <em><strong>teki_main_app.py</strong></em>.
-By doing so, it will also import the secondary python file <strong>app_auxiliary_functions.py</strong>  - located in
-<strong>app_program_resources</strong> - ,which contains secondary functions that are necessary for the program to run properly.</p>
+<p>To start Teki, run the file <em><strong>teki_main_app.py</strong></em>. by typing
+<strong>python teki_main_app.py</strong> in the command prompt.</p>
+<br>
+<img src="file:///c:/Users/chris/Desktop/B.A/Teki/app_program_resources/readme_images/run_app.gif" width="650">
+<p>By doing so, it will also import the secondary python file <strong>app_auxiliary_functions.py</strong>  - located in
+<strong>app_program_resources</strong> -,which contains secondary functions that are necessary for the program to run properly.</p>
+<p>Alternatively,  the <strong>teki_main_app.py</strong> can be run by using IDLE that was download with Python.</p>
 <h2 id="file-check">File check</h2>
 <p>When starting the program, a check is performed to ensure that the directory <strong>app_program_resources</strong> and its files are all present. <strong>These files should not be changed in any way</strong>. If the user decides to add databases, corpora, texts, etc. to this program, then they should be placed in <strong>app_user_resources</strong> in their respective folders.</p>
-<pre class="hljs"><code><div>The current time is 06:17:32.
-Please wait while libraries, modules and corpora are being imported...
-This should take between 5 - 30 seconds depending on your system resources...
+<pre class="hljs"><code><div>The current time is 19:06:43.
+Please wait while libraries, modules, and corpora are being imported...
+This should only take between 5 - 30 seconds depending on your system resources...
 </div></code></pre>
 <p>Note: The ideal startup time should be no more than 10 seconds.</p>
 <h3 id="missing-files"><strong>Missing files</strong></h3>
 <p>If the files have been moved or corrupted, then the following prompt will be displayed to the user:</p>
-<pre class="hljs"><code><div>An error has occurred probably because files, libraries or directories are missing:
+<pre class="hljs"><code><div>An error has occurred probably because files, libraries; or directories are missing:
 
 Default doc exists:  True
 Default train exist:  True
 
 Files Missing:
-app_program_resources\app_corpora\app_test\telsting\ebayfr-e17p_201_300.xml
+app_program_resoudrces\app_corpora\app_train\results\bayes\ebayfr-e05p_101_200.csv
 
 
-Please enter the number of your response:
+Please enter the number of your response: 
 0 yes
 1 no
 
-Would you like to continue with the program? 
+Would you like to continue with the program?  
 </div></code></pre>
 <h3 id="missing-functions"><strong>Missing Functions</strong></h3>
 <p>If functions have been renamed or are missing from <strong>app_auxiliary_functions.py</strong>,
@@ -581,16 +587,16 @@ Please enter the number of your response:
 Please consult teki_error.log, which is located in the main directory if program instability does arise.</p>
 <h2 id="program-start">Program Start</h2>
 <p>If the modules, files and libraries have been successfully loaded, the user should be greeted with the following:</p>
-<pre class="hljs"><code><div>The current time is 13:31:26.
-Please wait while libraries, modules and corpora are being imported...
+<pre class="hljs"><code><div>The current time is 19:06:43.
+Please wait while libraries, modules, and corpora are being imported...
 This should only take between 5 - 30 seconds depending on your system resources...
 
-All libraries were loaded 9 seconds. The program can now start.
+All libraries were loaded 10 seconds.The program can now start.
 
 You are currently using the app_common_default_docs files:
 
-Default Text: 'app_program_resources/default_files/muller_corpora/mueller_oral.txt'
-Default Training: 'app_program_resources/default_files/databases/default_database.csv'
+Default text file: 'app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml'
+Default training file: 'app_program_resources/default_files/databases/default_database.csv'
  
 If you wish to proceed with other files, please load them from respective directories.
 
@@ -608,15 +614,17 @@ If you wish to proceed with other files, please load them from respective direct
 <li><a href="#menu_item_8">8: about program</a></li>
 <li><a href="#menu_item_9">9: end program</a></li>
 </ul>
+<pre class="hljs"><code><div>Please enter the desired menu number: 
+</div></code></pre>
 <p>This is a dynamic menu to which the user can return. Should an error arise in the program,
 the user will automatically be redirected to this menu. The default files are loaded in automatically, but can be changed by the user.</p>
 <h1 id="a-name%22menuitem1%22-1-load-xml-or-txt-filea"><a name="menu_item_1"> 1 load .XML or .TXT file</a></h1>
 <p>When first starting the program, the program will run using the following default file:</p>
-<pre class="hljs"><code><div>Default Text: 'app_program_resources/default_files/mueller_oral.txt'
+<pre class="hljs"><code><div>Default text file: 'app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml'
 </div></code></pre>
 <p>If the user would like to change this, then it is necessary to choose a new file.
 The program comes with corpora and it is designed to be used with these corpora.
-Simply click on the .xml file that should be read into the program.
+Simply click on the .xml file that should be loaded into the program.
 The subdirectories containing the .xml files
 can be found in the <strong>app_program_resources</strong> under <strong>app_corpora</strong>.</p>
 <h3 id="xml"><strong>.Xml</strong></h3>
@@ -631,12 +639,12 @@ can be found in the <strong>app_program_resources</strong> under <strong>app_cor
 <p>⚠️</p>
 <p><strong>Note:</strong>
 The file must have .txt or .xml ending.
-Also, it must only contain text and tags (if .xml) or only text (if .txt).
-Other file formats such as .pdf, .doc, .xml, etc. are not supported and could lead to the program unexpectedly crashing.
+Also, it may only contain text and tags (if .xml) or only text (if .txt).
+Other file formats such as .pdf, .doc, .xml, etc. are not supported, and loading them into the program could lead to the program unexpectedly crashing.
 <br>⚠️</p>
 <p>After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.</p>
 <h1 id="a-name%22menuitem2%222-load-training-filea"><a name="menu_item_2">2: load training file</a></h1>
-<pre class="hljs"><code><div>Default Training: 'app_program_resources/default_files/default_training.csv'
+<pre class="hljs"><code><div>Default training file: 'app_program_resources/default_files/databases/default_database.csv'
 </div></code></pre>
 <p>All database, i.e., training files must be saved in a .csv format and have the following structure:</p>
 <table>
@@ -661,14 +669,15 @@ Other file formats such as .pdf, .doc, .xml, etc. are not supported and could le
 </tr>
 </tbody>
 </table>
-<p>These are referred to as training files because they are used to train Teki. At the same time,
-they are also database file because they contain the training data.</p>
 <p>As with loading a .txt or .xml file, if the user does not wish to use the default database,
 a different database can also be selected dynamically.
 Default databases can be found under <strong>app_program_resources/default_files/databases</strong>.</p>
 <p>If the user has trained and saved databases, then they should be saved under <strong>app_user_resources/user_databases</strong> . If no  custom databases currently exist, simply create <strong>an empty .csv</strong> file, place it in the appropriate folder and then load it. The results of the training will be saved to selected file.</p>
  <img src="file:///c:/Users/chris/Desktop/B.A/Teki/app_program_resources/readme_images/load_database.png" width="650">
-<p>After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.</p>
+<p>After having selected a file, the file will be loaded into memory, and the user will be returned to the main menu.</p>
+<p>Note:</p>
+<p>These are referred to as training files because they are used to train Teki. At the same time,
+they are also database file because they contain the training data.</p>
 <h1 id="a-name%22menuitem3%22-3-analyze-contentsa"><a name="menu_item_3"> 3: analyze contents</a></h1>
 <p>Using this function, it is possible to generate training data for Teki, extract sentences from a specific corpus or read the files that have been loaded into the system.
 Training data can either be gathered using .txt or .xml files. From where the training data is gathered will depend entirely on the files that the user has loaded into memory. If no files have been loaded into memory by the user, then the the default files will automatically be used.  Once the training data has been generated, it will be either saved to the default database file or
@@ -683,7 +692,7 @@ to the database file  that was previously selected by the user.</p>
 <li><a href="#txt_data">3: analyze .TXT data</a></li>
 <li><a href="#return_to_menu_0">4: return to main menu</a></li>
 </ul>
-<pre class="hljs"><code><div>Please enter the desired menu number:
+<pre class="hljs"><code><div>Please enter the desired menu number: 
 </div></code></pre>
 <h3 id="a-name%22readfile%221-read-file-contentsa"><a name="read_file">1: read file contents</a></h3>
 <p>This displays the content of the .xml or .txt file to the user. After which the user is brought back to
@@ -693,10 +702,14 @@ the submenu.</p>
 <pre class="hljs"><code><div>1 eBay
 2 SMS
 3 Wikipedia
+
+From which corpus are you extracting the information? 
 </div></code></pre>
 <p>Once a corpus has been chosen, the user will have option of inputting a range of tags to be extracted from the corpus.</p>
 <pre class="hljs"><code><div>There are 100 documents. Please enter a selection range from 0 - 100.
  A range should be specified with a single space between both numbers: start stop.
+
+ Please enter a valid range: 
 </div></code></pre>
 <p>The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The longer the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that <strong>the max range should be no more than 100</strong>.</p>
 <p><strong>Example Range</strong></p>
@@ -725,6 +738,8 @@ the submenu.</p>
 <li><a href="#unprocessed_sentences">2: save unprocessed</a></li>
 <li><a href="#return_to_menu_1">3: return to menu</a></li>
 </ul>
+<pre class="hljs"><code><div>The text has been parsed into approx. 55 sentences. How would you like to proceed? 
+</div></code></pre>
 <h3 id="a-name%22processsentences%221-process-sentences-a"><a name="process_sentences">1: process sentences </a></h3>
 <p>There are two main ways in which this function can be used:</p>
 <h3 id="classification-evaluation"><strong>Classification Evaluation</strong></h3>
@@ -750,6 +765,8 @@ Afterwards, the following option selection will appear:</p>
 Please press enter to continue...
 1 automatically
 2 manually
+
+Would you like to have the features assigned automatically or manually? 
 </div></code></pre>
 <p>In both cases, a unique identifier will be assigned to each sentence so that it can be found in the corpus, should the user
 wish to manually inspect the database. This identifier is also available to the system and necessary so that it it can
@@ -757,10 +774,11 @@ correctly read in the databases later.</p>
 <h3 id="1-manually"><strong>1 manually</strong></h3>
 <hr>
 <p>If the user already knows the features or wants to specify the features that should be assigned to the respective sentences, the user may do so here by using the following features.</p>
-<ol>
-<li>LIT</li>
-<li>ORAL</li>
-</ol>
+<pre class="hljs"><code><div>1 LIT
+2 ORAL
+
+Please enter the number of the desired feature: 
+</div></code></pre>
 <p>The feature will then be applied to every sentence within the corpus as previously selected by the user. Therefore, this feature should only be used if the user knows that all sentences are of the same kind, i.e. all sentence should receive the same feature.</p>
 <h3 id="2-automatically"><strong>2 automatically</strong></h3>
 <hr>
@@ -777,7 +795,7 @@ was selected by the user. The user is then returned to the main menu.</p>
 then the user should proceed with this option.
 The results will automatically be saved in a file under <strong>app_user_resources/sentence_results</strong>.
 The user will then be returned to the main menu, where the user can safely exit the program.</p>
-<h3 id="a-name%22returntomenu0%224-return-to-menu-a"><a name="return_to_menu_0">4: Return to menu </a></h3>
+<h3 id="a-name%22returntomenu1%223-return-to-menu-a"><a name="return_to_menu_1">3: Return to menu </a></h3>
 <p>This will bring the user back to the main menu.</p>
 <pre class="hljs"><code><div>The sentences will neither be saved nor processed. 
 Please press return to return to the main menu...
@@ -785,7 +803,7 @@ Please press return to return to the main menu...
 <hr>
 <h3 id="a-name%22txtdata%22-3-analyze-txt-dataa"><a name="txt_data"> 3: analyze .TXT data</a></h3>
 <p>This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from.</p>
-<pre class="hljs"><code><div>Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text:  
+<pre class="hljs"><code><div>Create a unique text identifier with characters from (a-z, A-Z, 0-9) for this text: 
 </div></code></pre>
 <h3 id="a-name%22returncorpusmenu%22-4-return-to-main-menua"><a name="return_corpus_menu"> 4: return to main menu</a></h3>
 <p>The user is returned to the main menu.</p>
@@ -877,11 +895,11 @@ F-Score
 </div></code></pre>
 <p>This function can be used to evaluate to the reliability of the naive Bayes and the classification sets.</p>
 <h3 id="a-name%22crossvalidate%222-cross-validationa"><a name="cross_validate">2: cross validation</a></h3>
-<p>The cross validation works the same way as <a name="evaluate"> evaluate using system and gold files</a>, but it only requires one file to work.</p>
+<p>The cross validation works the same way as <a href="1: evaluate using system and gold files">evaluate using system and gold files</a>, but it only requires one file to work.</p>
 <p>Before a file has been selected, the user must first place:</p>
-<pre class="hljs"><code><div>sentence,sentence_number,corpus_id,feat
+<pre class="hljs"><code><div>sentence,number,id,feat
 </div></code></pre>
-<p>at the top of this file in order for it to be read properly.
+<p>at the top of this file for it to be read properly.
 Once having done so, the results of the cross validation will be shown within the program.</p>
 <h3 id="a-name%22evaluationmainmenu%22-3-return-to-main-menua"><a name="evaluation_main_menu"> 3: return to main menu</a></h3>
 <p>This brings the user back to the main menu.</p>

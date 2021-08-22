@@ -970,6 +970,8 @@ def evaluation():
         for metric in system_metrics:
             print(metric, system_metrics[metric])
 
+        input(return_main_menu)
+
     def cross_validation():
         """
         Using k-fold validation with skilearn, pandas, and multinomial bayes,
