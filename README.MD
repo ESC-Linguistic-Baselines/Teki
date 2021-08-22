@@ -23,7 +23,7 @@ Please refer to the references for information on how to obtain the specific cor
 
 ## References 
 ____
-Chandler, C., & Cultraro G. (2020) <i> Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Gray literature]</i>. 
+Chandler, C., & Cultraro, G. (2020) <i> Erkenner von Unicode-Emojis und ASCII-Emoticons sowie entsprechender Neubildungen [Gray literature]</i>. 
 
 Cook, J. (2012). Les marques lexicales du français familier dans la traduction polonaise des dialogues romanesques. <i>Traduire, 226</i>, 93–107. https://doi.org/10.4000/traduire.162
 

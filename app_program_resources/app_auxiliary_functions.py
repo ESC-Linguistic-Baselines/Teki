@@ -834,7 +834,7 @@ def restore_default_database():
                 print(number, choice)
             print("")
             user = input("Are you sure that you "
-                         "would like restore the default database?").lower()
+                         "would like restore the default database? ").lower()
 
             if user == "0":
                 # Yes

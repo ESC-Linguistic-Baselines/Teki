@@ -732,7 +732,7 @@ def generate_training_data(collective_spacy_results,
         gold_eval_file = f"{sys_eval}gold_{file_time_id}.csv"
 
         print("Note: This is an experimental "
-              "function that might not deliver the best results.")
+              "function that might not deliver the best results.\n")
         input("The system is being evaluated. "
               "Please press enter to start the evaluation...")
 
