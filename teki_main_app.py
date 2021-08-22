@@ -1076,7 +1076,6 @@ def sentence_classification(probabilities):
             else:
                 word_feat_prob[word] = lit_smooth, oral_smooth
 
-        print(word_feat_prob)
         for word in word_feat_prob:
             lit_prob_total *= word_feat_prob[word][0]
             oral_prob_total *= word_feat_prob[word][1]
