@@ -635,7 +635,7 @@ This function can be used to evaluate to the reliability of the naive Bayes and 
 
 
 ### <a name="cross_validate">2: cross validation</a>
-The cross validation works the same way as <a name="1: evaluate using system and gold files"> evaluate using system and gold files </a>, but it only requires one file to work. 
+The cross validation works the same way as <a href="1: evaluate using system and gold files">evaluate using system and gold files</a>, but it only requires one file to work. 
 
 Before a file has been selected, the user must first place: 
 ```
