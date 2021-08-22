@@ -989,7 +989,8 @@ def evaluation():
 
         scores = cross_val_score(classifier, counts, classes, cv=10)
         results = round(statistics.mean(scores), 4)
-        print(results)
+        print(f"The results of the 10-cross validation: {results}")
+        input(return_main_menu)
 
     # This is the dynamic menu that the user has access during this function
     output_menu = {"evaluate using system and gold files": sys_gold_evaluation,

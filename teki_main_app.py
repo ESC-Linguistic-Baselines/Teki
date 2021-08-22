@@ -1081,6 +1081,7 @@ def sentence_classification(probabilities):
         sent_excerpt = " ".join(text[:7])
 
         # The results of the calculation
+        print(lit_prob_total,oral_prob_total)
         if lit_prob_total > oral_prob_total:
             print(f" The text '{sent_excerpt}...'is LIT.")
             return "LIT"
