@@ -853,7 +853,7 @@ def restore_default_database():
     else:
         print("The files needed for recovery have been removed or renamed.")
         print("Please check the directory "
-              "'app_program_resources/default_files/databases/'")
+              "'app_program_resources/default_files/databases'")
         print("The files should be located in this directory and "
               "named 'default_database.csv' "
               "and 'default_database_recovery.csv'")
