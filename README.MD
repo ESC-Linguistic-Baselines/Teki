@@ -156,6 +156,14 @@ In addition to these modules, the following [pip](https://www.python.org/downloa
 Before the installation, 
 please also ensure that there is enough disk space so that the extra modules can be installed. 
 
+## Open Command Prompt 
+Once the user has installed python, the command prompt must be opened: 
+This is done by entering "cmd" into the line of the folder in which 
+the program is located. 
+ <img src="app_program_resources/readme_images/commmand_prompt.gif" width ="650" />
+
+After opening the command prompt, one of the following options has to be entered:
+
 There are three ways to install the libraries and modules:
 
 1) Install all modules individually via the pip installer:
@@ -181,7 +189,10 @@ If problems arise during the installation of any of the modules or libraries,
 please consult the respective module repositories 
 # Program
 
-To start Teki, run the file ***teki_main_app.py***.
+To start Teki, run the file ***teki_main_app.py***. by typing 
+**python teki_main_app.py** in the command prompt.
+<img src="app_program_resources/readme_images/run_app.gif" width ="650" />
+
 By doing so, it will also import the secondary python file **app_auxiliary_functions.py**  - located in 
 **app_program_resources** - ,which contains secondary functions that are necessary for the program to run properly.
 
