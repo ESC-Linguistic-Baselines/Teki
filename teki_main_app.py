@@ -963,7 +963,7 @@ def get_probs(freq_training_data):
     feat_count, training_data = freq_training_data[0], freq_training_data[1]
     vocabulary, n_training_data = set(), sum(feat_count.values())
     prob_results = dict()
-    oral_feat, lit_feat = dict(), dict()
+    lit_feat, oral_feat = dict(), dict()
     lit_tokens, oral_tokens = list(), list()
 
     for element in training_data:
