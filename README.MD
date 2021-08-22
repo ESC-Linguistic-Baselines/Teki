@@ -510,7 +510,7 @@ then the user should proceed with this option.
 The results will automatically be saved in a file under **app_user_resources/sentence_results**.
 The user will then be returned to the main menu, where the user can safely exit the program. 
 
-### <a name="return_to_menu_0">4: Return to menu </a>
+### <a name="return_to_menu_1">3: Return to menu </a>
 This will bring the user back to the main menu.
 
 ```
