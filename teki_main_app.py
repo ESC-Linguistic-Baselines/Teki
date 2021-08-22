@@ -106,9 +106,12 @@ def _rebuild_requirement_resources():
             for name in files:
                 resources.write(os.path.join(path, name)+"\n")
     print("The requirement_resources.txt file has been updated.")
+    sys.exit("Please comment '_rebuild_requirement_resources()' out"
+             "  and restart the program")
 
 # Uncomment the following line for dependencies to rebuilt.
 # After having done so, comment it out again to deactivate it.
+
 #_rebuild_requirement_resources()
 
 #########################
@@ -1065,14 +1068,15 @@ def sentence_classification(probabilities):
         oral_smooth = oral_prob / n_training_data
         word_feat_prob = dict()
 
-        # Retrieves the words from the text
-        # and finds its respective properties
+        # Retrieves the words from the text and finds the respective properties
         for word in text:
             if bool(prior_prob.get(word)):
                 word_feat_prob[word] = prior_prob.get(word)
+
             else:
                 word_feat_prob[word] = lit_smooth, oral_smooth
 
+        print(word_feat_prob)
         for word in word_feat_prob:
             lit_prob_total *= word_feat_prob[word][0]
             oral_prob_total *= word_feat_prob[word][1]
@@ -1081,7 +1085,7 @@ def sentence_classification(probabilities):
         sent_excerpt = " ".join(text[:7])
 
         # The results of the calculation
-        print(lit_prob_total,oral_prob_total)
+
         if lit_prob_total > oral_prob_total:
             print(f" The text '{sent_excerpt}...'is LIT.")
             return "LIT"

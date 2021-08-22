@@ -817,15 +817,18 @@ def restore_default_database():
     This restores the default database by overwriting
     the database built up by the user with that of the system default.
     """
+    recover = "app_program_resources/default_files/databases/data_recovery/"
+    source = f"{recover}default_database_recovery.csv"
+
     default = "app_program_resources/default_files/databases/"
     destination = f"{default}default_database.csv"
-    source = f"{default}default_database_recovery.csv"
+
     options = "yes", "no"
 
-    des = os.path.exists(destination)
     src = os.path.exists(source)
+    des = os.path.exists(destination)
 
-    if des == src == True:
+    if all((src,des)):
         while True:
             for number, choice in enumerate(options):
                 print(number, choice)

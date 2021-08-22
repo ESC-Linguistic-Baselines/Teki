@@ -1,14 +1,14 @@
 
-ERROR_TIME: 2021-08-22 09:11:12,244
+ERROR_TIME: 2021-08-22 10:01:41,030
                         
 FILE_NAME: teki_main_app.py
                         
 MODULE: teki_main_app
                         
-LINE_NO: 1284
+LINE_NO: 1285
 ERROR_SCOPE No txt/xml selection: [Errno 2] No such file or directory: ''
 Traceback (most recent call last):
-  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 1281, in run_program
+  File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 1282, in run_program
     doc = get_text(path_name)
   File "C:\Users\chris\Desktop\B.A\Teki\teki_main_app.py", line 213, in get_text
     with open(document, mode="r", encoding="utf-8") as file:
