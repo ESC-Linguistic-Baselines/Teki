@@ -1104,7 +1104,7 @@ def sentence_classification(probabilities):
             print(number, choice)
 
         user = input("\nWould you like to analyze a single "
-                     "sentence or all sentences from a corpus range?\n")
+                     "sentence or all sentences from a corpus range? ")
         if user == "1":
             # Sentence analysis
             sentence = input("Please enter the sentence: ").split()
@@ -1262,7 +1262,7 @@ def run_program(default_doc, default_train, system_evaluation):
             print(f'{menu_number}: {menu_item}')
 
         # Standard message prompts
-        choice_str = input('\nPlease enter the number of your entry: ')
+        choice_str = input('\nPlease enter the desired menu number: ')
         main_message = "Please press the enter key " \
                        "to return to the main menu.\n"
 
@@ -1365,7 +1365,7 @@ if __name__ == "__main__":
             run_program(default_doc, default_train, system_evaluation)
         else:
             print("\nAn error has occurred probably because files, "
-                  "libraries or directories are missing:\n")
+                  "libraries; or directories are missing:\n")
             for file in default_files:
                 print(file, default_files[file])
 

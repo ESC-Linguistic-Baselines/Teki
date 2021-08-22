@@ -76,7 +76,7 @@ The name 'Teki' pronounced as /Tɛki/ comes from a phonetic transcription of the
 It is reminiscent of Stromae's 2013 song - *Papoutai* - *Papa ou t'es* - lit. *Father, you are where?*
 This word order is a form of topicalization that is actually quite common in French even if it is not necessarily exclusive to the language itself. Topicalization is one of the features that can be used to identifiy conceptual orality in a  message. Thus, the name was chosen to reflect the process of researching conceptual and medial literacy and orality and how they are realized within the French language.
 
-By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc, it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS. 
+By introducing other parameters that are language-independent such as, but not limited to, sentence length, abbreviations, average word length, contractions, etc., it was possible to identify conceptual literacy and orality even within a textual medium. This program was designed with the goal of accessing the nature of non-standard French data gathered from eBay, Wikipedia, and SMS. 
 
 Since no training data could be found that was adequate for the scope of this project, training data had to be created. Using the aforementioned parameters, classification sets were created to automatically create training data  pertaining to conceptual literacy and orality. After having done so, Teki was trained on this data so that it could probabilistically assign a feature to an unknown sentence based on sentences it had previously seen. 
 
@@ -153,16 +153,17 @@ In addition to these modules, the following [pip](https://www.python.org/downloa
 * [scikit-learn~=0.24.2](https://pypi.org/project/scikit-learn/)
 * [future~=0.18.2](https://pypi.org/project/future/)
 
+**Note:**
 Before the installation, 
 please also ensure that there is enough disk space so that the extra modules can be installed. 
 
 ## Open Command Prompt 
-Once the user has installed python, the command prompt must be opened: 
-This is done by entering "cmd" into the line of the folder in which 
+Once python has been opened, please open the command prompt. 
+This is done by entering "cmd" into the path line of the folder in which 
 the program is located. 
- <img src="app_program_resources/readme_images/commmand_prompt.gif" width ="650" />
+ <img src="app_program_resources/readme_images/command_prompt.gif" width ="650" />
 
-After opening the command prompt, one of the following options has to be entered:
+After opening the command prompt, one of the following options has to be entered within the command propmpt:
 
 There are three ways to install the libraries and modules:
 
@@ -191,20 +192,22 @@ please consult the respective module repositories
 
 To start Teki, run the file ***teki_main_app.py***. by typing 
 **python teki_main_app.py** in the command prompt.
+
+<br>
 <img src="app_program_resources/readme_images/run_app.gif" width ="650" />
 
 By doing so, it will also import the secondary python file **app_auxiliary_functions.py**  - located in 
-**app_program_resources** - ,which contains secondary functions that are necessary for the program to run properly.
+**app_program_resources** -,which contains secondary functions that are necessary for the program to run properly.
 
-
+Alternatively,  the **teki_main_app.py** can be run by using IDLE that was download with Python. 
 ## File check
 
 When starting the program, a check is performed to ensure that the directory **app_program_resources** and its files are all present. **These files should not be changed in any way**. If the user decides to add databases, corpora, texts, etc. to this program, then they should be placed in **app_user_resources** in their respective folders.
 
 ```
-The current time is 06:17:32.
-Please wait while libraries, modules and corpora are being imported...
-This should take between 5 - 30 seconds depending on your system resources...
+The current time is 19:06:43.
+Please wait while libraries, modules, and corpora are being imported...
+This should only take between 5 - 30 seconds depending on your system resources...
 ```
 Note: The ideal startup time should be no more than 10 seconds.
 
@@ -212,20 +215,20 @@ Note: The ideal startup time should be no more than 10 seconds.
 If the files have been moved or corrupted, then the following prompt will be displayed to the user:
 
 ```
-An error has occurred probably because files, libraries or directories are missing:
+An error has occurred probably because files, libraries; or directories are missing:
 
 Default doc exists:  True
 Default train exist:  True
 
 Files Missing:
-app_program_resources\app_corpora\app_test\telsting\ebayfr-e17p_201_300.xml
+app_program_resoudrces\app_corpora\app_train\results\bayes\ebayfr-e05p_101_200.csv
 
 
-Please enter the number of your response:
+Please enter the number of your response: 
 0 yes
 1 no
 
-Would you like to continue with the program? 
+Would you like to continue with the program?  
 ```
 
 ### **Missing Functions** 
@@ -256,16 +259,16 @@ Please consult teki_error.log, which is located in the main directory if program
 If the modules, files and libraries have been successfully loaded, the user should be greeted with the following: 
 
 ```
-The current time is 13:31:26.
-Please wait while libraries, modules and corpora are being imported...
+The current time is 19:06:43.
+Please wait while libraries, modules, and corpora are being imported...
 This should only take between 5 - 30 seconds depending on your system resources...
 
-All libraries were loaded 9 seconds. The program can now start.
+All libraries were loaded 10 seconds.The program can now start.
 
 You are currently using the app_common_default_docs files:
 
-Default Text: 'app_program_resources/default_files/muller_corpora/mueller_oral.txt'
-Default Training: 'app_program_resources/default_files/databases/default_database.csv'
+Default text file: 'app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml'
+Default training file: 'app_program_resources/default_files/databases/default_database.csv'
  
 If you wish to proceed with other files, please load them from respective directories.
 
@@ -283,6 +286,9 @@ If you wish to proceed with other files, please load them from respective direct
 * [8: about program](#menu_item_8)
 * [9: end program](#menu_item_9)
 
+ ```
+ Please enter the desired menu number: 
+ ```
 This is a dynamic menu to which the user can return. Should an error arise in the program, 
 the user will automatically be redirected to this menu. The default files are loaded in automatically, but can be changed by the user. 
 
@@ -291,11 +297,11 @@ the user will automatically be redirected to this menu. The default files are lo
 
 When first starting the program, the program will run using the following default file:
  ```
-Default Text: 'app_program_resources/default_files/mueller_oral.txt'
+Default text file: 'app_program_resources/app_corpora/app_dev/training/wikiconflits_0_53.xml'
  ```
 If the user would like to change this, then it is necessary to choose a new file. 
 The program comes with corpora and it is designed to be used with these corpora. 
-Simply click on the .xml file that should be read into the program. 
+Simply click on the .xml file that should be loaded into the program. 
 The subdirectories containing the .xml files 
 can be found in the **app_program_resources** under **app_corpora**.
 
@@ -317,8 +323,8 @@ Alternatively, a user can also input any .txt file regardless of its location.
 
 **Note:** 
 The file must have .txt or .xml ending. 
-Also, it must only contain text and tags (if .xml) or only text (if .txt).
-Other file formats such as .pdf, .doc, .xml, etc. are not supported and could lead to the program unexpectedly crashing. 
+Also, it may only contain text and tags (if .xml) or only text (if .txt).
+Other file formats such as .pdf, .doc, .xml, etc. are not supported, and loading them into the program could lead to the program unexpectedly crashing. 
 <br>⚠️
 
 After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.
@@ -326,7 +332,7 @@ After having selected a file, the file will be loaded into memory and the user w
 # <a name="menu_item_2">2: load training file</a>
 
  ```
-Default Training: 'app_program_resources/default_files/default_training.csv'
+Default training file: 'app_program_resources/default_files/databases/default_database.csv'
  ```
 All database, i.e., training files must be saved in a .csv format and have the following structure:
 
@@ -334,8 +340,6 @@ All database, i.e., training files must be saved in a .csv format and have the f
 |----------|------|------------|-----------|-------------|---------|
 | ENSEMBLE | NOUN | ROOT  | SEN:0 | e05p-001| LIT  |
 
-These are referred to as training files because they are used to train Teki. At the same time, 
-they are also database file because they contain the training data.
 
 As with loading a .txt or .xml file, if the user does not wish to use the default database, 
 a different database can also be selected dynamically. 
@@ -345,7 +349,12 @@ If the user has trained and saved databases, then they should be saved under **a
 
  <img src="app_program_resources/readme_images/load_database.png" width ="650" />
 
-After having selected a file, the file will be loaded into memory and the user will be returned to the main menu.
+After having selected a file, the file will be loaded into memory, and the user will be returned to the main menu.
+
+Note:
+
+These are referred to as training files because they are used to train Teki. At the same time, 
+they are also database file because they contain the training data.
 
 # <a name="menu_item_3"> 3: analyze contents</a>
 
@@ -366,7 +375,7 @@ Content Analysis
 * [4: return to main menu](#return_to_menu_0)
 
 ```
-Please enter the desired menu number:
+Please enter the desired menu number: 
 ```
 
 ### <a name="read_file">1: read file contents</a>
@@ -381,6 +390,8 @@ There are three main corpora available within the program:
 1 eBay
 2 SMS
 3 Wikipedia
+
+From which corpus are you extracting the information? 
 ```
 
 Once a corpus has been chosen, the user will have option of inputting a range of tags to be extracted from the corpus.
@@ -388,6 +399,8 @@ Once a corpus has been chosen, the user will have option of inputting a range of
 ```
 There are 100 documents. Please enter a selection range from 0 - 100.
  A range should be specified with a single space between both numbers: start stop.
+
+ Please enter a valid range: 
 ```
 
 The speed and efficacy of this process is highly dependent on the system resources of the user, the python version installed and the range as specified by the user. The longer the range, the more time it will take for the program to parse and analyze everything correctly and efficiently. It is therefore recommend that **the max range should be no more than 100**. 
@@ -411,6 +424,10 @@ ___
 * [1: process sentences](#process_sentences)
 * [2: save unprocessed](#unprocessed_sentences)
 * [3: return to menu](#return_to_menu_1)
+
+```
+The text has been parsed into approx. 55 sentences. How would you like to proceed? 
+```
 
 ### <a name="process_sentences">1: process sentences </a>
 
@@ -452,6 +469,8 @@ The sentences have been successfully processed.
 Please press enter to continue...
 1 automatically
 2 manually
+
+Would you like to have the features assigned automatically or manually? 
 ```
 
 In both cases, a unique identifier will be assigned to each sentence so that it can be found in the corpus, should the user 
@@ -462,8 +481,13 @@ correctly read in the databases later.
 ___
 
 If the user already knows the features or wants to specify the features that should be assigned to the respective sentences, the user may do so here by using the following features. 
-1. LIT
-2. ORAL
+
+```
+1 LIT
+2 ORAL
+
+Please enter the number of the desired feature: 
+```
 
 The feature will then be applied to every sentence within the corpus as previously selected by the user. Therefore, this feature should only be used if the user knows that all sentences are of the same kind, i.e. all sentence should receive the same feature. 
 
@@ -499,7 +523,7 @@ ____
 This process is largely similar to that of the .xml process as described above. The only real difference here is that the user must specific a unique identifier that is to be assigned to this text. Note that this identifier is not the same as the feature, but rather an indicator so that the user and the program can identify from corpus the sentence came from. 
 
 ```
-Please enter a unique identifier using number or characters from (a-z, A-Z, 0-9) for this text:  
+Create a unique text identifier with characters from (a-z, A-Z, 0-9) for this text: 
 ```
 
 ### <a name="return_corpus_menu"> 4: return to main menu</a>
