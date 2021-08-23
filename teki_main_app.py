@@ -70,7 +70,7 @@ def continue_program(*args):
         user = input("Would you like to continue with the program? ").lower()
         if user == "0":
             # Yes
-            user = input("Are you sure?"
+            user = input("Are you sure? "
                          "Program stability cannot be guaranteed. ").lower()
             if user == "0":
                 break
@@ -155,14 +155,14 @@ but the program stability will be greatly compromised.
 Necessary file names are located in requirement_resources.txt
 """
 
-core_file_missing = list()
+core_file_check = list()
 if os.path.exists("app_program_resources"):
     with open("requirement_resources.txt",
               mode="r", encoding="utf-8") as resource:
 
         for line in resource:
             if not os.path.exists(line.strip()):
-                core_file_missing.append(line)
+                core_file_check.append(line)
     try:
         from app_program_resources.app_auxiliary_functions import (
             about_program,
@@ -1352,7 +1352,7 @@ if __name__ == "__main__":
     """
 
     system_evaluation = False
-    missing_files_libraries = bool(core_file_missing)
+    core_files_missing = bool(core_file_check)
     app = "app_program_resources/"
     default_doc = rf"{app}app_corpora/app_dev/training/wikiconflits_0_53.xml"
     default_train = rf"{app}default_files/databases/default_database.csv"
@@ -1361,7 +1361,7 @@ if __name__ == "__main__":
                      "Default train exist: ": os.path.exists(default_train)}
 
     try:
-        if not missing_files_libraries and all(default_files.values()):
+        if not core_files_missing and all(default_files.values()):
             run_program(default_doc, default_train, system_evaluation)
         else:
             print("\nAn error has occurred probably because files, "
@@ -1369,9 +1369,9 @@ if __name__ == "__main__":
             for file in default_files:
                 print(file, default_files[file])
 
-            if core_file_missing:
+            if core_file_check:
                 print("\nFiles Missing:")
-                for entry in core_file_missing:
+                for entry in core_file_check:
                     print(entry)
 
             continue_program()
