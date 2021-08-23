@@ -113,7 +113,7 @@ SOFTWARE.
 # Program Requirements 
 
 ## Tested on:
-![Windows](https://img.shields.io/badge/Windows-Windows_10_-blue) ![MacOS](https://img.shields.io/badge/MacOS-_Big_Sur_-blueviolet) ![Linux](https://img.shields.io/badge/Linx-Not_tested-red)
+![Windows](https://img.shields.io/badge/Windows-Windows_10_-blue)  
 
 ## Python Version
 This program was created and designed with **3.9.6** in mind and is therefore the recommended version.
@@ -208,7 +208,7 @@ The current time is 19:06:43.
 Please wait while libraries, modules, and corpora are being imported...
 This should only take between 5 - 30 seconds depending on your system resources...
 ```
-Note: The ideal startup time should be no more than 10 seconds. Starting the program for the first time will take longer than normal.
+Note: The ideal startup time should be no more than 10 seconds. Starting the program for the first time will generally take longer than normal.
 
 ### **Missing files**
 If the files have been moved or corrupted, then the following prompt will be displayed to the user:
